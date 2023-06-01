@@ -1,4 +1,4 @@
-import { getInvetory } from "@/components/services/Invetory";
+import { getInvetory } from '../../../services/Invetory'
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET (resquest: NextRequest) {

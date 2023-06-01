@@ -1,9 +1,11 @@
+import Header from "@/components/Shared/Header";
 import Image from "next/image";
 // import HeroImage from "../../../public/hero.png";
 
 export default function Home(){
   return (
     <main className="h-[2000px]">
+      <Header />
       {/* Hero */}
       {/* <div className="flex flex-col items-center justify-center bg-zinc-500 h-1/2"> */}
       <div className="flex flex-col items-center justify-center bg-hero-image bg-no-repeat bg-center  h-1/2">
