@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import React from "react";
 import Image from "next/image";
 
@@ -6,21 +5,21 @@ type Props = {
   className?: string;
   icon: string;
   title: string;
-  content: string;
+  children: React.ReactNode;
 };
 
-export function HeroInformation({ icon, className, title, content, ...props }: Props) {
+export function HeroInformation({ children, icon, className, title, ...props }: Props) {
   return (
-    <div className="flex items-end gap-2 w-1/5">
-      <div className="flex items-center justify-center w-12 h-12 bg-main-dark-light rounded-xl">
-        <Image src={ icon } alt="Pagamento Seguro" className="w-6 h-6"/>
+    <div className="flex items-center gap-2 w-1/5 justify-center">
+      <div className="flex items-center justify-center w-14 h-14 bg-main-dark-light rounded-xl">
+        <Image src={ icon } alt="Pagamento Seguro" className="w-7 h-7"/>
       </div>
-      <span className="text-white w-1/2">
-        <strong className="text-sm">
+      <span className="text-white w-2/3">
+      <strong className="text-md">
           { title }
         </strong>
-        <p className="text-[10px]">
-          { content }
+        <p className="text-xs">
+          { children }
         </p>
       </span>
     </div>

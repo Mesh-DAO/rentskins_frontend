@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "steamButton": "#A6CF2B",
+        "alt-steam-button": "#A6CF2B",
         "main-dark": "#121412",
         "main-dark-light": "#3C403C",
         "main-dark-lighter": "#222723",
@@ -23,6 +23,7 @@ module.exports = {
       },
       backgroundImage: {
         "green-pattern": "linear-gradient(to right, #CEFF3A, #A6CF2B)",
+        "steam-button-pattern": "linear-gradient(to right, #EFC64C, #C1E456)",
         "hero-image": "url('/hero.png')",
       }
     },

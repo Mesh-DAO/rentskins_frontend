@@ -37,63 +37,21 @@ export default function Home(){
           <div className="flex items-center h-full justify-center">
 
             {/* Hero - Information / Pagamento Seguro */}
-            <HeroInformation icon={ShieldIcon} title="Pagamento seguro"/>
-            <div className="flex items-end gap-2 w-1/5">
-              <div className="flex items-center justify-center w-12 h-12 bg-main-dark-light rounded-xl">
-                <Image src={ShieldIcon} alt="Pagamento Seguro" className="w-6 h-6"/>
-              </div>
-              <span className="text-white w-1/2">
-                <strong className="text-sm">
-                  Pagamento seguro
-                </strong>
-                <p className="text-[10px]">
-                  Realize seus pagamentos com tranquilidade!
-                </p>
-              </span>
-            </div>
+            <HeroInformation icon={ShieldIcon} title="Pagamento seguro">
+              Realize seus pagamentos com tranquilidade!
+            </HeroInformation>
             {/* Hero - Information / Suporte Rápido */}
-            <div className="flex items-end gap-2 w-1/5">
-              <div className="flex items-center justify-center w-12 h-12 bg-main-dark-light rounded-xl">
-                <Image src={PhoneIcon} alt="Pagamento Seguro" className="w-6 h-6"/>
-              </div>
-              <span className="text-white w-1/2">
-                <strong className="text-sm">
-                  Suporte rápido
-                </strong>
-                <p className="text-[10px]">
-                  Tem alguma dúvida? Entre em contato conosco!
-                </p>
-              </span>
-            </div>
+            <HeroInformation icon={PhoneIcon} title="Suporte rápido">
+              Tem alguma dúvida? Entre em contato conosco!
+            </HeroInformation>
             {/* Hero - Information / Ampla Transparência */}
-            <div className="flex items-end gap-2 w-1/5">
-              <div className="flex items-center justify-center w-12 h-12 bg-main-dark-light rounded-xl">
-                <Image src={MagnifyingGlassIcon} alt="Pagamento Seguro" className="w-6 h-6"/>
-              </div>
-              <span className="text-white w-1/2">
-                <strong className="text-sm">
-                  Ampla transparência
-                </strong>
-                <p className="text-[10px]">
-                  Priorizamos a transparência em todas as informações.
-                </p>
-              </span>
-            </div>
+            <HeroInformation icon={MagnifyingGlassIcon} title="Ampla transparência">
+              Priorizamos a transparência em todas as informações.
+            </HeroInformation>
             {/* Hero - Information / Política de Devolução */}
-            <div className="flex items-end gap-2 w-1/5">
-              <div className="flex items-center justify-center w-12 h-12 bg-main-dark-light rounded-xl">
-                <Image src={DevolutionIcon} alt="Pagamento Seguro" className="w-6 h-6"/>
-              </div>
-              <span className="text-white w-1/2">
-                <strong className="text-sm">
-                  Política de devolução
-                </strong>
-                <p className="text-[10px]">
-                  Facilitamos a devolução ou troca, de acordo com nossos termos.
-                </p>
-              </span>
-            </div>
-
+            <HeroInformation icon={DevolutionIcon} title="Política de devolução">
+              Facilitamos a devolução ou troca, de acordo com nossos termos.
+            </HeroInformation>
           </div>
       </div>
 
