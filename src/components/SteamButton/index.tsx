@@ -1,7 +1,7 @@
 import React from "react";
 import { MouseEventHandler } from "react";
 import Image from "next/image";
-import SteamIcon from "../../assets/social/icon-steam.svg";
+import SteamIcon from "../../components/icons/social/icon-steam.svg";
 
 type Props = {
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;

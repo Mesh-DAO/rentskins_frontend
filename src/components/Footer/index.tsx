@@ -1,9 +1,10 @@
 import Image from "next/image";
-import LogoIcon from '../../assets/icon-logo.svg';
-import FacebookIcon from '../../assets/social/icon-facebook.svg';
-import InstagramIcon from '../../assets/social/icon-instagram.svg';
-import TwitterIcon from '../../assets/social/icon-twitter.svg';
-import PinterestIcon from '../../assets/social/icon-pinterest.svg';
+import LogoIcon from '../../components/icons/icon-logo.svg';
+// import LogoIcon from '../../app/icons';
+import FacebookIcon from '../../components/icons/social/icon-facebook.svg';
+import InstagramIcon from '../../components/icons/social/icon-instagram.svg';
+import TwitterIcon from '../../components/icons/social/icon-twitter.svg';
+import PinterestIcon from '../../components/icons/social/icon-pinterest.svg';
 
 export function Footer() {
   return(
@@ -44,7 +45,6 @@ export function Footer() {
             <a href="" target="_blank" className="bg-mesh-dark-0 w-10 h-10 rounded-full flex items-center justify-center">
               <Image src={ PinterestIcon } alt="Pinterest" width={20} height={20} />              
             </a>
-
           </nav>
         </div>
       </div>

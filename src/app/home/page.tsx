@@ -2,10 +2,10 @@ import { SteamButton } from "@/components/SteamButton";
 import { HeroInformation } from "@/components/HeroInformation";
 import { Footer } from "@/components/Footer";
 
-import ShieldIcon from '../../assets/icon-shield.svg';
-import PhoneIcon from '../../assets/icon-phone.svg';
-import MagnifyingGlassIcon from '../../assets/icon-magnifying-glass.svg';
-import DevolutionIcon from '../../assets/icon-devolution.svg';
+import ShieldIcon from '../../components/icons/icon-shield.svg';
+import PhoneIcon from '../../components/icons/icon-phone.svg';
+import MagnifyingGlassIcon from '../../components/icons/icon-magnifying-glass.svg';
+import DevolutionIcon from '../../components/icons/icon-devolution.svg';
 
 export default function Home(){
   return (
