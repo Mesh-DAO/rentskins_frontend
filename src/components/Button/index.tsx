@@ -21,7 +21,7 @@ export function Button({
   children,
   onClick,
   color,
-  width = "w-[113px]",
+  width = "w-[214px]",
   disable,
 }: Props) {
   return (
@@ -30,20 +30,7 @@ export function Button({
       type={type}
       disabled={disable}
       className={classNames(
-        `rounded-md font-Roboto  transition-all ease-in-out duration-300 no-underline ${width} h-[38px] flex justify-center items-center `,
-        {
-          "bg-[#F48023] hover:ring-1 hover:ring-[#b67643]": color === "orange",
-        },
-        {
-          "bg-[#EAEAEA] hover:ring-1 hover:ring-[#c4c4c4]": color === "white",
-        },
-        {
-          "bg-brand-blue text-white": color === "blue",
-        },
-        {
-          "bg-[#fc3545] hover:ring-1 hover:ring-[#fc3545] hover:bg-[#FF4555] hover:text-white":
-            color === "red",
-        },
+        `rounded-[12px] no-underline ${width} h-[38px] flex justify-center items-center`,
         className
       )}
     >

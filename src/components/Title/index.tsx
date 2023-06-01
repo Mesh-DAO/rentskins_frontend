@@ -21,7 +21,7 @@ export function Title({
     <h1
       onClick={onClick}
       className={classNames(
-        `${className} font-Roboto flex items-center gap-2 transition-all duration-300 ease-in-out`,
+        `${className} flex items-center gap-2 transition-all duration-300 ease-in-out`,
         {
           "text-xs": size === "xs",
         },
