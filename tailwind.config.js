@@ -15,6 +15,10 @@ module.exports = {
         "Goldenrod": '#E5BE49',
         "crimson": '#CA1733',
       },
+      backgroundImage: {
+        "green-pattern": "linear-gradient(to right, #CEFF3A, #A6CF2B)",
+        "hero-image": "url('/hero.png')",
+      }
     },
   },
   plugins: [],
