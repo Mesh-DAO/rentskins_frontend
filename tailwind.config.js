@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "steamButton": "#A6CF2B",
+        "main-dark": "#121412",
+        "main-dark-light": "#3C403C",
+        "main-dark-lighter": "#222723",
+      },
       backgroundColor: {
         "jet-black": '#151714',
         "dark-lime-green": '#95bc1e',
