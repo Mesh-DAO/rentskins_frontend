@@ -8,10 +8,11 @@ type Props = {
   className?: string;
   children: React.ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
-  color?: string;
+  color?: "invisible" | "visible";
   textColor?: string;
   hoverTextColor?: string;
   width?: string;
+  height?: string;
   disable?: boolean;
 };
 
@@ -21,7 +22,8 @@ export function Button({
   children,
   onClick,
   color,
-  width = "w-[113px]",
+  width = "w-[32px]",
+  height = "w-[32px]",
   disable,
 }: Props) {
   return (
@@ -30,19 +32,14 @@ export function Button({
       type={type}
       disabled={disable}
       className={classNames(
-        `rounded-md font-Roboto  transition-all ease-in-out duration-300 no-underline ${width} h-[38px] flex justify-center items-center `,
+        `flex justify-center items-center w-[${width} h-[${height}]
+        p-1 border border-dark-olive-green opacity-60 hover:opacity-100
+        rounded-md transition`,
         {
-          "bg-[#F48023] hover:ring-1 hover:ring-[#b67643]": color === "orange",
+          " fill-white": color === "invisible",
         },
         {
-          "bg-[#EAEAEA] hover:ring-1 hover:ring-[#c4c4c4]": color === "white",
-        },
-        {
-          "bg-brand-blue text-white": color === "blue",
-        },
-        {
-          "bg-[#fc3545] hover:ring-1 hover:ring-[#fc3545] hover:bg-[#FF4555] hover:text-white":
-            color === "red",
+          "bg-dark-olive-green w-28 h-9 rounded-lg text-white text-lg py-3 px-4": color === "visible"
         },
         className
       )}
