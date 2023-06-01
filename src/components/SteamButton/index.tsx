@@ -23,7 +23,7 @@ export function SteamButton({
       bg-alt-steam-button transition-colors hover:bg-steam-button-pattern`}
     >
       <Image src={SteamIcon} alt="Steam Login" width={24} height={24}/>
-      <span className="text-[22px] text-main-dark font-bold"> Entre com a sua Steam </span>
+      <span className="text-[22px] text-mesh-dark-2 font-bold"> Entre com a sua Steam </span>
     </button>
   );
 }

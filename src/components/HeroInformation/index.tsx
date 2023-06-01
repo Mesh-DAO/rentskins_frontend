@@ -11,7 +11,7 @@ type Props = {
 export function HeroInformation({ children, icon, className, title, ...props }: Props) {
   return (
     <div className="flex items-center gap-2 w-1/5 justify-center">
-      <div className="flex items-center justify-center w-14 h-14 bg-main-dark-light rounded-xl">
+      <div className="flex items-center justify-center w-14 h-14 bg-mesh-dark-0 rounded-xl">
         <Image src={ icon } alt="Pagamento Seguro" className="w-7 h-7"/>
       </div>
       <span className="text-white w-2/3">

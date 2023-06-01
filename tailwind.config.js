@@ -9,9 +9,15 @@ module.exports = {
     extend: {
       colors: {
         "alt-steam-button": "#A6CF2B",
-        "main-dark": "#121412",
-        "main-dark-light": "#3C403C",
-        "main-dark-lighter": "#222723",
+        "mesh-dark": {
+          "0": "#3C403C",
+          "1": "#222723",
+          "2": "#121412",
+        },
+        "mesh-light": {
+          "0": "#FFFFFF",
+          "1": "#CECECE",
+        },
       },
       backgroundColor: {
         "jet-black": '#151714',
