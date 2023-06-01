@@ -6,10 +6,12 @@ import ShieldIcon from '../../components/icons/icon-shield.svg';
 import PhoneIcon from '../../components/icons/icon-phone.svg';
 import MagnifyingGlassIcon from '../../components/icons/icon-magnifying-glass.svg';
 import DevolutionIcon from '../../components/icons/icon-devolution.svg';
+import Header from "@/components/Shared/Header";
 
 export default function Home(){
   return (
     <div className="bg-mesh-dark-0">
+      <Header />
       <main className="h-[2000px]">
         {/* Hero */}
         <div className="flex flex-col items-center justify-center bg-cover bg-hero-image bg-no-repeat bg-center h-1/2">
