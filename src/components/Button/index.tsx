@@ -1,14 +1,13 @@
 import React from "react";
 import classNames from "classnames";
 import { MouseEventHandler } from "react";
-import { Title } from "../Title";
 
 type Props = {
   type?: "button" | "submit";
   className?: string;
   children: React.ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
-  color?: "invisible" | "visible";
+  color?: "invisible" | "visible" | "green";
   textColor?: string;
   hoverTextColor?: string;
   width?: string;
@@ -40,6 +39,9 @@ export function Button({
         },
         {
           "bg-dark-olive-green w-28 h-9 rounded-lg text-white text-lg py-3 px-4": color === "visible"
+        },
+        {
+          "bg-dark-lime-green w-48 h-10 rounded-xl text-mesh-dark-2 text-lg py-3 px-4 gap-1": color === "green"
         },
         className
       )}
