@@ -28,7 +28,7 @@ export function InlineButton({
       type={type}
       disabled={disable}
       className={classNames(
-        `no-underline bg-red-500 ${width} justify-center h-[38px] flex items-center`,
+        `no-underline bg-transparent ${width} justify-center h-[38px] flex items-center transition-colors`,
         className
       )}
     >

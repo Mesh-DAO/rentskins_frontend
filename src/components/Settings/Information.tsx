@@ -1,4 +1,5 @@
 import { Button } from "../Button";
+import { InlineButton } from "../InlineButton";
 import { Title } from "../Title";
 
 export function SettingsInformation() {
@@ -25,8 +26,8 @@ export function SettingsInformation() {
                 placeholder="https://steamcommunity.com/tradeoffer/new/?partner=240416830&token=vzAomQ5n"
               />
               <div className="flex justify-center items-center gap-2 w-1/6">
-                <Button className="bg-transparent w-4/6 text-alt-steam-button hover:text-alt-steam-button/50 transition-colors"> Obter URL </Button>
-                <Button className="bg-transparent w-4/6 text-alt-steam-button hover:text-alt-steam-button/50 transition-colors"> Aplicar </Button>
+                <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50"> Obter URL </InlineButton>
+                <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50"> Aplicar </InlineButton>
               </div>
             </div>
           </div>
@@ -39,7 +40,7 @@ export function SettingsInformation() {
             <Title size={"lg"} color="white">Link de Venda</Title>
             <div className="flex justify-between items-center ">
               <span className="text-[#90988B]"> https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL) </span>
-              <Button className="bg-transparent text-alt-steam-button hover:text-alt-steam-button/50 transition-colors"> Copiar Link </Button>
+              <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50"> Copiar Link </InlineButton>
             </div>
           </div>
         </div>
@@ -52,7 +53,7 @@ export function SettingsInformation() {
               <Title size={"lg"} color="white">Email</Title>
               <span className="text-[#90988B]"> https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL) </span>
             </div>
-            <Button className="bg-transparent text-alt-steam-button hover:text-alt-steam-button/50 transition-colors"> Copiar Link </Button>
+            <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50"> Copiar Link </InlineButton>
           </div>
         </div>
       </div>
