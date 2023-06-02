@@ -32,6 +32,10 @@ module.exports = {
       },
       borderColor: {
         "dark-olive-green": '#3C403C',
+        "mesh-light": {
+          "0": "#FFFFFF",
+          "1": "#CECECE",
+        },
       },
       backgroundImage: {
         "green-pattern": "linear-gradient(to right, #CEFF3A, #A6CF2B)",

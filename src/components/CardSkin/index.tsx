@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Button } from "../Button";
-import IconSteam from "@/assets/IconSteam";
-import IconCart from "@/assets/Cart";
-import IconEye from "@/assets/Eye";
+import IconSteam from "../Icons/IconSteam";
+import IconCart from "../Icons/Cart";
+import IconEye from "../Icons/Eye";
 
 interface Props {
   name: string;
@@ -13,8 +13,8 @@ interface Props {
 export function CardSkin({ name, name_color, icon_url }: Props) {
   const [skinType, skinName] = name.split("|")
   return (
-    <article className="w-72 rounded-lg flex flex-col gap-3 px-3 pt-3 pb-4 border-2 border-dark-olive-green border-opacity-60 text-white">
-      <div className="border-2 flex flex-col items-center justify-center bg-mesh-skin-gradient rounded-lg border-dark-olive-green">
+    <article className="w-72 rounded-lg flex flex-col gap-3 px-3 pt-3 pb-4 border-2 border-mesh-light-1 border-opacity-30 text-white">
+      <div className="border-2 flex flex-col items-center justify-center bg-mesh-skin-gradient rounded-lg border-mesh-light-1 border-opacity-40">
         <div className={`w-52 h-2 bg-[#${name_color}] rounded-b-full`} />
         <Image
           src={`https://steamcommunity-a.akamaihd.net/economy/image/${icon_url}/206fx170f`}
