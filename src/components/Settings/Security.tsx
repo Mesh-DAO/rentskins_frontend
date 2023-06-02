@@ -1,7 +1,7 @@
-import { Button } from "../Button";
 import { Title } from "../Title";
 import Image from "next/image";
 import IconAlert from '../../components/Icons/icon-alert.svg';
+import { InlineButton } from "../InlineButton";
 
 export function SettingsSecurity() {
   return(
@@ -21,7 +21,7 @@ export function SettingsSecurity() {
                 </div>
 
               </div>
-              <Button className="bg-transparent w-32 text-alt-steam-button hover:text-alt-steam-button/50 transition-colors"> Atualizar </Button>
+              <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50"> Atualizar </InlineButton>
             </div>
 
             {/* CHANGE COLOR! */}
