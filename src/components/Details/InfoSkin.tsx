@@ -5,7 +5,7 @@ import { Title } from '../Title'
 
 export function InfoSkin() {
   return (
-    <div className="ml-6 w-[35%] rounded-lg border-2 border-[#3E423A] px-4 py-3">
+    <div className="rounded-lg border-2 border-[#3E423A] px-4 py-3">
       <div className="space-y-4">
         <div>
           <Title className="text-2xl font-extrabold text-white">
@@ -47,7 +47,7 @@ export function InfoSkin() {
           <Title className="text-mesh-dark-3">Float</Title>
           <div className="flex items-center">
             <p className="text-white">0.1095228</p>
-            <div className="ml-2 h-[17px] w-[17px] rounded-[3px] bg-[#CA1733]" />
+            <div className="ml-2 h-[17px] w-[17px] rounded-[3px] bg-mesh-light-2" />
           </div>
         </div>
 
@@ -67,13 +67,13 @@ export function InfoSkin() {
           Selecione o período de Aluguel
         </Title>
         <div className="mt-4 flex gap-4">
-          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white">
+          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white hover:bg-mesh-light-2 ">
             7 Dias
           </InputRadio>
-          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white">
+          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white hover:bg-mesh-light-2 ">
             14 Dias
           </InputRadio>
-          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white">
+          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white hover:bg-mesh-light-2 ">
             21 Dias
           </InputRadio>
         </div>
