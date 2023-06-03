@@ -5,7 +5,7 @@ import { Title } from '../Title'
 
 export function InfoSkin() {
   return (
-    <div className="rounded-lg border-2 border-[#3E423A] px-4 py-3">
+    <div className="min-w-[435px] rounded-lg border-2 border-[#3E423A] px-4 py-3">
       <div className="space-y-4">
         <div>
           <Title className="text-2xl font-extrabold text-white">

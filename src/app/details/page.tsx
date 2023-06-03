@@ -5,7 +5,7 @@ export default function Details() {
   return (
     <LayoutPage>
       <main className="w-full bg-jet-black">
-        <div className="mx-auto flex w-10/12 py-10 ">
+        <div className="mx-auto flex w-10/12 justify-center py-10">
           <div>
             <Card />
             <InfoVendas />

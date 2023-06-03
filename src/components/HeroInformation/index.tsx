@@ -1,27 +1,29 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react'
+import Image from 'next/image'
 
 type Props = {
-  className?: string;
-  icon: string;
-  title: string;
-  children: React.ReactNode;
-};
+  className?: string
+  icon: string
+  title: string
+  children: React.ReactNode
+}
 
-export function HeroInformation({ children, icon, className, title, ...props }: Props) {
+export function HeroInformation({
+  children,
+  icon,
+  className,
+  title,
+  ...props
+}: Props) {
   return (
-    <div className="flex items-center gap-2 w-1/5 justify-center">
-      <div className="flex items-center justify-center w-14 h-14 bg-mesh-dark-0 rounded-xl">
-        <Image src={ icon } alt="Pagamento Seguro" className="w-7 h-7"/>
+    <div className="flex w-1/5 items-center justify-center gap-2">
+      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-mesh-dark-0">
+        <Image src={icon} alt="Pagamento Seguro" className="h-7 w-7" />
       </div>
-      <span className="text-white w-2/3">
-      <strong className="text-md">
-          { title }
-        </strong>
-        <p className="text-xs">
-          { children }
-        </p>
+      <span className="w-2/3 text-white">
+        <strong className="text-md">{title}</strong>
+        <p className="text-xs">{children}</p>
       </span>
     </div>
-  );
+  )
 }

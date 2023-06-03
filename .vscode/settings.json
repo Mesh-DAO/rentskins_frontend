@@ -1,5 +1,6 @@
 {
   "conventionalCommits.scopes": [
-    "InfoPerfil"
+    "InfoPerfil",
+    "InfoVendas"
   ]
 }

@@ -24,6 +24,9 @@ export function Title({
         {
           'text-white': color === 'white',
         },
+        {
+          'text-mesh-dark-3': color === 'cinza',
+        },
         className,
       )}
     >

@@ -2,8 +2,8 @@ import { TypeList } from './TypeList'
 
 export function BottomHeader() {
   return (
-    <div className="mx-auto mt-2 flex w-10/12 items-center p-2 pb-4 pt-2">
-      <div className="flex w-full justify-center gap-6">
+    <div className="mx-auto mt-2 flex items-center  justify-center p-2 pb-4 pt-2">
+      <div className="flex w-10/12 gap-6">
         <TypeList>Faca</TypeList>
         <TypeList>Rifles</TypeList>
         <TypeList>Luvas</TypeList>
