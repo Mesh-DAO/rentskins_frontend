@@ -1,6 +1,6 @@
-import { Button } from '../Button'
-import { Arrow2 } from '../Icons/Arrow2'
-import { Title } from '../Title'
+import { Button } from "../Button";
+import { Arrow2 } from "../Icons/Arrow2";
+import { Title } from "../Title";
 
 export function InfoVendas() {
   return (
@@ -53,5 +53,5 @@ export function InfoVendas() {
         </div>
       </div>
     </div>
-  )
+  );
 }

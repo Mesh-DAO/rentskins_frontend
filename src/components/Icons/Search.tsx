@@ -22,5 +22,5 @@ export function Search() {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }

@@ -25,10 +25,7 @@ export function TextArea({
       rows={rows}
       onChange={onChange}
       placeholder={placeHolder}
-      className={classNames(
-        "",
-        className
-      )}
+      className={classNames("", className)}
     />
   );
 }

@@ -16,5 +16,5 @@ export function Arrow2() {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }

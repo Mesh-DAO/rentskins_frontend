@@ -1,4 +1,4 @@
-import { TypeList } from './TypeList'
+import { TypeList } from "./TypeList";
 
 export function BottomHeader() {
   return (
@@ -15,5 +15,5 @@ export function BottomHeader() {
         <TypeList>Agentes</TypeList>
       </div>
     </div>
-  )
+  );
 }

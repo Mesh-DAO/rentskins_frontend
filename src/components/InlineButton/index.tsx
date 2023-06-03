@@ -1,7 +1,5 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import classNames from "classnames";
-import { MouseEventHandler } from "react";
-import { Title } from "../Title";
 
 type Props = {
   type?: "button" | "submit";
@@ -28,7 +26,7 @@ export function InlineButton({
       type={type}
       disabled={disable}
       className={classNames(
-        `no-underline bg-transparent ${width} justify-center h-[38px] flex items-center transition-colors`,
+        `bg-transparent no-underline ${width} flex h-[38px] items-center justify-center transition-colors`,
         className
       )}
     >

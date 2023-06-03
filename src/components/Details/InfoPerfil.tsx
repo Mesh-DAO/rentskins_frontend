@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import fallen from '../../assets/fallen.svg'
-import { Title } from '../Title'
+import Image from "next/image";
+import fallen from "../../assets/fallen.svg";
+import { Title } from "../Title";
 
 export function InfoPerfil() {
   return (
@@ -45,5 +45,5 @@ export function InfoPerfil() {
         </div>
       </div>
     </div>
-  )
+  );
 }

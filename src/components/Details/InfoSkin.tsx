@@ -1,7 +1,7 @@
-import { Button } from '../Button'
-import { Carrinho } from '../Icons/Carrinho'
-import { InputRadio } from '../InputRadio'
-import { Title } from '../Title'
+import { Button } from "../Button";
+import { Carrinho } from "../Icons/Carrinho";
+import { InputRadio } from "../InputRadio";
+import { Title } from "../Title";
 
 export function InfoSkin() {
   return (
@@ -91,5 +91,5 @@ export function InfoSkin() {
         </Button>
       </div>
     </div>
-  )
+  );
 }

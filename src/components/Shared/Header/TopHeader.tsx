@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import { Input } from '@/components/Input'
-import { Button } from '@/components/Button'
-import { Carrinho } from '@/components/Icons/Carrinho'
-import { Steam } from '@/components/Icons/Steam'
-import { Search } from '@/components/Icons/Search'
-import logo from '../../../assets/logo.svg'
+import Image from "next/image";
+import { Input } from "@/components/Input";
+import { Button } from "@/components/Button";
+import { Carrinho } from "@/components/Icons/Carrinho";
+import { Steam } from "@/components/Icons/Steam";
+import { Search } from "@/components/Icons/Search";
+import logo from "../../../assets/logo.svg";
 
 export function TopHeader() {
   return (
@@ -38,5 +38,5 @@ export function TopHeader() {
         </Button>
       </div>
     </div>
-  )
+  );
 }

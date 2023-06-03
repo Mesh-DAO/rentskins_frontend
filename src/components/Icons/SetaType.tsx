@@ -16,5 +16,5 @@ export function SetaType() {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }

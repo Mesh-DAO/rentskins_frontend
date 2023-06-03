@@ -1,10 +1,10 @@
-import { SetaType } from '@/components/Icons/SetaType'
-import { Title } from '@/components/Title'
+import { SetaType } from "@/components/Icons/SetaType";
+import { Title } from "@/components/Title";
 
 type Props = {
   // eslint-disable-next-line no-undef
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export function TypeList({ children }: Props) {
   return (
@@ -14,5 +14,5 @@ export function TypeList({ children }: Props) {
         <SetaType />
       </span>
     </div>
-  )
+  );
 }

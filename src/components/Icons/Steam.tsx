@@ -12,5 +12,5 @@ export function Steam() {
         fill="inherit"
       />
     </svg>
-  )
+  );
 }

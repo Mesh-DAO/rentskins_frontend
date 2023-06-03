@@ -1,12 +1,12 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
 
 type Props = {
-  className?: string
-  icon: string
-  title: string
-  children: React.ReactNode
-}
+  className?: string;
+  icon: string;
+  title: string;
+  children: React.ReactNode;
+};
 
 export function HeroInformation({
   children,
@@ -25,5 +25,5 @@ export function HeroInformation({
         <p className="text-xs">{children}</p>
       </span>
     </div>
-  )
+  );
 }

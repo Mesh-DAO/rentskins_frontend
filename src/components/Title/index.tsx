@@ -1,4 +1,5 @@
-import classNames from 'classnames'
+import React from "react";
+import classNames from "classnames";
 
 type Props = {
   children: React.ReactNode;
@@ -12,62 +13,62 @@ type Props = {
 export function Title({
   children,
   onClick,
-  color = 'black',
+  color = "black",
   className,
   bold = 400,
-  size = "md"
+  size = "md",
 }: Props) {
   return (
     <h1
       onClick={onClick}
       className={classNames(
-        'flex items-center gap-2 font-inter transition-all duration-300 ease-in-out',
+        "flex items-center gap-2 font-inter transition-all duration-300 ease-in-out",
         {
-          'text-white': color === 'white',
+          "text-white": color === "white",
         },
         {
-          'text-mesh-dark-3': color === 'cinza',
+          "text-mesh-dark-3": color === "cinza",
         },
         {
-          "text-xs": size === "xs"
+          "text-xs": size === "xs",
         },
         {
-          "text-sm": size === "sm"
+          "text-sm": size === "sm",
         },
         {
-          "text-md": size === "md"
+          "text-md": size === "md",
         },
         {
-          "text-lg": size === "lg"
+          "text-lg": size === "lg",
         },
         {
-          "text-xl": size === "xl"
+          "text-xl": size === "xl",
         },
         {
-          "text-2xl": size === "2xl"
+          "text-2xl": size === "2xl",
         },
         {
-          "font-thin": bold === 100
+          "font-thin": bold === 100,
         },
         {
-          "font-normal": bold === 400
+          "font-normal": bold === 400,
         },
         {
-          "font-semibold": bold === 600
+          "font-semibold": bold === 600,
         },
         {
-          "font-bold": bold === 700
+          "font-bold": bold === 700,
         },
         {
-          "font-extrabold": bold === 800
+          "font-extrabold": bold === 800,
         },
         {
-          "font-black": bold === 900
+          "font-black": bold === 900,
         },
-        className,
+        className
       )}
     >
       {children}
     </h1>
-  )
+  );
 }

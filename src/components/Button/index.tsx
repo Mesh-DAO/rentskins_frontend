@@ -32,14 +32,15 @@ export function Button({
       type={type}
       disabled={disable}
       className={classNames(
-        `flex justify-center items-center w-[${width} h-[${height}]
-        p-1 border border-dark-olive-green opacity-60 hover:opacity-100
-        rounded-md transition-colors`,
+        `flex items-center justify-center w-[${width} h-[${height}]
+        rounded-md border border-dark-olive-green p-1 opacity-60
+        transition-colors hover:opacity-100`,
         {
           " fill-white": color === "invisible",
         },
         {
-          "bg-dark-olive-green w-28 h-9 rounded-lg text-white text-lg py-3 px-4": color === "visible"
+          "h-9 w-28 rounded-lg bg-dark-olive-green px-4 py-3 text-lg text-white":
+            color === "visible",
         },
         className
       )}

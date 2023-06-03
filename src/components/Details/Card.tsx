@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import deagle from '../../assets/deagle.png'
-import Link from 'next/link'
-import { Steam } from '../Icons/Steam'
+import Image from "next/image";
+import deagle from "../../assets/deagle.png";
+import Link from "next/link";
+import { Steam } from "../Icons/Steam";
 
 export function Card() {
   return (
@@ -30,5 +30,5 @@ export function Card() {
         className="mx-auto my-auto"
       />
     </div>
-  )
+  );
 }
