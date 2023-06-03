@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from 'classnames'
 
 type Props = {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ type Props = {
 export function Title({
   children,
   onClick,
-  color = "black",
+  color = 'black',
   className,
   bold = 400,
   size = "md"
@@ -21,9 +21,12 @@ export function Title({
     <h1
       onClick={onClick}
       className={classNames(
-        `font-inter flex items-center gap-2 transition-all duration-300 ease-in-out`,
+        'flex items-center gap-2 font-inter transition-all duration-300 ease-in-out',
         {
-          "text-white": color === "white",
+          'text-white': color === 'white',
+        },
+        {
+          'text-mesh-dark-3': color === 'cinza',
         },
         {
           "text-xs": size === "xs"
@@ -61,10 +64,10 @@ export function Title({
         {
           "font-black": bold === 900
         },
-        className
+        className,
       )}
     >
       {children}
     </h1>
-  );
+  )
 }

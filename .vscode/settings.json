@@ -1,6 +1,6 @@
 {
   "conventionalCommits.scopes": [
-    "LaoutPage",
-    "LayoutPage"
+    "InfoPerfil",
+    "InfoVendas"
   ]
 }
