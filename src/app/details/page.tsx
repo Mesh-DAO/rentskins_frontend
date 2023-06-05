@@ -1,5 +1,5 @@
 import { Card, InfoPerfil, InfoVendas, InfoSkin } from '@/components/Details'
-import { LayoutPage } from '@/components/Shared/LaoutPage'
+import { LayoutPage } from '@/components/Shared/LayoutPage'
 
 export default function Details() {
   return (

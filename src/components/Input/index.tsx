@@ -1,24 +1,30 @@
-import classNames from "classnames";
-import React from "react";
+import classNames from 'classnames'
+import React from 'react'
 
 type Props = {
-  className?: string;
-  type?: string;
+  className?: string
+  type?: string
 
-  placeHolder?: string;
-  name?: string;
-};
+  placeHolder?: string
+  name?: string
+}
 
-export function Input({ className, placeHolder= '', type = 'text', name, ...props }: Props) {
+export function Input({
+  className,
+  placeHolder = '',
+  type = 'text',
+  name,
+  ...props
+}: Props) {
   return (
     <input
       type={type}
       placeholder={placeHolder}
       {...props}
       className={classNames(
-        "no-underline outline-none rounded-[12px] py-2 px-4 h-[42px]",
-        className
+        'h-[42px] rounded-[12px] px-4 py-2 no-underline outline-none',
+        className,
       )}
     />
-  );
+  )
 }
