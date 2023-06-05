@@ -3,12 +3,15 @@ import { IconCarrinho, IconSteam, IconSearch } from '@/components/Icons'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import logo from '../../../assets/logo.svg'
+import Link from 'next/link'
 
 export function TopHeader() {
   return (
     <div className="mx-auto flex w-10/12 items-center justify-between">
       <div className="flex items-center gap-x-6 p-[18px]">
-        <Image src={logo} alt="" width={45} height={48} />
+        <Link href="/">
+          <Image src={logo} alt="" width={45} height={48} />
+        </Link>
 
         <div className=" flex items-center rounded-[12px] bg-dark-olive-green">
           <span className="ml-4">
