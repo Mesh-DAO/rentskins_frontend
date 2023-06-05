@@ -1,16 +1,16 @@
-import React, { MouseEventHandler } from 'react';
-import classNames from 'classnames';
+import React, { MouseEventHandler } from 'react'
+import classNames from 'classnames'
 
 type Props = {
-  type?: 'button' | 'submit';
-  className?: string;
-  children: React.ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
-  textColor?: string;
-  hoverTextColor?: string;
-  width?: string;
-  disable?: boolean;
-};
+  type?: 'button' | 'submit'
+  className?: string
+  children: React.ReactNode
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined
+  textColor?: string
+  hoverTextColor?: string
+  width?: string
+  disable?: boolean
+}
 
 export function InlineButton({
   type = 'button',
@@ -27,10 +27,10 @@ export function InlineButton({
       disabled={disable}
       className={classNames(
         `bg-transparent no-underline ${width} flex h-[38px] items-center justify-center transition-colors`,
-        className
+        className,
       )}
     >
       {children}
     </button>
-  );
+  )
 }
