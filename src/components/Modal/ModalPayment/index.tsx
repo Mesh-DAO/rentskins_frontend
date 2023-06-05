@@ -10,13 +10,12 @@ interface IProps {
   activator: React.ReactNode
 }
 
-// MAKE IT FUNCTIONAL
 export function ModalPayment({ activator }: IProps) {
   const paymentIndex = useComponentStore((state) => state.paymentIndex)
   const setPaymentIndex = useComponentStore((state) => state.setPaymentIndex)
 
   const handleModal = () => {
-    if (paymentIndex === 1) {
+    if (paymentIndex !== 0) {
       setPaymentIndex(0)
     }
   }
@@ -25,7 +24,7 @@ export function ModalPayment({ activator }: IProps) {
     <Dialog.Root modal onOpenChange={() => handleModal()}>
       <Dialog.Trigger asChild>{activator}</Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 flex bg-black/70" />
+        <Dialog.Overlay className="fixed inset-0 flex bg-black/70 transition-all" />
         {paymentIndex === 0 && <PaymentCheck />}
         {paymentIndex === 1 && <PaymentAdd />}
       </Dialog.Portal>
