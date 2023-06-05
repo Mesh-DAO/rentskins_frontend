@@ -1,6 +1,5 @@
 import React, { MouseEventHandler } from 'react'
-import Image from 'next/image'
-import SteamIcon from '../../components/icons/social/icon-steam.svg'
+import { IconSteam } from '../Icons'
 
 type Props = {
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined
@@ -21,7 +20,7 @@ export function SteamButton({
       className={`font-Roboto rounded-md no-underline transition-all duration-300 ease-in-out ${width} ${height} flex items-center justify-center gap-4
       bg-alt-steam-button transition-colors hover:bg-steam-button-pattern`}
     >
-      <Image src={SteamIcon} alt="Steam Login" width={24} height={24} />
+      <IconSteam />
       <span className="text-[22px] font-bold text-mesh-dark-2">
         {' '}
         Entre com a sua Steam{' '}

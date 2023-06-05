@@ -1,8 +1,4 @@
-import Image from 'next/image'
-
-import IconGear from '../../../components/Icons/icon-gear.svg'
-import IconPaper from '../../../components/Icons/icon-paper.svg'
-import IconLockedShield from '../../../components/Icons/icon-locked-shield.svg'
+import { IconGear, IconPaper, IconLockedShield } from '@/components/Icons'
 
 export function SideRadioButton() {
   return (
@@ -22,12 +18,7 @@ export function SideRadioButton() {
         bg-transparent px-4 py-3 text-lg font-semibold text-[#A7B0A0] 
         transition-all duration-500 peer-checked:bg-mesh-dark-0 peer-checked:text-[#3EE167]"
         >
-          <Image
-            src={IconGear}
-            width={20}
-            height={20}
-            alt="Informações Pessoais"
-          />
+          <IconGear />
           Informações Pessoais
         </label>
       </div>
@@ -46,7 +37,7 @@ export function SideRadioButton() {
         bg-transparent px-4 py-3 text-lg font-semibold text-[#A7B0A0] 
         transition-all duration-500 peer-checked:bg-mesh-dark-0 peer-checked:text-[#3EE167]"
         >
-          <Image src={IconPaper} width={20} height={20} alt="Transações" />
+          <IconPaper />
           Transações
         </label>
       </div>
@@ -65,12 +56,7 @@ export function SideRadioButton() {
         bg-transparent px-4 py-3 text-lg font-semibold text-[#A7B0A0] 
         transition-all duration-500 peer-checked:bg-mesh-dark-0 peer-checked:text-[#3EE167]"
         >
-          <Image
-            src={IconLockedShield}
-            width={20}
-            height={20}
-            alt="Segurança"
-          />
+          <IconLockedShield />
           Segurança
         </label>
       </div>

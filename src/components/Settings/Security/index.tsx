@@ -1,6 +1,6 @@
 import { Title } from '../../Title'
 import Image from 'next/image'
-import IconAlert from '../../../components/Icons/icon-alert.svg'
+import { IconAlert } from '@/components/Icons'
 import { InlineButton } from '../../InlineButton'
 
 export function SettingsSecurity() {

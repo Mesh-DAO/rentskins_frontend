@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import LogoIcon from '../../components/icons/icon-logo.svg'
-// import LogoIcon from '../../app/icons';
-import FacebookIcon from '../../components/icons/social/icon-facebook.svg'
-import InstagramIcon from '../../components/icons/social/icon-instagram.svg'
-import TwitterIcon from '../../components/icons/social/icon-twitter.svg'
-import PinterestIcon from '../../components/icons/social/icon-pinterest.svg'
+import {
+  IconFacebook,
+  IconInstagram,
+  IconTwitter,
+  IconPinterest,
+} from '../Icons'
 
 export function Footer() {
   return (
@@ -65,7 +66,8 @@ export function Footer() {
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
             >
-              <Image src={FacebookIcon} alt="Facebook" width={10} height={20} />
+              <IconFacebook />
+              {/* <Image src={FacebookIcon} alt="Facebook" width={10} height={20} /> */}
             </a>
 
             <a
@@ -73,7 +75,8 @@ export function Footer() {
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
             >
-              <Image src={TwitterIcon} alt="Twitter" width={20} height={20} />
+              <IconTwitter />
+              {/* <Image src={TwitterIcon} alt="Twitter" width={20} height={20} /> */}
             </a>
 
             <a
@@ -81,12 +84,13 @@ export function Footer() {
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
             >
-              <Image
+              <IconInstagram />
+              {/* <Image
                 src={InstagramIcon}
                 alt="Instagram"
                 width={20}
                 height={20}
-              />
+              /> */}
             </a>
 
             <a
@@ -94,12 +98,13 @@ export function Footer() {
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
             >
-              <Image
+              <IconPinterest />
+              {/* <Image
                 src={PinterestIcon}
                 alt="Pinterest"
                 width={20}
                 height={20}
-              />
+              /> */}
             </a>
           </nav>
         </div>

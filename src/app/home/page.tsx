@@ -1,10 +1,12 @@
 import { SteamButton } from '@/components/SteamButton'
 import { HeroInformation } from '@/components/HeroInformation'
-import ShieldIcon from '../../components/icons/icon-shield.svg'
-import PhoneIcon from '../../components/icons/icon-phone.svg'
-import MagnifyingGlassIcon from '../../components/icons/icon-magnifying-glass.svg'
-import DevolutionIcon from '../../components/icons/icon-devolution.svg'
 import { LayoutPage } from '@/components/Shared'
+import {
+  IconShield,
+  IconPhone,
+  IconMagnifyingGlass,
+  IconDevolution,
+} from '@/components/Icons'
 
 export default function Home() {
   return (
@@ -38,23 +40,23 @@ export default function Home() {
           {/* Hero - Information */}
           <div className="flex h-full items-center justify-center">
             {/* Hero - Information / Pagamento Seguro */}
-            <HeroInformation icon={ShieldIcon} title="Pagamento seguro">
+            <HeroInformation icon={<IconShield />} title="Pagamento seguro">
               Realize seus pagamentos com tranquilidade!
             </HeroInformation>
             {/* Hero - Information / Suporte Rápido */}
-            <HeroInformation icon={PhoneIcon} title="Suporte rápido">
+            <HeroInformation icon={<IconPhone />} title="Suporte rápido">
               Tem alguma dúvida? Entre em contato conosco!
             </HeroInformation>
             {/* Hero - Information / Ampla Transparência */}
             <HeroInformation
-              icon={MagnifyingGlassIcon}
+              icon={<IconMagnifyingGlass />}
               title="Ampla transparência"
             >
               Priorizamos a transparência em todas as informações.
             </HeroInformation>
             {/* Hero - Information / Política de Devolução */}
             <HeroInformation
-              icon={DevolutionIcon}
+              icon={<IconDevolution />}
               title="Política de devolução"
             >
               Facilitamos a devolução ou troca, de acordo com nossos termos.
