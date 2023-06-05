@@ -1,8 +1,8 @@
-import React, { MouseEventHandler } from "react";
-import classNames from "classnames";
+import React, { MouseEventHandler } from 'react';
+import classNames from 'classnames';
 
 type Props = {
-  type?: "button" | "submit";
+  type?: 'button' | 'submit';
   className?: string;
   children: React.ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
@@ -13,11 +13,11 @@ type Props = {
 };
 
 export function InlineButton({
-  type = "button",
+  type = 'button',
   className,
   children,
   onClick,
-  width = "w-[214px]",
+  width = 'w-[214px]',
   disable,
 }: Props) {
   return (

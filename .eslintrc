@@ -1,6 +1,9 @@
 {
+  "extends": "prettier",
   "plugins": ["react-hooks"],
   "rules": {
+    "quotes": [2, "single", { "avoidEscape": false }],
+    "prettier/prettier": ["error", { "singleQuote": false }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
     "react/prop-types": "off"

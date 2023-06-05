@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
 import {
   SettingsInformation,
   SettingsSecurity,
   SideRadioButton,
-} from "@/components/Settings";
-import { SettingsTransactions } from "@/components/Settings/Transactions";
-import { Title } from "@/components/Title";
+} from '@/components/Settings';
+import { SettingsTransactions } from '@/components/Settings/Transactions';
+import { Title } from '@/components/Title';
 
 // CHANGE!
 const settingsIndex: 0 | 1 | 2 = 2;
 
 export default function Settings() {
   return (
-    <div className="flex h-screen justify-center gap-10 bg-mesh-dark-2 px-[7.5rem]">
+    <div className='flex h-screen justify-center gap-10 bg-mesh-dark-2 px-[7.5rem]'>
       {/* Left Side */}
-      <div className="flex h-min w-max flex-col items-end gap-2">
-        <div className="flex flex-col items-start gap-6">
-          <Title bold={900} size="2xl" color="white">
+      <div className='flex h-min w-max flex-col items-end gap-2'>
+        <div className='flex flex-col items-start gap-6'>
+          <Title bold={900} size='2xl' color='white'>
             Configurações
           </Title>
 
