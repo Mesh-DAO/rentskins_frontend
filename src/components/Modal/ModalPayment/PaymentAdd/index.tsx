@@ -1,10 +1,11 @@
 import React from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Title } from '@/components/Title'
-import { IconClose } from '@/components/Icons/IconClose'
-import { PaymentAddInputs } from './input'
 import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
 import { Button } from '@/components/Button'
+import { IconClose } from '@/components/Icons/IconClose'
+import { PaymentAddValuesInputs } from './inputValues'
+import { PaymentAddMethodsInputs } from './inputMethods'
 
 export function PaymentAdd() {
   return (
@@ -14,17 +15,14 @@ rounded-2xl bg-[#272E29]"
     >
       <div className="flex h-full w-full">
         {/* CHANGE COLOR! */}
-        <div className="h-full w-1/4 bg-[#222723]">
-          <Title>Selecione a forma de pagamento </Title>
-          <input type="radio" />
-          <label>1</label>
-          <input type="radio" />
-          <label>2</label>
-          <input type="radio" />
-          <label>3</label>
+        <div className="h-full w-1/4 rounded-l-2xl bg-[#222723] px-6 pt-6">
+          <Title bold={400} size="xl" color="white" className="leading-none">
+            Selecione a forma de pagamento
+          </Title>
+          <PaymentAddMethodsInputs />
         </div>
         <div className="flex h-full w-3/4 flex-col items-center justify-start">
-          <div className=" flex w-11/12 items-center justify-between">
+          <div className=" mt-6 flex w-11/12 items-center justify-between">
             <Dialog.Title>
               <Title bold={800} size="2xl" color="white">
                 Adicione Créditos
@@ -35,7 +33,7 @@ rounded-2xl bg-[#272E29]"
               <IconClose />
             </Dialog.Close>
           </div>
-          <div className="mt-3 flex h-full w-11/12 flex-col justify-between ">
+          <div className="mt-3 flex h-full w-full flex-col justify-between">
             <div className="flex h-min w-full justify-around">
               <div className="flex w-1/2 flex-col">
                 <label className="flex flex-col text-[#A7B0A0]">
@@ -46,13 +44,13 @@ rounded-2xl bg-[#272E29]"
                     placeholder="Insira um valor"
                   />
                 </label>
-                <PaymentAddInputs />
+                <PaymentAddValuesInputs />
               </div>
               <div className="w-1/3 self-center">
                 <IconMoneyBag />
               </div>
             </div>
-            <div className="mb-8 flex items-center justify-between">
+            <div className="mb-8 flex w-11/12 items-center justify-between self-center">
               <span className="leading text-white">
                 Ao prosseguir para finalizar o pagamento, você concorda com os
                 nossos{' '}

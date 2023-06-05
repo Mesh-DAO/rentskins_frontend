@@ -1,6 +1,6 @@
-export function PaymentAddInputs() {
+export function PaymentAddValuesInputs() {
   return (
-    <div className="mt-7 grid grid-cols-2 grid-rows-2 gap-4">
+    <div className="mt-7 grid grid-cols-2 grid-rows-2 gap-2">
       {/* R$50 __________________________ */}
       <div className="flex">
         <input
@@ -13,7 +13,7 @@ export function PaymentAddInputs() {
         />
         <label
           htmlFor="settings_index-1"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md border-2 border-transparent 
+          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2 border-transparent 
 bg-[#3C403C] bg-transparent px-4 py-3 text-lg 
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
@@ -31,7 +31,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         />
         <label
           htmlFor="settings_index-2"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md border-2
+          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
 border-transparent bg-[#3C403C] bg-transparent px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
@@ -49,7 +49,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         />
         <label
           htmlFor="settings_index-3"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md border-2
+          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
 border-transparent bg-[#3C403C] bg-transparent px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
@@ -67,7 +67,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         />
         <label
           htmlFor="settings_index-4"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md border-2
+          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
 border-transparent bg-[#3C403C] bg-transparent px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
@@ -85,7 +85,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         />
         <label
           htmlFor="settings_index-5"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md border-2
+          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
 border-transparent bg-[#3C403C] bg-transparent px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
@@ -103,7 +103,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         />
         <label
           htmlFor="settings_index-6"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md border-2
+          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
 border-transparent bg-[#3C403C] bg-transparent px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
@@ -121,7 +121,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         />
         <label
           htmlFor="settings_index-7"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md border-2
+          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
 border-transparent bg-[#3C403C] bg-transparent px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
@@ -139,7 +139,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         />
         <label
           htmlFor="settings_index-8"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md border-2
+          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
 border-transparent bg-[#3C403C] bg-transparent px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
