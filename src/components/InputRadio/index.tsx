@@ -26,7 +26,7 @@ export function InputRadio({
         defaultChecked={defaultChecked}
         className={classNames({
           'peer absolute z-[-1]': radio === 'dia',
-          'peer h-5 w-5 rounded border border-[#808080] checked:bg-red-600':
+          'peer h-5 w-5 rounded border border-[#808080] checked:bg-dark-lime-green':
             radio === 'filter',
         })}
       />
