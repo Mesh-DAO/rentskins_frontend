@@ -32,9 +32,10 @@ export function Footer() {
               Termos de Uso
             </a>
             <a
-              href=""
+              href="http://localhost:3000/termodeuso"
               target="_blank"
               className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
+              rel="noreferrer"
             >
               Privacidade
             </a>
