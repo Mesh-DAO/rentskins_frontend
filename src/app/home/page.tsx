@@ -1,3 +1,5 @@
+'use client'
+
 import { SteamButton } from '@/components/SteamButton'
 import { HeroInformation } from '@/components/HeroInformation'
 import { LayoutPage } from '@/components/Shared'
@@ -7,6 +9,7 @@ import {
   IconMagnifyingGlass,
   IconDevolution,
 } from '@/components/Icons'
+import { ModalPayment } from '@/components/Modal'
 
 export default function Home() {
   return (
@@ -29,7 +32,8 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            <SteamButton />
+            {/* ON CHANGE */}
+            <ModalPayment activator={<SteamButton />} />
           </div>
         </div>
         {/* Hero - Bottom */}
@@ -39,22 +43,21 @@ export default function Home() {
 
           {/* Hero - Information */}
           <div className="flex h-full items-center justify-center">
-            {/* Hero - Information / Pagamento Seguro */}
             <HeroInformation icon={<IconShield />} title="Pagamento seguro">
               Realize seus pagamentos com tranquilidade!
             </HeroInformation>
-            {/* Hero - Information / Suporte Rápido */}
+
             <HeroInformation icon={<IconPhone />} title="Suporte rápido">
               Tem alguma dúvida? Entre em contato conosco!
             </HeroInformation>
-            {/* Hero - Information / Ampla Transparência */}
+
             <HeroInformation
               icon={<IconMagnifyingGlass />}
               title="Ampla transparência"
             >
               Priorizamos a transparência em todas as informações.
             </HeroInformation>
-            {/* Hero - Information / Política de Devolução */}
+
             <HeroInformation
               icon={<IconDevolution />}
               title="Política de devolução"
