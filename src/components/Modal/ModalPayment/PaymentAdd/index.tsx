@@ -29,8 +29,9 @@ rounded-2xl bg-[#272E29]"
               </Title>
             </Dialog.Title>
             <Dialog.Close asChild>
-              {/* CHANGE - MAKE IT FUNCTIONAL */}
-              <IconClose />
+              <Button className="border-transparent">
+                <IconClose />
+              </Button>
             </Dialog.Close>
           </div>
           <div className="mt-3 flex h-full w-full flex-col justify-between">
@@ -54,7 +55,11 @@ rounded-2xl bg-[#272E29]"
               <span className="leading text-white">
                 Ao prosseguir para finalizar o pagamento, você concorda com os
                 nossos{' '}
-                <a href="" target="_blank" className="text-[#B6DF3E]">
+                <a
+                  href=""
+                  target="_blank"
+                  className="hover:text-inherit/50 text-[#B6DF3E]"
+                >
                   Termos de Serviço
                 </a>
                 ,{' '}

@@ -5,8 +5,15 @@ import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
 import Image from 'next/image'
 import Banner from '../../../../../public/banner.png'
+import useComponentStore from '@/stores/components.store'
 
 export function PaymentCheck() {
+  const { setPaymentIndex } = useComponentStore()
+
+  const handleOnRecharge = () => {
+    setPaymentIndex(1)
+  }
+
   return (
     <Dialog.Content
       className="fixed left-1/2 top-1/2 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2
@@ -20,10 +27,9 @@ export function PaymentCheck() {
               Saldo
             </Title>
           </Dialog.Title>
-          <Dialog.Close asChild>
-            {/* CHANGE - MAKE IT FUNCTIONAL */}
+          <Button className="border-transparent">
             <IconClose />
-          </Dialog.Close>
+          </Button>
         </div>
         {/* MIDDLE */}
         <div className="flex h-full w-11/12 items-start justify-between">
@@ -55,7 +61,12 @@ export function PaymentCheck() {
         <div className="flex w-11/12 flex-col items-center justify-between">
           <hr className="mb-6 h-0.5 w-11/12 bg-[#A7B0A0]" />
           <div className="mb-16 flex h-full w-11/12 items-end gap-20 text-xl font-bold">
-            <Button className="h-10 w-1/2 bg-[#A6CF2B]"> Recarga </Button>
+            <Button
+              className="h-10 w-1/2 bg-[#A6CF2B]"
+              onClick={() => handleOnRecharge()}
+            >
+              Recarga
+            </Button>
             <Button className="h-10 w-1/2 bg-[#CFA62B]"> Retirar </Button>
           </div>
         </div>

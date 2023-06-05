@@ -14,7 +14,7 @@ export function PaymentAddValuesInputs() {
         <label
           htmlFor="settings_index-1"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2 border-transparent 
-bg-[#3C403C] bg-transparent px-4 py-3 text-lg 
+bg-[#3C403C]  bg-transparent px-4 py-3 text-lg 
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$5,00
