@@ -1,5 +1,5 @@
 import { Button } from '../Button'
-import { Arrow2 } from '../Icons/Arrow2'
+import { IconArrow } from '../Icons'
 import { Title } from '../Title'
 
 export function InfoVendas() {
@@ -45,10 +45,10 @@ export function InfoVendas() {
             className="flex border-none text-end
           "
           >
-            <Arrow2 />
+            <IconArrow />
           </Button>
           <Button className="flex rotate-180 items-end border-none text-end">
-            <Arrow2 />
+            <IconArrow />
           </Button>
         </div>
       </div>

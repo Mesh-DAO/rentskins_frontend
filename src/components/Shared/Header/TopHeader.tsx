@@ -1,9 +1,7 @@
 import Image from 'next/image'
+import { IconCarrinho, IconSteam, IconSearch } from '@/components/Icons'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
-import { Carrinho } from '@/components/Icons/Carrinho'
-import { Steam } from '@/components/Icons/Steam'
-import { Search } from '@/components/Icons/Search'
 import logo from '../../../assets/logo.svg'
 
 export function TopHeader() {
@@ -14,7 +12,7 @@ export function TopHeader() {
 
         <div className=" flex items-center rounded-[12px] bg-dark-olive-green">
           <span className="ml-4">
-            <Search />
+            <IconSearch />
           </span>
           <Input
             className="bg-dark-olive-green text-base text-[#A7B0A0]"
@@ -26,13 +24,13 @@ export function TopHeader() {
       <div className="flex space-x-4">
         <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-jet-black  p-2 text-[#A7B0A0]">
           <span className="mr-2">
-            <Carrinho />
+            <IconCarrinho />
           </span>
           Carrinho de compra
         </Button>
         <Button className="h-[44px] w-[220px] rounded-[14px] bg-[#95BC1E]">
           <span className="mr-2">
-            <Steam />
+            <IconSteam />
           </span>
           Entre com sua steam
         </Button>

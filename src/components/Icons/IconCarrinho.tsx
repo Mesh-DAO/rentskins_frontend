@@ -1,4 +1,4 @@
-export function Carrinho() {
+export function IconCarrinho() {
   return (
     <svg
       width="24"

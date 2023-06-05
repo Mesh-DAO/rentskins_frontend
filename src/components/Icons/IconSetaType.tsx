@@ -1,4 +1,4 @@
-export function SetaType() {
+export function IconSetaType() {
   return (
     <svg
       width="12"

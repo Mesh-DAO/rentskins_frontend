@@ -1,6 +1,5 @@
 import { Title } from '../../Title'
-import Image from 'next/image'
-import IconAlert from '../../../components/Icons/icon-alert.svg'
+import { IconAlert } from '@/components/Icons'
 import { InlineButton } from '../../InlineButton'
 
 export function SettingsSecurity() {
@@ -20,7 +19,7 @@ export function SettingsSecurity() {
               </Title>
 
               <div className="flex gap-2 rounded-md bg-red-500/10 px-2 py-1 text-[#E84E6A]">
-                <Image src={IconAlert} alt="Alert" />
+                <IconAlert />
                 Desativado
               </div>
             </div>

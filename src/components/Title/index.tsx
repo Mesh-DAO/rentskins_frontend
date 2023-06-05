@@ -1,12 +1,12 @@
+import React from 'react'
 import classNames from 'classnames'
 
 type Props = {
-  // eslint-disable-next-line no-undef
   children: React.ReactNode
-  size?: string
   color?: string
   className?: string
-  bold?: number
+  bold?: 100 | 400 | 600 | 700 | 800 | 900
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   onClick?: () => void
 }
 
@@ -15,6 +15,8 @@ export function Title({
   onClick,
   color = 'black',
   className,
+  bold = 400,
+  size = 'md',
 }: Props) {
   return (
     <h1
@@ -26,6 +28,42 @@ export function Title({
         },
         {
           'text-mesh-dark-3': color === 'cinza',
+        },
+        {
+          'text-xs': size === 'xs',
+        },
+        {
+          'text-sm': size === 'sm',
+        },
+        {
+          'text-md': size === 'md',
+        },
+        {
+          'text-lg': size === 'lg',
+        },
+        {
+          'text-xl': size === 'xl',
+        },
+        {
+          'text-2xl': size === '2xl',
+        },
+        {
+          'font-thin': bold === 100,
+        },
+        {
+          'font-normal': bold === 400,
+        },
+        {
+          'font-semibold': bold === 600,
+        },
+        {
+          'font-bold': bold === 700,
+        },
+        {
+          'font-extrabold': bold === 800,
+        },
+        {
+          'font-black': bold === 900,
         },
         className,
       )}
