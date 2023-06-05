@@ -5,20 +5,38 @@ interface Props {
   children: React.ReactNode
   className?: string
   defaultChecked?: boolean
+  style?: string
+  radio?: string
+  name: string
 }
 
-export function InputRadio({ children, className, defaultChecked }: Props) {
+export function InputRadio({
+  children,
+  className,
+  style,
+  radio,
+  name,
+  defaultChecked,
+}: Props) {
   return (
-    <label className="relative">
+    <label className="relative flex">
       <input
         type="radio"
-        name="tag"
+        name={name}
         defaultChecked={defaultChecked}
-        className="absolute z-[-1]"
+        className={classNames({
+          'peer absolute z-[-1]': radio === 'dia',
+          'peer h-5 w-5 rounded border border-[#808080] checked:bg-red-600':
+            radio === 'filter',
+        })}
       />
       <div
         className={classNames(
-          'flex h-5 cursor-pointer items-center gap-2 px-3 font-inter text-sm font-normal transition duration-[400ms]',
+          'cursor-pointer text-sm font-normal transition duration-[400ms]',
+          {
+            'flex h-[35px] w-[67px] justify-center rounded-lg border text-[#808080] peer-checked:bg-mesh-light-2':
+              style === 'cinza',
+          },
           className,
         )}
       >

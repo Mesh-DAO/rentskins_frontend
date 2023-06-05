@@ -4,11 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -16,4 +11,10 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
