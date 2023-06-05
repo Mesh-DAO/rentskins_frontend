@@ -1,8 +1,11 @@
 {
-  "plugins": ["react-hooks"],
+  "plugins": [
+    "react-hooks"
+  ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "camelcase": "off"
   }
 }

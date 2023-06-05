@@ -1,6 +1,5 @@
-"use client"
-import { useState } from "react"
-import InputRadio from "../InputRadio"
+'use client'
+import InputRadioChoice from '../InputRadioChoice'
 
 interface Props {
   thereIsRented?: boolean
@@ -8,9 +7,9 @@ interface Props {
 
 export default function ChoiceItems({ thereIsRented = false }: Props) {
   return (
-    <div className="flex gap-16 self-start mt-16">
-      <InputRadio checked={true}>Items à venda</InputRadio>
-      { thereIsRented ? <InputRadio>Alugados</InputRadio> : null }
+    <div className="mt-16 flex gap-16 self-start">
+      <InputRadioChoice checked={true}>Items à venda</InputRadioChoice>
+      {thereIsRented ? <InputRadioChoice>Alugados</InputRadioChoice> : null}
     </div>
   )
 }

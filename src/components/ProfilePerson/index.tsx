@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import { Button } from '../Button';
-import { Send } from '../Icons/Send';
-import perfil from '../../assets/perfil.png';
-import ProfileInfo from '../ProfileInfo';
-import { Title } from '../Title';
+import Image from 'next/image'
+import { Button } from '../Button'
+import { Send } from '../Icons/Send'
+import perfil from '../../assets/perfil.png'
+import ProfileInfo from '../ProfileInfo'
+import { Title } from '../Title'
 
 export default function PerfilPerson() {
   return (
@@ -18,11 +18,15 @@ export default function PerfilPerson() {
         />
         <div className="flex flex-col gap-7">
           <div className="flex flex-col gap-2">
-            <Title bold={600} color="white" size="3xl" className="self-start">Coldzera</Title>
-            <div className="font-normal text-base p-1 w-32 bg-dark-olive-green text-center rounded-3xl text-white">Membro novo</div>
+            <Title bold={600} color="white" size="3xl" className="self-start">
+              Coldzera
+            </Title>
+            <div className="w-32 rounded-3xl bg-dark-olive-green p-1 text-center text-base font-normal text-white">
+              Membro novo
+            </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h1 className="text-lg text-white flex gap-1">
+            <h1 className="flex gap-1 text-lg text-white">
               <span className="opacity-60">Steam Level:</span>
               <strong>195</strong>
             </h1>
@@ -33,11 +37,11 @@ export default function PerfilPerson() {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap w-[500px] gap-5">
-        <ProfileInfo title="Tempo de entrega" value="20 Minutos"/>
-        <ProfileInfo title="Total de trocas" value="242"/>
-        <ProfileInfo title="Taxa de entrega" value="92%"/>
-        <ProfileInfo title="Membro da Steam desde" value="02/05/2004"/>
+      <div className="flex w-[500px] flex-wrap gap-5">
+        <ProfileInfo title="Tempo de entrega" value="20 Minutos" />
+        <ProfileInfo title="Total de trocas" value="242" />
+        <ProfileInfo title="Taxa de entrega" value="92%" />
+        <ProfileInfo title="Membro da Steam desde" value="02/05/2004" />
       </div>
     </section>
   )

@@ -1,19 +1,20 @@
-import classNames from "classnames";
+import React from 'react'
+import classNames from 'classnames'
 
 type Props = {
-  children: React.ReactNode;
-  size?: "sm" | "md" | "xs" | "lg" | "2xl" | "3xl";
-  color?: string;
-  className?: string;
-  bold?: null | 700 | 900 | 600;
-  onClick?: () => void;
-};
+  children: React.ReactNode
+  size?: 'sm' | 'md' | 'xs' | 'lg' | 'xl' | '2xl' | '3xl'
+  color?: string
+  className?: string
+  bold?: null | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
+  onClick?: () => void
+}
 
 export function Title({
   children,
   onClick,
-  size = "md",
-  color = "black",
+  size = 'md',
+  color = 'black',
   className,
   bold = null,
 }: Props) {
@@ -21,52 +22,56 @@ export function Title({
     <h1
       onClick={onClick}
       className={classNames(
-        `${className} flex items-center gap-2 transition-all duration-300 ease-in-out font-inter`,
+        `${className} flex items-center gap-2 font-inter transition-all duration-300 ease-in-out`,
         {
-          "text-xs": size === "xs",
+          'text-white': color === 'white',
         },
         {
-          "text-md": size === "md",
+          'text-alt-steam-button': color === 'green',
         },
         {
-          "text-lg": size === "lg",
+          'text-mesh-dark-3': color === 'cinza',
         },
         {
-          "text-2xl": size === "2xl",
+          'text-xs': size === 'xs',
         },
         {
-          "text-3xl": size === "3xl",
+          'text-sm': size === 'sm',
         },
         {
-          "text-sm": size === "sm",
+          'text-md': size === 'md',
         },
         {
-          "font-bold": bold === 700,
+          'text-lg': size === 'lg',
         },
         {
-          "font-black": bold === 900,
+          'text-xl': size === 'xl',
         },
         {
-          "font-semibold": bold === 600,
+          'text-2xl': size === '2xl',
         },
         {
-          "text-black": color === "black",
+          'font-thin': bold === 100,
         },
         {
-          "text-gray-500": color === "gray",
+          'font-normal': bold === 400,
         },
         {
-          "text-[#1682FD]": color === "blue",
+          'font-semibold': bold === 600,
         },
         {
-          "text-white": color === "white",
+          'font-bold': bold === 700,
         },
         {
-          "text-alt-steam-button": color === "green",
-        }
+          'font-extrabold': bold === 800,
+        },
+        {
+          'font-black': bold === 900,
+        },
+        className,
       )}
     >
       {children}
     </h1>
-  );
+  )
 }
