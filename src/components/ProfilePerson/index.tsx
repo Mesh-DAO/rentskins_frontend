@@ -5,7 +5,11 @@ import perfil from '../../assets/perfil.png'
 import ProfileInfo from '../ProfileInfo'
 import { Title } from '../Title'
 
-export default function PerfilPerson() {
+interface Props {
+  isSeller?: boolean
+}
+
+export default function PerfilPerson({ isSeller }: Props) {
   return (
     <section className="flex w-full justify-between font-inter">
       <div className="flex gap-6">
@@ -30,10 +34,12 @@ export default function PerfilPerson() {
               <span className="opacity-60">Steam Level:</span>
               <strong>195</strong>
             </h1>
-            <Button color="green">
-              <Send />
-              Anuncie Agora
-            </Button>
+            {isSeller ?? (
+              <Button color="green">
+                <Send />
+                Anuncie Agora
+              </Button>
+            )}
           </div>
         </div>
       </div>

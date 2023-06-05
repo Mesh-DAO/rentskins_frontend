@@ -12,7 +12,7 @@ export default function InputRadio({ children, checked }: Props) {
         type="radio"
         className="peer absolute z-[-1]"
         name="choice-item"
-        checked={checked}
+        defaultChecked={checked}
       />
       <div
         className="flex h-9 cursor-pointer

@@ -51,6 +51,9 @@ export function Title({
           'text-2xl': size === '2xl',
         },
         {
+          'text-3xl': size === '3xl',
+        },
+        {
           'font-thin': bold === 100,
         },
         {
