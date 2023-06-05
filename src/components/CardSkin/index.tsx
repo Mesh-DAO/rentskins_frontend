@@ -1,8 +1,11 @@
+"use client"
 import Image from "next/image";
 import { Button } from "../Button";
 import IconSteam from "@/assets/IconSteam";
 import IconCart from "@/assets/Cart";
 import IconEye from "@/assets/Eye";
+import ColoredLine from "../ColoredLine";
+import { useEffect, useState } from "react";
 
 interface Props {
   name: string;
@@ -11,13 +14,14 @@ interface Props {
 };
 
 export function CardSkin({ name, name_color, icon_url }: Props) {
-  const [skinType, skinName] = name.split("|")
+  const [skinType, skinName] = name.split("|");
+
   return (
     <article className="w-72 rounded-lg flex flex-col gap-3 px-3 pt-3 pb-4 border-2 border-dark-olive-green border-opacity-60 text-white">
       <div className="border-2 flex flex-col items-center justify-center bg-mesh-skin-gradient rounded-lg border-dark-olive-green">
-        <div className={`w-52 h-2 bg-[#${name_color}] rounded-b-full`} />
+        <div className={`w-52 h-2 rounded-b-full`} style={ { backgroundColor: `#${name_color}`, } } />
         <Image
-          src={`https://steamcommunity-a.akamaihd.net/economy/image/${icon_url}/206fx170f`}
+          src={`https://steamcommunity-a.akamaihd.net/economy/image/${icon_url}`}
           alt="placeholder"
           width={206}
           height={154}
@@ -46,6 +50,7 @@ export function CardSkin({ name, name_color, icon_url }: Props) {
           <span className="opacity-60">0.0003</span>
         </h1>
       </div>
+      <ColoredLine />
       <div className="flex items-center justify-end">
         <div className="flex gap-2">
           <Button color="invisible">

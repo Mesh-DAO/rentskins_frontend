@@ -5,7 +5,7 @@ interface Props {
   value: string;
 }
 
-export default function Tag({ title, value }: Props) {
+export default function ProfileInfo({ title, value }: Props) {
   const isPercent = value.includes('%') ? 'green' : 'white'
 
   return (

@@ -2,12 +2,12 @@ import Image from 'next/image';
 import { Button } from '../Button';
 import { Send } from '../Icons/Send';
 import perfil from '../../assets/perfil.png';
-import Tag from '../Tag';
+import ProfileInfo from '../ProfileInfo';
 import { Title } from '../Title';
 
 export default function PerfilPerson() {
   return (
-    <section className="flex w-4/5 justify-between font-inter">
+    <section className="flex w-full justify-between font-inter">
       <div className="flex gap-6">
         <Image
           src={perfil}
@@ -34,10 +34,10 @@ export default function PerfilPerson() {
         </div>
       </div>
       <div className="flex flex-wrap w-[500px] gap-5">
-        <Tag title="Tempo de entrega" value="20 Minutos"/>
-        <Tag title="Total de trocas" value="242"/>
-        <Tag title="Taxa de entrega" value="92%"/>
-        <Tag title="Membro da Steam desde" value="02/05/2004"/>
+        <ProfileInfo title="Tempo de entrega" value="20 Minutos"/>
+        <ProfileInfo title="Total de trocas" value="242"/>
+        <ProfileInfo title="Taxa de entrega" value="92%"/>
+        <ProfileInfo title="Membro da Steam desde" value="02/05/2004"/>
       </div>
     </section>
   )
