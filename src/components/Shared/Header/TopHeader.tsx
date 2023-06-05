@@ -28,7 +28,7 @@ export function TopHeader() {
           </span>
           Carrinho de compra
         </Button>
-        <Button className="h-[44px] w-[220px] rounded-[14px] bg-[#95BC1E]">
+        <Button className="h-[44px] w-[220px] rounded-[14px] bg-[#95BC1E] opacity-100">
           <span className="mr-2">
             <IconSteam />
           </span>
