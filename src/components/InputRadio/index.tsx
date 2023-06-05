@@ -18,7 +18,7 @@ export function InputRadio({ children, className, defaultChecked }: Props) {
       />
       <div
         className={classNames(
-          'flex h-7 cursor-pointer items-center gap-2 px-3 font-inter text-sm font-normal transition duration-[400ms]',
+          'flex h-5 cursor-pointer items-center gap-2 px-3 font-inter text-sm font-normal transition duration-[400ms]',
           className,
         )}
       >

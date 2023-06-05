@@ -1,17 +1,18 @@
-"use client";
-import Header from "./Header";
-import { Footer } from "../Footer";
+'use client'
+import Header from './Header'
+import { Footer } from '../Footer'
+import React from 'react'
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
 export function LayoutPage({ children }: Props) {
   return (
-    <div className="min-h-screen bg-[#FAFAFA]">
+    <div className="min-h-screen bg-jet-black">
       <Header />
-        {children}
+      {children}
       <Footer />
     </div>
-  );
+  )
 }

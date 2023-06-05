@@ -1,5 +1,5 @@
 import { Button } from '../Button'
-import { Carrinho } from '../Icons/Carrinho'
+import { IconCarrinho } from '../Icons'
 import { InputRadio } from '../InputRadio'
 import { Title } from '../Title'
 
@@ -87,7 +87,7 @@ export function InfoSkin() {
           Comprar agora
         </Button>
         <Button className="h-11 w-11">
-          <Carrinho />
+          <IconCarrinho />
         </Button>
       </div>
     </div>
