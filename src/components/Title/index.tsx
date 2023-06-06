@@ -4,9 +4,10 @@ import classNames from 'classnames'
 type Props = {
   children: React.ReactNode
   size?: 'sm' | 'md' | 'xs' | 'lg' | 'xl' | '2xl' | '3xl'
-  color?: string
+  color?: 'white' | 'green' | 'cinza' | 'red' | 'black'
   className?: string
   bold?: null | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
+  bg?: 'light-red'
   onClick?: () => void
 }
 
@@ -17,6 +18,7 @@ export function Title({
   color = 'black',
   className,
   bold = null,
+  bg,
 }: Props) {
   return (
     <h1
@@ -31,6 +33,12 @@ export function Title({
         },
         {
           'text-mesh-dark-3': color === 'cinza',
+        },
+        {
+          'text-red-600': color === 'red',
+        },
+        {
+          'bg-[#c818181a]': bg === 'light-red',
         },
         {
           'text-xs': size === 'xs',

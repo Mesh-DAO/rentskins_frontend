@@ -4,14 +4,17 @@ import IconSteam from '@/assets/IconSteam'
 import IconCart from '@/assets/Cart'
 import IconEye from '@/assets/Eye'
 import ColoredLine from '../ColoredLine'
+import IconMagic from '../Icons/IconMagicpen'
+import { Title } from '../Title'
 
 interface Props {
   name: string
   nameColor: string
   iconUrl: string
+  itsRent?: boolean
 }
 
-export function CardSkin({ name, nameColor, iconUrl }: Props) {
+export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
   const [skinType, skinName] = name.split('|')
 
   return (
@@ -32,6 +35,11 @@ export function CardSkin({ name, nameColor, iconUrl }: Props) {
       <div className="flex items-center justify-between">
         <h1 className="text-sm font-medium opacity-60">{skinType}</h1>
         <div className="flex gap-2">
+          {itsRent && (
+            <Button color="invisible">
+              <IconMagic />
+            </Button>
+          )}
           <Button color="invisible">
             <IconSteam />
           </Button>
@@ -49,12 +57,21 @@ export function CardSkin({ name, nameColor, iconUrl }: Props) {
       </div>
       <ColoredLine />
       <div className="flex items-center justify-end">
-        <div className="flex gap-2">
-          <Button color="invisible">
-            <IconCart />
-          </Button>
-          <Button color="visible">Comprar</Button>
-        </div>
+        {itsRent ? (
+          <div className="flex flex-col items-end gap-2">
+            <Button color="visible">Devolução</Button>
+            <Title color="red" bg="light-red" className="rounded-xl px-2">
+              Expira em 21 dias
+            </Title>
+          </div>
+        ) : (
+          <div className="flex gap-2">
+            <Button color="invisible">
+              <IconCart />
+            </Button>
+            <Button color="visible">Comprar</Button>
+          </div>
+        )}
       </div>
     </article>
   )
