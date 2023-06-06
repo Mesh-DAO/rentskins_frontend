@@ -59,6 +59,11 @@ export function Title({
         {
           'font-normal': bold === 400,
         },
+
+        {
+          'font-medium': bold === 500,
+        },
+
         {
           'font-semibold': bold === 600,
         },
