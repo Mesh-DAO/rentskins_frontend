@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import LogoIcon from '../../components/icons/icon-logo.svg'
+import LogoIcon from '../../components/Icons/IconLogo'
 import {
   IconFacebook,
   IconInstagram,
@@ -13,7 +12,7 @@ export function Footer() {
       <div className="flex h-64 items-center justify-between bg-mesh-dark-1 px-32">
         {/* Left Side */}
         <div className="flex flex-col gap-4">
-          <Image src={LogoIcon} alt="Logo" />
+          <LogoIcon />
           <p>
             <span className="text-mesh-light-1">
               Copyright © 2023 RentSkins. <br /> All rights reserved.
