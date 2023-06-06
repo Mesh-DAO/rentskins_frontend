@@ -1,19 +1,28 @@
 import create from 'zustand'
-//
+
+type TypeMethod = 'mastercard' | 'pix' | 'ticket'
+
 interface IPayment {
   value?: number
-  method?: 'mastercard' | 'pix' | 'ticket'
+  method?: TypeMethod
 }
 
 interface IStates {
-  payment: IPayment
-  setPayment: (payment: IPayment) => void
+  paymentAdd: IPayment
+  setPaymentAdd: (paymentAdd: IPayment) => void
+  paymentRetrieve: { method: TypeMethod }
+  setPaymentRetrieve: (paymentRetrieve: { method: TypeMethod }) => void
 }
 
 const usePaymentStore = create<IStates>((set) => ({
-  payment: { value: 5, method: 'mastercard' },
-  setPayment: (payment: IPayment) => {
-    set(() => ({ payment }))
+  paymentAdd: { value: 5, method: 'mastercard' },
+  setPaymentAdd: (paymentAdd: IPayment) => {
+    set(() => ({ paymentAdd }))
+  },
+
+  paymentRetrieve: { method: 'mastercard' },
+  setPaymentRetrieve: (paymentRetrieve: { method: TypeMethod }) => {
+    set(() => ({ paymentRetrieve }))
   },
 }))
 

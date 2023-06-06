@@ -1,8 +1,13 @@
-export function IconPix() {
+interface IProps {
+  width?: number
+  height?: number
+}
+
+export function IconPix({ width = 108, height = 38 }: IProps) {
   return (
     <svg
-      width="108"
-      height="38"
+      width={width}
+      height={height}
       viewBox="0 0 108 38"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

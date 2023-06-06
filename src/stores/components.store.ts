@@ -1,14 +1,21 @@
 import create from 'zustand'
-//
+
 interface IStates {
-  paymentIndex: 0 | 1
-  setPaymentIndex: (index: 0 | 1) => void
+  paymentGeneralIndex: 0 | 1 | 2
+  setPaymentGeneralIndex: (index: 0 | 1 | 2) => void
+  paymentRetrieveIndex: 0 | 1
+  setPaymentRetrieveIndex: (index: 0 | 1) => void
 }
 
 const useComponentStore = create<IStates>((set) => ({
-  paymentIndex: 0,
-  setPaymentIndex: (index: 0 | 1) => {
-    set(() => ({ paymentIndex: index }))
+  paymentGeneralIndex: 0,
+  setPaymentGeneralIndex: (index: 0 | 1 | 2) => {
+    set(() => ({ paymentGeneralIndex: index }))
+  },
+
+  paymentRetrieveIndex: 0,
+  setPaymentRetrieveIndex: (index: 0 | 1) => {
+    set(() => ({ paymentRetrieveIndex: index }))
   },
 }))
 

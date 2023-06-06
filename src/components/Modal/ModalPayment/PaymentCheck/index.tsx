@@ -8,10 +8,10 @@ import Banner from '../../../../../public/banner.png'
 import useComponentStore from '@/stores/components.store'
 
 export function PaymentCheck() {
-  const { setPaymentIndex } = useComponentStore()
+  const { setPaymentGeneralIndex } = useComponentStore()
 
-  const handleOnRecharge = () => {
-    setPaymentIndex(1)
+  const handleButton = (index: 1 | 2) => {
+    setPaymentGeneralIndex(index)
   }
 
   return (
@@ -63,11 +63,17 @@ export function PaymentCheck() {
           <div className="mb-16 flex h-full w-11/12 items-end gap-20 text-xl font-bold">
             <Button
               className="h-10 w-1/2 bg-[#A6CF2B]"
-              onClick={() => handleOnRecharge()}
+              onClick={() => handleButton(1)}
             >
               Recarga
             </Button>
-            <Button className="h-10 w-1/2 bg-[#CFA62B]"> Retirar </Button>
+            <Button
+              className="h-10 w-1/2 bg-[#CFA62B]"
+              onClick={() => handleButton(2)}
+            >
+              {' '}
+              Retirar{' '}
+            </Button>
           </div>
         </div>
         <div />
