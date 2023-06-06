@@ -7,7 +7,6 @@ type Props = {
   color?: string
   className?: string
   bold?: 100 | 400 | 500 | 600 | 700 | 800 | 900
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   onClick?: () => void
 }
 
@@ -17,7 +16,7 @@ export function Title({
   size = 'md',
   color = 'black',
   className,
-  bold = null,
+  bold = 400,
 }: Props) {
   return (
     <h1
