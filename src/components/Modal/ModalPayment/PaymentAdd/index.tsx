@@ -17,7 +17,7 @@ export function PaymentAdd() {
     setIsLoading(true)
     router.push('/')
   }
-
+  //
   return (
     <Dialog.Content
       className="fixed left-1/2 top-1/2 h-3/5 w-2/3 -translate-x-1/2 -translate-y-1/2
