@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import LogoIcon from '../../components/icons/icon-logo.svg'
+import LogoIcon from '../../components/Icons/IconLogo'
 import {
   IconFacebook,
   IconInstagram,
@@ -13,7 +12,7 @@ export function Footer() {
       <div className="flex h-64 items-center justify-between bg-mesh-dark-1 px-32">
         {/* Left Side */}
         <div className="flex flex-col gap-4">
-          <Image src={LogoIcon} alt="Logo" />
+          <LogoIcon />
           <p>
             <span className="text-mesh-light-1">
               Copyright © 2023 RentSkins. <br /> All rights reserved.
@@ -25,7 +24,7 @@ export function Footer() {
         <div className="flex flex-col items-end gap-16">
           <nav className="flex gap-12">
             <a
-              href="http://localhost:3000/termodeuso"
+              href="/termodeuso"
               target="_blank"
               className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
               rel="noreferrer"
@@ -33,7 +32,7 @@ export function Footer() {
               Termos de Uso
             </a>
             <a
-              href="http://localhost:3000/privacidade"
+              href="/privacidade"
               target="_blank"
               className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
               rel="noreferrer"
@@ -48,7 +47,7 @@ export function Footer() {
               Sobre Nós
             </a>
             <a
-              href="http://localhost:3000/sobre"
+              href="/sobre"
               target="_blank"
               className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
               rel="noreferrer"
