@@ -5,7 +5,7 @@ import { IconPix } from '@/components/Icons/payment/IconPix'
 import { IconBoleto } from '@/components/Icons/payment/IconBoleto'
 import usePaymentStore from '@/stores/payment.store'
 
-export function PaymentRetrieveInputMethods() {
+export function ModalPaymentRetrieveInputMethods() {
   const { setPaymentRetrieve } = usePaymentStore()
 
   const handleMethodChange = (event: any) => {

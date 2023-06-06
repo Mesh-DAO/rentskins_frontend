@@ -2,10 +2,10 @@
 //
 import React from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
-import { PaymentCheck } from './PaymentCheck'
-import { PaymentAdd } from './PaymentAdd'
+import { ModalPaymentCheck } from './PaymentCheck'
+import { ModalPaymentAdd } from './PaymentAdd'
 import useComponentStore from '@/stores/components.store'
-import { PaymentRetrieve } from './PaymentRetrieve'
+import { ModalPaymentRetrieve } from './PaymentRetrieve'
 
 interface IProps {
   activator: React.ReactNode
@@ -34,9 +34,9 @@ export function ModalPayment({ activator }: IProps) {
       <Dialog.Trigger asChild>{activator}</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 flex bg-black/70 transition-all" />
-        {paymentGeneralIndex === 0 && <PaymentCheck />}
-        {paymentGeneralIndex === 1 && <PaymentAdd />}
-        {paymentGeneralIndex === 2 && <PaymentRetrieve />}
+        {paymentGeneralIndex === 0 && <ModalPaymentCheck />}
+        {paymentGeneralIndex === 1 && <ModalPaymentAdd />}
+        {paymentGeneralIndex === 2 && <ModalPaymentRetrieve />}
       </Dialog.Portal>
     </Dialog.Root>
   )

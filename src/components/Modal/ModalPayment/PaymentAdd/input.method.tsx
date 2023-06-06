@@ -4,13 +4,13 @@ import { IconPix } from '@/components/Icons/payment/IconPix'
 import { IconBoleto } from '@/components/Icons/payment/IconBoleto'
 import usePaymentStore from '@/stores/payment.store'
 
-export function PaymentAddMethodsInputs() {
+export function ModalPaymentAddMethodsInputs() {
   const { setPaymentAdd, paymentAdd } = usePaymentStore()
 
   const handleMethodChange = (event: any) => {
     setPaymentAdd({ method: event.target.value, value: paymentAdd.value })
   }
-  //
+
   return (
     <div className="grid grid-cols-2 grid-rows-2 gap-2 pt-5">
       <div className="flex h-24 w-full">
@@ -41,7 +41,6 @@ export function PaymentAddMethodsInputs() {
           className="peer appearance-none"
           value="pix"
           onClick={(event) => handleMethodChange(event)}
-          defaultChecked
         />
         <label
           htmlFor="payment-index-2"
@@ -61,7 +60,6 @@ export function PaymentAddMethodsInputs() {
           className="peer appearance-none"
           value="ticket"
           onClick={(event) => handleMethodChange(event)}
-          defaultChecked
         />
         <label
           htmlFor="payment-index-3"

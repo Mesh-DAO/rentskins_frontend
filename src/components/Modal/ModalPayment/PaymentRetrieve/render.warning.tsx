@@ -5,7 +5,7 @@ import { Loading } from '@/components/Loading'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-export function PaymentRetrieveWarning() {
+export function ModalPaymentRetrieveWarning() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 

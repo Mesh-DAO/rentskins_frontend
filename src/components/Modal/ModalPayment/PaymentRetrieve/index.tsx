@@ -3,11 +3,11 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { IconClose } from '@/components/Icons/IconClose'
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
-import { PaymentRetrieveSelection } from './render.selection'
+import { ModalPaymentRetrieveSelection } from './render.selection'
 import useComponentStore from '@/stores/components.store'
-import { PaymentRetrieveWarning } from './render.warning'
+import { ModalPaymentRetrieveWarning } from './render.warning'
 
-export function PaymentRetrieve() {
+export function ModalPaymentRetrieve() {
   const { paymentRetrieveIndex } = useComponentStore()
 
   return (
@@ -28,8 +28,8 @@ export function PaymentRetrieve() {
           </Button>
         </div>
         <div className="flex h-full w-11/12 items-start justify-between">
-          {paymentRetrieveIndex === 0 && <PaymentRetrieveSelection />}
-          {paymentRetrieveIndex === 1 && <PaymentRetrieveWarning />}
+          {paymentRetrieveIndex === 0 && <ModalPaymentRetrieveSelection />}
+          {paymentRetrieveIndex === 1 && <ModalPaymentRetrieveWarning />}
         </div>
         <div />
       </div>

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Banner from '../../../../../public/banner.png'
 import useComponentStore from '@/stores/components.store'
 
-export function PaymentCheck() {
+export function ModalPaymentCheck() {
   const { setPaymentGeneralIndex } = useComponentStore()
 
   const handleButton = (index: 1 | 2) => {

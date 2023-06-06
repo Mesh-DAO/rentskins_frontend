@@ -4,18 +4,20 @@ import { Title } from '@/components/Title'
 import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
 import { Button } from '@/components/Button'
 import { IconClose } from '@/components/Icons/IconClose'
-import { PaymentAddValuesInputs } from './input.value'
-import { PaymentAddMethodsInputs } from './input.method'
+import { ModalPaymentAddValuesInputs } from './input.value'
+import { ModalPaymentAddMethodsInputs } from './input.method'
 import { Loading } from '@/components/Loading'
 import { useRouter } from 'next/navigation'
+import usePaymentStore from '@/stores/payment.store'
 
-export function PaymentAdd() {
+export function ModalPaymentAdd() {
   const router = useRouter()
+  const { paymentAdd } = usePaymentStore()
   const [isLoading, setIsLoading] = useState(false)
 
   const handleOnDeposit = () => {
     setIsLoading(true)
-    router.push('/')
+    router.push(`/payment/add/${paymentAdd.method}`)
   }
   //
   return (
@@ -29,7 +31,7 @@ rounded-2xl bg-[#272E29]"
           <Title bold={400} size="xl" color="white" className="leading-none">
             Selecione a forma de pagamento
           </Title>
-          <PaymentAddMethodsInputs />
+          <ModalPaymentAddMethodsInputs />
         </div>
         {isLoading ? (
           <Loading> Processando... </Loading>
@@ -58,7 +60,7 @@ rounded-2xl bg-[#272E29]"
                       placeholder="Insira um valor"
                     />
                   </label>
-                  <PaymentAddValuesInputs />
+                  <ModalPaymentAddValuesInputs />
                 </div>
                 <div className="w-1/3 self-center">
                   <IconMoneyBag />

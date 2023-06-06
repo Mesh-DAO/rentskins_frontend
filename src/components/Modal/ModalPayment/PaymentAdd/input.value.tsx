@@ -1,16 +1,33 @@
-export function PaymentAddValuesInputs() {
-  //
+'use client'
+import usePaymentStore from '@/stores/payment.store'
+import { useEffect } from 'react'
+
+export function ModalPaymentAddValuesInputs() {
+  const { setPaymentAdd, paymentAdd } = usePaymentStore()
+
+  const handleValueChange = (event: any) => {
+    setPaymentAdd({
+      method: paymentAdd.method,
+      value: Number(event.target.value),
+    })
+  }
+
+  useEffect(() => {
+    console.log(paymentAdd)
+  }, [paymentAdd])
+
   return (
     <div className="mt-7 grid grid-cols-2 grid-rows-2 gap-2">
-      {/* R$50 __________________________ */}
+      {/* R$5 __________________________ */}
       <div className="flex">
         <input
           type="radio"
           id="settings_index-1"
           name="settings_index"
           className="peer appearance-none"
-          value={50}
+          value={5}
           defaultChecked
+          onClick={(event) => handleValueChange(event)}
         />
         <label
           htmlFor="settings_index-1"
@@ -29,6 +46,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
           name="settings_index"
           className="peer appearance-none"
           value={10}
+          onClick={(event) => handleValueChange(event)}
         />
         <label
           htmlFor="settings_index-2"
@@ -47,6 +65,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
           name="settings_index"
           className="peer appearance-none"
           value={25}
+          onClick={(event) => handleValueChange(event)}
         />
         <label
           htmlFor="settings_index-3"
@@ -65,6 +84,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
           name="settings_index"
           className="peer appearance-none"
           value={50}
+          onClick={(event) => handleValueChange(event)}
         />
         <label
           htmlFor="settings_index-4"
@@ -83,6 +103,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
           name="settings_index"
           className="peer appearance-none"
           value={100}
+          onClick={(event) => handleValueChange(event)}
         />
         <label
           htmlFor="settings_index-5"
@@ -101,6 +122,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
           name="settings_index"
           className="peer appearance-none"
           value={200}
+          onClick={(event) => handleValueChange(event)}
         />
         <label
           htmlFor="settings_index-6"
@@ -119,6 +141,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
           name="settings_index"
           className="peer appearance-none"
           value={500}
+          onClick={(event) => handleValueChange(event)}
         />
         <label
           htmlFor="settings_index-7"
@@ -137,6 +160,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
           name="settings_index"
           className="peer appearance-none"
           value={1000}
+          onClick={(event) => handleValueChange(event)}
         />
         <label
           htmlFor="settings_index-8"

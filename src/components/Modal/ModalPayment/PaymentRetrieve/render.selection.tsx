@@ -1,10 +1,10 @@
 import { Button } from '@/components/Button'
 import { IconShield } from '@/components/Icons'
 import { Title } from '@/components/Title'
-import { PaymentRetrieveInputMethods } from './input.method'
+import { ModalPaymentRetrieveInputMethods } from './input.method'
 import useComponentStore from '@/stores/components.store'
 
-export function PaymentRetrieveSelection() {
+export function ModalPaymentRetrieveSelection() {
   const { setPaymentRetrieveIndex } = useComponentStore()
 
   const handleOnWithdraw = () => {
@@ -41,7 +41,7 @@ export function PaymentRetrieveSelection() {
         <Title bold={600} size="xl" className="mt-6 text-[#A7B0A0]">
           Selecione o Método de Pagamento
         </Title>
-        <PaymentRetrieveInputMethods />
+        <ModalPaymentRetrieveInputMethods />
       </div>
       <div className="mb-7 flex h-full items-end justify-end">
         {/* CHANGE COLOR */}
