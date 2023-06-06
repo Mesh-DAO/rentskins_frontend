@@ -1,5 +1,5 @@
 import create from 'zustand'
-
+//
 interface IPayment {
   value?: number
   method?: 'mastercard' | 'pix' | 'ticket'

@@ -10,7 +10,7 @@ export function PaymentAddMethodsInputs() {
   const handleMethodChange = (event: any) => {
     setPayment({ method: event.target.value, value: payment.value })
   }
-
+  //
   return (
     <div className="grid grid-cols-2 grid-rows-2 gap-2 pt-5">
       <div className="flex h-24 w-full">

@@ -1,5 +1,5 @@
 import create from 'zustand'
-
+//
 interface IStates {
   paymentIndex: 0 | 1
   setPaymentIndex: (index: 0 | 1) => void
