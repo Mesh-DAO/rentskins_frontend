@@ -67,14 +67,16 @@ export function InfoSkin() {
           Selecione o período de Aluguel
         </Title>
         <div className="mt-4 flex gap-4">
-          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white hover:bg-mesh-light-2 ">
-            7 Dias
+          <InputRadio name="dias" style="cinza" radio="dia">
+            <Title color="white">7 Dias</Title>
           </InputRadio>
-          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white hover:bg-mesh-light-2 ">
-            14 Dias
+
+          <InputRadio name="dias" style="cinza" radio="dia">
+            <Title color="white">14 Dias</Title>
           </InputRadio>
-          <InputRadio className="h-[35px] w-[75px] rounded-lg border border-[#3E423A] text-white hover:bg-mesh-light-2 ">
-            21 Dias
+
+          <InputRadio name="dias" style="cinza" radio="dia">
+            <Title color="white">21 Dias</Title>
           </InputRadio>
         </div>
       </div>
