@@ -6,9 +6,9 @@ import { Title } from '@/components/Title'
 
 export function InfoSkinModal() {
   return (
-    <div className="w-1/2">
+    <div className="flex h-full w-[40%] flex-col">
       <div>
-        <Title color="white" className="text-[28px]">
+        <Title color="white" className=" text-[28px]">
           Kumicho Dragon
         </Title>
         <p className="-mt-2 font-medium text-[#A7B0A0]">
@@ -16,7 +16,7 @@ export function InfoSkinModal() {
         </p>
       </div>
 
-      <div className="mt-4 w-full rounded-xl bg-[#1A1D1A] p-4">
+      <div className="mt-4 h-full w-full rounded-lg bg-[#1A1D1A] p-4">
         <div>
           <div className="mt-2 flex justify-between">
             <Title size="md" bold={500} color="white">
@@ -29,6 +29,7 @@ export function InfoSkinModal() {
           </p>
           <div className="mt-6 rounded border-b border-[#A7B0A0]" />
         </div>
+
         {/* ---------INPUT -------------  */}
         <div className="mt-5 flex w-full gap-4">
           <div className="w-full space-y-2">
@@ -37,21 +38,22 @@ export function InfoSkinModal() {
             </Title>
             <Input
               placeHolder="R$2.000"
-              className="h-8 w-full rounded-md bg-[#3E423A]"
+              className="h-8 w-full rounded-md bg-mesh-dark-0 text-[#A7B0A0]"
             />
           </div>
 
           <div className="w-full space-y-2">
             <Title bold={500} color="white">
-              Preço de venda
+              Você irá receber
             </Title>
             <Input
-              className="h-8 w-full rounded-md bg-[#3E423A]"
+              className="h-8 w-full rounded-md bg-mesh-dark-0 text-[#A7B0A0]"
               placeHolder="R$32,21"
             />
           </div>
         </div>
         {/* ---------INPUT FIM -------------  */}
+
         <div className=" space-y-6">
           <Button className="mt-4 h-11 w-full bg-dark-lime-green">
             <Title bold={600} className="rounded-xl">

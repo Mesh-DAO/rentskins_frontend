@@ -12,7 +12,7 @@ export function Meio() {
     <div className="min-h-[1000px]">
       {Number(num) === 1 ? (
         <div className="mx-auto w-[60%] rounded-xl bg-[#222723] px-5 py-5">
-          <Title color="white" className="text-center font-bold">
+          <Title bold={700} color="white" className="text-center font-bold">
             Para ter acesso às suas skins e realizar transações, é necessário
             vincular seu inventário à Steam
           </Title>
@@ -21,7 +21,7 @@ export function Meio() {
           </Button>
         </div>
       ) : (
-        <div className="flex">
+        <div className="flex justify-center space-x-6">
           <ModalAddSkin
             activator={CardSkinInventory({ nameColor: 'DFDFDF' })}
           />
