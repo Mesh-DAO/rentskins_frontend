@@ -19,7 +19,7 @@ module.exports = {
         'mesh-light': {
           0: '#FFFFFF',
           1: '#CECECE',
-          2: '#CA1733',
+          2: '#A7B0A0',
         },
       },
       backgroundColor: {

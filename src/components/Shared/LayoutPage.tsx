@@ -1,15 +1,15 @@
 'use client'
 import Header from './Header'
 import { Footer } from '../Footer'
+import React from 'react'
 
 type Props = {
-  // eslint-disable-next-line no-undef
   children: React.ReactNode
 }
 
 export function LayoutPage({ children }: Props) {
   return (
-    <div>
+    <div className="min-h-screen bg-jet-black">
       <Header />
       {children}
       <Footer />
