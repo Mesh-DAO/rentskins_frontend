@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode
   color?: string
   className?: string
-  bold?: 100 | 400 | 600 | 700 | 800 | 900
+  bold?: 100 | 400 | 500 | 600 | 700 | 800 | 900
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   onClick?: () => void
 }
@@ -53,6 +53,11 @@ export function Title({
         {
           'font-normal': bold === 400,
         },
+
+        {
+          'font-medium': bold === 500,
+        },
+
         {
           'font-semibold': bold === 600,
         },
