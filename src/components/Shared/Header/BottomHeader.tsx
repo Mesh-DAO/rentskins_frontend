@@ -81,7 +81,7 @@ export const ContainerItem = ({
   isList,
 }: PropsContainer) => {
   return (
-    <div className="group relative">
+    <div className="group relative z-20">
       {isList ? (
         <div className="flex items-center">
           <Title color="white" className="cursor-pointer">
