@@ -14,6 +14,7 @@ export function ModalPaymentAdd() {
   const router = useRouter()
   const { paymentAdd } = usePaymentStore()
   const [isLoading, setIsLoading] = useState(false)
+  const [valueAmount, setValueAmount] = useState<undefined | number>(undefined)
 
   const handleOnDeposit = () => {
     setIsLoading(true)
@@ -50,13 +51,32 @@ rounded-2xl bg-[#272E29]"
             <div className="mt-3 flex h-full w-full flex-col justify-between">
               <div className="flex h-min w-full justify-around">
                 <div className="flex w-1/2 flex-col">
-                  <label className="flex flex-col text-[#A7B0A0]">
+                  <label className="flex w-full flex-col text-[#A7B0A0]">
                     Valor do Pagamento
-                    <input
-                      // CHANGE COLOR!
-                      className="mb-2 mt-2 rounded-md bg-mesh-dark-0 px-3 py-4 text-alt-steam-button placeholder:text-[#E3F1D8]"
-                      placeholder="Insira um valor"
-                    />
+                    <div className="w-full ">
+                      <span
+                        className={`relative left-3 top-1/2 text-lg font-semibold transition-all ${
+                          valueAmount !== undefined ? '' : 'text-transparent'
+                        }`}
+                      >
+                        R$
+                      </span>
+                      <input
+                        // CHANGE COLOR!
+                        type="number"
+                        min={0}
+                        value={valueAmount?.toFixed(2)}
+                        onChange={(event) =>
+                          setValueAmount(Number(event.target.value))
+                        }
+                        className={`my-2 w-full rounded-md bg-mesh-dark-0
+                        px-3 py-4 outline-[#D3F375] transition-all ${
+                          valueAmount !== undefined ? 'pl-10' : 'pl-4'
+                        } text-white
+                        placeholder:text-[#E3F1D8] focus:placeholder:text-transparent`}
+                        placeholder="R$ 0,00"
+                      />
+                    </div>
                   </label>
                   <ModalPaymentAddValuesInputs />
                 </div>
