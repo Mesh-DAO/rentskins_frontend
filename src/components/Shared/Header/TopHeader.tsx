@@ -23,7 +23,7 @@ export function TopHeader() {
           />
         </div>
       </div>
-
+      {/* ----------BUTTON ------------ */}
       <div className="flex space-x-4">
         <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-jet-black  p-2 text-[#A7B0A0]">
           <span className="mr-2">
@@ -38,6 +38,7 @@ export function TopHeader() {
           Entre com sua steam
         </Button>
       </div>
+      {/* ----------BUTTON FIM ------------ */}
     </div>
   )
 }
