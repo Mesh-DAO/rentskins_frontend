@@ -6,7 +6,7 @@ type Props = {
   className?: string
   children: React.ReactNode
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined
-  color?: 'invisible' | 'visible'
+  color?: 'invisible' | 'visible' | 'green'
   textColor?: string
   hoverTextColor?: string
   width?: string
@@ -39,6 +39,10 @@ export function Button({
         {
           'h-9 w-28 rounded-lg bg-dark-olive-green px-4 py-3 text-lg text-white':
             color === 'visible',
+        },
+        {
+          'h-10 w-48 gap-1 rounded-xl bg-dark-lime-green px-4 py-3 text-lg text-mesh-dark-2':
+            color === 'green',
         },
         className,
       )}
