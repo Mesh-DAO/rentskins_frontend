@@ -12,12 +12,19 @@ import CircleLoading from '@/components/CircleLoading'
 
 export function ModalPaymentAdd() {
   const router = useRouter()
-  const { paymentAdd } = usePaymentStore()
+  const { paymentAdd, setPaymentAdd } = usePaymentStore()
   const [isLoading, setIsLoading] = useState(false)
   const [valueAmount, setValueAmount] = useState<undefined | number>(undefined)
 
   const handleOnDeposit = () => {
     setIsLoading(true)
+
+    if (valueAmount !== undefined) {
+      if (Number(valueAmount) > 0) {
+        setPaymentAdd({ ...paymentAdd, value: valueAmount })
+      }
+    }
+
     router.push(`/pagamento/recarregar/${paymentAdd.method}`)
   }
   //
