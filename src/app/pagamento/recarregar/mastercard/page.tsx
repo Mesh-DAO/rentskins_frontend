@@ -37,13 +37,18 @@ export default function PaymentAddMastercardPage() {
   const handleOnSubmit = (event: any) => {
     event.preventDefault()
     setIsLoading(true)
+    router.push('/pagamento/recarregar/sucesso')
   }
 
   return (
     <LayoutPage>
       {/* CHANGE COLOR */}
       <main className="flex h-screen flex-col items-center justify-start bg-[#151714] text-white">
-        <CircleLoading label="Processando..." enabled={isLoading}>
+        <CircleLoading
+          label="Processando..."
+          enabled={isLoading}
+          className="flex h-2/3 items-center justify-center"
+        >
           <div className="mt-8 flex w-1/4 flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
               <Button className="border-none" onClick={() => handleOnCancel()}>

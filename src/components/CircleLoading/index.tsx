@@ -5,13 +5,21 @@ interface IProps {
   enabled: boolean
   label: string
   children: React.ReactNode
+  className?: string
 }
 //
-export default function CircleLoading({ enabled, label, children }: IProps) {
+export default function CircleLoading({
+  enabled,
+  className,
+  label,
+  children,
+}: IProps) {
   const renderLoading = () => {
     if (enabled) {
       return (
-        <div className="mx-auto flex w-full flex-col items-center justify-center">
+        <div
+          className={`mx-auto flex w-full flex-col items-center justify-center ${className}`}
+        >
           <ColorRing
             width={100}
             height={100}
