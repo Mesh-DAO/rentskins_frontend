@@ -2,34 +2,31 @@
 import { useState } from 'react'
 import { LayoutPage } from '@/components/Shared'
 import { Button } from '@/components/Button'
-import { FormInput } from '@/components/Forms/Input'
 import { IconLeftArrow } from '@/components/Icons/iconLeftArrow'
-import usePaymentStore from '@/stores/payment.store'
 import { Title } from '@/components/Title'
 import { useRouter } from 'next/navigation'
 import CircleLoading from '@/components/CircleLoading'
+import QRCodeExample from '../../../../../../public/qrcode-example.png'
+import Image from 'next/image'
+import usePaymentStore from '@/stores/payment.store'
 
-export default function PaymentAddPixPage() {
+export default function PaymentAddPixCodePage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
-  const [name, setName] = useState('')
-  const [identification, setIdentification] = useState('')
-
   const { paymentAdd } = usePaymentStore()
+
+  const handleOnSubmit = (event: any) => {
+    event.preventDefault()
+    setIsLoading(true)
+    router.push('/pagamento/recarregar/sucesso')
+  }
 
   const handleOnCancel = () => {
     router.push('/')
   }
 
-  const validateForm = () => {
-    return name.length > 0 && identification.length > 0
-  }
-
-  const handleOnSubmit = (event: any) => {
-    event.preventDefault()
-    setIsLoading(true)
-    router.push('/pagamento/recarregar/pix/code')
-  }
+  const textAreaValue =
+    '00020101021226860014br.gov.bcb.pix2564qrpix.bradesco.com.br/qr/v2/46477fb7-d638-46d4-9f4d-f154c3ab5d7b5204000053039865406700.735802BR5925PAGBRASIL PAGAMENTOS LTDA6012PORTO ALEGRE62090505131196304CA18'
 
   return (
     <LayoutPage>
@@ -40,7 +37,7 @@ export default function PaymentAddPixPage() {
           enabled={isLoading}
           className="flex h-2/3 items-center justify-center"
         >
-          <div className="mt-8 flex w-fit flex-col">
+          <div className="mx-auto mt-8 flex w-fit flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
               <Button className="border-none" onClick={() => handleOnCancel()}>
                 <IconLeftArrow />
@@ -54,29 +51,27 @@ export default function PaymentAddPixPage() {
               </span>
             </div>
             <div className="flex h-full w-full flex-col items-start justify-center">
-              <Title size="2xl"> Recarregar saldo com Pix </Title>
-              <form onSubmit={() => handleOnSubmit} className="mt-4 w-[546px]">
-                <FormInput
-                  label="Nome Completo"
-                  type="name"
-                  name="pix-name"
-                  placeholder="Nome e Sobrenome"
-                  value={name}
-                  onChange={(event) => setName(event.target.value)}
-                />
-
-                <FormInput
-                  label="CPF/CNPJ"
-                  type="text"
-                  name="pix-cpf"
-                  placeholder="CPF ou CNPJ"
-                  value={identification}
-                  onChange={(event) => setIdentification(event.target.value)}
-                />
-
-                <br />
-
-                <div className="mt-4 flex justify-between text-xl font-semibold">
+              <Title size="2xl">
+                Digitalize o código QR usando o aplicativo da <br />
+                carteira/banco
+              </Title>
+              <div className="mt-4">
+                <Image src={QRCodeExample} alt="QRCode" width={150} />
+                <div className="mt-8 h-1/3">
+                  <Title bold={600} size="lg">
+                    Ou cole o código alternativo no aplicativo para concluir o
+                    pagamento
+                  </Title>
+                  {/* CHANGE COLOR */}
+                  <textarea
+                    readOnly={true}
+                    className="focus:outline-pink-500n h-36 max-h-36 w-full resize-none overflow-hidden rounded-md
+                    border-2 border-[#778258] bg-[#222723] px-3 py-3 text-black text-white/70"
+                  >
+                    {textAreaValue}
+                  </textarea>
+                </div>
+                <div className="mt-8 flex justify-between text-xl font-semibold">
                   <text>Total:</text>
                   {/* CHANGE COLOR */}
                   <span className="text-[#C5EA56]">
@@ -89,10 +84,9 @@ export default function PaymentAddPixPage() {
                   <Button
                     type="submit"
                     onClick={(event) => handleOnSubmit(event)}
-                    disable={!validateForm()}
                     className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-[#3C403C] disabled:bg-[#3C403C] disabled:text-[#979797]"
                   >
-                    Continuar
+                    Pagar
                   </Button>
                   <Button
                     className="w-full border-2 py-2"
@@ -101,7 +95,7 @@ export default function PaymentAddPixPage() {
                     Cancelar
                   </Button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </CircleLoading>

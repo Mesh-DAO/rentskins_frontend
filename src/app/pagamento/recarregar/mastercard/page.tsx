@@ -49,7 +49,7 @@ export default function PaymentAddMastercardPage() {
           enabled={isLoading}
           className="flex h-2/3 items-center justify-center"
         >
-          <div className="mt-8 flex w-1/4 flex-col">
+          <div className="mt-8 flex w-fit flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
               <Button className="border-none" onClick={() => handleOnCancel()}>
                 <IconLeftArrow />
@@ -63,7 +63,7 @@ export default function PaymentAddMastercardPage() {
               </span>
             </div>
             <div className="flex h-full w-full flex-col items-start justify-center">
-              <Title size="2xl"> Recarregar saldo com cartão </Title>
+              <Title size="2xl"> Recarregar saldo com Cartão </Title>
               <form onSubmit={() => handleOnSubmit} className="mt-4 w-full">
                 <FormInput
                   label="Email"
@@ -73,7 +73,7 @@ export default function PaymentAddMastercardPage() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                 />
-                <br />
+
                 <FormInput
                   label="Informações do Cartão"
                   type="text"
@@ -83,6 +83,7 @@ export default function PaymentAddMastercardPage() {
                   value={cardNumber}
                   onChange={(event) => setCardNumber(event.target.value)}
                 />
+
                 <div className="-mt-5 grid w-full grid-cols-2 items-center">
                   <FormInput
                     type="text"
@@ -103,7 +104,6 @@ export default function PaymentAddMastercardPage() {
                   />
                 </div>
 
-                <br />
                 <FormInput
                   label="Nome do Portador"
                   type="text"
@@ -112,6 +112,7 @@ export default function PaymentAddMastercardPage() {
                   value={cardOwner}
                   onChange={(event) => setCardOwner(event.target.value)}
                 />
+
                 <br />
 
                 <div className="flex justify-between text-xl font-semibold">

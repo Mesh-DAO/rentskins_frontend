@@ -9,11 +9,13 @@ import { Title } from '@/components/Title'
 import { useRouter } from 'next/navigation'
 import CircleLoading from '@/components/CircleLoading'
 
-export default function PaymentAddPixPage() {
+export default function PaymentAddBoletoPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+
   const [name, setName] = useState('')
   const [identification, setIdentification] = useState('')
+  const [email, setEmail] = useState('')
 
   const { paymentAdd } = usePaymentStore()
 
@@ -22,13 +24,13 @@ export default function PaymentAddPixPage() {
   }
 
   const validateForm = () => {
-    return name.length > 0 && identification.length > 0
+    return name.length > 0 && identification.length > 0 && email.length > 0
   }
 
   const handleOnSubmit = (event: any) => {
     event.preventDefault()
     setIsLoading(true)
-    router.push('/pagamento/recarregar/pix/code')
+    router.push('/pagamento/recarregar/sucesso')
   }
 
   return (
@@ -50,33 +52,42 @@ export default function PaymentAddPixPage() {
                 <text>Saldo </text>
                 <text>• </text>
                 {/* CHANGE COLOR */}
-                <text className="text-[#49E671]">Pagamento - PIX</text>
+                <text className="text-[#49E671]">Pagamento - Boleto Flash</text>
               </span>
             </div>
             <div className="flex h-full w-full flex-col items-start justify-center">
-              <Title size="2xl"> Recarregar saldo com Pix </Title>
+              <Title size="2xl"> Recarregar saldo com Boleto </Title>
               <form onSubmit={() => handleOnSubmit} className="mt-4 w-[546px]">
                 <FormInput
                   label="Nome Completo"
-                  type="name"
-                  name="pix-name"
-                  placeholder="Nome e Sobrenome"
+                  type="text"
+                  name="ticket-name"
+                  placeholder="Nome e sobrenome"
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                 />
 
                 <FormInput
-                  label="CPF/CNPJ"
+                  label="Informações do Cartão"
                   type="text"
-                  name="pix-cpf"
+                  name="ticket-identification"
                   placeholder="CPF ou CNPJ"
                   value={identification}
                   onChange={(event) => setIdentification(event.target.value)}
                 />
 
+                <FormInput
+                  label="Nome do Portador"
+                  type="text"
+                  name="ticket-email"
+                  placeholder="Seu email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+
                 <br />
 
-                <div className="mt-4 flex justify-between text-xl font-semibold">
+                <div className="flex justify-between text-xl font-semibold">
                   <text>Total:</text>
                   {/* CHANGE COLOR */}
                   <span className="text-[#C5EA56]">
@@ -92,7 +103,7 @@ export default function PaymentAddPixPage() {
                     disable={!validateForm()}
                     className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-[#3C403C] disabled:bg-[#3C403C] disabled:text-[#979797]"
                   >
-                    Continuar
+                    Pagar
                   </Button>
                   <Button
                     className="w-full border-2 py-2"

@@ -71,7 +71,7 @@ export function ModalPaymentRetrieveInputMethods() {
           id="payment-index-3"
           name="payment-index"
           className="peer appearance-none"
-          value="ticket"
+          value="boleto"
           onClick={(event) => handleMethodChange(event)}
         />
         <label
