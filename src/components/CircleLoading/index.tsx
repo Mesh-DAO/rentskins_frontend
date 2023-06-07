@@ -6,7 +6,7 @@ interface IProps {
   label: string
   children: React.ReactNode
 }
-
+//
 export default function CircleLoading({ enabled, label, children }: IProps) {
   const renderLoading = () => {
     if (enabled) {
