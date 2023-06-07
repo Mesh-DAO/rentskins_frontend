@@ -23,7 +23,7 @@ export function CardSkin({ name, nameColor, iconUrl }: Props) {
         />
         <Image
           src={`https://steamcommunity-a.akamaihd.net/economy/image/${iconUrl}`}
-          alt="placeholder"
+          alt={`Skin-${name}`}
           width={206}
           height={154}
         />

@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { skins } from '@/Mock'
-import { CardSkin } from '../CardSkin'
+import { CardSkin } from '../../CardSkin'
 
 interface skin {
   name: string

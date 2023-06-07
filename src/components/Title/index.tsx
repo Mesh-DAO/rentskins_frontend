@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 type Props = {
   children: React.ReactNode
-  size?: 'sm' | 'md' | 'xs' | 'lg' | 'xl' | '2xl' | '3xl'
+  size?: 'sm' | 'md' | 'xs' | 'lg' | 'xl' | '2xl' | '3xl' | 'base'
   color?: string
   className?: string
   bold?: null | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
@@ -34,6 +34,9 @@ export function Title({
         },
         {
           'text-xs': size === 'xs',
+        },
+        {
+          'text-base': size === 'base',
         },
         {
           'text-sm': size === 'sm',

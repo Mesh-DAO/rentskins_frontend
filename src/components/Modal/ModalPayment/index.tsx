@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { IconClose } from '@/components/Icons/IconClose'
 import { Title } from '@/components/Title'
@@ -30,7 +31,9 @@ export function ModalPayment({ activator }: IProps) {
               </Dialog.Title>
               <Dialog.Close asChild>
                 {/* CHANGE - MAKE IT FUNCTIONAL */}
-                <IconClose />
+                <Button className="border-none">
+                  <IconClose />
+                </Button>
               </Dialog.Close>
             </div>
             {/* MIDDLE */}
