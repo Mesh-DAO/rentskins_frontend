@@ -6,9 +6,9 @@ import { Button } from '@/components/Button'
 import { IconClose } from '@/components/Icons/IconClose'
 import { ModalPaymentAddValuesInputs } from './input.value'
 import { ModalPaymentAddMethodsInputs } from './input.method'
-import { Loading } from '@/components/Loading'
 import { useRouter } from 'next/navigation'
 import usePaymentStore from '@/stores/payment.store'
+import CircleLoading from '@/components/CircleLoading'
 
 export function ModalPaymentAdd() {
   const router = useRouter()
@@ -17,7 +17,7 @@ export function ModalPaymentAdd() {
 
   const handleOnDeposit = () => {
     setIsLoading(true)
-    router.push(`/payment/add/${paymentAdd.method}`)
+    router.push(`/pagamento/recarregar/${paymentAdd.method}`)
   }
   //
   return (
@@ -33,9 +33,7 @@ rounded-2xl bg-[#272E29]"
           </Title>
           <ModalPaymentAddMethodsInputs />
         </div>
-        {isLoading ? (
-          <Loading> Processando... </Loading>
-        ) : (
+        <CircleLoading label="Processando..." enabled={isLoading}>
           <div className="flex h-full w-3/4 flex-col items-center justify-start">
             <div className=" mt-6 flex w-11/12 items-center justify-between">
               <Dialog.Title>
@@ -96,7 +94,7 @@ rounded-2xl bg-[#272E29]"
               </div>
             </div>
           </div>
-        )}
+        </CircleLoading>
       </div>
     </Dialog.Content>
   )

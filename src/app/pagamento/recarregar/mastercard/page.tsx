@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { Loading } from '@/components/Loading'
 import { LayoutPage } from '@/components/Shared'
 import { Button } from '@/components/Button'
 import { FormInput } from '@/components/Forms/Input'
@@ -8,6 +7,7 @@ import { IconLeftArrow } from '@/components/Icons/iconLeftArrow'
 import usePaymentStore from '@/stores/payment.store'
 import { Title } from '@/components/Title'
 import { useRouter } from 'next/navigation'
+import CircleLoading from '@/components/CircleLoading'
 
 export default function PaymentAddMastercardPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -36,7 +36,6 @@ export default function PaymentAddMastercardPage() {
 
   const handleOnSubmit = (event: any) => {
     event.preventDefault()
-    console.log('OK')
     setIsLoading(true)
   }
 
@@ -44,10 +43,8 @@ export default function PaymentAddMastercardPage() {
     <LayoutPage>
       {/* CHANGE COLOR */}
       <main className="flex h-screen flex-col items-center justify-start bg-[#151714] text-white">
-        {isLoading ? (
-          <Loading> Processando... </Loading>
-        ) : (
-          <div className="mt-16 flex w-1/4 flex-col">
+        <CircleLoading label="Processando..." enabled={isLoading}>
+          <div className="mt-8 flex w-1/4 flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
               <Button className="border-none" onClick={() => handleOnCancel()}>
                 <IconLeftArrow />
@@ -81,7 +78,7 @@ export default function PaymentAddMastercardPage() {
                   value={cardNumber}
                   onChange={(event) => setCardNumber(event.target.value)}
                 />
-                <div className="-mt-0.5 grid w-full grid-cols-2 items-center">
+                <div className="-mt-5 grid w-full grid-cols-2 items-center">
                   <FormInput
                     type="text"
                     name="mastercard-card-validity"
@@ -110,6 +107,7 @@ export default function PaymentAddMastercardPage() {
                   value={cardOwner}
                   onChange={(event) => setCardOwner(event.target.value)}
                 />
+                <br />
 
                 <div className="flex justify-between text-xl font-semibold">
                   <text>Total:</text>
@@ -139,7 +137,7 @@ export default function PaymentAddMastercardPage() {
               </form>
             </div>
           </div>
-        )}
+        </CircleLoading>
       </main>
     </LayoutPage>
   )
