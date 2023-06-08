@@ -5,6 +5,7 @@ import { IconClose } from '@/components/Icons/IconClose'
 import { CardSkinModal } from './CardSkinModal'
 import { InfoSkinModal } from './InfoSkinModal'
 import { Title } from '@/components/Title'
+import { Button } from '@/components/Button'
 
 interface IProps {
   activator: React.ReactNode
@@ -32,8 +33,10 @@ export function ModalAddSkin({ activator, isEdition }: IProps) {
                 )}
               </Dialog.Title>
               <Dialog.Close asChild>
+                <Button className="border-none outline-none">
+                  <IconClose />
+                </Button>
                 {/* CHANGE - MAKE IT FUNCTIONAL */}
-                <IconClose />
               </Dialog.Close>
             </div>
             {/* MIDDLE */}
