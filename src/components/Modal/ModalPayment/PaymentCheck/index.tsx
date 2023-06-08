@@ -27,9 +27,11 @@ export function ModalPaymentCheck() {
               Saldo
             </Title>
           </Dialog.Title>
-          <Button className="border-transparent">
-            <IconClose />
-          </Button>
+          <Dialog.Close asChild>
+            <Button className="border-transparent">
+              <IconClose />
+            </Button>
+          </Dialog.Close>
         </div>
         {/* MIDDLE */}
         <div className="flex h-full w-11/12 items-start justify-between">

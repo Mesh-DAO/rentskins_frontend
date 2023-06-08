@@ -23,9 +23,11 @@ export function ModalPaymentRetrieve() {
               Retirar Levantamento
             </Title>
           </Dialog.Title>
-          <Button className="border-transparent">
-            <IconClose />
-          </Button>
+          <Dialog.Close asChild>
+            <Button className="border-transparent">
+              <IconClose />
+            </Button>
+          </Dialog.Close>
         </div>
         <div className="flex h-full w-11/12 items-start justify-between">
           {paymentRetrieveIndex === 0 && <ModalPaymentRetrieveSelection />}
