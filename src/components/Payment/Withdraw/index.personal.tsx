@@ -2,7 +2,7 @@ import { FormInput } from '@/components/Forms/Input'
 import usePaymentStore from '@/stores/payment.store'
 import { useState } from 'react'
 
-export function PaymentWithdrawStepOne() {
+export function PaymentWithdrawStepPersonal() {
   const { setPaymentWithdrawInfo } = usePaymentStore()
   const [identification, setIdentification] = useState('')
   const [name, setName] = useState('')

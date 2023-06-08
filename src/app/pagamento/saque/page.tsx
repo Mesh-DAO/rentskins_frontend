@@ -11,7 +11,8 @@ import { IconLocation } from '@/components/Icons/IconLocation'
 import { IconBank } from '@/components/Icons/IconBank'
 import { IconCard } from '@/components/Icons/IconCard'
 import useComponentStore from '@/stores/components.store'
-import { PaymentWithdrawStepOne } from '@/components/Payment/Withdraw/index.one'
+import { PaymentWithdrawStepLocation } from '@/components/Payment/Withdraw/index.location'
+import { PaymentWithdrawStepPersonal } from '@/components/Payment/Withdraw/index.personal'
 
 export default function PaymentWithdrawPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -164,7 +165,7 @@ export default function PaymentWithdrawPage() {
                 onSubmit={(event) => handleOnNext(event)}
                 className="mt-4 w-full"
               >
-                {paymentWithdrawIndex === 0 && <PaymentWithdrawStepOne />}
+                {paymentWithdrawIndex === 0 && <PaymentWithdrawStepPersonal />}
                 <br />
 
                 <div className="flex justify-between text-xl font-semibold">
