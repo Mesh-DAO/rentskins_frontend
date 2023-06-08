@@ -11,22 +11,29 @@ import { IconLocation } from '@/components/Icons/IconLocation'
 import { IconBank } from '@/components/Icons/IconBank'
 import { IconCard } from '@/components/Icons/IconCard'
 import useComponentStore from '@/stores/components.store'
-import { PaymentWithdrawStepLocation } from '@/components/Payment/Withdraw/index.location'
-import { PaymentWithdrawStepPersonal } from '@/components/Payment/Withdraw/index.personal'
+import { PaymentWithdrawStepLocation } from '@/components/Payment/Form/Withdraw/index.location'
+import { PaymentWithdrawStepPersonal } from '@/components/Payment/Form/Withdraw/index.personal'
+import usePaymentStore from '@/stores/payment.store'
+import { PaymentWithdrawStepTransaction } from '@/components/Payment/Form/Withdraw/index.transaction'
+import { PaymentWithdrawStepDocument } from '@/components/Payment/Form/Withdraw/index.documents'
 
 export default function PaymentWithdrawPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [stepLabel, setStepLabel] = useState('Primeira etapa')
+  const [stepSubLabel, setStepSubLabel] = useState('')
   const [stepSubtitle, setStepSubtitle] = useState('Informações Pessoais')
   const router = useRouter()
 
   const { paymentWithdrawIndex, setPaymentWithdrawIndex } = useComponentStore()
+  const { paymentWithdrawInfo } = usePaymentStore()
 
   useEffect(() => setPaymentWithdrawIndex(0), [setPaymentWithdrawIndex])
 
   const handleOnCancel = () => {
     router.push('/')
   }
+
+  useEffect(() => console.log(paymentWithdrawInfo), [paymentWithdrawInfo])
 
   const handleOnNext = (event: any) => {
     event.preventDefault()
@@ -36,16 +43,23 @@ export default function PaymentWithdrawPage() {
         setPaymentWithdrawIndex(1)
         setStepLabel('Segunda Etapa')
         setStepSubtitle('Informações da Localização')
+        setStepSubLabel('')
         break
       case 1:
         setPaymentWithdrawIndex(2)
         setStepLabel('Terceira Etapa')
         setStepSubtitle('Informações Bancárias')
+        setStepSubLabel(
+          'Para receber seus ganhos da plataforma, por favor, preencha as informações bancárias abaixo. A conta bancária deve estar registrada em seu CPF.',
+        )
         break
       case 2:
         setPaymentWithdrawIndex(3)
         setStepLabel('Quarta Etapa')
         setStepSubtitle('Documentos')
+        setStepSubLabel(
+          'Por favor, envie a foto frente e verso da sua identidade, CNH ou PDF para que possamos verificar suas informações pessoais. Essa etapa é importante para garantir a segurança da plataforma e dos usuários.',
+        )
         break
       case 3:
         setIsLoading(true)
@@ -56,13 +70,13 @@ export default function PaymentWithdrawPage() {
   return (
     <LayoutPage>
       {/* CHANGE COLOR */}
-      <main className="flex h-screen flex-col items-center justify-start bg-[#151714] text-white">
+      <main className="flex h-fit flex-col items-center justify-start bg-[#151714] pb-64 text-white">
         <CircleLoading
           label="Processando..."
           enabled={isLoading}
           className="flex h-2/3 items-center justify-center"
         >
-          <div className="mt-8 flex w-fit flex-col">
+          <div className="mt-8 flex w-min flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
               <Button className="border-none" onClick={() => handleOnCancel()}>
                 <IconLeftArrow />
@@ -155,17 +169,30 @@ export default function PaymentWithdrawPage() {
                   />
                 </div>
               </div>
-              <div className="mt-4 w-full">
+              <div className="mt-4 w-full max-w-xl">
+                {/* CHANGE COLOR */}
                 <div className="text-sm text-[#A7B0A0]">{stepLabel}</div>
                 <Title size={'lg'} bold={600}>
                   {stepSubtitle}
                 </Title>
+                {/* CHANGE COLOR */}
+                <div className="w-11/12 leading-tight">
+                  <text className="h-2  text-sm leading-none tracking-tighter text-[#D0D7CB]">
+                    {stepSubLabel}
+                  </text>
+                </div>
               </div>
               <form
                 onSubmit={(event) => handleOnNext(event)}
                 className="mt-4 w-full"
               >
                 {paymentWithdrawIndex === 0 && <PaymentWithdrawStepPersonal />}
+                {paymentWithdrawIndex === 1 && <PaymentWithdrawStepLocation />}
+                {paymentWithdrawIndex === 2 && (
+                  <PaymentWithdrawStepTransaction />
+                )}
+                {paymentWithdrawIndex === 3 && <PaymentWithdrawStepDocument />}
+
                 <br />
 
                 <div className="flex justify-between text-xl font-semibold">
