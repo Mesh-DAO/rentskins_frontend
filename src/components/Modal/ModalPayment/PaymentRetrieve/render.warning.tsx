@@ -10,7 +10,7 @@ export function ModalPaymentRetrieveWarning() {
   const router = useRouter()
 
   const handleOnProceed = () => {
-    router.push('/user/settings')
+    router.push('/pagamento/saque')
     setIsLoading(true)
   }
 

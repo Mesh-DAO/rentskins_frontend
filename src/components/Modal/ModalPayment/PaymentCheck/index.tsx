@@ -73,8 +73,7 @@ export function ModalPaymentCheck() {
               className="h-10 w-1/2 bg-[#CFA62B]"
               onClick={() => handleButton(2)}
             >
-              {' '}
-              Retirar{' '}
+              Retirar
             </Button>
           </div>
         </div>

@@ -19,7 +19,8 @@ export default function PaymentWithdrawPage() {
 
   const [name, setName] = useState('')
   const [identification, setIdentification] = useState('')
-  const [email, setEmail] = useState('')
+  const [birthday, setBirthday] = useState('')
+  const [phone, setPhone] = useState('')
 
   const { paymentAdd } = usePaymentStore()
 
@@ -28,7 +29,12 @@ export default function PaymentWithdrawPage() {
   }
 
   const validateForm = () => {
-    return name.length > 0 && identification.length > 0 && email.length > 0
+    return (
+      name.length > 0 &&
+      identification.length > 0 &&
+      birthday.length > 0 &&
+      phone.length > 0
+    )
   }
 
   const handleOnSubmit = (event: any) => {
@@ -91,6 +97,33 @@ export default function PaymentWithdrawPage() {
                   Informações Pessoais
                 </Title>
               </div>
+              <form onSubmit={() => handleOnSubmit} className="mt-4 w-full">
+                <br />
+
+                <div className="flex justify-between text-xl font-semibold">
+                  <text>Total:</text>
+                  {/* CHANGE COLOR */}
+                  <span className="text-[#C5EA56]">R$0,00</span>
+                </div>
+
+                {/* CHANGE COLOR */}
+                <div className="flex flex-col gap-4 text-xl font-semibold">
+                  <Button
+                    type="submit"
+                    onClick={(event) => handleOnSubmit(event)}
+                    disable={!validateForm()}
+                    className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-[#3C403C] disabled:bg-[#3C403C] disabled:text-[#979797]"
+                  >
+                    Pagar
+                  </Button>
+                  <Button
+                    className="w-full border-2 py-2"
+                    onClick={() => handleOnCancel()}
+                  >
+                    Cancelar
+                  </Button>
+                </div>
+              </form>
             </div>
           </div>
         </CircleLoading>

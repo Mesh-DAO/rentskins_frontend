@@ -1,5 +1,4 @@
 'use client'
-//
 import React from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { ModalPaymentCheck } from './PaymentCheck'
@@ -14,19 +13,13 @@ interface IProps {
 export function ModalPayment({ activator }: IProps) {
   const {
     paymentGeneralIndex,
-    paymentRetrieveIndex,
     setPaymentGeneralIndex,
     setPaymentRetrieveIndex,
   } = useComponentStore()
 
   const handleModalOnClose = () => {
-    if (paymentGeneralIndex !== 0) {
-      setPaymentGeneralIndex(0)
-    }
-
-    if (paymentRetrieveIndex !== 0) {
-      setPaymentRetrieveIndex(0)
-    }
+    setPaymentGeneralIndex(0)
+    setPaymentRetrieveIndex(0)
   }
 
   return (
