@@ -82,22 +82,76 @@ export default function PaymentWithdrawPage() {
                   <IconPerson />
                 </div>
                 <div className="h-0.5 w-full bg-[#414141]">
-                  <div className="h-full w-0 bg-red-500" />
+                  <div
+                    className={`h-full bg-[#A6CF2B] ${
+                      paymentWithdrawIndex >= 1
+                        ? 'w-full transition-all duration-500'
+                        : 'w-0'
+                    }`}
+                  />
                 </div>
-                <div className="flex h-10 w-12 items-center justify-center rounded-full bg-[#A6CF2B] p-2">
-                  <IconLocation />
+                <div
+                  className={`flex h-10 w-12 items-center justify-center rounded-full ${
+                    paymentWithdrawIndex >= 1
+                      ? 'bg-[#A6CF2B] transition-all delay-500 duration-500'
+                      : 'bg-[#414141]'
+                  } p-2`}
+                >
+                  <IconLocation
+                    className={`${
+                      paymentWithdrawIndex >= 1
+                        ? 'stroke-[#121412] transition-all delay-500 duration-500'
+                        : 'stroke-[#8E8E8E]'
+                    }`}
+                  />
                 </div>
                 <div className="h-0.5 w-full bg-[#414141]">
-                  <div className="h-full w-0 bg-red-500" />
+                  <div
+                    className={`h-full bg-[#A6CF2B] ${
+                      paymentWithdrawIndex >= 2
+                        ? 'w-full transition-all duration-500'
+                        : 'w-0'
+                    }`}
+                  />
                 </div>
-                <div className="flex h-10 w-12 items-center justify-center rounded-full bg-[#A6CF2B] p-2">
-                  <IconBank />
+                <div
+                  className={`flex h-10 w-12 items-center justify-center rounded-full ${
+                    paymentWithdrawIndex >= 2
+                      ? 'bg-[#A6CF2B] transition-all delay-500 duration-500'
+                      : 'bg-[#414141]'
+                  } p-2`}
+                >
+                  <IconBank
+                    className={`${
+                      paymentWithdrawIndex >= 2
+                        ? 'stroke-[#121412] transition-all delay-500 duration-500'
+                        : 'stroke-[#8E8E8E]'
+                    }`}
+                  />
                 </div>
                 <div className="h-0.5 w-full bg-[#414141]">
-                  <div className="h-full w-0 bg-red-500" />
+                  <div
+                    className={`h-full bg-[#A6CF2B] ${
+                      paymentWithdrawIndex >= 3
+                        ? 'w-full transition-all duration-500'
+                        : 'w-0'
+                    }`}
+                  />
                 </div>
-                <div className="flex h-10 w-12 items-center justify-center rounded-full bg-[#A6CF2B] p-2">
-                  <IconCard />
+                <div
+                  className={`flex h-10 w-12 items-center justify-center rounded-full ${
+                    paymentWithdrawIndex >= 3
+                      ? 'bg-[#A6CF3B] transition-all delay-500 duration-500'
+                      : 'bg-[#414141]'
+                  } p-2`}
+                >
+                  <IconCard
+                    className={`${
+                      paymentWithdrawIndex >= 3
+                        ? 'fill-[#121412] transition-all delay-500 duration-500'
+                        : 'fill-[#8E8E8E]'
+                    }`}
+                  />
                 </div>
               </div>
               <div className="mt-4 w-full">
