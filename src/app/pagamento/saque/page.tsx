@@ -1,10 +1,8 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { LayoutPage } from '@/components/Shared'
 import { Button } from '@/components/Button'
-import { FormInput } from '@/components/Forms/Input'
 import { IconLeftArrow } from '@/components/Icons/iconLeftArrow'
-import usePaymentStore from '@/stores/payment.store'
 import { Title } from '@/components/Title'
 import { useRouter } from 'next/navigation'
 import CircleLoading from '@/components/CircleLoading'
@@ -12,35 +10,46 @@ import { IconPerson } from '@/components/Icons/IconPerson'
 import { IconLocation } from '@/components/Icons/IconLocation'
 import { IconBank } from '@/components/Icons/IconBank'
 import { IconCard } from '@/components/Icons/IconCard'
+import useComponentStore from '@/stores/components.store'
+import { PaymentWithdrawStepOne } from '@/components/Payment/Withdraw/index.one'
 
 export default function PaymentWithdrawPage() {
   const [isLoading, setIsLoading] = useState(false)
+  const [stepLabel, setStepLabel] = useState('Primeira etapa')
+  const [stepSubtitle, setStepSubtitle] = useState('Informações Pessoais')
   const router = useRouter()
 
-  const [name, setName] = useState('')
-  const [identification, setIdentification] = useState('')
-  const [birthday, setBirthday] = useState('')
-  const [phone, setPhone] = useState('')
+  const { paymentWithdrawIndex, setPaymentWithdrawIndex } = useComponentStore()
 
-  const { paymentAdd } = usePaymentStore()
+  useEffect(() => setPaymentWithdrawIndex(0), [setPaymentWithdrawIndex])
 
   const handleOnCancel = () => {
     router.push('/')
   }
 
-  const validateForm = () => {
-    return (
-      name.length > 0 &&
-      identification.length > 0 &&
-      birthday.length > 0 &&
-      phone.length > 0
-    )
-  }
-
-  const handleOnSubmit = (event: any) => {
+  const handleOnNext = (event: any) => {
     event.preventDefault()
-    setIsLoading(true)
-    router.push('/pagamento/recarregar/sucesso')
+
+    switch (paymentWithdrawIndex) {
+      case 0:
+        setPaymentWithdrawIndex(1)
+        setStepLabel('Segunda Etapa')
+        setStepSubtitle('Informações da Localização')
+        break
+      case 1:
+        setPaymentWithdrawIndex(2)
+        setStepLabel('Terceira Etapa')
+        setStepSubtitle('Informações Bancárias')
+        break
+      case 2:
+        setPaymentWithdrawIndex(3)
+        setStepLabel('Quarta Etapa')
+        setStepSubtitle('Documentos')
+        break
+      case 3:
+        setIsLoading(true)
+        router.push('/pagamento/saque/sucesso')
+    }
   }
 
   return (
@@ -91,13 +100,17 @@ export default function PaymentWithdrawPage() {
                   <IconCard />
                 </div>
               </div>
-              <div className="w-full">
-                <div className="text-sm text-[#A7B0A0]">Primeira etapa</div>
+              <div className="mt-4 w-full">
+                <div className="text-sm text-[#A7B0A0]">{stepLabel}</div>
                 <Title size={'lg'} bold={600}>
-                  Informações Pessoais
+                  {stepSubtitle}
                 </Title>
               </div>
-              <form onSubmit={() => handleOnSubmit} className="mt-4 w-full">
+              <form
+                onSubmit={(event) => handleOnNext(event)}
+                className="mt-4 w-full"
+              >
+                {paymentWithdrawIndex === 0 && <PaymentWithdrawStepOne />}
                 <br />
 
                 <div className="flex justify-between text-xl font-semibold">
@@ -110,11 +123,9 @@ export default function PaymentWithdrawPage() {
                 <div className="flex flex-col gap-4 text-xl font-semibold">
                   <Button
                     type="submit"
-                    onClick={(event) => handleOnSubmit(event)}
-                    disable={!validateForm()}
                     className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-[#3C403C] disabled:bg-[#3C403C] disabled:text-[#979797]"
                   >
-                    Pagar
+                    Continuar
                   </Button>
                   <Button
                     className="w-full border-2 py-2"

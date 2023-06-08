@@ -1,8 +1,25 @@
 import { FormInput } from '@/components/Forms/Input'
 import usePaymentStore from '@/stores/payment.store'
+import { useState } from 'react'
 
 export function PaymentWithdrawStepOne() {
-  const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
+  const { setPaymentWithdrawInfo } = usePaymentStore()
+  const [identification, setIdentification] = useState('')
+  const [name, setName] = useState('')
+  const [birthday, setBirthday] = useState('')
+  const [phone, setPhone] = useState('')
+
+  const handleOnChange = () => {
+    setPaymentWithdrawInfo({
+      personal: {
+        identification,
+        name,
+        birthday,
+        phone,
+      },
+    })
+  }
+
   return (
     <>
       <FormInput
@@ -11,7 +28,10 @@ export function PaymentWithdrawStepOne() {
         name="withdraw-identification"
         placeholder="000.000.000-00"
         value={identification}
-        onChange={(event) => setIdentification(event.target.value)}
+        onChange={(event) => {
+          setIdentification(event.target.value)
+          handleOnChange()
+        }}
       />
 
       <FormInput
@@ -20,7 +40,10 @@ export function PaymentWithdrawStepOne() {
         name="withdraw-name"
         placeholder="Nome e sobrenome"
         value={name}
-        onChange={(event) => setName(event.target.value)}
+        onChange={(event) => {
+          setName(event.target.value)
+          handleOnChange()
+        }}
       />
 
       <FormInput
@@ -29,16 +52,22 @@ export function PaymentWithdrawStepOne() {
         name="withdraw-birthday"
         placeholder="dd/mm/aaaa"
         value={birthday}
-        onChange={(event) => setBirthday(event.target.value)}
+        onChange={(event) => {
+          setBirthday(event.target.value)
+          handleOnChange()
+        }}
       />
 
       <FormInput
         label="Número de celular"
         type="text"
         name="withdaw-phone"
-        placeholder="CVC"
+        placeholder="(00) 00000-0000"
         value={phone}
-        onChange={(event) => setPhone(event.target.value)}
+        onChange={(event) => {
+          setPhone(event.target.value)
+          handleOnChange()
+        }}
       />
     </>
   )
