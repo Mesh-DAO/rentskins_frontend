@@ -11,11 +11,13 @@ import { IconLocation } from '@/components/Icons/IconLocation'
 import { IconBank } from '@/components/Icons/IconBank'
 import { IconCard } from '@/components/Icons/IconCard'
 import useComponentStore from '@/stores/components.store'
-import { PaymentWithdrawStepLocation } from '@/components/Payment/Form/Withdraw/index.location'
-import { PaymentWithdrawStepPersonal } from '@/components/Payment/Form/Withdraw/index.personal'
+import {
+  PaymentWithdrawStepPersonal,
+  PaymentWithdrawStepDocument,
+  PaymentWithdrawStepLocation,
+  PaymentWithdrawStepTransaction,
+} from '@/components/Payment/Form/Withdraw/'
 import usePaymentStore from '@/stores/payment.store'
-import { PaymentWithdrawStepTransaction } from '@/components/Payment/Form/Withdraw/index.transaction'
-import { PaymentWithdrawStepDocument } from '@/components/Payment/Form/Withdraw/index.documents'
 
 export default function PaymentWithdrawPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -74,7 +76,7 @@ export default function PaymentWithdrawPage() {
         <CircleLoading
           label="Processando..."
           enabled={isLoading}
-          className="flex h-2/3 items-center justify-center"
+          className="mb-64 mt-32 flex h-full items-center justify-center"
         >
           <div className="mt-8 flex w-min flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
@@ -184,7 +186,7 @@ export default function PaymentWithdrawPage() {
               </div>
               <form
                 onSubmit={(event) => handleOnNext(event)}
-                className="mt-4 w-full"
+                className="mt-4 w-full transition-all ease-in-out"
               >
                 {paymentWithdrawIndex === 0 && <PaymentWithdrawStepPersonal />}
                 {paymentWithdrawIndex === 1 && <PaymentWithdrawStepLocation />}
@@ -196,7 +198,7 @@ export default function PaymentWithdrawPage() {
                 <br />
 
                 <div className="flex justify-between text-xl font-semibold">
-                  <text>Total:</text>
+                  <text>Levantamento:</text>
                   {/* CHANGE COLOR */}
                   <span className="text-[#C5EA56]">R$0,00</span>
                 </div>

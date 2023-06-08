@@ -37,12 +37,12 @@ export function PaymentWithdrawStepTransaction() {
         }}
       />
 
-      <div className="grid w-full grid-cols-2 items-center">
+      <div className="grid w-full grid-cols-2 grid-rows-1">
         <FormInput
           label="Agência"
           type="text"
           name="withdraw-agency"
-          className="border"
+          className="border-r-0"
           rounded="rounded-tl-md rounded-bl-md"
           placeholder="Seu estado"
           value={agency}
