@@ -6,6 +6,7 @@ import IconEye from '@/assets/Eye'
 import ColoredLine from '../ColoredLine'
 import IconMagic from '../Icons/IconMagicpen'
 import { Title } from '../Title'
+import { ModalRefound } from '../Modal/ModalRefound'
 
 interface Props {
   name: string
@@ -59,7 +60,12 @@ export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
       <div className="flex items-center justify-end">
         {itsRent ? (
           <div className="flex flex-col items-end gap-2">
-            <Button color="visible">Devolução</Button>
+            <ModalRefound
+              iconUrl={iconUrl}
+              name={name}
+              nameColor={nameColor}
+              activator={<Button color="visible">Devolução</Button>}
+            />
             <Title color="red" bg="light-red" className="rounded-xl px-2">
               Expira em 21 dias
             </Title>
