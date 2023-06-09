@@ -16,14 +16,13 @@ export default function Home() {
     <LayoutPage>
       <main className="h-[2000px]">
         {/* Hero */}
-        <div className="flex h-1/2 flex-col items-center justify-center bg-hero-image bg-cover bg-center bg-no-repeat">
+        <div className="flex h-1/2 flex-col items-center justify-center bg-mesh-image-hero bg-cover bg-center bg-no-repeat">
           {/* Hero - Content */}
           <div className="flex flex-col items-center space-y-8 text-center text-white">
             <p className="max-w-2xl text-[3.5rem] font-bold leading-none">
               <span>
-                {' '}
                 Descubra o mundo das skins{' '}
-                <strong className="bg-green-pattern bg-clip-text text-transparent">
+                <strong className="bg-mesh-gradient-green-pattern bg-clip-text text-transparent">
                   CS:GO
                 </strong>
               </span>
@@ -32,14 +31,15 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            {/* ON CHANGE */}
             <ModalPayment activator={<SteamButton />} />
+            {/* REMOVER */}
+            <div className="flex border-2 border-white px-8 py-4"> TESTE </div>
           </div>
         </div>
         {/* Hero - Bottom */}
-        <div className="h-40 w-full bg-mesh-dark-1">
+        <div className="bg-mesh-dark-1 h-40 w-full">
           {/* Hero - Green Line */}
-          <hr className="-mt-0.5 h-2 w-full bg-green-pattern" />
+          <hr className="bg-green-pattern -mt-0.5 h-2 w-full" />
 
           {/* Hero - Information */}
           <div className="flex h-full items-center justify-center">

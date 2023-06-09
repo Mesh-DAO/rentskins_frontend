@@ -17,11 +17,11 @@ export function SteamButton({
     <button
       onClick={onClick}
       type="button"
-      className={`font-Roboto rounded-md no-underline transition-all duration-300 ease-in-out ${width} ${height} flex items-center justify-center gap-4
-      bg-alt-steam-button transition-colors hover:bg-steam-button-pattern`}
+      className={`font-Roboto rounded-md no-underline transition-all duration-300 ease-in-out ${width} ${height} hover:bg-steam-button-pattern flex items-center
+      justify-center gap-4 transition-colors`}
     >
       <IconSteam />
-      <span className="text-[22px] font-bold text-mesh-dark-2">
+      <span className="text-mesh-dark-2 text-[22px] font-bold">
         {' '}
         Entre com a sua Steam{' '}
       </span>
