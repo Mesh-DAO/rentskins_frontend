@@ -26,6 +26,7 @@ export function CardSkin({ name, nameColor, iconUrl }: Props) {
           alt="placeholder"
           width={206}
           height={154}
+          draggable={false}
         />
       </div>
       <h1 className="font-semibold">{skinName}</h1>

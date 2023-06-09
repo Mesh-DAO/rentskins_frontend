@@ -21,7 +21,7 @@ export function TopHeader() {
     <div className="mx-auto flex w-10/12 items-center justify-between">
       <div className="flex items-center gap-x-6 p-[18px]">
         <Link href="/">
-          <Image src={logo} alt="" width={45} height={48} />
+          <Image src={logo} alt="" width={45} height={48} draggable={false} />
         </Link>
 
         <div className=" flex items-center rounded-[12px] bg-dark-olive-green">
@@ -88,6 +88,7 @@ export function TopHeader() {
               className="rounded-full"
               width={44}
               height={44}
+              draggable={false}
             />
           </div>
         </div>

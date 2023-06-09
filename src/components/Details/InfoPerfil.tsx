@@ -7,7 +7,12 @@ export function InfoPerfil() {
     <div className="mt-10 min-h-[300px] min-w-[435px] rounded-lg border-2 border-[#3E423A]">
       <div className="p-4">
         <div className="flex items-center">
-          <Image src={fallen} alt="" className="rounded-full" />
+          <Image
+            src={fallen}
+            alt=""
+            className="rounded-full"
+            draggable={false}
+          />
           <div className="ml-4">
             <Title color="white" className="text-2xl font-semibold">
               Fallenzão

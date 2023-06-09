@@ -55,7 +55,12 @@ export function ModalPayment({ activator }: IProps) {
                   </Title>
                 </div>
               </div>
-              <Image src={Banner} alt="Banner" className="w-1/4 max-w-sm" />
+              <Image
+                src={Banner}
+                alt="Banner"
+                className="w-1/4 max-w-sm"
+                draggable={false}
+              />
             </div>
             {/* DIVISOR */}
 
