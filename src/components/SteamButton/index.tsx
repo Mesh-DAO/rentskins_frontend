@@ -17,12 +17,12 @@ export function SteamButton({
     <button
       onClick={onClick}
       type="button"
-      className={`font-Roboto rounded-md bg-mesh-colors-primary-1200 no-underline 
+      className={`font-Roboto rounded-md bg-mesh-color-primary-1200 no-underline 
       transition-all duration-300 ease-in-out ${width} ${height} flex 
       items-center justify-center gap-4 transition-all hover:bg-mesh-gradient-steam-button`}
     >
       <IconSteam />
-      <span className="text-[22px] font-bold text-mesh-colors-neutral-1000">
+      <span className="text-[22px] font-bold text-mesh-color-neutral-1000">
         {' '}
         Entre com a sua Steam{' '}
       </span>

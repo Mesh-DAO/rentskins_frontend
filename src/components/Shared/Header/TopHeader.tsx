@@ -13,19 +13,22 @@ export function TopHeader() {
           <Image src={logo} alt="" width={45} height={48} />
         </Link>
 
-        <div className=" flex items-center rounded-[12px] bg-dark-olive-green">
+        <div className="flex items-center rounded-[12px] bg-mesh-color-neutral-800">
           <span className="ml-4">
             <IconSearch />
           </span>
           <Input
-            className="bg-dark-olive-green text-base text-[#A7B0A0]"
+            className="bg-mesh-color-neutral-800 text-base text-mesh-color-neutral-200"
             placeHolder="Pesquise o item..."
           />
         </div>
       </div>
 
       <div className="flex space-x-4">
-        <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-jet-black  p-2 text-[#A7B0A0]">
+        <Button
+          className="border-mesh-neutral-200 h-[44px] w-[220px] 
+        rounded-[14px] border bg-transparent  p-2 text-mesh-color-neutral-200"
+        >
           <span className="mr-2">
             <IconCarrinho />
           </span>

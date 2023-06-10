@@ -32,14 +32,12 @@ export default function Home() {
               as skins perfeitas para dominar o jogo!
             </p>
             <ModalPayment activator={<SteamButton />} />
-            {/* REMOVER */}
-            <div className="flex border-2 border-white px-8 py-4"> TESTE </div>
           </div>
         </div>
         {/* Hero - Bottom */}
-        <div className="bg-mesh-dark-1 h-40 w-full">
+        <div className="h-40 w-full bg-mesh-color-neutral-800">
           {/* Hero - Green Line */}
-          <hr className="bg-green-pattern -mt-0.5 h-2 w-full" />
+          <hr className="-mt-0.5 h-2 w-full bg-mesh-gradient-green-pattern" />
 
           {/* Hero - Information */}
           <div className="flex h-full items-center justify-center">

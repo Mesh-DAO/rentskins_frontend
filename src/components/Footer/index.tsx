@@ -9,7 +9,7 @@ import {
 export function Footer() {
   return (
     <footer>
-      <div className="flex h-64 items-center justify-between bg-mesh-dark-1 px-32">
+      <div className="bg-mesh-dark-1 flex h-64 items-center justify-between px-32">
         {/* Left Side */}
         <div className="flex flex-col gap-4">
           <LogoIcon />
@@ -26,7 +26,7 @@ export function Footer() {
             <a
               href="/termodeuso"
               target="_blank"
-              className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
+              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
               rel="noreferrer"
             >
               Termos de Uso
@@ -34,7 +34,7 @@ export function Footer() {
             <a
               href="/privacidade"
               target="_blank"
-              className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
+              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
               rel="noreferrer"
             >
               Privacidade
@@ -42,14 +42,14 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
+              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
             >
               Sobre Nós
             </a>
             <a
               href="/sobre"
               target="_blank"
-              className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
+              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
               rel="noreferrer"
             >
               Suporte
@@ -57,7 +57,7 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
+              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
             >
               FAQ
             </a>
@@ -66,7 +66,7 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
+              className="bg-mesh-dark-0 flex h-10 w-10 items-center justify-center rounded-full"
             >
               <IconFacebook />
               {/* <Image src={FacebookIcon} alt="Facebook" width={10} height={20} /> */}
@@ -75,7 +75,7 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
+              className="bg-mesh-dark-0 flex h-10 w-10 items-center justify-center rounded-full"
             >
               <IconTwitter />
               {/* <Image src={TwitterIcon} alt="Twitter" width={20} height={20} /> */}
@@ -84,7 +84,7 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
+              className="bg-mesh-dark-0 flex h-10 w-10 items-center justify-center rounded-full"
             >
               <IconInstagram />
               {/* <Image
@@ -98,7 +98,7 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
+              className="bg-mesh-dark-0 flex h-10 w-10 items-center justify-center rounded-full"
             >
               <IconPinterest />
               {/* <Image

@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'mesh-colors': {
+        'mesh-color': {
           // OBS: Peguei do `Inspect` do Figma do Kauan
           dark: {
             preto: '#121412',
@@ -110,12 +110,7 @@ module.exports = {
             lowest: '#CA1733',
           },
           others: {
-            'jet-black': '#151714',
-            'dark-lime-green': '#95bc1e',
-            'dark-olive-green': '#3C403C',
-            charcoal: '#222723',
-            goldenrod: '#E5BE49',
-            crimson: '#CA1733',
+            black: '#151714',
           },
         },
       },
