@@ -8,7 +8,7 @@ export function SideRadioButton() {
           type="radio"
           id="settings_index-1"
           name="settings_index"
-          className="peer select-none appearance-none"
+          className="peer appearance-none"
           value={1}
           defaultChecked
         />
