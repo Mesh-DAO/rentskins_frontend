@@ -1,2 +1,3 @@
 export * from './ModalPayment'
-export * from './ModalConectInventario'
+export * from './ModalConnectInventario'
+export * from './ModalAddSkin'
