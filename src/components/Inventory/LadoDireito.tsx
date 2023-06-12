@@ -3,7 +3,7 @@ import { Title } from '../Title'
 
 export function LadoDireito() {
   return (
-    <div className="flex min-h-[400px] flex-col justify-between rounded-xl bg-[#222723] px-6 py-6">
+    <div className="flex min-h-[400px] flex-col justify-between rounded-xl bg-mesh-color-others-eerie-black px-6 py-6">
       <div className="text-white">
         <Title color="white" className="text-[28px] font-bold">
           Resumo

@@ -27,8 +27,8 @@ export function ModalPaymentRetrieveInputMethods() {
         <label
           htmlFor="payment-index-1"
           className="flex w-full select-none items-center justify-center rounded-md border-2 
-          border-transparent bg-[#3C403C] px-4 py-3
-          font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
+          border-transparent bg-mesh-color-neutral-500 px-4 py-3
+          font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           <div className="flex items-center justify-around gap-4 ">
             <IconMastercard />
@@ -52,8 +52,8 @@ export function ModalPaymentRetrieveInputMethods() {
         <label
           htmlFor="payment-index-2"
           className="flex w-full select-none items-center justify-center rounded-md border-2 border-transparent 
-          bg-[#3C403C] px-4 py-3
-          font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
+          bg-mesh-color-neutral-500 px-4 py-3
+          font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           <div className="flex items-center justify-center gap-4 ">
             <IconPix width={80} />
@@ -77,8 +77,8 @@ export function ModalPaymentRetrieveInputMethods() {
         <label
           htmlFor="payment-index-3"
           className="flex w-full select-none items-center justify-center rounded-md border-2 border-transparent 
-bg-[#3C403C] px-4 py-3 
-font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
+bg-mesh-color-neutral-500 px-4 py-3 
+font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           <div className="flex items-center justify-around gap-4 ">
             <IconBoleto />

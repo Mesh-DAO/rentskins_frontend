@@ -1,4 +1,9 @@
-export function IconPaper() {
+interface IProps {
+  stroke?: string
+  fill?: string
+}
+
+export function IconPaper({ stroke = '#151714', fill = '#A7B0A0' }: IProps) {
   return (
     <svg
       width="19"
@@ -9,29 +14,34 @@ export function IconPaper() {
     >
       <path
         d="M17.6667 7.83464V12.0013C17.6667 16.168 16 17.8346 11.8333 17.8346H6.83333C2.66667 17.8346 1 16.168 1 12.0013V7.0013C1 2.83464 2.66667 1.16797 6.83333 1.16797H11"
-        fill="#A7B0A0"
+        fill={fill}
+        className="transition-all duration-500"
       />
       <path
         d="M17.6667 7.83464V12.0013C17.6667 16.168 16 17.8346 11.8333 17.8346H6.83333C2.66667 17.8346 1 16.168 1 12.0013V7.0013C1 2.83464 2.66667 1.16797 6.83333 1.16797H11"
-        stroke="#151714"
+        stroke={stroke}
+        className="transition-all duration-500"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M17.6667 7.83463H14.3333C11.8333 7.83463 11 7.0013 11 4.5013V1.16797L17.6667 7.83463Z"
-        stroke="#151714"
+        stroke={stroke}
+        className="transition-all duration-500"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M5.16675 10.3359H10.1667"
-        stroke="#151714"
+        stroke={stroke}
+        className="transition-all duration-500"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M5.16675 13.668H8.50008"
-        stroke="#151714"
+        stroke={stroke}
+        className="transition-all duration-500"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

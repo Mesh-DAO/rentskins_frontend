@@ -13,7 +13,7 @@ export function ModalPaymentRetrieve() {
   return (
     <Dialog.Content
       className="fixed left-1/2 top-1/2 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2
-  rounded-2xl bg-[#272E29]"
+  rounded-2xl bg-mesh-color-neutral-700"
     >
       <div className="flex h-full w-full flex-col items-center justify-between pt-8">
         {/* TOP */}

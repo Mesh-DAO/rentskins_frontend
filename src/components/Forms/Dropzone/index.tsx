@@ -12,8 +12,8 @@ export default function FormDropzone({ label }: IProps) {
         htmlFor="dropzone-file"
         className="group flex h-64
         w-full cursor-pointer flex-col items-center justify-center rounded-lg
-      border-2 border-dashed border-[#D3F375] transition-all
-      duration-300 hover:border-[#d3f37585]"
+      border-2 border-dashed border-mesh-color-primary-600 transition-all
+      duration-300 hover:border-mesh-color-primary-600/10"
       >
         <div className="flex flex-col items-center justify-center pb-6 pt-5">
           <div className="mb-4">
@@ -27,8 +27,8 @@ export default function FormDropzone({ label }: IProps) {
           </p>
         </div>
         <div
-          className="w-1/3 rounded-lg border-2 border-[#D3F375] py-3 text-center
-          transition-all duration-300 group-hover:border-[#d3f37585]"
+          className="w-1/3 rounded-lg border-2 border-mesh-color-primary-600 py-3 text-center
+          transition-all duration-300 group-hover:border-mesh-color-primary-600/10"
         >
           Enviar Arquivo
         </div>

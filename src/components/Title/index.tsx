@@ -27,10 +27,10 @@ export function Title({
           'text-white': color === 'white',
         },
         {
-          'text-alt-steam-button': color === 'green',
+          'text-mesh-color-primary-1200': color === 'green',
         },
         {
-          'text-mesh-dark-3': color === 'cinza',
+          'text-mesh-color-neutral-500': color === 'cinza',
         },
         {
           'text-xs': size === 'xs',

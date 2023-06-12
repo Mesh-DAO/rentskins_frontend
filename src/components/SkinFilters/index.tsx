@@ -7,7 +7,7 @@ export default function SkinFilters() {
     <div className="flex justify-between">
       <div className="flex gap-3">
         <ContainerItem
-          className="rounded-lg border-2 border-mesh-dark-0 px-5 py-3"
+          className="rounded-lg border-2 border-mesh-color-neutral-600 px-5 py-3"
           isList={true}
           title="Preço"
           top="14"
@@ -15,13 +15,13 @@ export default function SkinFilters() {
         <ContainerItem
           isList={true}
           title="Desgaste"
-          className="rounded-lg border-2 border-mesh-dark-0 px-5 py-3"
+          className="rounded-lg border-2 border-mesh-color-neutral-600 px-5 py-3"
           top="14"
         />
         <ContainerItem
           isList={true}
           title="Categoria"
-          className="rounded-lg border-2 border-mesh-dark-0 px-5 py-3"
+          className="rounded-lg border-2 border-mesh-color-neutral-600 px-5 py-3"
           top="14"
         />
       </div>

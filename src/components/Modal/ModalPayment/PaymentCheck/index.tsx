@@ -17,7 +17,7 @@ export function ModalPaymentCheck() {
   return (
     <Dialog.Content
       className="fixed left-1/2 top-1/2 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2
-  rounded-2xl bg-[#272E29]"
+  rounded-2xl bg-mesh-color-neutral-700"
     >
       <div className="flex h-full w-full flex-col items-center justify-between pt-8">
         {/* TOP */}
@@ -38,7 +38,11 @@ export function ModalPaymentCheck() {
           <div className="flex h-full w-11/12 flex-col gap-7 ">
             <div>
               {/* CHANGE COLOR */}
-              <Title bold={600} size="xl" className="mt-6 text-[#A7B0A0]">
+              <Title
+                bold={600}
+                size="xl"
+                className="mt-6 text-mesh-color-neutral-200"
+              >
                 Saldo Atual
               </Title>
               <Title bold={800} color="white" size="2xl">
@@ -47,7 +51,11 @@ export function ModalPaymentCheck() {
             </div>
             <div>
               {/* CHANGE COLOR */}
-              <Title bold={600} size="xl" className="text-[#A7B0A0]">
+              <Title
+                bold={600}
+                size="xl"
+                className="text-mesh-color-neutral-200"
+              >
                 Levantamento dentro da plataforma
               </Title>
               <Title bold={700} color="white" size="2xl">
@@ -61,16 +69,16 @@ export function ModalPaymentCheck() {
 
         {/* BOTTOM */}
         <div className="flex w-11/12 flex-col items-center justify-between">
-          <hr className="mb-6 h-0.5 w-11/12 bg-[#A7B0A0]" />
+          <hr className="mb-6 h-0.5 w-11/12 bg-mesh-color-neutral-200" />
           <div className="mb-16 flex h-full w-11/12 items-end gap-20 text-xl font-bold">
             <Button
-              className="h-10 w-1/2 bg-[#A6CF2B]"
+              className="h-10 w-1/2 border-transparent bg-mesh-color-primary-1200"
               onClick={() => handleButton(1)}
             >
               Recarga
             </Button>
             <Button
-              className="h-10 w-1/2 bg-[#CFA62B]"
+              className="h-10 w-1/2 border-transparent bg-mesh-color-secondary-1200"
               onClick={() => handleButton(2)}
             >
               Retirar
