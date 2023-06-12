@@ -11,7 +11,7 @@ export function InfoSkinModal() {
         <Title color="white" className=" text-[28px]">
           Kumicho Dragon
         </Title>
-        <p className="-mt-2 font-medium text-[#A7B0A0]">
+        <p className="-mt-2 font-medium text-mesh-color-neutral-200">
           Desert • Nova de fábrica
         </p>
       </div>
@@ -27,7 +27,7 @@ export function InfoSkinModal() {
           <p className="w-[70%] text-[#90988B]">
             Preço que recomendamos com base no mercado do momento
           </p>
-          <div className="mt-6 rounded border-b border-[#A7B0A0]" />
+          <div className="mt-6 rounded border-b border-mesh-color-neutral-200" />
         </div>
 
         {/* ---------INPUT -------------  */}
@@ -38,7 +38,7 @@ export function InfoSkinModal() {
             </Title>
             <Input
               placeHolder="R$2.000"
-              className="h-8 w-full rounded-md bg-mesh-dark-0 text-[#A7B0A0]"
+              className="bg-mesh-dark-0 h-8 w-full rounded-md text-mesh-color-neutral-200"
             />
           </div>
 
@@ -47,7 +47,7 @@ export function InfoSkinModal() {
               Você irá receber
             </Title>
             <Input
-              className="h-8 w-full rounded-md bg-mesh-dark-0 text-[#A7B0A0]"
+              className="bg-mesh-dark-0 h-8 w-full rounded-md text-mesh-color-neutral-200"
               placeHolder="R$32,21"
             />
           </div>
@@ -55,7 +55,7 @@ export function InfoSkinModal() {
         {/* ---------INPUT FIM -------------  */}
 
         <div className=" space-y-6">
-          <Button className="mt-4 h-11 w-full bg-dark-lime-green">
+          <Button className="bg-mesh-color-primary-1400 mt-4 h-11 w-full">
             <Title bold={600} className="rounded-xl">
               Anunciar
             </Title>
@@ -63,7 +63,7 @@ export function InfoSkinModal() {
           <InputRadio
             name="ciente"
             radio="filter"
-            className="ml-4 w-[90%] text-[#A7B0A0]"
+            className="ml-4 w-[90%] text-mesh-color-neutral-200"
           >
             Estou ciente que esta plataforma possui a modalidade de locação, e
             meu item poderá ser disponibilizado em caráter temporário, fazendo

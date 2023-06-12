@@ -43,7 +43,7 @@ export default function PaymentAddMastercardPage() {
   return (
     <LayoutPage>
       {/* CHANGE COLOR */}
-      <main className="flex h-screen flex-col items-center justify-start bg-[#151714] text-white">
+      <main className="flex h-screen flex-col items-center justify-start bg-mesh-color-others-black text-white">
         <CircleLoading
           label="Processando..."
           enabled={isLoading}
@@ -55,11 +55,13 @@ export default function PaymentAddMastercardPage() {
                 <IconLeftArrow />
               </Button>
               {/* CHANGE COLOR */}
-              <span className="ml-2 text-[#A7B0A0]">
+              <span className="ml-2 text-mesh-color-neutral-200">
                 <text>Saldo </text>
                 <text>• </text>
                 {/* CHANGE COLOR */}
-                <text className="text-[#49E671]">Pagamento - Mastercard</text>
+                <text className="text-mesh-color-accent-900">
+                  Pagamento - Mastercard
+                </text>
               </span>
             </div>
             <div className="flex h-full w-full flex-col items-start justify-center">
@@ -129,13 +131,15 @@ export default function PaymentAddMastercardPage() {
                     type="submit"
                     onClick={(event) => handleOnSubmit(event)}
                     disable={!validateForm()}
-                    className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-mesh-color-neutral-500 disabled:bg-mesh-color-neutral-500 disabled:text-[#979797]"
+                    className="h-12 w-full"
+                    color="green"
                   >
                     Pagar
                   </Button>
                   <Button
                     className="w-full border-2 py-2"
                     onClick={() => handleOnCancel()}
+                    color="invisible"
                   >
                     Cancelar
                   </Button>

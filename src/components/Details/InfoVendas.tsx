@@ -12,32 +12,32 @@ export function InfoVendas() {
         <div className="mt-4 space-y-6">
           <div className="flex justify-between border-b border-[#3E423A] pb-2">
             <Title color="cinza">30 Jun 2021 • 4:30H</Title>
-            <span className="text-dark-lime-green">R$840</span>
+            <span className="text-mesh-color-primary-1400">R$840</span>
           </div>
 
           <div className="flex justify-between border-b border-[#3E423A] pb-2">
             <Title color="cinza">29 Jun 2021 • 23:21H</Title>
-            <span className="text-dark-lime-green">R$832,21</span>
+            <span className="text-mesh-color-primary-1400">R$832,21</span>
           </div>
 
           <div className="flex justify-between border-b border-[#3E423A] pb-2">
             <Title color="cinza">29 Jun 2021 • 23:21H</Title>
-            <span className="text-dark-lime-green">R$832,21</span>
+            <span className="text-mesh-color-primary-1400">R$832,21</span>
           </div>
 
           <div className="flex justify-between border-b border-[#3E423A] pb-2">
             <Title color="cinza">27 Jun 2021 • 9:59H</Title>
-            <span className="text-dark-lime-green">R$792</span>
+            <span className="text-mesh-color-primary-1400">R$792</span>
           </div>
 
           <div className="flex justify-between border-b border-[#3E423A] pb-2">
             <Title color="cinza">27 Jun 2021 • 9:59H</Title>
-            <span className="text-dark-lime-green">R$792</span>
+            <span className="text-mesh-color-primary-1400">R$792</span>
           </div>
 
           <div className="flex justify-between border-b border-[#3E423A] pb-2">
             <Title color="cinza">27 Jun 2021 • 9:59H</Title>
-            <span className="text-dark-lime-green">R$792</span>
+            <span className="text-mesh-color-primary-1400">R$792</span>
           </div>
         </div>
         <div className="mt-8 flex items-center justify-end space-x-4">

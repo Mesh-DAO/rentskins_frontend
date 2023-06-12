@@ -31,11 +31,11 @@ export function ModalPaymentAdd() {
   return (
     <Dialog.Content
       className="fixed left-1/2 top-1/2 h-3/5 w-2/3 -translate-x-1/2 -translate-y-1/2
-rounded-2xl bg-[#272E29]"
+rounded-2xl bg-mesh-color-neutral-700"
     >
       <div className="flex h-full w-full">
         {/* CHANGE COLOR! */}
-        <div className="h-full w-1/4 rounded-l-2xl bg-[#222723] px-6 pt-6">
+        <div className="h-full w-1/4 rounded-l-2xl bg-mesh-color-others-eerie-black px-6 pt-6">
           <Title bold={400} size="xl" color="white" className="leading-none">
             Selecione a forma de pagamento
           </Title>
@@ -58,7 +58,7 @@ rounded-2xl bg-[#272E29]"
             <div className="mt-3 flex h-full w-full flex-col justify-between">
               <div className="flex h-min w-full justify-around">
                 <div className="flex w-1/2 flex-col">
-                  <label className="flex w-full flex-col text-[#A7B0A0]">
+                  <label className="flex w-full flex-col text-mesh-color-neutral-200">
                     Valor do Pagamento
                     <div className="w-full ">
                       <span
@@ -76,7 +76,7 @@ rounded-2xl bg-[#272E29]"
                         onChange={(event) =>
                           setValueAmount(Number(event.target.value))
                         }
-                        className={`my-2 w-full rounded-md bg-mesh-dark-0
+                        className={`bg-mesh-dark-0 my-2 w-full rounded-md
                         px-3 py-4 outline-[#D3F375] transition-all ${
                           valueAmount !== undefined ? 'pl-10' : 'pl-4'
                         } text-white
@@ -114,7 +114,7 @@ rounded-2xl bg-[#272E29]"
                 </span>
                 <Button
                   onClick={() => handleOnDeposit()}
-                  className="h-16 w-1/2 bg-[#A6CF2B] text-xl font-extrabold"
+                  className="h-16 w-1/2 bg-mesh-color-primary-1200 text-xl font-extrabold"
                 >
                   Depositar
                 </Button>

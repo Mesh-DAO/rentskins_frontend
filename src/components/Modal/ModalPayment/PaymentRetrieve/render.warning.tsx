@@ -31,7 +31,7 @@ export function ModalPaymentRetrieveWarning() {
             o processo de verificação de identidade (KYC)
           </span>
           {/* CHANGE COLOR */}
-          <span className="text-center text-[#A7B0A0]">
+          <span className="text-center text-mesh-color-neutral-200">
             Está etapa é necessária como medida de segurança contra atividades
             fraudulentas. O processo geralmente, leva cerca de 10 minutos para
             ser concluído. Após a conclusão bem-sucedida, o KYC será válido para
@@ -41,7 +41,7 @@ export function ModalPaymentRetrieveWarning() {
         <div className="mb-8 flex w-full items-end justify-end">
           {/* CHANGE COLOR */}
           <Button
-            className="h-14 w-4/12 border-none bg-[#A6CF2B] text-2xl font-bold"
+            className="h-14 w-4/12 border-none bg-mesh-color-primary-1200 text-2xl font-bold"
             onClick={() => handleOnProceed()}
           >
             Prosseguir

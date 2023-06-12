@@ -72,7 +72,7 @@ export default function PaymentWithdrawPage() {
   return (
     <LayoutPage>
       {/* CHANGE COLOR */}
-      <main className="flex h-fit flex-col items-center justify-start bg-[#151714] pb-64 text-white">
+      <main className="flex h-fit flex-col items-center justify-start bg-mesh-color-others-black pb-64 text-white">
         <CircleLoading
           label="Processando..."
           enabled={isLoading}
@@ -84,23 +84,25 @@ export default function PaymentWithdrawPage() {
                 <IconLeftArrow />
               </Button>
               {/* CHANGE COLOR */}
-              <span className="ml-2 text-[#A7B0A0]">
+              <span className="ml-2 text-mesh-color-neutral-200">
                 <text>Saldo </text>
                 <text>• </text>
                 {/* CHANGE COLOR */}
-                <text className="text-[#49E671]">Retirar Levantamento</text>
+                <text className="text-mesh-color-accent-900">
+                  Retirar Levantamento
+                </text>
               </span>
             </div>
             <div className="flex h-full w-full flex-col items-start justify-center">
               <Title size="2xl"> Retirar levantamento </Title>
               <div className="mt-4 flex w-[546px] items-center justify-center">
                 {/* CHANGE COLOR */}
-                <div className="flex h-10 w-12 items-center justify-center rounded-full bg-[#A6CF2B] p-2">
+                <div className="flex h-10 w-12 items-center justify-center rounded-full bg-mesh-color-primary-1200 p-2">
                   <IconPerson />
                 </div>
-                <div className="h-0.5 w-full bg-[#414141]">
+                <div className="h-0.5 w-full bg-mesh-color-neutral-500">
                   <div
-                    className={`h-full bg-[#A6CF2B] ${
+                    className={`h-full bg-mesh-color-primary-1200 ${
                       paymentWithdrawIndex >= 1
                         ? 'w-full transition-all duration-500'
                         : 'w-0'
@@ -110,21 +112,21 @@ export default function PaymentWithdrawPage() {
                 <div
                   className={`flex h-10 w-12 items-center justify-center rounded-full ${
                     paymentWithdrawIndex >= 1
-                      ? 'bg-[#A6CF2B] transition-all delay-500 duration-500'
-                      : 'bg-[#414141]'
+                      ? 'bg-mesh-color-primary-1200 transition-all delay-500 duration-500'
+                      : 'bg-mesh-color-neutral-500'
                   } p-2`}
                 >
                   <IconLocation
                     className={`${
                       paymentWithdrawIndex >= 1
-                        ? 'stroke-[#121412] transition-all delay-500 duration-500'
-                        : 'stroke-[#8E8E8E]'
+                        ? 'stroke-mesh-color-others-black transition-all delay-500 duration-500'
+                        : 'stroke-mesh-color-neutral-300'
                     }`}
                   />
                 </div>
-                <div className="h-0.5 w-full bg-[#414141]">
+                <div className="h-0.5 w-full bg-mesh-color-neutral-500">
                   <div
-                    className={`h-full bg-[#A6CF2B] ${
+                    className={`h-full bg-mesh-color-primary-1200 ${
                       paymentWithdrawIndex >= 2
                         ? 'w-full transition-all duration-500'
                         : 'w-0'
@@ -134,21 +136,21 @@ export default function PaymentWithdrawPage() {
                 <div
                   className={`flex h-10 w-12 items-center justify-center rounded-full ${
                     paymentWithdrawIndex >= 2
-                      ? 'bg-[#A6CF2B] transition-all delay-500 duration-500'
-                      : 'bg-[#414141]'
+                      ? 'bg-mesh-color-primary-1200 transition-all delay-500 duration-500'
+                      : 'bg-mesh-color-neutral-500'
                   } p-2`}
                 >
                   <IconBank
                     className={`${
                       paymentWithdrawIndex >= 2
-                        ? 'stroke-[#121412] transition-all delay-500 duration-500'
-                        : 'stroke-[#8E8E8E]'
+                        ? 'stroke-mesh-color-others-black transition-all delay-500 duration-500'
+                        : 'stroke-mesh-color-neutral-300'
                     }`}
                   />
                 </div>
-                <div className="h-0.5 w-full bg-[#414141]">
+                <div className="h-0.5 w-full bg-mesh-color-neutral-500">
                   <div
-                    className={`h-full bg-[#A6CF2B] ${
+                    className={`h-full bg-mesh-color-primary-1200 ${
                       paymentWithdrawIndex >= 3
                         ? 'w-full transition-all duration-500'
                         : 'w-0'
@@ -159,27 +161,29 @@ export default function PaymentWithdrawPage() {
                   className={`flex h-10 w-12 items-center justify-center rounded-full ${
                     paymentWithdrawIndex >= 3
                       ? 'bg-[#A6CF3B] transition-all delay-500 duration-500'
-                      : 'bg-[#414141]'
+                      : 'bg-mesh-color-neutral-500'
                   } p-2`}
                 >
                   <IconCard
                     className={`${
                       paymentWithdrawIndex >= 3
-                        ? 'fill-[#121412] transition-all delay-500 duration-500'
-                        : 'fill-[#8E8E8E]'
+                        ? 'fill-mesh-color-others-black transition-all delay-500 duration-500'
+                        : 'fill-mesh-color-neutral-300'
                     }`}
                   />
                 </div>
               </div>
               <div className="mt-4 w-full max-w-xl">
                 {/* CHANGE COLOR */}
-                <div className="text-sm text-[#A7B0A0]">{stepLabel}</div>
+                <div className="text-sm text-mesh-color-neutral-200">
+                  {stepLabel}
+                </div>
                 <Title size={'lg'} bold={600}>
                   {stepSubtitle}
                 </Title>
                 {/* CHANGE COLOR */}
                 <div className="w-11/12 leading-tight">
-                  <text className="h-2  text-sm leading-none tracking-tighter text-[#D0D7CB]">
+                  <text className="h-2  text-sm leading-none tracking-tighter text-mesh-color-neutral-0">
                     {stepSubLabel}
                   </text>
                 </div>
@@ -205,16 +209,12 @@ export default function PaymentWithdrawPage() {
 
                 {/* CHANGE COLOR */}
                 <div className="flex flex-col gap-4 text-xl font-semibold">
-                  <Button
-                    type="submit"
-                    color="green"
-                    className="w-full"
-                    disable
-                  >
+                  <Button type="submit" color="green" className="h-12 w-full">
                     Continuar
                   </Button>
+                  {/* COLOR NOT WORKING */}
                   <Button
-                    className="w-full border-2 py-2"
+                    className="h-12 w-full border-neutral-600"
                     color="invisible"
                     onClick={() => handleOnCancel()}
                   >

@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         'alt-steam-button': '#A6CF2B',
-        'dark-lime-green': '#95bc1e',
+        'mesh-color-primary-1400': '#95bc1e',
         'mesh-dark': {
           0: '#3C403C',
           1: '#222723',
@@ -24,7 +24,7 @@ module.exports = {
       },
       backgroundColor: {
         'jet-black': '#151714',
-        'dark-lime-green': '#95bc1e',
+        'mesh-color-primary-1400': '#95bc1e',
         'dark-olive-green': '#3C403C',
         Charcoal: '#222723',
         Goldenrod: '#E5BE49',

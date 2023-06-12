@@ -18,7 +18,7 @@ export function ModalConnectInventario({ activator }: IProps) {
         <Dialog.Overlay className="fixed inset-0 flex bg-black/70" />
         <Dialog.Content
           className="fixed left-1/2 top-1/2 w-[70%] -translate-x-1/2 -translate-y-1/2
-        rounded-2xl bg-[#272E29]"
+        rounded-2xl bg-mesh-color-neutral-700"
         >
           <div className="flex h-full w-full flex-col items-center justify-between py-8">
             {/* TOP */}
@@ -38,7 +38,11 @@ export function ModalConnectInventario({ activator }: IProps) {
               <div className="flex h-full w-11/12 flex-col gap-7 ">
                 <div className=" space-y-2">
                   {/* CHANGE COLOR */}
-                  <Title bold={500} size="lg" className="mt-6 text-[#A7B0A0]">
+                  <Title
+                    bold={500}
+                    size="lg"
+                    className="mt-6 text-mesh-color-neutral-200"
+                  >
                     Insira URL Trade Link do seu Perfil
                   </Title>
                   <div className="flex w-full items-center justify-between">
@@ -52,14 +56,18 @@ export function ModalConnectInventario({ activator }: IProps) {
                       </Button>
                     </div>
 
-                    <Button className="text-dark-lime-green border-none">
+                    <Button className="border-none text-mesh-color-primary-1400">
                       Obter URL
                     </Button>
                   </div>
                 </div>
                 <div className="mt-[-12px] space-y-2">
                   {/* CHANGE COLOR */}
-                  <Title bold={500} size="lg" className="text-[#A7B0A0]">
+                  <Title
+                    bold={500}
+                    size="lg"
+                    className="text-mesh-color-neutral-200"
+                  >
                     Seu email de contato
                   </Title>
 
@@ -86,7 +94,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                   >
                     <Title className="ml-2">
                       Eu concordo com os{' '}
-                      <span className="text-dark-lime-green">
+                      <span className="text-mesh-color-primary-1400">
                         Termos de Serviço, Política de Privacidade e Política de
                         Reembolso da RentSkins.
                       </span>

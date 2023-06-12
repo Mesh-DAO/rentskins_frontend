@@ -34,7 +34,7 @@ export function Button({
         rounded-md border border-transparent p-1 opacity-60 
         transition enabled:hover:opacity-100`,
         {
-          ' border-mesh-color-neutral-400 bg-transparent fill-white text-lg':
+          'border-mesh-color-neutral-400 bg-transparent fill-white text-lg':
             color === 'invisible',
         },
         {

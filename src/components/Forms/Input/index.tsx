@@ -25,7 +25,7 @@ export function FormInput({
         value={value}
         autoComplete="off"
         {...rest}
-        className={`${rounded} border-[2px] border-[#778258] bg-[#222723] px-3 py-3 placeholder:text-white/70 ${classname}`}
+        className={`${rounded} border-[2px] border-mesh-color-primary-1100/50 bg-mesh-color-others-eerie-black px-3 py-3 placeholder:text-white/70 ${classname}`}
       />
     </label>
   )

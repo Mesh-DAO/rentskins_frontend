@@ -19,7 +19,7 @@ export default function TermoDeUso() {
               <Title bold={700} color="white" className="text-2xl">
                 Bem-vindo ao projeto
               </Title>
-              <p className="mt-5 text-[#D0D7CB]">
+              <p className="mt-5 text-mesh-color-neutral-0">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
                 odit animi, repudiandae optio qui architecto excepturi
                 perspiciatis, porro voluptate distinctio vitae nam. Corrupti
@@ -31,7 +31,7 @@ export default function TermoDeUso() {
               <Title bold={700} color="white" className="text-2xl">
                 1. Termos e condições
               </Title>
-              <p className="mt-5 text-[#D0D7CB]">
+              <p className="mt-5 text-mesh-color-neutral-0">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
                 odit animi, repudiandae optio qui architecto excepturi
                 perspiciatis, porro voluptate distinctio vitae nam. Corrupti
@@ -59,7 +59,7 @@ export default function TermoDeUso() {
               <Title bold={700} color="white" className="text-2xl">
                 2. Termos e condições devoluçãoo
               </Title>
-              <p className="mt-5 text-[#D0D7CB]">
+              <p className="mt-5 text-mesh-color-neutral-0">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
                 odit animi, repudiandae optio qui architecto excepturi
                 perspiciatis, porro voluptate distinctio vitae nam. Corrupti

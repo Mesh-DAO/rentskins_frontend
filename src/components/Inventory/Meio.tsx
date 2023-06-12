@@ -11,7 +11,7 @@ export function Meio() {
   return (
     <div className="min-h-[1000px]">
       {Number(num) === 1 ? (
-        <div className="mx-auto w-[60%] rounded-xl bg-[#222723] px-5 py-5">
+        <div className="mx-auto w-[60%] rounded-xl bg-mesh-color-others-eerie-black px-5 py-5">
           <Title bold={700} color="white" className="text-center font-bold">
             Para ter acesso às suas skins e realizar transações, é necessário
             vincular seu inventário à Steam

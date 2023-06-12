@@ -14,9 +14,9 @@ export function SideRadioButton() {
         />
         <label
           htmlFor="settings_index-1"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md 
-        bg-transparent px-4 py-3 text-lg font-semibold text-[#A7B0A0] 
-        transition-all duration-500 peer-checked:bg-mesh-dark-0 peer-checked:text-[#3EE167]"
+          className="peer-checked:bg-mesh-dark-0 flex w-full select-none items-center justify-start gap-4 
+        rounded-md bg-transparent px-4 py-3 text-lg font-semibold 
+        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-[#3EE167]"
         >
           <IconGear />
           Informações Pessoais
@@ -33,9 +33,9 @@ export function SideRadioButton() {
         />
         <label
           htmlFor="settings_index-2"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md 
-        bg-transparent px-4 py-3 text-lg font-semibold text-[#A7B0A0] 
-        transition-all duration-500 peer-checked:bg-mesh-dark-0 peer-checked:text-[#3EE167]"
+          className="peer-checked:bg-mesh-dark-0 flex w-full select-none items-center justify-start gap-4 
+        rounded-md bg-transparent px-4 py-3 text-lg font-semibold 
+        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-[#3EE167]"
         >
           <IconPaper />
           Transações
@@ -52,9 +52,9 @@ export function SideRadioButton() {
         />
         <label
           htmlFor="settings_index-3"
-          className="flex w-full select-none items-center justify-start gap-4 rounded-md 
-        bg-transparent px-4 py-3 text-lg font-semibold text-[#A7B0A0] 
-        transition-all duration-500 peer-checked:bg-mesh-dark-0 peer-checked:text-[#3EE167]"
+          className="peer-checked:bg-mesh-dark-0 flex w-full select-none items-center justify-start gap-4 
+        rounded-md bg-transparent px-4 py-3 text-lg font-semibold 
+        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-[#3EE167]"
         >
           <IconLockedShield />
           Segurança

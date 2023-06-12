@@ -31,7 +31,7 @@ export default function PaymentAddPixCodePage() {
   return (
     <LayoutPage>
       {/* CHANGE COLOR */}
-      <main className="flex h-screen flex-col items-center justify-start bg-[#151714] text-white">
+      <main className="flex h-screen flex-col items-center justify-start bg-mesh-color-others-black text-white">
         <CircleLoading
           label="Processando..."
           enabled={isLoading}
@@ -43,11 +43,13 @@ export default function PaymentAddPixCodePage() {
                 <IconLeftArrow />
               </Button>
               {/* CHANGE COLOR */}
-              <span className="ml-2 text-[#A7B0A0]">
+              <span className="ml-2 text-mesh-color-neutral-200">
                 <text>Saldo </text>
                 <text>• </text>
                 {/* CHANGE COLOR */}
-                <text className="text-[#49E671]">Pagamento - PIX</text>
+                <text className="text-mesh-color-accent-900">
+                  Pagamento - PIX
+                </text>
               </span>
             </div>
             <div className="flex h-full w-full flex-col items-start justify-center">
@@ -66,7 +68,7 @@ export default function PaymentAddPixCodePage() {
                   <textarea
                     readOnly={true}
                     className="focus:outline-pink-500n h-36 max-h-36 w-full resize-none overflow-hidden rounded-md
-                    border-2 border-[#778258] bg-[#222723] px-3 py-3 text-black text-white/70"
+                    border-2 border-mesh-color-primary-1100/50 bg-mesh-color-others-eerie-black px-3 py-3 text-black text-white/70"
                   >
                     {textAreaValue}
                   </textarea>
@@ -84,13 +86,15 @@ export default function PaymentAddPixCodePage() {
                   <Button
                     type="submit"
                     onClick={(event) => handleOnSubmit(event)}
-                    className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-mesh-color-neutral-500 disabled:bg-mesh-color-neutral-500 disabled:text-[#979797]"
+                    className="h-12 w-full"
+                    color="green"
                   >
                     Pagar
                   </Button>
                   <Button
                     className="w-full border-2 py-2"
                     onClick={() => handleOnCancel()}
+                    color="invisible"
                   >
                     Cancelar
                   </Button>
