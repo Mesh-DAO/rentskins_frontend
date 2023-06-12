@@ -37,7 +37,7 @@ export function TopHeader() {
       {/* ---------------- RIGHT ----------------------- */}
       {isUser ? (
         <div className="flex space-x-4">
-          <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-jet-black  p-2 text-[#A7B0A0]">
+          <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-mesh-color-others-black  p-2 text-[#A7B0A0]">
             <span className="mr-2">
               <IconCarrinho />
             </span>
@@ -69,7 +69,7 @@ export function TopHeader() {
                 RS:12,42
               </Title>
               <Button
-                className="h-5 w-5 bg-dark-lime-green"
+                className="bg-dark-lime-green h-5 w-5"
                 onClick={() => setIsUser(!isUser)}
               >
                 <IconCruz />
