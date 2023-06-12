@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import degle from '../../assets/deagle.png'
 import { Title } from '../Title'
+import ColoredLine from '../ColoredLine'
 
 interface Props {
   nameColor: string
@@ -26,7 +27,7 @@ export function CardSkinInventory({ nameColor }: Props) {
         <strong>FT / </strong>
         <span className="opacity-60">0.0003</span>
       </Title>
-      <div className="rounded border-4 border-red-800" />
+      <ColoredLine />
     </div>
   )
 }

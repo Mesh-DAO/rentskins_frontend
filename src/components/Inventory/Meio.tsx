@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '../Button'
-import { ModalConnectInventario } from '../Modal'
+import { ModalConnectInventario } from '../Modal/ModalConectInventory'
 import { ModalAddSkin } from '../Modal/ModalAddSkin'
 import { Title } from '../Title'
 import { CardSkinInventory } from './CardSkinInventory'
