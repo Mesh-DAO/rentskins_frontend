@@ -5,6 +5,8 @@ import { ModalPaymentCheck } from './PaymentCheck'
 import { ModalPaymentAdd } from './PaymentAdd'
 import useComponentStore from '@/stores/components.store'
 import { ModalPaymentRetrieve } from './PaymentRetrieve'
+import { Button } from '@/components/Button'
+import { IconClose } from '@/components/Icons/IconClose'
 
 interface IProps {
   activator: React.ReactNode
@@ -35,9 +37,9 @@ export function ModalPayment({ activator }: IProps) {
             {/* TOP */}
             <div className="flex w-11/12 items-center justify-between">
               <Dialog.Title>
-                <Title bold={800} size="2xl" color="white">
+                <Dialog.Title bold={800} size="2xl" color="white">
                   Saldo
-                </Title>
+                </Dialog.Title>
               </Dialog.Title>
               <Dialog.Close asChild>
                 {/* CHANGE - MAKE IT FUNCTIONAL */}
@@ -49,21 +51,21 @@ export function ModalPayment({ activator }: IProps) {
               <div className="flex h-full w-11/12 flex-col gap-7 ">
                 <div>
                   {/* CHANGE COLOR */}
-                  <Title bold={600} size="xl" className="mt-6 text-[#A7B0A0]">
+                  <Dialog.Title bold={600} size="xl" className="mt-6 text-[#A7B0A0]">
                     Saldo Atual
-                  </Title>
-                  <Title bold={800} color="white" size="2xl">
+                  </Dialog.Title>
+                  <Dialog.Title bold={800} color="white" size="2xl">
                     R$ 1234,20
-                  </Title>
+                  </Dialog.Title>
                 </div>
                 <div>
                   {/* CHANGE COLOR */}
-                  <Title bold={600} size="xl" className="text-[#A7B0A0]">
+                  <Dialog.Title bold={600} size="xl" className="text-[#A7B0A0]">
                     Levantamento dentro da plataforma
-                  </Title>
-                  <Title bold={700} color="white" size="2xl">
+                  </Dialog.Title>
+                  <Dialog.Title bold={700} color="white" size="2xl">
                     R$ 00,00
-                  </Title>
+                  </Dialog.Title>
                 </div>
               </div>
               <Image
