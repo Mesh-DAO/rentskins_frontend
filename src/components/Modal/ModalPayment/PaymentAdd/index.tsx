@@ -77,10 +77,10 @@ rounded-2xl bg-mesh-color-neutral-700"
                           setValueAmount(Number(event.target.value))
                         }
                         className={`bg-mesh-dark-0 my-2 w-full rounded-md
-                        px-3 py-4 outline-[#D3F375] transition-all ${
+                        px-3 py-4 outline-mesh-color-primary-600 transition-all ${
                           valueAmount !== undefined ? 'pl-10' : 'pl-4'
                         } text-white
-                        placeholder:text-[#E3F1D8] focus:placeholder:text-transparent`}
+                        placeholder:text-mesh-color-neutral-100 focus:placeholder:text-transparent`}
                         placeholder="R$ 0,00"
                       />
                     </div>
@@ -98,16 +98,24 @@ rounded-2xl bg-mesh-color-neutral-700"
                   <a
                     href=""
                     target="_blank"
-                    className="hover:text-inherit/50 text-[#B6DF3E]"
+                    className="hover:text-inherit/50 text-mesh-color-primary-1000"
                   >
                     Termos de Serviço
                   </a>
                   ,{' '}
-                  <a href="" target="_blank" className="text-[#B6DF3E]">
+                  <a
+                    href=""
+                    target="_blank"
+                    className="text-mesh-color-primary-1000"
+                  >
                     Política de Privacidade
                   </a>
                   ,{' '}
-                  <a href="" target="_blank" className="text-[#B6DF3E]">
+                  <a
+                    href=""
+                    target="_blank"
+                    className="text-mesh-color-primary-1000"
+                  >
                     Política de Reembolso
                   </a>
                   .

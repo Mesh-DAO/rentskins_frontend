@@ -7,8 +7,7 @@ export default function TransactionsTable() {
     if (index % 2 === 0) {
       return 'bg-transparent'
     } else {
-      // CHANGE COLOR!
-      return 'bg-[#181C19]'
+      return 'bg-mesh-color-others-black'
     }
   }
 
@@ -26,13 +25,19 @@ export default function TransactionsTable() {
     switch (status) {
       // CHANGE COLOR!
       case 'Concluído':
-        return generateElement('bg-[#2cd25526] text-[#76F495]')
+        return generateElement(
+          'bg-mesh-color-rarity-high/10 text-mesh-color-rarity-high',
+        )
       // CHANGE COLOR!
       case 'Em andamento':
-        return generateElement('bg-[#cfa62b26] text-[#EAC556]')
+        return generateElement(
+          'bg-mesh-color-rarity-medium/10 text-mesh-color-rarity-medium',
+        )
       // CHANGE COLOR!
       case 'Falhou':
-        return generateElement('bg-[#c8181826] text-[#EE4E4E]')
+        return generateElement(
+          'bg-mesh-color-rarity-low/10 text-mesh-color-rarity-low',
+        )
     }
   }
 

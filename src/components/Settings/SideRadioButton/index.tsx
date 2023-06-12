@@ -16,7 +16,7 @@ export function SideRadioButton() {
           htmlFor="settings_index-1"
           className="peer-checked:bg-mesh-dark-0 flex w-full select-none items-center justify-start gap-4 
         rounded-md bg-transparent px-4 py-3 text-lg font-semibold 
-        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-[#3EE167]"
+        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-mesh-color-accent-1000"
         >
           <IconGear />
           Informações Pessoais
@@ -35,7 +35,7 @@ export function SideRadioButton() {
           htmlFor="settings_index-2"
           className="peer-checked:bg-mesh-dark-0 flex w-full select-none items-center justify-start gap-4 
         rounded-md bg-transparent px-4 py-3 text-lg font-semibold 
-        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-[#3EE167]"
+        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-mesh-color-accent-1000"
         >
           <IconPaper />
           Transações
@@ -54,7 +54,7 @@ export function SideRadioButton() {
           htmlFor="settings_index-3"
           className="peer-checked:bg-mesh-dark-0 flex w-full select-none items-center justify-start gap-4 
         rounded-md bg-transparent px-4 py-3 text-lg font-semibold 
-        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-[#3EE167]"
+        text-mesh-color-neutral-200 transition-all duration-500 peer-checked:text-mesh-color-accent-1000"
         >
           <IconLockedShield />
           Segurança

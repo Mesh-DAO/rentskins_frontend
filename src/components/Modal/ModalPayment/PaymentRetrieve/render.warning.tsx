@@ -20,7 +20,7 @@ export function ModalPaymentRetrieveWarning() {
         {/* CHANGE COLOR */}
         <div
           className="mt-7 flex items-center
-       gap-2 rounded-lg bg-[#63800d33] px-4 py-2 text-lg font-semibold tracking-wide text-white"
+       gap-2 rounded-lg bg-mesh-color-primary-1900/20 px-4 py-2 text-lg font-semibold tracking-wide text-white"
         >
           <IconShield width={18} height={18} stroke="#C5EA56" fill="#C5EA56" />
           <span> Segurança KYC (Conheça seu cliente) </span>

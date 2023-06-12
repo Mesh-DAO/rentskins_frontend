@@ -29,7 +29,7 @@ export function ModalPaymentRetrieveSelection() {
         </div>
         {/* CHANGE COLOR */}
         <div className="flex items-center gap-2 text-mesh-color-neutral-200">
-          <div className="flex items-center justify-center rounded-lg bg-[#63800d33] px-2 py-2">
+          <div className="flex items-center justify-center rounded-lg bg-mesh-color-primary-1900/20 px-2 py-2">
             <IconShield
               width={16}
               height={16}

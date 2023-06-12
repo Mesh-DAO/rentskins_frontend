@@ -6,7 +6,7 @@ export function SettingsSecurity() {
   return (
     <div className="flex w-2/3 flex-col gap-8">
       {/* Top */}
-      <div className="rounded-2xl bg-mesh-dark-1 px-4 py-6">
+      <div className="bg-mesh-dark-1 rounded-2xl px-4 py-6">
         <Title bold={700} size={'2xl'} color="white">
           Segurança
         </Title>
@@ -18,7 +18,7 @@ export function SettingsSecurity() {
                 Steam Guard
               </Title>
 
-              <div className="flex gap-2 rounded-md bg-red-500/10 px-2 py-1 text-[#E84E6A]">
+              <div className="flex items-center justify-center gap-2 rounded-md bg-red-500/10 px-2 py-1 text-mesh-color-rarity-low">
                 <IconAlert />
                 Desativado
               </div>
@@ -30,7 +30,7 @@ export function SettingsSecurity() {
           </div>
 
           {/* CHANGE COLOR! */}
-          <span className="text-base leading-5 text-[#90988B]">
+          <span className="text-base leading-5 text-mesh-color-neutral-200">
             O Steam Guard é um nível extra de segurança para a sua conta Steam.
             Ele evita que pessoal mal intencionadas roubem seus itens e é um
             requisito para que você possa trocar no SkinsMonkey.

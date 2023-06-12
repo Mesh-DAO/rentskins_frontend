@@ -31,7 +31,7 @@ export function Button({
       disabled={disable}
       className={classNames(
         `flex items-center justify-center w-[${width} h-[${height}]
-        rounded-md border border-transparent p-1 opacity-60 
+        rounded-md border p-1 opacity-60 
         transition enabled:hover:opacity-100`,
         {
           'border-mesh-color-neutral-400 bg-transparent fill-white text-lg':
@@ -42,7 +42,7 @@ export function Button({
             color === 'gray',
         },
         {
-          'h-10 w-48 border-mesh-color-primary-1200 bg-mesh-color-primary-1200 px-4 py-3 text-lg text-mesh-color-others-black disabled:border-mesh-color-neutral-500 disabled:bg-mesh-color-neutral-500 disabled:text-[#979797]':
+          'h-10 w-48 border-mesh-color-primary-1200 bg-mesh-color-primary-1200 px-4 py-3 text-lg text-mesh-color-others-black disabled:border-mesh-color-neutral-500 disabled:bg-mesh-color-neutral-500 disabled:text-mesh-color-neutral-300':
             color === 'green',
         },
         className,

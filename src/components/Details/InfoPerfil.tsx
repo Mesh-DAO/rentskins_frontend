@@ -12,7 +12,7 @@ export function InfoPerfil() {
             <Title color="white" className="text-2xl font-semibold">
               Fallenzão
             </Title>
-            <span className="mt-1 flex h-[26px] max-w-[79px] items-center justify-center rounded-[15px] border border-none bg-[#243D30] text-sm text-mesh-color-accent-600">
+            <span className="mt-1 flex h-[26px] max-w-[79px] items-center justify-center rounded-[15px] border border-none bg-mesh-color-others-green text-sm text-mesh-color-accent-600">
               Confiável
             </span>
           </div>

@@ -98,6 +98,7 @@ module.exports = {
           others: {
             black: '#151714',
             'eerie-black': '#222723',
+            'black-olive': '#3E423A',
             gray: '#CECECE',
             green: '#243D30',
           },

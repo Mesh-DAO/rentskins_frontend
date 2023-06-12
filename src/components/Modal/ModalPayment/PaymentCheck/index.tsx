@@ -78,7 +78,7 @@ export function ModalPaymentCheck() {
               Recarga
             </Button>
             <Button
-              className="h-10 w-1/2 bg-[#CFA62B]"
+              className="h-10 w-1/2 bg-mesh-color-secondary-1200"
               onClick={() => handleButton(2)}
             >
               Retirar

@@ -16,7 +16,7 @@ export function Meio() {
             Para ter acesso às suas skins e realizar transações, é necessário
             vincular seu inventário à Steam
           </Title>
-          <Button className="mt-4 h-10 w-full rounded-xl bg-[#95BC1E] font-semibold text-black">
+          <Button className="mt-4 h-10 w-full rounded-xl bg-mesh-color-primary-1400 font-semibold text-black">
             Conectar-se
           </Button>
         </div>

@@ -16,15 +16,15 @@ export function InfoSkinModal() {
         </p>
       </div>
 
-      <div className="mt-4 h-full w-full rounded-lg bg-[#1A1D1A] p-4">
+      <div className="mt-4 h-full w-full rounded-lg bg-mesh-color-others-black p-4">
         <div>
           <div className="mt-2 flex justify-between">
             <Title size="md" bold={500} color="white">
               Preço recomendado
             </Title>
-            <span className="text-[#3EE167]">R$21,32</span>
+            <span className="text-mesh-color-accent-1000">R$21,32</span>
           </div>
-          <p className="w-[70%] text-[#90988B]">
+          <p className="w-[70%] text-mesh-color-neutral-200">
             Preço que recomendamos com base no mercado do momento
           </p>
           <div className="mt-6 rounded border-b border-mesh-color-neutral-200" />
@@ -55,7 +55,7 @@ export function InfoSkinModal() {
         {/* ---------INPUT FIM -------------  */}
 
         <div className=" space-y-6">
-          <Button className="bg-mesh-color-primary-1400 mt-4 h-11 w-full">
+          <Button className="mt-4 h-11 w-full bg-mesh-color-primary-1400">
             <Title bold={600} className="rounded-xl">
               Anunciar
             </Title>

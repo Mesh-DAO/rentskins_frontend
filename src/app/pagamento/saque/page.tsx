@@ -160,7 +160,7 @@ export default function PaymentWithdrawPage() {
                 <div
                   className={`flex h-10 w-12 items-center justify-center rounded-full ${
                     paymentWithdrawIndex >= 3
-                      ? 'bg-[#A6CF3B] transition-all delay-500 duration-500'
+                      ? 'bg-mesh-color-primary-1200 transition-all delay-500 duration-500'
                       : 'bg-mesh-color-neutral-500'
                   } p-2`}
                 >
