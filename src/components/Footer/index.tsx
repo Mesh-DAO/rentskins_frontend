@@ -55,7 +55,7 @@ export function Footer() {
               Suporte
             </a>
             <a
-              href=""
+              href="/faq"
               target="_blank"
               className="text-mesh-light-0 transition-colors hover:text-mesh-light-0/50"
             >
