@@ -44,7 +44,7 @@ export function TopHeader() {
             Carrinho de compra
           </Button>
           <Button
-            className="h-[44px] w-[220px] rounded-[14px] bg-[#95BC1E] opacity-100"
+            className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-[#95BC1E] opacity-100"
             onClick={() => setIsUser(!isUser)}
           >
             <span className="mr-2">
@@ -69,7 +69,7 @@ export function TopHeader() {
                 RS:12,42
               </Title>
               <Button
-                className="bg-dark-lime-green h-5 w-5"
+                className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
                 onClick={() => setIsUser(!isUser)}
               >
                 <IconCruz />
@@ -78,7 +78,7 @@ export function TopHeader() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button className="h-11 w-11 rounded-xl border-none bg-[#222723]">
+            <Button className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black">
               <IconNotifications />
             </Button>
 
@@ -105,7 +105,7 @@ export function TopHeader() {
           </span>
           Carrinho de compra
         </Button>
-        <Button className="h-[44px] w-[220px] rounded-[14px] border-mesh-color-primary-1400 bg-mesh-color-primary-1400 opacity-100">
+        <Button className="h-[44px] w-[220px] rounded-[14px] border-mesh-color-primary-1400 border-transparent bg-mesh-color-primary-1400 opacity-100">
           <span className="mr-2">
             <IconSteam />
           </span>

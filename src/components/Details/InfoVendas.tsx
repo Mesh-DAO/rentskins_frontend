@@ -41,10 +41,7 @@ export function InfoVendas() {
           </div>
         </div>
         <div className="mt-8 flex items-center justify-end space-x-4">
-          <Button
-            className="flex border-none text-end
-          "
-          >
+          <Button className="flex border-none text-end">
             <IconArrow />
           </Button>
           <Button className="flex rotate-180 items-end border-none text-end">

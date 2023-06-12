@@ -29,7 +29,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                 </Title>
               </Dialog.Title>
               <Dialog.Close asChild>
-                <Button className="border-none outline-none">
+                <Button className="border-transparent outline-none">
                   <IconClose />
                 </Button>
               </Dialog.Close>
@@ -102,7 +102,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                     </Title>
                   </InputRadio>
                 </div>
-                <Button className="bg-dark-olive-green h-11 w-1/4 font-bold text-mesh-color-neutral-300">
+                <Button className="h-11 w-1/4 bg-mesh-color-primary-1400 font-bold text-mesh-color-neutral-300">
                   Concluir
                 </Button>
               </div>

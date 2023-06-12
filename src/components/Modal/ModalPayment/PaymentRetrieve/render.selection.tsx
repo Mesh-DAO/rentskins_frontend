@@ -54,7 +54,7 @@ export function ModalPaymentRetrieveSelection() {
       <div className="mb-7 flex h-full items-end justify-end">
         {/* CHANGE COLOR */}
         <Button
-          className="h-14 w-4/12 border-none bg-mesh-color-primary-1200 text-2xl font-bold"
+          className="h-14 w-4/12 border-transparent bg-mesh-color-primary-1200 text-2xl font-bold"
           onClick={() => handleOnWithdraw()}
         >
           Retirar saldo

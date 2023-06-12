@@ -42,7 +42,10 @@ export default function PaymentAddPixPage() {
         >
           <div className="mt-8 flex w-fit flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
-              <Button className="border-none" onClick={() => handleOnCancel()}>
+              <Button
+                className="border-transparent"
+                onClick={() => handleOnCancel()}
+              >
                 <IconLeftArrow />
               </Button>
               {/* CHANGE COLOR */}
@@ -92,7 +95,7 @@ export default function PaymentAddPixPage() {
                     type="submit"
                     onClick={(event) => handleOnSubmit(event)}
                     disable={!validateForm()}
-                    className="h-12 w-full"
+                    className="h-12 w-full border-transparent"
                     color="green"
                   >
                     Continuar

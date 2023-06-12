@@ -122,7 +122,7 @@ rounded-2xl bg-mesh-color-neutral-700"
                 </span>
                 <Button
                   onClick={() => handleOnDeposit()}
-                  className="h-16 w-1/2 bg-mesh-color-primary-1200 text-xl font-extrabold"
+                  className="h-16 w-1/2 border-transparent bg-mesh-color-primary-1200 text-xl font-extrabold"
                 >
                   Depositar
                 </Button>

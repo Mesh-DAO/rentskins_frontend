@@ -33,7 +33,7 @@ export function ModalAddSkin({ activator, isEdition }: IProps) {
                 )}
               </Dialog.Title>
               <Dialog.Close asChild>
-                <Button className="border-none outline-none">
+                <Button className="border-transparent outline-none">
                   <IconClose />
                 </Button>
                 {/* CHANGE - MAKE IT FUNCTIONAL */}

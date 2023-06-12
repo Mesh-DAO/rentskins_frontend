@@ -55,7 +55,7 @@ export function InfoSkinModal() {
         {/* ---------INPUT FIM -------------  */}
 
         <div className=" space-y-6">
-          <Button className="mt-4 h-11 w-full bg-mesh-color-primary-1400">
+          <Button className="mt-4 h-11 w-full border-transparent bg-mesh-color-primary-1400">
             <Title bold={600} className="rounded-xl">
               Anunciar
             </Title>

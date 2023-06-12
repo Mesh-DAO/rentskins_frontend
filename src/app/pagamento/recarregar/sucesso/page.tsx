@@ -21,7 +21,7 @@ export default function PaymentAddSuccessPage() {
           </Title>
           {/* CHANGE COLOR */}
           <Button
-            className="w-2/3 bg-mesh-color-primary-1200 py-3 text-xl font-bold text-black"
+            className="w-2/3 border-transparent bg-mesh-color-primary-1200 py-3 text-xl font-bold text-black"
             onClick={() => handleOnContinue()}
           >
             Continuar

@@ -41,7 +41,7 @@ export function ModalPaymentRetrieveWarning() {
         <div className="mb-8 flex w-full items-end justify-end">
           {/* CHANGE COLOR */}
           <Button
-            className="h-14 w-4/12 border-none bg-mesh-color-primary-1200 text-2xl font-bold"
+            className="h-14 w-4/12 border-transparent bg-mesh-color-primary-1200 text-2xl font-bold"
             onClick={() => handleOnProceed()}
           >
             Prosseguir

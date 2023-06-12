@@ -87,7 +87,7 @@ export function InfoSkin() {
         <Button className="h-11 w-[167px] font-semibold text-white">
           Alugar
         </Button>
-        <Button className="h-11 w-[167px] bg-mesh-color-primary-1400 font-semibold text-black">
+        <Button className="h-11 w-[167px] border-transparent bg-mesh-color-primary-1400 font-semibold text-black">
           Comprar agora
         </Button>
         <Button className="h-11 w-11">

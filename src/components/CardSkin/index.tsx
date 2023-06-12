@@ -54,7 +54,9 @@ export function CardSkin({ name, nameColor, iconUrl }: Props) {
           <Button color="invisible">
             <IconCart />
           </Button>
-          <Button color="green">Comprar</Button>
+          <Button color="green" className="border-transparent">
+            Comprar
+          </Button>
         </div>
       </div>
     </article>

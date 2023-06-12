@@ -35,7 +35,7 @@ export default function PerfilPerson({ isSeller }: Props) {
               <strong>195</strong>
             </h1>
             {isSeller ?? (
-              <Button color="green">
+              <Button color="green" className="border-transparent">
                 <Send />
                 Anuncie Agora
               </Button>

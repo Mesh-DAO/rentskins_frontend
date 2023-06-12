@@ -103,7 +103,7 @@ export default function PaymentAddBoletoPage() {
                     type="submit"
                     onClick={(event) => handleOnSubmit(event)}
                     disable={!validateForm()}
-                    className="h-12 w-full"
+                    className="h-12 w-full border-transparent"
                     color="green"
                   >
                     Pagar

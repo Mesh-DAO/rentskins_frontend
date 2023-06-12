@@ -80,7 +80,10 @@ export default function PaymentWithdrawPage() {
         >
           <div className="mt-8 flex w-min flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
-              <Button className="border-none" onClick={() => handleOnCancel()}>
+              <Button
+                className="border-transparent"
+                onClick={() => handleOnCancel()}
+              >
                 <IconLeftArrow />
               </Button>
               {/* CHANGE COLOR */}
@@ -209,7 +212,11 @@ export default function PaymentWithdrawPage() {
 
                 {/* CHANGE COLOR */}
                 <div className="flex flex-col gap-4 text-xl font-semibold">
-                  <Button type="submit" color="green" className="h-12 w-full">
+                  <Button
+                    type="submit"
+                    color="green"
+                    className="h-12 w-full border-transparent"
+                  >
                     Continuar
                   </Button>
                   {/* COLOR NOT WORKING */}
