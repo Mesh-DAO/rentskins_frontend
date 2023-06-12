@@ -5,8 +5,6 @@ import IconCart from '@/assets/Cart'
 import IconEye from '@/assets/Eye'
 import ColoredLine from '../ColoredLine'
 import IconMagic from '../Icons/IconMagicpen'
-import { Title } from '../Title'
-import { ModalRefound } from '../Modal/ModalRefound'
 
 interface Props {
   name: string
