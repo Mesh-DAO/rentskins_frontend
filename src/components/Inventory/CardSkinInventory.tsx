@@ -13,7 +13,13 @@ export function CardSkinInventory({ nameColor }: Props) {
         <div className="absolute top-[-2px] h-[5px] w-2/3 rounded-b-lg bg-mesh-color-primary-1400" />
         <div className="absolute left-[-10px] top-[-10px] h-7 w-7 rounded-full border bg-mesh-color-primary-1400" />
         <div className={`h-2 w-52 bg-[#${nameColor}] rounded-b-full`} />
-        <Image src={degle} alt="placeholder" width={206} height={154} />
+        <Image
+          src={degle}
+          alt="placeholder"
+          width={206}
+          height={154}
+          draggable={false}
+        />
       </div>
       <div>
         <Title className='className="font-semibold"'>Kumicho Dragon</Title>

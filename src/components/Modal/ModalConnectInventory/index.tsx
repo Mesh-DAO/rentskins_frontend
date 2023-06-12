@@ -29,8 +29,9 @@ export function ModalConnectInventario({ activator }: IProps) {
                 </Title>
               </Dialog.Title>
               <Dialog.Close asChild>
-                {/* CHANGE - MAKE IT FUNCTIONAL */}
-                <IconClose />
+                <Button className="border-none outline-none">
+                  <IconClose />
+                </Button>
               </Dialog.Close>
             </div>
             {/* MIDDLE */}

@@ -1,7 +1,7 @@
 import { LayoutPage } from '@/components/Shared'
 import { Title } from '@/components/Title'
 
-export default function Privacidade() {
+export default function Sobre() {
   return (
     <LayoutPage>
       <main className="w-full bg-mesh-color-others-black">

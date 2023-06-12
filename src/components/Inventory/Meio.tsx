@@ -6,7 +6,7 @@ import { Title } from '../Title'
 import { CardSkinInventory } from './CardSkinInventory'
 
 export function Meio() {
-  const num = 2
+  const num = 1
 
   return (
     <div className="min-h-[1000px]">

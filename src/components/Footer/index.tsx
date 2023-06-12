@@ -24,7 +24,7 @@ export function Footer() {
         <div className="flex flex-col items-end gap-16">
           <nav className="flex gap-12">
             <a
-              href="/termodeuso"
+              href="/termosdeuso"
               target="_blank"
               className="text-white transition-colors hover:text-white/50"
               rel="noreferrer"
@@ -55,7 +55,7 @@ export function Footer() {
               Suporte
             </a>
             <a
-              href=""
+              href="/faq"
               target="_blank"
               className="text-white transition-colors hover:text-white/50"
             >
