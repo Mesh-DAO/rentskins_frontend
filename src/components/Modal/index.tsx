@@ -1,3 +1,5 @@
 export * from './ModalPayment'
 export * from './ModalConectInventario'
 export * from './ModalAddSkin'
+export * from './ModalPayment/PaymentAdd'
+export * from './ModalPayment/PaymentCheck'

@@ -94,6 +94,22 @@ export function TopHeader() {
         </div>
       )}
       {/* ---------------- RIGHT FIM ----------------------- */}
+      {/* ----------BUTTON ------------ */}
+      <div className="flex space-x-4">
+        <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-jet-black  p-2 text-[#A7B0A0]">
+          <span className="mr-2">
+            <IconCarrinho />
+          </span>
+          Carrinho de compra
+        </Button>
+        <Button className="h-[44px] w-[220px] rounded-[14px] bg-[#95BC1E] opacity-100">
+          <span className="mr-2">
+            <IconSteam />
+          </span>
+          Entre com sua steam
+        </Button>
+      </div>
+      {/* ----------BUTTON FIM ------------ */}
     </div>
   )
 }
