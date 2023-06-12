@@ -32,7 +32,7 @@ export function Button({
       className={classNames(
         `flex items-center justify-center w-[${width} h-[${height}]
         rounded-md border border-dark-olive-green p-1 opacity-60
-        transition hover:opacity-100`,
+        transition enabled:hover:opacity-100`,
         {
           ' fill-white': color === 'invisible',
         },
