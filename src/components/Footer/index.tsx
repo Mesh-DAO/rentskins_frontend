@@ -9,12 +9,12 @@ import {
 export function Footer() {
   return (
     <footer>
-      <div className="bg-mesh-dark-1 flex h-64 items-center justify-between px-32">
+      <div className="flex h-64 items-center justify-between bg-mesh-color-neutral-800 px-32">
         {/* Left Side */}
         <div className="flex flex-col gap-4">
           <LogoIcon />
           <p>
-            <span className="text-mesh-light-1">
+            <span className="text-mesh-color-others-gray">
               Copyright © 2023 RentSkins. <br /> All rights reserved.
             </span>
           </p>
@@ -26,7 +26,7 @@ export function Footer() {
             <a
               href="/termodeuso"
               target="_blank"
-              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
+              className="text-white transition-colors hover:text-white/50"
               rel="noreferrer"
             >
               Termos de Uso
@@ -34,7 +34,7 @@ export function Footer() {
             <a
               href="/privacidade"
               target="_blank"
-              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
+              className="text-white transition-colors hover:text-white/50"
               rel="noreferrer"
             >
               Privacidade
@@ -42,14 +42,14 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
+              className="text-white transition-colors hover:text-white/50"
             >
               Sobre Nós
             </a>
             <a
               href="/sobre"
               target="_blank"
-              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
+              className="text-white transition-colors hover:text-white/50"
               rel="noreferrer"
             >
               Suporte
@@ -57,7 +57,7 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="text-mesh-light-0 hover:text-mesh-light-0/50 transition-colors"
+              className="text-white transition-colors hover:text-white/50"
             >
               FAQ
             </a>
@@ -66,47 +66,33 @@ export function Footer() {
             <a
               href=""
               target="_blank"
-              className="bg-mesh-dark-0 flex h-10 w-10 items-center justify-center rounded-full"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-color-neutral-500"
             >
               <IconFacebook />
-              {/* <Image src={FacebookIcon} alt="Facebook" width={10} height={20} /> */}
             </a>
 
             <a
               href=""
               target="_blank"
-              className="bg-mesh-dark-0 flex h-10 w-10 items-center justify-center rounded-full"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-color-neutral-500"
             >
               <IconTwitter />
-              {/* <Image src={TwitterIcon} alt="Twitter" width={20} height={20} /> */}
             </a>
 
             <a
               href=""
               target="_blank"
-              className="bg-mesh-dark-0 flex h-10 w-10 items-center justify-center rounded-full"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-color-neutral-500"
             >
               <IconInstagram />
-              {/* <Image
-                src={InstagramIcon}
-                alt="Instagram"
-                width={20}
-                height={20}
-              /> */}
             </a>
 
             <a
               href=""
               target="_blank"
-              className="bg-mesh-dark-0 flex h-10 w-10 items-center justify-center rounded-full"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-color-neutral-500"
             >
               <IconPinterest />
-              {/* <Image
-                src={PinterestIcon}
-                alt="Pinterest"
-                width={20}
-                height={20}
-              /> */}
             </a>
           </nav>
         </div>

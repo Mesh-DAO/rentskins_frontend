@@ -37,7 +37,7 @@ module.exports = {
             1100: '#AFD734',
             1200: '#A6CF2B',
             1300: '#9EC624',
-            1400: '#95BC1E',
+            1400: '#95BC1E', // Dark - Lime Green
             1500: '#8BB119',
             1600: '#81A515',
             1700: '#779912',
@@ -97,6 +97,7 @@ module.exports = {
           },
           others: {
             black: '#151714',
+            gray: '#CECECE',
           },
         },
       },

@@ -14,7 +14,7 @@ const settingsIndex: 0 | 1 | 2 = 1
 export default function Settings() {
   return (
     <LayoutPage>
-      <div className="flex h-screen justify-center gap-10 bg-mesh-dark-2 px-[7.5rem] pt-8">
+      <div className="flex h-screen justify-center gap-10 bg-mesh-color-others-black px-[7.5rem] pt-8">
         {/* Left Side */}
         <div className="flex h-min w-max flex-col items-end gap-2">
           <div className="flex flex-col items-start gap-6">

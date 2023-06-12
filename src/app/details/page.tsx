@@ -4,7 +4,7 @@ import { LayoutPage } from '@/components/Shared/LayoutPage'
 export default function Details() {
   return (
     <LayoutPage>
-      <main className="w-full bg-jet-black">
+      <main className="w-full bg-mesh-color-others-black">
         <div className="mx-auto flex w-10/12 justify-center py-10">
           <div>
             <Card />

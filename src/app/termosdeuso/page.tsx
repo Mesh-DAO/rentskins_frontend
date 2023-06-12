@@ -4,7 +4,7 @@ import { Title } from '@/components/Title'
 export default function TermoDeUso() {
   return (
     <LayoutPage>
-      <main className="w-full bg-mesh-dark-2">
+      <main className="w-full bg-mesh-color-others-black">
         <div className="mx-auto w-10/12 py-10">
           <Title
             bold={700}

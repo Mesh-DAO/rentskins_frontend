@@ -31,17 +31,17 @@ export function Button({
       disabled={disable}
       className={classNames(
         `flex items-center justify-center w-[${width} h-[${height}]
-        rounded-md border border-dark-olive-green p-1 opacity-60
+        rounded-md border border-transparent p-1 opacity-60
         transition enabled:hover:opacity-100`,
         {
-          ' fill-white': color === 'invisible',
+          'bg-transparent fill-white': color === 'invisible',
         },
         {
-          'h-9 w-28 rounded-lg bg-dark-olive-green px-4 py-3 text-lg text-white':
+          'h-9 w-28 rounded-lg px-4 py-3 text-lg text-white':
             color === 'visible',
         },
         {
-          'h-10 w-48 gap-1 rounded-xl bg-dark-lime-green px-4 py-3 text-lg text-mesh-dark-2':
+          'h-10 w-48 gap-1 rounded-xl px-4 py-3 text-lg text-mesh-color-neutral-0':
             color === 'green',
         },
         className,
