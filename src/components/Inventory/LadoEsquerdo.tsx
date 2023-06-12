@@ -3,22 +3,91 @@ import { Title } from '../Title'
 
 export function LadoEsquerdo() {
   return (
-    <div className="">
-      <div className="space-">
+    <div>
+      <div>
         <Title color="white" className="text-3xl font-extrabold">
           Inventário
         </Title>
-        <p className="mt-8 text-lg text-white">Filtros</p>
+        <p className="mt-8 font-inter text-lg font-semibold text-white">
+          Filtros
+        </p>
       </div>
 
-      <div className="text-white">
-        <input
-          type="radio"
-          className="h-5 w-5 rounded border-2 border-[#A7B0A0]"
-        />
+      <div className="mt-6 w-56 space-y-4 border-b border-t border-mesh-color-neutral-300 py-6">
+        <InputRadio name="skin" radio="filter" style="filter">
+          <Title color="white" className="ml-8">
+            Mais recente
+          </Title>
+        </InputRadio>
+        <InputRadio style="filter" name="skin" radio="filter">
+          <Title color="white" className="ml-8">
+            Menor preço
+          </Title>
+        </InputRadio>
+        <InputRadio style="filter" name="skin" radio="filter">
+          <Title color="white" className="ml-8">
+            Maior preço
+          </Title>
+        </InputRadio>
+        <InputRadio style="filter" name="skin" radio="filter">
+          <Title color="white" className="ml-8">
+            Melhor float
+          </Title>
+        </InputRadio>
+      </div>
 
-        <InputRadio className="h-5 w-5 gap-2 rounded border-2 checked:bg-blue-400">
-          Aqui
+      <div className="flex flex-col gap-4 py-6">
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Faca
+          </Title>
+        </InputRadio>
+
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Rifles
+          </Title>
+        </InputRadio>
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Pistolas
+          </Title>
+        </InputRadio>
+
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Submetralhadoras
+          </Title>
+        </InputRadio>
+
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Metralhadoras
+          </Title>
+        </InputRadio>
+
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Escopetas
+          </Title>
+        </InputRadio>
+
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Figurinhas
+          </Title>
+        </InputRadio>
+
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Melhor float
+          </Title>
+        </InputRadio>
+
+        <InputRadio style="filter" name="type" radio="filter">
+          <Title color="white" className="ml-8">
+            Agentes
+          </Title>
         </InputRadio>
       </div>
     </div>

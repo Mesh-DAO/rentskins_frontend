@@ -6,8 +6,7 @@ type Props = {
   size?: 'sm' | 'md' | 'xs' | 'lg' | 'xl' | '2xl' | '3xl' | 'base'
   color?: 'white' | 'green' | 'cinza' | 'red' | 'black' | 'dark/6'
   className?: string
-  bold?: null | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
-  bg?: 'light-red'
+  bold?: 100 | 400 | 500 | 600 | 700 | 800 | 900
   onClick?: () => void
 }
 
@@ -17,8 +16,7 @@ export function Title({
   size = 'md',
   color = 'black',
   className,
-  bold = null,
-  bg,
+  bold = 400,
 }: Props) {
   return (
     <h1
@@ -29,19 +27,10 @@ export function Title({
           'text-white': color === 'white',
         },
         {
-          'text-[#D0D7CB]': color === 'dark/6',
+          'text-mesh-color-primary-1200': color === 'green',
         },
         {
-          'text-alt-steam-button': color === 'green',
-        },
-        {
-          'text-mesh-light-2': color === 'cinza',
-        },
-        {
-          'text-red-600': color === 'red',
-        },
-        {
-          'bg-[#c818181a]': bg === 'light-red',
+          'text-mesh-color-neutral-500': color === 'cinza',
         },
         {
           'text-xs': size === 'xs',
@@ -73,6 +62,11 @@ export function Title({
         {
           'font-normal': bold === 400,
         },
+
+        {
+          'font-medium': bold === 500,
+        },
+
         {
           'font-semibold': bold === 600,
         },

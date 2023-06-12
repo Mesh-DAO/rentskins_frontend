@@ -19,8 +19,8 @@ export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
   const [skinType, skinName] = name.split('|')
 
   return (
-    <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-dark-olive-green border-opacity-60 px-3 pb-4 pt-3 text-white">
-      <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dark-olive-green bg-mesh-skin-gradient">
+    <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-primary-1400 border-opacity-60 px-3 pb-4 pt-3 text-white">
+      <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-primary-1400 bg-mesh-gradient-black-pattern">
         <div
           className={`h-2 w-52 rounded-b-full`}
           style={{ backgroundColor: `#${nameColor}` }}
@@ -30,6 +30,7 @@ export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
           alt="placeholder"
           width={206}
           height={154}
+          draggable={false}
         />
       </div>
       <h1 className="font-semibold">{skinName}</h1>
@@ -58,26 +59,14 @@ export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
       </div>
       <ColoredLine />
       <div className="flex items-center justify-end">
-        {itsRent ? (
-          <div className="flex flex-col items-end gap-2">
-            <ModalRefound
-              iconUrl={iconUrl}
-              name={name}
-              nameColor={nameColor}
-              activator={<Button color="visible">Devolução</Button>}
-            />
-            <Title color="red" bg="light-red" className="rounded-xl px-2">
-              Expira em 21 dias
-            </Title>
-          </div>
-        ) : (
-          <div className="flex gap-2">
-            <Button color="invisible">
-              <IconCart />
-            </Button>
-            <Button color="visible">Comprar</Button>
-          </div>
-        )}
+        <div className="flex gap-2">
+          <Button color="invisible">
+            <IconCart />
+          </Button>
+          <Button color="green" className="border-transparent">
+            Comprar
+          </Button>
+        </div>
       </div>
     </article>
   )

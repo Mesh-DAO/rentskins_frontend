@@ -14,7 +14,6 @@ export default function CircleLoading({
   label,
   children,
 }: IProps) {
-  console.log(enabled)
   const renderLoading = () => {
     if (enabled) {
       return (
