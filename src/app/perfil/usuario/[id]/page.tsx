@@ -1,4 +1,4 @@
-import AllSkins from '@/components/AllSkins'
+import AllSkins from '@/components/Skins/AllSkins'
 import ChoiceItems from '@/components/ChoiceItems'
 import PerfilPerson from '@/components/ProfilePerson'
 import { LayoutPage } from '@/components/Shared'

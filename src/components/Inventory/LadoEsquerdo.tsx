@@ -13,7 +13,7 @@ export function LadoEsquerdo() {
         </p>
       </div>
 
-      <div className="mt-6 w-56 space-y-4 border-b border-t border-[#808080] py-6">
+      <div className="mt-6 w-56 space-y-4 border-b border-t border-mesh-color-neutral-300 py-6">
         <InputRadio name="skin" radio="filter" style="filter">
           <Title color="white" className="ml-8">
             Mais recente

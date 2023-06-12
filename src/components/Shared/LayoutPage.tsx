@@ -9,7 +9,7 @@ type Props = {
 
 export function LayoutPage({ children }: Props) {
   return (
-    <div className="min-h-screen bg-jet-black">
+    <div className="min-h-screen bg-mesh-color-others-black">
       <Header />
       {children}
       <Footer />

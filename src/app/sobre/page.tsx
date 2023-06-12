@@ -4,7 +4,7 @@ import { Title } from '@/components/Title'
 export default function Sobre() {
   return (
     <LayoutPage>
-      <main className="w-full bg-mesh-dark-2">
+      <main className="w-full bg-mesh-color-others-black">
         <div className="mx-auto w-10/12 py-10">
           <Title
             bold={700}
@@ -19,7 +19,7 @@ export default function Sobre() {
               <Title bold={700} color="white" className="text-2xl">
                 O que é a RentSkins?
               </Title>
-              <p className="mt-5 text-[#D0D7CB]">
+              <p className="mt-5 text-mesh-color-neutral-0">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
                 odit animi, repudiandae optio qui architecto excepturi
                 perspiciatis, porro voluptate distinctio vitae nam. Corrupti
@@ -31,7 +31,7 @@ export default function Sobre() {
               <Title bold={700} color="white" className="text-2xl">
                 O que fazemos?
               </Title>
-              <p className="mt-5 text-[#D0D7CB]">
+              <p className="mt-5 text-mesh-color-neutral-0">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
                 odit animi, repudiandae optio qui architecto excepturi
                 perspiciatis, porro voluptate distinctio vitae nam. Corrupti

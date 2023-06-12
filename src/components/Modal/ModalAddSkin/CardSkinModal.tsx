@@ -9,6 +9,13 @@ export function CardSkinModal() {
       <div className="absolute bottom-0 w-full">
         <ColoredLine />
       </div>
+    <div className="mr-6 mt-2 flex h-full w-[60%] items-center justify-center rounded-lg border-b-8 border-red-700 bg-mesh-image-details bg-cover bg-no-repeat">
+      <Image
+        src={arma}
+        alt=""
+        className="w-[80%] object-cover"
+        draggable={false}
+      />
     </div>
   )
 }

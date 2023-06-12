@@ -43,7 +43,7 @@ export default function PaymentAddMastercardPage() {
   return (
     <LayoutPage>
       {/* CHANGE COLOR */}
-      <main className="flex h-screen flex-col items-center justify-start bg-[#151714] text-white">
+      <main className="flex h-screen flex-col items-center justify-start bg-mesh-color-others-black text-white">
         <CircleLoading
           label="Processando..."
           enabled={isLoading}
@@ -51,15 +51,20 @@ export default function PaymentAddMastercardPage() {
         >
           <div className="mt-8 flex w-fit flex-col">
             <div className="mb-8 flex w-full items-center justify-start">
-              <Button className="border-none" onClick={() => handleOnCancel()}>
+              <Button
+                className="border-transparent"
+                onClick={() => handleOnCancel()}
+              >
                 <IconLeftArrow />
               </Button>
               {/* CHANGE COLOR */}
-              <span className="ml-2 text-[#A7B0A0]">
+              <span className="ml-2 text-mesh-color-neutral-200">
                 <text>Saldo </text>
                 <text>• </text>
                 {/* CHANGE COLOR */}
-                <text className="text-[#49E671]">Pagamento - Mastercard</text>
+                <text className="text-mesh-color-accent-900">
+                  Pagamento - Mastercard
+                </text>
               </span>
             </div>
             <div className="flex h-full w-full flex-col items-start justify-center">
@@ -118,7 +123,7 @@ export default function PaymentAddMastercardPage() {
                 <div className="flex justify-between text-xl font-semibold">
                   <text>Total:</text>
                   {/* CHANGE COLOR */}
-                  <span className="text-[#C5EA56]">
+                  <span className="text-mesh-color-primary-800">
                     R${paymentAdd.value?.toFixed(2).replace('.', ',')}
                   </span>
                 </div>
@@ -129,13 +134,15 @@ export default function PaymentAddMastercardPage() {
                     type="submit"
                     onClick={(event) => handleOnSubmit(event)}
                     disable={!validateForm()}
-                    className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-[#3C403C] disabled:bg-[#3C403C] disabled:text-[#979797]"
+                    className="h-12 w-full border-transparent"
+                    color="green"
                   >
                     Pagar
                   </Button>
                   <Button
                     className="w-full border-2 py-2"
                     onClick={() => handleOnCancel()}
+                    color="invisible"
                   >
                     Cancelar
                   </Button>
