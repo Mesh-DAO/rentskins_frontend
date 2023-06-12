@@ -53,7 +53,7 @@ export function CardSkin({ name, nameColor, iconUrl }: Props) {
           <Button color="invisible">
             <IconCart />
           </Button>
-          <Button color="visible">Comprar</Button>
+          <Button color="green">Comprar</Button>
         </div>
       </div>
     </article>
