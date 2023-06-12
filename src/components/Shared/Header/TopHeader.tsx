@@ -93,26 +93,6 @@ export function TopHeader() {
           </div>
         </div>
       )}
-      {/* ---------------- RIGHT FIM ----------------------- */}
-      {/* ----------BUTTON ------------ */}
-      <div className="flex space-x-4">
-        <Button
-          className="h-[44px] w-[220px] rounded-[14px] 
-        border border-mesh-color-neutral-400 bg-transparent p-2 text-mesh-color-neutral-200"
-        >
-          <span className="mr-2">
-            <IconCarrinho />
-          </span>
-          Carrinho de compra
-        </Button>
-        <Button className="h-[44px] w-[220px] rounded-[14px] border-mesh-color-primary-1400 border-transparent bg-mesh-color-primary-1400 opacity-100">
-          <span className="mr-2">
-            <IconSteam />
-          </span>
-          Entre com sua steam
-        </Button>
-      </div>
-      {/* ----------BUTTON FIM ------------ */}
     </div>
   )
 }
