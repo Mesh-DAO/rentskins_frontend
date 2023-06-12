@@ -1,4 +1,4 @@
-export default function IconMastercard() {
+export function IconMastercard() {
   return (
     <svg
       width="77"
