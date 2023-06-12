@@ -26,8 +26,8 @@ export function TopHeader() {
 
       <div className="flex space-x-4">
         <Button
-          className="border-mesh-neutral-200 h-[44px] w-[220px] 
-        rounded-[14px] border bg-transparent  p-2 text-mesh-color-neutral-200"
+          className="h-[44px] w-[220px] rounded-[14px] 
+        border border-mesh-color-neutral-400 bg-transparent p-2 text-mesh-color-neutral-200"
         >
           <span className="mr-2">
             <IconCarrinho />

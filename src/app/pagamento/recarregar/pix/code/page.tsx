@@ -74,7 +74,7 @@ export default function PaymentAddPixCodePage() {
                 <div className="mt-8 flex justify-between text-xl font-semibold">
                   <text>Total:</text>
                   {/* CHANGE COLOR */}
-                  <span className="text-[#C5EA56]">
+                  <span className="text-mesh-color-primary-800">
                     R${paymentAdd.value?.toFixed(2).replace('.', ',')}
                   </span>
                 </div>
@@ -84,7 +84,7 @@ export default function PaymentAddPixCodePage() {
                   <Button
                     type="submit"
                     onClick={(event) => handleOnSubmit(event)}
-                    className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-[#3C403C] disabled:bg-[#3C403C] disabled:text-[#979797]"
+                    className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-mesh-color-neutral-500 disabled:bg-mesh-color-neutral-500 disabled:text-[#979797]"
                   >
                     Pagar
                   </Button>

@@ -200,19 +200,22 @@ export default function PaymentWithdrawPage() {
                 <div className="flex justify-between text-xl font-semibold">
                   <text>Levantamento:</text>
                   {/* CHANGE COLOR */}
-                  <span className="text-[#C5EA56]">R$0,00</span>
+                  <span className="text-mesh-color-primary-800">R$0,00</span>
                 </div>
 
                 {/* CHANGE COLOR */}
                 <div className="flex flex-col gap-4 text-xl font-semibold">
                   <Button
                     type="submit"
-                    className="w-full border-[#A6CF2B] bg-[#A6CF2B] py-2 text-black disabled:border-[#3C403C] disabled:bg-[#3C403C] disabled:text-[#979797]"
+                    color="green"
+                    className="w-full"
+                    disable
                   >
                     Continuar
                   </Button>
                   <Button
                     className="w-full border-2 py-2"
+                    color="invisible"
                     onClick={() => handleOnCancel()}
                   >
                     Cancelar

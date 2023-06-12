@@ -26,7 +26,7 @@ export function ModalPaymentAddMethodsInputs() {
         <label
           htmlFor="payment-index-1"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2 
-          border-transparent bg-[#3C403C] px-4 py-3 text-lg
+          border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-lg
           font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           <IconMastercard />
@@ -45,7 +45,7 @@ export function ModalPaymentAddMethodsInputs() {
         <label
           htmlFor="payment-index-2"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2 border-transparent 
-          bg-[#3C403C] px-4 py-3 text-lg 
+          bg-mesh-color-neutral-500 px-4 py-3 text-lg 
           font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           <IconPix />
@@ -64,7 +64,7 @@ export function ModalPaymentAddMethodsInputs() {
         <label
           htmlFor="payment-index-3"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2 border-transparent 
-bg-[#3C403C] px-4 py-3 text-lg 
+bg-mesh-color-neutral-500 px-4 py-3 text-lg 
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           <IconBoleto />

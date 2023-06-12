@@ -4,7 +4,7 @@ import { Title } from '../Title'
 
 export function InfoPerfil() {
   return (
-    <div className="mt-10 min-h-[300px] min-w-[435px] rounded-lg border-2 border-[#3E423A]">
+    <div className="mt-10 min-h-[300px] min-w-[435px] rounded-lg border-2 border-mesh-color-neutral-600">
       <div className="p-4">
         <div className="flex items-center">
           <Image src={fallen} alt="" className="rounded-full" />
@@ -12,7 +12,7 @@ export function InfoPerfil() {
             <Title color="white" className="text-2xl font-semibold">
               Fallenzão
             </Title>
-            <span className="mt-1 flex h-[26px] max-w-[79px] items-center justify-center rounded-[15px] border border-none bg-[#243D30] text-sm text-[#49E671]">
+            <span className="mt-1 flex h-[26px] max-w-[79px] items-center justify-center rounded-[15px] border border-none bg-[#243D30] text-sm text-mesh-color-accent-600">
               Confiável
             </span>
           </div>
@@ -20,7 +20,9 @@ export function InfoPerfil() {
         <div className="mt-7 space-y-3">
           <div className="flex justify-between">
             <Title color="cinza">Taxa de entrega</Title>
-            <span className="font-medium text-dark-lime-green">92%</span>
+            <span className="font-medium text-mesh-color-primary-1400">
+              92%
+            </span>
           </div>
 
           <div className="flex justify-between">

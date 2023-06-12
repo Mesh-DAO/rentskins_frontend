@@ -25,7 +25,7 @@ export default function PerfilPerson({ isSeller }: Props) {
             <Title bold={600} color="white" size="3xl" className="self-start">
               Coldzera
             </Title>
-            <div className="w-32 rounded-3xl bg-dark-olive-green p-1 text-center text-base font-normal text-white">
+            <div className="w-32 rounded-3xl bg-mesh-color-primary-1400 p-1 text-center text-base font-normal text-white">
               Membro novo
             </div>
           </div>

@@ -32,7 +32,7 @@ export function ModalPaymentAddValuesInputs() {
         <label
           htmlFor="settings_index-1"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2 border-transparent 
-bg-[#3C403C] px-4 py-3 text-lg 
+bg-mesh-color-neutral-500 px-4 py-3 text-lg 
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$5,00
@@ -51,7 +51,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         <label
           htmlFor="settings_index-2"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-[#3C403C] px-4 py-3 text-center text-lg
+border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$10,00
@@ -70,7 +70,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         <label
           htmlFor="settings_index-3"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-[#3C403C] px-4 py-3 text-center text-lg
+border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$25,00
@@ -89,7 +89,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         <label
           htmlFor="settings_index-4"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-[#3C403C] px-4 py-3 text-center text-lg
+border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$50,00
@@ -108,7 +108,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         <label
           htmlFor="settings_index-5"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-[#3C403C] px-4 py-3 text-center text-lg
+border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$100,00
@@ -127,7 +127,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         <label
           htmlFor="settings_index-6"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-[#3C403C] px-4 py-3 text-center text-lg
+border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$200,00
@@ -146,7 +146,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         <label
           htmlFor="settings_index-7"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-[#3C403C] px-4 py-3 text-center text-lg
+border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$500,00
@@ -165,7 +165,7 @@ font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D
         <label
           htmlFor="settings_index-8"
           className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-[#3C403C] px-4 py-3 text-center text-lg
+border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
 font-semibold text-[#A7B0A0] transition-all duration-500 peer-checked:border-[#D3F375] peer-checked:bg-[#5E675E] peer-checked:text-white"
         >
           R$1000,00

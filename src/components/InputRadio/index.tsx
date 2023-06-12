@@ -26,7 +26,7 @@ export function InputRadio({
         defaultChecked={defaultChecked}
         className={classNames({
           'peer absolute z-[-1]': radio === 'dia',
-          'peer h-5 w-5 rounded border border-[#808080] checked:bg-dark-lime-green':
+          'checked:bg-dark-lime-green peer h-5 w-5 rounded border border-mesh-color-neutral-300':
             radio === 'filter',
         })}
       />
@@ -34,7 +34,7 @@ export function InputRadio({
         className={classNames(
           'cursor-pointer text-sm font-normal transition duration-[400ms]',
           {
-            'flex h-[35px] w-[67px] justify-center rounded-lg border text-[#808080] peer-checked:bg-mesh-light-2':
+            'peer-checked:bg-mesh-light-2 text-mesh-neutralborder-mesh-color-neutral-300 flex h-[35px] w-[67px] justify-center rounded-lg border':
               style === 'cinza',
           },
           className,

@@ -42,9 +42,9 @@ export function ModalConnectInventario({ activator }: IProps) {
                     Insira URL Trade Link do seu Perfil
                   </Title>
                   <div className="flex w-full items-center justify-between">
-                    <div className="relative w-10/12 rounded-lg bg-[#3C403C]">
+                    <div className="relative w-10/12 rounded-lg bg-mesh-color-neutral-500">
                       <Input
-                        className="w-10/12  bg-[#3C403C] text-base text-[#E3F1D8] placeholder:text-[#E3F1D8]"
+                        className="w-10/12  bg-mesh-color-neutral-500 text-base text-[#E3F1D8] placeholder:text-[#E3F1D8]"
                         placeHolder="https://steamcommunity.com/tradeoffer/new/?partner=240416830&token=vzAomQ5n"
                       />
                       <Button className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2">
@@ -52,7 +52,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                       </Button>
                     </div>
 
-                    <Button className="border-none text-dark-lime-green">
+                    <Button className="text-dark-lime-green border-none">
                       Obter URL
                     </Button>
                   </div>
@@ -64,7 +64,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                   </Title>
 
                   <Input
-                    className="w-1/3 rounded-lg bg-[#3C403C] text-base text-[#E3F1D8] placeholder:text-[#E3F1D8]"
+                    className="w-1/3 rounded-lg bg-mesh-color-neutral-500 text-base text-[#E3F1D8] placeholder:text-[#E3F1D8]"
                     placeHolder="SeuEmail@gmail.com"
                   />
                 </div>
@@ -93,7 +93,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                     </Title>
                   </InputRadio>
                 </div>
-                <Button className="h-11 w-1/4 bg-dark-olive-green font-bold text-[#979797]">
+                <Button className="bg-dark-olive-green h-11 w-1/4 font-bold text-[#979797]">
                   Concluir
                 </Button>
               </div>

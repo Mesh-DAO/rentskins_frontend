@@ -30,7 +30,7 @@ export function Title({
           'text-alt-steam-button': color === 'green',
         },
         {
-          'text-mesh-dark-3': color === 'cinza',
+          'text-mesh-color-neutral-500': color === 'cinza',
         },
         {
           'text-xs': size === 'xs',
