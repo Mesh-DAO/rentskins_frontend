@@ -3,5 +3,7 @@
     "InfoPerfil",
     "InfoVendas",
     "Header"
-  ]
+  ],
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true
 }

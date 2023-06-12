@@ -1,11 +1,11 @@
-import { Button } from '@/components/Button'
-import IconSecurity from '@/components/Icons/IconSecurity'
-import { Title } from '@/components/Title'
-import { PaymentMethod } from './PaymentMethod'
-import useComponentStore from '@/stores/components.store'
+import { Button } from '@/components/Button';
+import IconSecurity from '@/components/Icons/IconSecurity';
+import { Title } from '@/components/Title';
+import { PaymentMethod } from './PaymentMethod';
+import useComponentStore from '@/stores/components.store';
 
 export default function ModalMethodInfos() {
-  const { setRefoundGeneralIndex } = useComponentStore()
+  const { setRefoundGeneralIndex } = useComponentStore();
 
   return (
     <section className="flex flex-col gap-11">
@@ -16,7 +16,7 @@ export default function ModalMethodInfos() {
           </Title>
           <h1 className="flex items-center gap-2">
             <IconSecurity />
-            <span className="text-sm font-normal text-mesh-light-2">
+            <span className="mesh-light-2 text-sm font-normal">
               Segurança KYC
             </span>
           </h1>
@@ -34,5 +34,5 @@ export default function ModalMethodInfos() {
         Pedir devolução
       </Button>
     </section>
-  )
+  );
 }

@@ -1,22 +1,20 @@
-import Image from 'next/image'
-import { Button } from '../Button'
-import IconSteam from '@/assets/IconSteam'
-import IconCart from '@/assets/Cart'
-import IconEye from '@/assets/Eye'
-import ColoredLine from '../ColoredLine'
-import IconMagic from '../Icons/IconMagicpen'
-import { Title } from '../Title'
-import { ModalRefound } from '../Modal/ModalRefound'
+import Image from 'next/image';
+import { Button } from '../Button';
+import IconSteam from '@/assets/IconSteam';
+import IconCart from '@/assets/Cart';
+import IconEye from '@/assets/Eye';
+import ColoredLine from '../ColoredLine';
+import IconMagic from '../Icons/IconMagicpen';
 
 interface Props {
-  name: string
-  nameColor: string
-  iconUrl: string
-  itsRent?: boolean
+  name: string;
+  nameColor: string;
+  iconUrl: string;
+  itsRent?: boolean;
 }
 
 export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
-  const [skinType, skinName] = name.split('|')
+  const [skinType, skinName] = name.split('|');
 
   return (
     <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-primary-1400 border-opacity-60 px-3 pb-4 pt-3 text-white">
@@ -69,5 +67,5 @@ export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
         </div>
       </div>
     </article>
-  )
+  );
 }
