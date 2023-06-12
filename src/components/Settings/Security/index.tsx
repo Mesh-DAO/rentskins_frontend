@@ -6,7 +6,7 @@ export function SettingsSecurity() {
   return (
     <div className="flex w-2/3 flex-col gap-8">
       {/* Top */}
-      <div className="bg-mesh-dark-1 rounded-2xl px-4 py-6">
+      <div className="bg-mesh-neutral-800 rounded-2xl px-4 py-6">
         <Title bold={700} size={'2xl'} color="white">
           Segurança
         </Title>
@@ -23,7 +23,7 @@ export function SettingsSecurity() {
                 Desativado
               </div>
             </div>
-            <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50">
+            <InlineButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
               {' '}
               Atualizar{' '}
             </InlineButton>

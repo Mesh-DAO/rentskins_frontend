@@ -5,7 +5,7 @@ export function SettingsTransactions() {
   return (
     <div className="flex w-2/3 flex-col gap-8">
       {/* Top */}
-      <div className="bg-mesh-dark-1 flex flex-col gap-10 rounded-2xl py-6">
+      <div className="flex flex-col gap-10 rounded-2xl bg-mesh-color-neutral-800 py-6">
         <Title bold={700} size={'2xl'} color="white" className="px-4">
           Transações
         </Title>

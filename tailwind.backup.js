@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'alt-steam-button': '#A6CF2B',
+        'mesh-color-primary-1200': '#A6CF2B',
         'mesh-color-primary-1400': '#95bc1e',
         'mesh-dark': {
           0: '#3C403C',

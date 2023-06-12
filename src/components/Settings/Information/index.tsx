@@ -1,11 +1,17 @@
+'use client'
+import { useState } from 'react'
+import { IconClose } from '@/components/Icons/IconClose'
 import { InlineButton } from '../../InlineButton'
 import { Title } from '../../Title'
+import { Button } from '@/components/Button'
 
 export function SettingsInformation() {
+  const [exchangeUrl, setExchangeUrl] = useState('')
+
   return (
     <div className="flex w-2/3 flex-col gap-8">
       {/* Top */}
-      <div className="bg-mesh-dark-1 rounded-2xl px-4 py-6">
+      <div className="rounded-2xl bg-mesh-color-neutral-800 px-4 py-6">
         <div>
           <Title bold={700} size={'2xl'} color="white">
             Informações Pessoais
@@ -24,17 +30,26 @@ export function SettingsInformation() {
             URL de Troca
           </Title>
           <div className="flex gap-4">
-            <input
-              // CHANGE COLOR!
-              className="bg-mesh-dark-0 text-alt-steam-button w-5/6 rounded-md py-3 pl-3 placeholder:text-mesh-color-neutral-100"
-              placeholder="https://steamcommunity.com/tradeoffer/new/?partner=240416830&token=vzAomQ5n"
-            />
+            <div className="flex w-full items-center">
+              <input
+                className="w-full rounded-md bg-mesh-color-neutral-600 py-3 pl-3 pr-14 text-white placeholder:text-mesh-color-neutral-100"
+                placeholder="https://steamcommunity.com/tradeoffer/new/?partner=240416830&token=vzAomQ5n"
+                onChange={(event) => setExchangeUrl(event.target.value)}
+                value={exchangeUrl}
+              />
+              <Button
+                className="relative -ml-10 border-none"
+                onClick={() => setExchangeUrl('')}
+              >
+                <IconClose />
+              </Button>
+            </div>
             <div className="flex w-1/6 items-center justify-center gap-2">
-              <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50">
+              <InlineButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
                 {' '}
                 Obter URL{' '}
               </InlineButton>
-              <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50">
+              <InlineButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
                 {' '}
                 Aplicar{' '}
               </InlineButton>
@@ -42,7 +57,6 @@ export function SettingsInformation() {
           </div>
         </div>
 
-        {/* CHANGE COLOR! */}
         {/* Line */}
         <div className="my-6 h-[1px] w-full bg-mesh-color-neutral-200" />
 
@@ -55,7 +69,7 @@ export function SettingsInformation() {
               {' '}
               https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL){' '}
             </span>
-            <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50">
+            <InlineButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
               {' '}
               Copiar Link{' '}
             </InlineButton>
@@ -64,7 +78,7 @@ export function SettingsInformation() {
       </div>
 
       {/* Bottom */}
-      <div className="bg-mesh-dark-1 rounded-2xl px-4 py-6">
+      <div className="rounded-2xl bg-mesh-color-neutral-800 px-4 py-6">
         <Title bold={700} size={'2xl'} color="white">
           Informações de Contato
         </Title>
@@ -78,7 +92,7 @@ export function SettingsInformation() {
               https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL){' '}
             </span>
           </div>
-          <InlineButton className="text-alt-steam-button hover:text-alt-steam-button/50">
+          <InlineButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
             {' '}
             Copiar Link{' '}
           </InlineButton>

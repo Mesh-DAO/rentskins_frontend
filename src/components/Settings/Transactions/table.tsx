@@ -7,14 +7,14 @@ export default function TransactionsTable() {
     if (index % 2 === 0) {
       return 'bg-transparent'
     } else {
-      return 'bg-mesh-color-others-black'
+      return 'bg-mesh-color-neutral-900'
     }
   }
 
   const treatStatus = (status: string) => {
     const generateElement = (className: string) => {
       return (
-        <td className="">
+        <td>
           <span className={'rounded-full px-4 py-2 ' + className}>
             {status}
           </span>
@@ -23,17 +23,14 @@ export default function TransactionsTable() {
     }
 
     switch (status) {
-      // CHANGE COLOR!
       case 'Concluído':
         return generateElement(
           'bg-mesh-color-rarity-high/10 text-mesh-color-rarity-high',
         )
-      // CHANGE COLOR!
       case 'Em andamento':
         return generateElement(
           'bg-mesh-color-rarity-medium/10 text-mesh-color-rarity-medium',
         )
-      // CHANGE COLOR!
       case 'Falhou':
         return generateElement(
           'bg-mesh-color-rarity-low/10 text-mesh-color-rarity-low',
@@ -54,8 +51,14 @@ export default function TransactionsTable() {
               draggable={false}
             />{' '}
           </td>
-          <td className="text-white"> {weapon.descricao} </td>
-          <td className="text-white"> {weapon.arma} </td>
+          <td className="text-start">
+            <p className="text-white"> {weapon.descricao} </p>
+            <p className="text-mesh-color-neutral-300 "> {weapon.arma} </p>
+          </td>
+          <td className="w-48 text-start">
+            <p className="text-white">{weapon.stage}</p>
+            <p className="text-mesh-color-neutral-300">{weapon.float}</p>
+          </td>
           {treatStatus(weapon.status)}
           <td className="text-white">
             {' '}

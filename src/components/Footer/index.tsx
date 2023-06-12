@@ -27,7 +27,7 @@ export function Footer() {
               href="/termosdeuso"
               target="_blank"
               className="text-white transition-colors hover:text-white/50"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Termos de Uso
             </a>
@@ -35,14 +35,15 @@ export function Footer() {
               href="/privacidade"
               target="_blank"
               className="text-white transition-colors hover:text-white/50"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Privacidade
             </a>
             <a
-              href=""
+              href="/sobre"
               target="_blank"
               className="text-white transition-colors hover:text-white/50"
+              rel="noopener noreferrer"
             >
               Sobre Nós
             </a>
@@ -50,7 +51,7 @@ export function Footer() {
               href="/sobre"
               target="_blank"
               className="text-white transition-colors hover:text-white/50"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Suporte
             </a>
@@ -58,6 +59,7 @@ export function Footer() {
               href="/faq"
               target="_blank"
               className="text-white transition-colors hover:text-white/50"
+              rel="noopener noreferrer"
             >
               FAQ
             </a>
@@ -67,6 +69,7 @@ export function Footer() {
               href=""
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-color-neutral-500"
+              rel="noopener noreferrer"
             >
               <IconFacebook />
             </a>
@@ -75,6 +78,7 @@ export function Footer() {
               href=""
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-color-neutral-500"
+              rel="noopener noreferrer"
             >
               <IconTwitter />
             </a>
@@ -83,6 +87,7 @@ export function Footer() {
               href=""
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-color-neutral-500"
+              rel="noopener noreferrer"
             >
               <IconInstagram />
             </a>
@@ -91,6 +96,7 @@ export function Footer() {
               href=""
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-color-neutral-500"
+              rel="noopener noreferrer"
             >
               <IconPinterest />
             </a>

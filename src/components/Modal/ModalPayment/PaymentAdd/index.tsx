@@ -76,7 +76,7 @@ rounded-2xl bg-mesh-color-neutral-700"
                         onChange={(event) =>
                           setValueAmount(Number(event.target.value))
                         }
-                        className={`bg-mesh-dark-0 my-2 w-full rounded-md
+                        className={`my-2 w-full rounded-md bg-mesh-color-neutral-600
                         px-3 py-4 outline-mesh-color-primary-600 transition-all ${
                           valueAmount !== undefined ? 'pl-10' : 'pl-4'
                         } text-white

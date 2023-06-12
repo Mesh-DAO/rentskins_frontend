@@ -38,7 +38,7 @@ export function InfoSkinModal() {
             </Title>
             <Input
               placeHolder="R$2.000"
-              className="bg-mesh-dark-0 h-8 w-full rounded-md text-mesh-color-neutral-200"
+              className="h-8 w-full rounded-md bg-mesh-color-neutral-600 text-mesh-color-neutral-200"
             />
           </div>
 
@@ -47,7 +47,7 @@ export function InfoSkinModal() {
               Você irá receber
             </Title>
             <Input
-              className="bg-mesh-dark-0 h-8 w-full rounded-md text-mesh-color-neutral-200"
+              className="h-8 w-full rounded-md bg-mesh-color-neutral-600 text-mesh-color-neutral-200"
               placeHolder="R$32,21"
             />
           </div>
