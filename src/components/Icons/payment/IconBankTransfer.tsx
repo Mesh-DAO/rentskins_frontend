@@ -1,4 +1,4 @@
-export default function IconBankTransfer() {
+export function IconBankTransfer() {
   return (
     <svg
       width="113"
