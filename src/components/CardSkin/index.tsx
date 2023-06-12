@@ -4,14 +4,18 @@ import IconSteam from '@/assets/IconSteam'
 import IconCart from '@/assets/Cart'
 import IconEye from '@/assets/Eye'
 import ColoredLine from '../ColoredLine'
+import IconMagic from '../Icons/IconMagicpen'
+import { Title } from '../Title'
+import { ModalRefound } from '../Modal/ModalRefound'
 
 interface Props {
   name: string
   nameColor: string
   iconUrl: string
+  itsRent?: boolean
 }
 
-export function CardSkin({ name, nameColor, iconUrl }: Props) {
+export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
   const [skinType, skinName] = name.split('|')
 
   return (
@@ -33,6 +37,11 @@ export function CardSkin({ name, nameColor, iconUrl }: Props) {
       <div className="flex items-center justify-between">
         <h1 className="text-sm font-medium opacity-60">{skinType}</h1>
         <div className="flex gap-2">
+          {itsRent && (
+            <Button color="invisible">
+              <IconMagic />
+            </Button>
+          )}
           <Button color="invisible">
             <IconSteam />
           </Button>
