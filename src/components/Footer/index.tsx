@@ -69,7 +69,7 @@ export function Footer() {
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
             >
               <IconFacebook />
-              {/* <Image src={FacebookIcon} alt="Facebook" width={10} height={20} /> */}
+              {/* <Image src={FacebookIcon} alt="Facebook" width={10} height={20} draggable={false} /> */}
             </a>
 
             <a
@@ -78,7 +78,7 @@ export function Footer() {
               className="flex h-10 w-10 items-center justify-center rounded-full bg-mesh-dark-0"
             >
               <IconTwitter />
-              {/* <Image src={TwitterIcon} alt="Twitter" width={20} height={20} /> */}
+              {/* <Image src={TwitterIcon} alt="Twitter" width={20} height={20} draggable={false} /> */}
             </a>
 
             <a

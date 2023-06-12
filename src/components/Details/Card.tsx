@@ -28,6 +28,7 @@ export function Card() {
         width={510}
         height={380}
         className="mx-auto my-auto"
+        draggable={false}
       />
     </div>
   )

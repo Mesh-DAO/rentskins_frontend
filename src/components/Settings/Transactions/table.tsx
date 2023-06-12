@@ -42,7 +42,12 @@ export default function TransactionsTable() {
         <tr key={index} className={treatIndex(index)}>
           <td className="flex justify-center">
             {' '}
-            <Image src={weaponMockImage} alt="Image" width={128} />{' '}
+            <Image
+              src={weaponMockImage}
+              alt="Image"
+              width={128}
+              draggable={false}
+            />{' '}
           </td>
           <td className="text-white"> {weapon.descricao} </td>
           <td className="text-white"> {weapon.arma} </td>
