@@ -12,6 +12,7 @@ import { InputRadioMethodArray } from '@/components/InputRadioMethodArray'
 import ImageMastercard from '@/../public/payment/mastercard.png'
 import ImagePix from '@/../public/payment/pix.png'
 import ImageTicket from '@/../public/payment/ticket.png'
+import { InputRadioValueArray } from '@/components/InputRadioValueArray'
 
 export function ModalPaymentAdd() {
   const router = useRouter()
@@ -45,12 +46,10 @@ export function ModalPaymentAdd() {
 rounded-2xl bg-mesh-color-neutral-700"
     >
       <div className="flex h-full w-full">
-        {/* CHANGE COLOR! */}
         <div className="h-full w-1/4 rounded-l-2xl bg-mesh-color-others-eerie-black px-6 pt-6">
           <Title bold={400} size="xl" color="white" className="leading-none">
             Selecione a forma de pagamento
           </Title>
-          {/* <ModalPaymentAddMethodsInputs /> */}
           <InputRadioMethodArray
             items={[
               { name: 'mastercard', icon: ImageMastercard },
@@ -104,7 +103,11 @@ rounded-2xl bg-mesh-color-neutral-700"
                       />
                     </div>
                   </label>
-                  <ModalPaymentAddValuesInputs />
+                  {/* <InputRadioValueArray
+                  items={[{
+                    label: 
+                  }]}
+                  /> */}
                 </div>
                 <div className="w-1/3 self-center">
                   <IconMoneyBag />
