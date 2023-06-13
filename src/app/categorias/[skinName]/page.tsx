@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 'use client'
 import { skins } from '@/Mock'
-import AllSkins from '@/components/AllSkins'
+import AllSkins from '@/components/Skins/AllSkins'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
 import { LayoutPage } from '@/components/Shared'
 import SkinFilters from '@/components/SkinFilters'
