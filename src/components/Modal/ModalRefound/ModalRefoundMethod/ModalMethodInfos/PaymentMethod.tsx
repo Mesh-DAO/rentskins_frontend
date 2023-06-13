@@ -4,6 +4,8 @@ import { IconMastercard } from '@/components/Icons/payment/IconMastercard'
 import Method from './Method'
 import { Title } from '@/components/Title'
 import { IconBoleto } from '@/components/Icons/payment/IconBoleto'
+import { IconBankTransfer } from '@/components/Icons/payment/IconBankTransfer'
+import { IconMastercard } from '@/components/Icons/payment/IconMastercard'
 
 export function PaymentMethod() {
   return (
