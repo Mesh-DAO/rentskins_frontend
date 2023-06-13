@@ -24,26 +24,24 @@ export function InputRadioValueArray({
 }: IProps) {
   const createInputs = () => {
     return items.map((item, index) => (
-      <div key={index} className="flex h-24 w-full">
-        <div className="flex">
-          <input
-            type="radio"
-            id="settings_index-1"
-            name="settings_index"
-            className="peer appearance-none"
-            value={5}
-            defaultChecked
-            onClick={handleOnClick}
-          />
-          <label
-            htmlFor="settings_index-1"
-            className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md border-2 
+      <div key={index} className="h-18 flex w-full">
+        <input
+          type="radio"
+          id={'radio-index-value-' + index}
+          name={'radio-value-index'}
+          className="peer appearance-none"
+          value={item.value}
+          defaultChecked={index === 0}
+          onClick={handleOnClick}
+        />
+        <label
+          htmlFor={'radio-index-value-' + index}
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md border-2 
 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-lg font-semibold
 text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
-          >
-            R$5,00
-          </label>
-        </div>
+        >
+          {item.label}
+        </label>
       </div>
     ))
   }

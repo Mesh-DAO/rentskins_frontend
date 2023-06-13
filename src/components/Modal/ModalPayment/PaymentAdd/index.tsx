@@ -4,7 +4,6 @@ import { Title } from '@/components/Title'
 import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
 import { Button } from '@/components/Button'
 import { IconClose } from '@/components/Icons/IconClose'
-import { ModalPaymentAddValuesInputs } from './input.value'
 import { useRouter } from 'next/navigation'
 import usePaymentStore from '@/stores/payment.store'
 import CircleLoading from '@/components/CircleLoading'
@@ -22,6 +21,13 @@ export function ModalPaymentAdd() {
 
   const handleMethodChange = (event: any) => {
     setPaymentAdd({ method: event.target.value, value: paymentAdd.value })
+  }
+
+  const handleValueChange = (event: any) => {
+    setPaymentAdd({
+      method: paymentAdd.method,
+      value: Number(event.target.value),
+    })
   }
 
   useEffect(() => {
@@ -103,11 +109,20 @@ rounded-2xl bg-mesh-color-neutral-700"
                       />
                     </div>
                   </label>
-                  {/* <InputRadioValueArray
-                  items={[{
-                    label: 
-                  }]}
-                  /> */}
+                  <InputRadioValueArray
+                    className="grid grid-cols-2"
+                    handleOnClick={handleValueChange}
+                    items={[
+                      { label: 'R$ 5,00', value: 5 },
+                      { label: 'R$ 10,00', value: 10 },
+                      { label: 'R$ 25,00', value: 25 },
+                      { label: 'R$ 50,00', value: 50 },
+                      { label: 'R$ 100,00', value: 100 },
+                      { label: 'R$ 200,00', value: 200 },
+                      { label: 'R$ 500,00', value: 500 },
+                      { label: 'R$ 1.000,00', value: 1000 },
+                    ]}
+                  />
                 </div>
                 <div className="w-1/3 self-center">
                   <IconMoneyBag />

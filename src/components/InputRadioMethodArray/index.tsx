@@ -28,15 +28,15 @@ export function InputRadioMethodArray({
       <div key={index} className="flex h-24 w-full">
         <input
           type="radio"
-          id={'radio-index-' + index}
-          name="radio-index"
+          id={'radio-index-method-' + index}
+          name="radio-method-index"
           className="peer appearance-none"
           value={item.name}
           onClick={handleOnClick}
           defaultChecked={index === 0 && true}
         />
         <label
-          htmlFor={'radio-index-' + index}
+          htmlFor={'radio-index-method-' + index}
           className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md 
           border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-lg font-semibold
           text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50
