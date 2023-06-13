@@ -1,19 +1,32 @@
 'use client'
 import React from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
-import { IconClose } from '@/components/Icons/IconClose'
-import { Title } from '@/components/Title'
+import { ModalPaymentCheck } from './PaymentCheck'
+import { ModalPaymentAdd } from './PaymentAdd'
+import useComponentStore from '@/stores/components.store'
+import { ModalPaymentRetrieve } from './PaymentRetrieve'
 import { Button } from '@/components/Button'
-import Image from 'next/image'
-import Banner from '../../../../public/banner.png'
+import { IconClose } from '@/components/Icons'
+import { Title } from '@/components/Title'
 
 interface IProps {
   activator: React.ReactNode
 }
 
 export function ModalPayment({ activator }: IProps) {
+  const {
+    paymentGeneralIndex,
+    setPaymentGeneralIndex,
+    setPaymentRetrieveIndex,
+  } = useComponentStore()
+
+  const handleModalOnClose = () => {
+    setPaymentGeneralIndex(0)
+    setPaymentRetrieveIndex(0)
+  }
+
   return (
-    <Dialog.Root>
+    <Dialog.Root modal onOpenChange={() => handleModalOnClose()}>
       <Dialog.Trigger asChild>{activator}</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 flex bg-black/70" />
@@ -31,9 +44,7 @@ export function ModalPayment({ activator }: IProps) {
               </Dialog.Title>
               <Dialog.Close asChild>
                 {/* CHANGE - MAKE IT FUNCTIONAL */}
-                <Button className="border-none">
-                  <IconClose />
-                </Button>
+                <IconClose />
               </Dialog.Close>
             </div>
             {/* MIDDLE */}

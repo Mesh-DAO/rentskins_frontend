@@ -7,14 +7,13 @@ import {
 import { SideRadioButton } from '@/components/Settings/SideRadioButton'
 import { LayoutPage } from '@/components/Shared'
 import { Title } from '@/components/Title'
-
-// CHANGE!
-const settingsIndex: 0 | 1 | 2 = 1
+import useComponentStore from '@/stores/components.store'
 
 export default function Settings() {
+  const { settingsIndex } = useComponentStore()
   return (
     <LayoutPage>
-      <div className="flex h-screen justify-center gap-10 bg-mesh-dark-2 px-[7.5rem] pt-8">
+      <div className="flex h-screen justify-center gap-10 bg-mesh-color-others-black px-[7.5rem] pt-8">
         {/* Left Side */}
         <div className="flex h-min w-max flex-col items-end gap-2">
           <div className="flex flex-col items-start gap-6">
@@ -22,7 +21,7 @@ export default function Settings() {
               Configurações
             </Title>
 
-            <div>
+            <div className="flex flex-col gap-2">
               <SideRadioButton />
             </div>
           </div>

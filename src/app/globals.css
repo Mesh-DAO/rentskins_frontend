@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1C1C24;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #151714;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1FC047;
+  border-radius: 20px;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,3 +38,4 @@ input[type="radio"] {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+

@@ -1,6 +1,9 @@
 {
   "conventionalCommits.scopes": [
     "InfoPerfil",
-    "InfoVendas"
-  ]
+    "InfoVendas",
+    "Header"
+  ],
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true
 }

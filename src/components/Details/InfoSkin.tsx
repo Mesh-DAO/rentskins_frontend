@@ -5,18 +5,18 @@ import { Title } from '../Title'
 
 export function InfoSkin() {
   return (
-    <div className="min-w-[435px] rounded-lg border-2 border-[#3E423A] px-4 py-3">
+    <div className="min-w-[435px] rounded-lg border-2 border-mesh-color-neutral-600 px-4 py-3">
       <div className="space-y-4">
         <div>
           <Title className="text-2xl font-extrabold text-white">
             Kumicho Dragon
           </Title>
-          <p className="text-mesh-dark-3">Nova de fábrica</p>
+          <p className="text-mesh-color-neutral-500">Nova de fábrica</p>
         </div>
 
         <div>
           <Title className="text-2xl font-extrabold text-white">R$825</Title>
-          <p className="text-mesh-dark-3">Preço Total</p>
+          <p className="text-mesh-color-neutral-500">Preço Total</p>
         </div>
 
         <div>
@@ -24,40 +24,42 @@ export function InfoSkin() {
             <Title className="text-2xl font-extrabold text-white">
               R$82,50
             </Title>
-            <span className="ml-4 flex h-[24px]  w-[42px] items-center justify-center rounded-full border border-none bg-[#243D30] text-[#6CEA8B]">
+            <span className="ml-4 flex h-[24px] w-[42px] items-center justify-center rounded-full border border-none bg-mesh-color-others-green text-mesh-color-accent-600">
               10%
             </span>
           </div>
-          <p className="text-mesh-dark-3">Preço do Aluguel</p>
+          <p className="text-mesh-color-neutral-500">Preço do Aluguel</p>
         </div>
       </div>
 
       <div className="mt-6 space-y-4">
         <div className="flex justify-between">
-          <Title className="text-mesh-dark-3">Tendências de mercado</Title>
+          <Title className="text-mesh-color-neutral-500">
+            Tendências de mercado
+          </Title>
           <p className="text-white">R$750</p>
         </div>
 
         <div className="flex justify-between">
-          <Title className="text-mesh-dark-3">ID Padrão</Title>
+          <Title className="text-mesh-color-neutral-500">ID Padrão</Title>
           <p className="text-white">952</p>
         </div>
 
         <div className="flex justify-between">
-          <Title className="text-mesh-dark-3">Float</Title>
+          <Title className="text-mesh-color-neutral-500">Float</Title>
           <div className="flex items-center">
             <p className="text-white">0.1095228</p>
-            <div className="ml-2 h-[17px] w-[17px] rounded-[3px] bg-mesh-light-2" />
+            <div className="bg-mesh-light-2 ml-2 h-[17px] w-[17px] rounded-[3px]" />
           </div>
         </div>
 
         <div className="flex justify-between">
-          <Title className="text-mesh-dark-3">Tipo</Title>
+          <Title className="text-mesh-color-neutral-500">Tipo</Title>
           <p className="text-white">Pistola</p>
         </div>
 
         <div className="flex justify-between">
-          <Title className="text-mesh-dark-3">Arma</Title>
+          <Title className="text-mesh-color-neutral-500">Arma</Title>
           <p className="text-white">Desert Eagle</p>
         </div>
       </div>
@@ -85,7 +87,7 @@ export function InfoSkin() {
         <Button className="h-11 w-[167px] font-semibold text-white">
           Alugar
         </Button>
-        <Button className="h-11 w-[167px] bg-dark-lime-green font-semibold text-black">
+        <Button className="h-11 w-[167px] border-transparent bg-mesh-color-primary-1400 font-semibold text-black">
           Comprar agora
         </Button>
         <Button className="h-11 w-11">

@@ -17,14 +17,13 @@ export default function Home() {
     <LayoutPage>
       <main className="">
         {/* Hero */}
-        <div className="flex h-screen flex-col items-center justify-center bg-hero-image bg-cover bg-center bg-no-repeat">
+        <div className="bg-hero-image flex h-screen flex-col items-center justify-center bg-cover bg-center bg-no-repeat">
           {/* Hero - Content */}
           <div className="flex flex-col items-center space-y-8 text-center text-white">
             <p className="max-w-2xl text-[3.5rem] font-bold leading-none">
               <span>
-                {' '}
                 Descubra o mundo das skins{' '}
-                <strong className="bg-green-pattern bg-clip-text text-transparent">
+                <strong className="bg-mesh-gradient-green-pattern bg-clip-text text-transparent">
                   CS:GO
                 </strong>
               </span>
@@ -33,14 +32,13 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            {/* ON CHANGE */}
             <ModalPayment activator={<SteamButton />} />
           </div>
         </div>
         {/* Hero - Bottom */}
-        <div className="h-40 w-full bg-mesh-dark-1">
+        <div className="h-40 w-full bg-mesh-color-neutral-800">
           {/* Hero - Green Line */}
-          <hr className="-mt-0.5 h-2 w-full bg-green-pattern" />
+          <hr className="-mt-0.5 h-2 w-full bg-mesh-gradient-green-pattern" />
 
           {/* Hero - Information */}
           <div className="flex h-full items-center justify-center">
