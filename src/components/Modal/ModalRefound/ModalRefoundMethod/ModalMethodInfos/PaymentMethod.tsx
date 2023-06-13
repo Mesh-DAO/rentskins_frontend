@@ -1,6 +1,6 @@
 import React from 'react'
-import IconBankTransfer from '@/components/Icons/payment/IconBankTransfer'
-import IconMastercard from '@/components/Icons/payment/IconMastercard'
+import { IconBankTransfer } from '@/components/Icons/payment/IconBankTransfer'
+import { IconMastercard } from '@/components/Icons/payment/IconMastercard'
 import Method from './Method'
 import { Title } from '@/components/Title'
 import { IconBoleto } from '@/components/Icons/payment/IconBoleto'

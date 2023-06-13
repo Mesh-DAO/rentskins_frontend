@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Title } from '@/components/Title'
 import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
@@ -16,6 +16,10 @@ export function ModalPaymentAdd() {
   const [isLoading, setIsLoading] = useState(false)
   const [valueAmount, setValueAmount] = useState<undefined | number>(undefined)
 
+  useEffect(() => {
+    setPaymentAdd({ method: 'mastercard', value: undefined })
+  }, [])
+
   const handleOnDeposit = () => {
     setIsLoading(true)
 
@@ -27,7 +31,7 @@ export function ModalPaymentAdd() {
 
     router.push(`/pagamento/recarregar/${paymentAdd.method}`)
   }
-  //
+
   return (
     <Dialog.Content
       className="fixed left-1/2 top-1/2 h-3/5 w-2/3 -translate-x-1/2 -translate-y-1/2
