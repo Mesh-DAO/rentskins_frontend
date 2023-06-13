@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { Title } from '@/components/Title'
+import { ModalPayment } from '@/components/Modal'
 /* ----------------- ICONS ----------------- */
 import { IconCarrinho, IconSteam, IconSearch } from '@/components/Icons'
 import { IconCruz } from '@/components/Icons/IconCruz'
@@ -57,23 +58,27 @@ export function TopHeader() {
         <div className="flex items-center gap-x-6">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-              <span>
-                <IconMira />
-              </span>
-              <Link href={'/inventory'} className="text-[#A7B0A0]">
+              <Link
+                href={'/inventory'}
+                className="flex items-center gap-2 text-[#A7B0A0]"
+              >
+                <span>
+                  <IconMira />
+                </span>
                 Inventário
               </Link>
             </div>
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-[#222723] px-4 py-2">
               <Title bold={500} color="white">
-                RS:12,42
+                R$12,42
               </Title>
-              <Button
-                className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
-                onClick={() => setIsUser(!isUser)}
-              >
-                <IconCruz />
-              </Button>
+              <ModalPayment
+                activator={
+                  <Button className="h-5 w-5 border-transparent bg-mesh-color-primary-1400">
+                    <IconCruz />
+                  </Button>
+                }
+              />
             </div>
           </div>
 

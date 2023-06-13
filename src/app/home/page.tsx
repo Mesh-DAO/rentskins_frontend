@@ -9,7 +9,6 @@ import {
   IconMagnifyingGlass,
   IconDevolution,
 } from '@/components/Icons'
-import { ModalPayment } from '@/components/Modal'
 import AllSkins from '@/components/Skins/AllSkins'
 
 export default function Home() {
@@ -32,7 +31,7 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            <ModalPayment activator={<SteamButton />} />
+            <SteamButton />
           </div>
         </div>
         {/* Hero - Bottom */}
