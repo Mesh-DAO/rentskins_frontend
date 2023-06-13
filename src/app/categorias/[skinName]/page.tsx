@@ -18,7 +18,7 @@ export default function Categorias() {
       <div className="flex w-full justify-center">
         <div className="mx-auto mt-6 flex w-4/5 flex-col gap-6">
           <Link href={'/home'}>
-            <Title className="stroke-mesh-color-neutral-400 text-mesh-color-neutral-400 transition-all hover:stroke-mesh-color-neutral-100 hover:text-mesh-color-neutral-100">
+            <Title className="stroke-mesh-light-2 text-mesh-light-2 transition-all hover:stroke-white hover:text-white">
               <IconArrowLeft /> Home &bull; {skinName}
             </Title>
           </Link>

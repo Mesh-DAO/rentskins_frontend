@@ -1,20 +1,20 @@
 /* eslint-disable camelcase */
-import { skins } from '@/Mock'
-import { CardSkin } from '../CardSkin'
-import classNames from 'classnames'
+import { skins } from '@/Mock';
+import { CardSkin } from '../CardSkin';
+import classNames from 'classnames';
 
 interface skin {
-  name: string
-  name_color: string
-  icon_url: string
+  name: string;
+  name_color: string;
+  icon_url: string;
 }
 
 interface IProps {
-  skinsCategories?: skin[]
+  skinsCategories?: skin[];
 }
 
 export default function AllSkins({ skinsCategories }: IProps) {
-  const allSkins = skinsCategories || skins
+  const allSkins = skinsCategories || skins;
   return (
     <div
       className={classNames('mt-6 flex w-full flex-wrap gap-5', {
@@ -30,5 +30,5 @@ export default function AllSkins({ skinsCategories }: IProps) {
         />
       ))}
     </div>
-  )
+  );
 }
