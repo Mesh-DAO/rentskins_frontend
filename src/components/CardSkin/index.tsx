@@ -1,24 +1,24 @@
-import Image from 'next/image';
-import { Button } from '../Button';
-import IconSteam from '@/assets/IconSteam';
-import IconCart from '@/assets/Cart';
-import IconEye from '@/assets/Eye';
-import ColoredLine from '../ColoredLine';
-import IconMagic from '../Icons/IconMagicpen';
+import Image from 'next/image'
+import { Button } from '../Button'
+import IconSteam from '@/assets/IconSteam'
+import IconCart from '@/assets/Cart'
+import IconEye from '@/assets/Eye'
+import ColoredLine from '../ColoredLine'
+import IconMagic from '../Icons/IconMagicpen'
 
 interface Props {
-  name: string;
-  nameColor: string;
-  iconUrl: string;
-  itsRent?: boolean;
+  name: string
+  nameColor: string
+  iconUrl: string
+  itsRent?: boolean
 }
 
 export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
-  const [skinType, skinName] = name.split('|');
+  const [skinType, skinName] = name.split('|')
 
   return (
-    <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-primary-1400 border-opacity-60 px-3 pb-4 pt-3 text-white">
-      <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-primary-1400 bg-mesh-gradient-black-pattern">
+    <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-neutral-300 border-opacity-60 px-3 pb-4 pt-3 text-white">
+      <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-neutral-300 bg-mesh-gradient-black-pattern">
         <div
           className={`h-2 w-52 rounded-b-full`}
           style={{ backgroundColor: `#${nameColor}` }}
@@ -67,5 +67,5 @@ export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
         </div>
       </div>
     </article>
-  );
+  )
 }
