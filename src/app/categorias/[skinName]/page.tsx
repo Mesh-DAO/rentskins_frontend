@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 'use client'
 import { skins } from '@/Mock'
-import AllSkins from '@/components/AllSkins'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
 import { LayoutPage } from '@/components/Shared'
 import SkinFilters from '@/components/SkinFilters'
+import AllSkins from '@/components/Skins/AllSkins'
 import { Title } from '@/components/Title'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'

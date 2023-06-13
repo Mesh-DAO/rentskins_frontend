@@ -1,11 +1,7 @@
 /* eslint-disable camelcase */
 import { skins } from '@/Mock'
-<<<<<<<< HEAD:src/components/Skins/AllSkins/index.tsx
-import { CardSkin } from '../../CardSkin'
-========
-import { CardSkin } from '../CardSkin'
+import { CardSkin } from '@/components/CardSkin'
 import classNames from 'classnames'
->>>>>>>> origin/testing:src/components/AllSkins/index.tsx
 
 interface skin {
   name: string

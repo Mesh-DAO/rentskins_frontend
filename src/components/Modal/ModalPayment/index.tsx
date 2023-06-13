@@ -1,24 +1,20 @@
 'use client'
 import React from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
-import { ModalPaymentCheck } from './PaymentCheck'
-import { ModalPaymentAdd } from './PaymentAdd'
 import useComponentStore from '@/stores/components.store'
-import { ModalPaymentRetrieve } from './PaymentRetrieve'
 import { Button } from '@/components/Button'
 import { IconClose } from '@/components/Icons'
 import { Title } from '@/components/Title'
+import Image from 'next/image'
+import Banner from './../../../../public/banner.png'
 
 interface IProps {
   activator: React.ReactNode
 }
 
 export function ModalPayment({ activator }: IProps) {
-  const {
-    paymentGeneralIndex,
-    setPaymentGeneralIndex,
-    setPaymentRetrieveIndex,
-  } = useComponentStore()
+  const { setPaymentGeneralIndex, setPaymentRetrieveIndex } =
+    useComponentStore()
 
   const handleModalOnClose = () => {
     setPaymentGeneralIndex(0)

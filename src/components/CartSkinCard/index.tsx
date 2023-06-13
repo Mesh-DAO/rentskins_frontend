@@ -13,10 +13,7 @@ export default function CartSkinCard({ name, nameColor, iconUrl }: Props) {
   return (
     <section className="flex w-full items-center justify-between rounded-xl bg-[#222723] p-5">
       <div className="flex items-center gap-6">
-        <div
-          className="flex h-32 w-48 flex-col items-center
-          rounded-lg border-2 border-dark-olive-green bg-mesh-skin-gradient"
-        >
+        <div className="flex h-32 w-48 flex-col items-center rounded-lg border-2 border-dark-olive-green bg-mesh-skin-gradient">
           <div
             className="h-1 w-32 rounded-b-full"
             style={{ backgroundColor: `#${nameColor}` }}

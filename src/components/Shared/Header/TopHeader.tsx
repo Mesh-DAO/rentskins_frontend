@@ -1,22 +1,14 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 /* ----------------- COMPONENTS ----------------- */
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
-import { Title } from '@/components/Title'
 /* ----------------- ICONS ----------------- */
 import { IconCarrinho, IconSteam, IconSearch } from '@/components/Icons'
-import { IconCruz } from '@/components/Icons/IconCruz'
-import { IconMira } from '@/components/Icons/IconMira'
-import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
-import fallen from '@/assets/fallen.svg'
 
 export function TopHeader() {
-  const [isUser, setIsUser] = useState(false)
-
   return (
     <div className="mx-auto flex w-10/12 items-center justify-between">
       <div className="flex items-center gap-x-6 p-[18px]">
