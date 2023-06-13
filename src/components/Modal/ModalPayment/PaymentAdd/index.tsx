@@ -17,7 +17,7 @@ export function ModalPaymentAdd() {
   const [valueAmount, setValueAmount] = useState<undefined | number>(undefined)
 
   useEffect(() => {
-    setPaymentAdd({ method: 'mastercard', value: undefined })
+    setPaymentAdd({ ...paymentAdd, method: 'mastercard' })
   }, [])
 
   const handleOnDeposit = () => {

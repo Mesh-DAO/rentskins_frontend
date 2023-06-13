@@ -20,7 +20,7 @@ export default function PaymentAddBoletoPage() {
 
   return (
     <LayoutPage>
-      <main className="flex h-fit flex-col items-center justify-start bg-mesh-color-others-black pb-64 text-white">
+      <main className="flex h-screen flex-col items-center justify-start bg-mesh-color-others-black pb-64 text-white">
         <CircleLoading
           label="Processando..."
           enabled={isLoading}
