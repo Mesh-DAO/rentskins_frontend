@@ -8,7 +8,6 @@ import ImageBankTransfer from '../../../../../public/payment/banktransfer.png'
 import ImagePaypal from '../../../../../public/payment/paypal.png'
 import usePaymentStore from '@/stores/payment.store'
 import Image from 'next/image'
-import { IconBoleto } from '@/components/Icons/payment/IconBoleto'
 
 export function ModalPaymentRetrieveSelection() {
   const { setPaymentRetrieveIndex } = useComponentStore()
