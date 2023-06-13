@@ -2,7 +2,7 @@
 import ChoiceItems from '@/components/ChoiceItems'
 import PerfilPerson from '@/components/ProfilePerson'
 import { LayoutPage } from '@/components/Shared'
-import AllSkins from '@/components/Skins/AllSkins'
+import AllSkins from '@/components/AllSkins'
 import RentedSkins from '@/components/Skins/RentedSkins'
 import useComponentStore from '@/stores/components.store'
 

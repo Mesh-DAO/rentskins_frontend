@@ -19,7 +19,7 @@ export default function LineInfos({
 }: Props) {
   return (
     <div className="flex flex-col">
-      <Title className="text-lg font-semibold text-mesh-light-2">{label}</Title>
+      <Title className="text-mesh-light-2 text-lg font-semibold">{label}</Title>
       <Title bold={bold} className={className} color={color} size={size}>
         R${value}
       </Title>
