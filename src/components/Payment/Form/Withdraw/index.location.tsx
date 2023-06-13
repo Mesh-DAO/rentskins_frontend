@@ -80,7 +80,7 @@ export function PaymentWithdrawStepLocation() {
         type="text"
         name="withdaw-complement-number"
         placeholder="000"
-        value={neighborhood}
+        value={complementNumber}
         onChange={(event) => {
           setComplementNumber(event.target.value)
           handleOnChange()
