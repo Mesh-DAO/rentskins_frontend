@@ -14,7 +14,7 @@ export default function InputRadio({ children, checked = true, value }: Props) {
 
   useEffect(() => {
     setIsChecked(checked)
-  }, [])
+  }, [checked])
 
   return (
     <label className="relative">
