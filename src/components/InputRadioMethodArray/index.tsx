@@ -13,6 +13,7 @@ interface IProps extends React.HTMLAttributes<HTMLInputElement> {
   hasFlex?: boolean
   handleOnClick: MouseEventHandler
   className?: string
+  disabled?: boolean
 }
 
 export function InputRadioMethodArray({
@@ -22,6 +23,8 @@ export function InputRadioMethodArray({
   hasPaybank = false,
   hasFlex = false,
   hasGrid = false,
+  disabled = false,
+  ...rest
 }: IProps) {
   const createInputs = () => {
     return items.map((item, index) => (
@@ -34,13 +37,16 @@ export function InputRadioMethodArray({
           value={item.name}
           onClick={handleOnClick}
           defaultChecked={index === 0 && true}
+          disabled={disabled}
+          {...rest}
         />
         <label
           htmlFor={'radio-index-method-' + index}
           className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md 
-          border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-lg font-semibold
-          text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50
-          peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-lg font-semibold text-mesh-color-neutral-200
+          transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600
+          peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white peer-disabled:cursor-default
+          peer-disabled:border-mesh-color-neutral-600 peer-disabled:bg-mesh-color-neutral-600"
         >
           <Image src={item.icon} className="w-16" alt={item.name} />
           {hasPaybank && (

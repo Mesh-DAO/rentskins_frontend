@@ -63,6 +63,7 @@ rounded-2xl bg-mesh-color-neutral-700"
               { name: 'boleto', icon: ImageTicket },
             ]}
             hasGrid
+            disabled={isLoading}
             handleOnClick={(event) => handleMethodChange(event)}
           />
         </div>
@@ -112,6 +113,7 @@ rounded-2xl bg-mesh-color-neutral-700"
                   <InputRadioValueArray
                     className="grid grid-cols-2"
                     handleOnClick={handleValueChange}
+                    disabled={isLoading}
                     items={[
                       { label: 'R$ 5,00', value: 5 },
                       { label: 'R$ 10,00', value: 10 },
