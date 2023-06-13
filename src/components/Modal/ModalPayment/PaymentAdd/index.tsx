@@ -5,16 +5,23 @@ import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
 import { Button } from '@/components/Button'
 import { IconClose } from '@/components/Icons/IconClose'
 import { ModalPaymentAddValuesInputs } from './input.value'
-import { ModalPaymentAddMethodsInputs } from './input.method'
 import { useRouter } from 'next/navigation'
 import usePaymentStore from '@/stores/payment.store'
 import CircleLoading from '@/components/CircleLoading'
+import { InputRadioMethodArray } from '@/components/InputRadioMethodArray'
+import { IconMastercard } from '@/components/Icons/payment/IconMastercard'
+import { IconPix } from '@/components/Icons/payment/IconPix'
+import { IconBoleto } from '@/components/Icons/payment/IconBoleto'
 
 export function ModalPaymentAdd() {
   const router = useRouter()
   const { paymentAdd, setPaymentAdd } = usePaymentStore()
   const [isLoading, setIsLoading] = useState(false)
   const [valueAmount, setValueAmount] = useState<undefined | number>(undefined)
+
+  const handleMethodChange = (event: any) => {
+    setPaymentAdd({ method: event.target.value, value: paymentAdd.value })
+  }
 
   useEffect(() => {
     setPaymentAdd({ ...paymentAdd, method: 'mastercard' })
@@ -43,7 +50,16 @@ rounded-2xl bg-mesh-color-neutral-700"
           <Title bold={400} size="xl" color="white" className="leading-none">
             Selecione a forma de pagamento
           </Title>
-          <ModalPaymentAddMethodsInputs />
+          {/* <ModalPaymentAddMethodsInputs /> */}
+          <InputRadioMethodArray
+            items={[
+              { name: 'mastercard', icon: <IconMastercard /> },
+              { name: 'pix', icon: <IconPix /> },
+              { name: 'boleto', icon: <IconBoleto /> },
+            ]}
+            hasGrid
+            handleOnClick={(event) => handleMethodChange(event)}
+          />
         </div>
         <CircleLoading label="Processando..." enabled={isLoading}>
           <div className="flex h-full w-3/4 flex-col items-center justify-start">
@@ -73,7 +89,6 @@ rounded-2xl bg-mesh-color-neutral-700"
                         R$
                       </span>
                       <input
-                        // CHANGE COLOR!
                         type="number"
                         min={0}
                         value={valueAmount?.toFixed(2)}
