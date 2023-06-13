@@ -36,6 +36,9 @@ export function Title({
           'text-xs': size === 'xs',
         },
         {
+          'text-base': size === 'base',
+        },
+        {
           'text-sm': size === 'sm',
         },
         {

@@ -34,65 +34,21 @@ export function TopHeader() {
           />
         </div>
       </div>
-      {/* ---------------- RIGHT ----------------------- */}
-      {isUser ? (
-        <div className="flex space-x-4">
-          <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-mesh-color-others-black  p-2 text-[#A7B0A0]">
-            <span className="mr-2">
-              <IconCarrinho />
-            </span>
-            Carrinho de compra
-          </Button>
-          <Button
-            className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-[#95BC1E] opacity-100"
-            onClick={() => setIsUser(!isUser)}
-          >
-            <span className="mr-2">
-              <IconSteam />
-            </span>
-            Entre com sua steam
-          </Button>
-        </div>
-      ) : (
-        <div className="flex items-center gap-x-6">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
-              <span>
-                <IconMira />
-              </span>
-              <Link href={'/inventory'} className="text-[#A7B0A0]">
-                Inventário
-              </Link>
-            </div>
-            <div className="flex h-[44px] items-center gap-2 rounded-lg bg-[#222723] px-4 py-2">
-              <Title bold={500} color="white">
-                RS:12,42
-              </Title>
-              <Button
-                className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
-                onClick={() => setIsUser(!isUser)}
-              >
-                <IconCruz />
-              </Button>
-            </div>
-          </div>
 
-          <div className="flex items-center gap-4">
-            <Button className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black">
-              <IconNotifications />
-            </Button>
-
-            <Image
-              src={fallen}
-              alt=""
-              className="rounded-full"
-              width={44}
-              height={44}
-              draggable={false}
-            />
-          </div>
-        </div>
-      )}
+      <div className="flex space-x-4">
+        <Button className="bg-jet-black h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0]  p-2 text-[#A7B0A0]">
+          <span className="mr-2">
+            <IconCarrinho />
+          </span>
+          Carrinho de compra
+        </Button>
+        <Button className="h-[44px] w-[220px] rounded-[14px] bg-[#95BC1E] opacity-100">
+          <span className="mr-2">
+            <IconSteam />
+          </span>
+          Entre com sua steam
+        </Button>
+      </div>
     </div>
   )
 }
