@@ -1,8 +1,9 @@
+import Image, { StaticImageData } from 'next/image'
 import React, { MouseEventHandler } from 'react'
 
 interface IItems {
   name: string
-  icon: React.ReactNode
+  icon: StaticImageData
 }
 
 interface IProps extends React.HTMLAttributes<HTMLInputElement> {
@@ -41,8 +42,13 @@ export function InputRadioMethodArray({
           text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50
           peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
-          {item.icon}
-          <span></span>
+          <Image src={item.icon} className="w-16" alt={item.name} />
+          {hasPaybank && (
+            <span className="text-sm">
+              <p className="font-light">Via</p>
+              <p className="font-medium">Paybank</p>
+            </span>
+          )}
         </label>
       </div>
     ))

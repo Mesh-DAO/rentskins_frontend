@@ -3,11 +3,10 @@ import { IconShield } from '@/components/Icons'
 import { Title } from '@/components/Title'
 import useComponentStore from '@/stores/components.store'
 import { InputRadioMethodArray } from '@/components/InputRadioMethodArray'
-import { IconMastercard } from '@/components/Icons/payment/IconMastercard'
 import ImageBankTransfer from '../../../../../public/payment/banktransfer.png'
 import ImagePaypal from '../../../../../public/payment/paypal.png'
+import ImageMastercard from '../../../../../public/payment/mastercard.png'
 import usePaymentStore from '@/stores/payment.store'
-import Image from 'next/image'
 
 export function ModalPaymentRetrieveSelection() {
   const { setPaymentRetrieveIndex } = useComponentStore()
@@ -58,19 +57,12 @@ export function ModalPaymentRetrieveSelection() {
         </Title>
         <InputRadioMethodArray
           items={[
-            { name: 'mastercard', icon: <IconMastercard /> },
-            {
-              name: 'pix',
-              icon: <Image src={ImagePaypal} alt="Paypal" width={64} />,
-            },
-            {
-              name: 'boleto',
-              icon: (
-                <Image src={ImageBankTransfer} alt="BankTransfer" width={78} />
-              ),
-            },
+            { name: 'mastercard', icon: ImageMastercard },
+            { name: 'paypal', icon: ImagePaypal },
+            { name: 'banktransfer', icon: ImageBankTransfer },
           ]}
           hasFlex
+          hasPaybank
           className="gap-4"
           handleOnClick={(event) => handleMethodChange(event)}
         />

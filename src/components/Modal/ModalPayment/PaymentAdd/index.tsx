@@ -9,9 +9,9 @@ import { useRouter } from 'next/navigation'
 import usePaymentStore from '@/stores/payment.store'
 import CircleLoading from '@/components/CircleLoading'
 import { InputRadioMethodArray } from '@/components/InputRadioMethodArray'
-import { IconMastercard } from '@/components/Icons/payment/IconMastercard'
-import { IconPix } from '@/components/Icons/payment/IconPix'
-import { IconBoleto } from '@/components/Icons/payment/IconBoleto'
+import ImageMastercard from '@/../public/payment/mastercard.png'
+import ImagePix from '@/../public/payment/pix.png'
+import ImageTicket from '@/../public/payment/ticket.png'
 
 export function ModalPaymentAdd() {
   const router = useRouter()
@@ -53,9 +53,9 @@ rounded-2xl bg-mesh-color-neutral-700"
           {/* <ModalPaymentAddMethodsInputs /> */}
           <InputRadioMethodArray
             items={[
-              { name: 'mastercard', icon: <IconMastercard /> },
-              { name: 'pix', icon: <IconPix /> },
-              { name: 'boleto', icon: <IconBoleto /> },
+              { name: 'mastercard', icon: ImageMastercard },
+              { name: 'pix', icon: ImagePix },
+              { name: 'boleto', icon: ImageTicket },
             ]}
             hasGrid
             handleOnClick={(event) => handleMethodChange(event)}
