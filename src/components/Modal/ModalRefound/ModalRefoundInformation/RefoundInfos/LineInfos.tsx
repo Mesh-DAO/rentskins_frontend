@@ -1,12 +1,12 @@
-import { Title } from '@/components/Title';
+import { Title } from '@/components/Title'
 
 interface Props {
-  label: string;
-  value: string;
-  size?: 'lg' | '2xl' | '3xl' | 'base';
-  color?: 'white' | 'cinza' | 'dark/6';
-  className?: string;
-  bold?: 500 | 600 | 700;
+  label: string
+  value: string
+  size?: 'lg' | '2xl' | '3xl' | 'base'
+  color?: 'white' | 'cinza' | 'dark/6'
+  className?: string
+  bold?: 500 | 600 | 700
 }
 
 export default function LineInfos({
@@ -24,5 +24,5 @@ export default function LineInfos({
         R${value}
       </Title>
     </div>
-  );
+  )
 }

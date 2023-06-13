@@ -1,14 +1,14 @@
-import { Title } from '@/components/Title';
-import Image from 'next/image';
+import { Title } from '@/components/Title'
+import Image from 'next/image'
 
 interface Props {
-  name: string;
-  nameColor: string;
-  iconUrl: string;
+  name: string
+  nameColor: string
+  iconUrl: string
 }
 
 export default function SkinCardModal({ name, nameColor, iconUrl }: Props) {
-  const [skinType, skinName] = name.split('|');
+  const [skinType, skinName] = name.split('|')
   return (
     <section className="flex w-full items-center justify-between rounded-xl bg-[#222723] p-5">
       <div className="flex items-center gap-6">
@@ -51,5 +51,5 @@ export default function SkinCardModal({ name, nameColor, iconUrl }: Props) {
         </Title>
       </div>
     </section>
-  );
+  )
 }

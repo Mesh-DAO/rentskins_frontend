@@ -17,8 +17,8 @@ export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
   const [skinType, skinName] = name.split('|')
 
   return (
-    <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-neutral-300 border-opacity-60 px-3 pb-4 pt-3 text-white">
-      <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-neutral-300 bg-mesh-gradient-black-pattern">
+    <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-primary-1400 border-opacity-60 px-3 pb-4 pt-3 text-white">
+      <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-primary-1400 bg-mesh-gradient-black-pattern">
         <div
           className={`h-2 w-52 rounded-b-full`}
           style={{ backgroundColor: `#${nameColor}` }}
