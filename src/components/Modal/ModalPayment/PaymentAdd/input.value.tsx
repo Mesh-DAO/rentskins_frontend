@@ -31,9 +31,9 @@ export function ModalPaymentAddValuesInputs() {
         />
         <label
           htmlFor="settings_index-1"
-          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2 border-transparent 
-bg-mesh-color-neutral-500 px-4 py-3 text-lg 
-font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md border-2 
+border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-lg font-semibold
+text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           R$5,00
         </label>
@@ -50,9 +50,9 @@ font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-check
         />
         <label
           htmlFor="settings_index-2"
-          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
-font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md
+border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg font-semibold
+text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           R$10,00
         </label>
@@ -69,9 +69,9 @@ font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-check
         />
         <label
           htmlFor="settings_index-3"
-          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
-font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md
+border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg font-semibold
+text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           R$25,00
         </label>
@@ -88,9 +88,9 @@ font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-check
         />
         <label
           htmlFor="settings_index-4"
-          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
-font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md
+border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg font-semibold
+text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           R$50,00
         </label>
@@ -107,9 +107,9 @@ font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-check
         />
         <label
           htmlFor="settings_index-5"
-          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
-font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md
+border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg font-semibold
+text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           R$100,00
         </label>
@@ -126,9 +126,9 @@ font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-check
         />
         <label
           htmlFor="settings_index-6"
-          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
-font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md
+border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg font-semibold
+text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           R$200,00
         </label>
@@ -145,9 +145,9 @@ font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-check
         />
         <label
           htmlFor="settings_index-7"
-          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
-font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md
+border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg font-semibold
+text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           R$500,00
         </label>
@@ -164,9 +164,9 @@ font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-check
         />
         <label
           htmlFor="settings_index-8"
-          className="flex w-full select-none items-center justify-center gap-4 rounded-md border-2
-border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg
-font-semibold text-mesh-color-neutral-200 transition-all duration-500 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
+          className="flex w-full cursor-pointer select-none items-center justify-center gap-4 rounded-md
+border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-center text-lg font-semibold
+text-mesh-color-neutral-200 transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600 peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white"
         >
           R$1000,00
         </label>

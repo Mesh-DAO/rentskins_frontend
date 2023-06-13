@@ -60,7 +60,7 @@ rounded-2xl bg-mesh-color-neutral-700"
                 <div className="flex w-1/2 flex-col">
                   <label className="flex w-full flex-col text-mesh-color-neutral-200">
                     Valor do Pagamento
-                    <div className="w-full ">
+                    <div className="-mt-8 w-full">
                       <span
                         className={`relative left-3 top-1/2 text-lg font-semibold transition-all ${
                           valueAmount !== undefined ? '' : 'text-transparent'
