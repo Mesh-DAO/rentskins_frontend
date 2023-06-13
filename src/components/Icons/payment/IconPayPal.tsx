@@ -1,4 +1,4 @@
-export default function IconPayPal() {
+export function IconPayPal() {
   return (
     <svg
       width="51"

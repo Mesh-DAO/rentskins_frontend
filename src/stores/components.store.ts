@@ -1,6 +1,7 @@
 import create from 'zustand'
 import { PaymentMethodRefound, IPaymentRefound } from './Interfaces'
 
+
 interface IStates {
   paymentGeneralIndex: 0 | 1 | 2
   setPaymentGeneralIndex: (index: 0 | 1 | 2) => void
