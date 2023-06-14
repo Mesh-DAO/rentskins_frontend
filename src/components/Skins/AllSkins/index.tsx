@@ -27,6 +27,14 @@ export default function AllSkins({
   console.log(skins.length)
 
   const allSkins = skinsCategories || skins
+
+  const allSkinsFilter = allSkins.filter(
+    ({ name }: skin) =>
+      !name.includes('Coin') &&
+      !name.includes('Pin') &&
+      !name.includes('Graffiti'),
+  )
+
   return (
     <div className="mx-auto flex w-11/12 flex-col items-center">
       <div
@@ -35,25 +43,27 @@ export default function AllSkins({
           'justify-center': center,
         })}
       >
-        {allSkins.map(({ name, name_color, icon_url }: skin, index: number) => {
-          const itemIndex = index + 1
-          if (
-            itemIndex > itemsPerPage * (pageSelectorIndex - 1) &&
-            itemIndex <= itemsPerPage * pageSelectorIndex
-          )
-            return (
-              <CardSkin
-                iconUrl={icon_url}
-                name={name}
-                nameColor={name_color}
-                key={`${name}-${index}`}
-              />
+        {allSkinsFilter.map(
+          ({ name, name_color, icon_url }: skin, index: number) => {
+            const itemIndex = index + 1
+            if (
+              itemIndex > itemsPerPage * (pageSelectorIndex - 1) &&
+              itemIndex <= itemsPerPage * pageSelectorIndex
             )
-          return null
-        })}
+              return (
+                <CardSkin
+                  iconUrl={icon_url}
+                  name={name}
+                  nameColor={name_color}
+                  key={`${name}-${index}`}
+                />
+              )
+            return null
+          },
+        )}
       </div>
       <PageSelector
-        pages={allSkins.length / itemsPerPage}
+        pages={allSkinsFilter.length / itemsPerPage}
         handleOnChange={(event) =>
           setPageSelectorIndex(event.target.value as unknown as number)
         }

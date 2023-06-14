@@ -26,7 +26,7 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
               type="radio"
               id={'pageselector-' + page}
               name="pageselector"
-              className="peer"
+              className="peer fixed"
               value={Number(index) + 1}
               onChange={handleOnChange}
               defaultChecked={
@@ -38,7 +38,7 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
             />
             <label
               htmlFor={'pageselector-' + page}
-              className="text-md rounded-lg border border-mesh-color-neutral-300 px-3 py-2 text-center
+              className="text-md w-2 rounded-lg border border-mesh-color-neutral-300 px-3 py-2 text-center
           text-white transition-all duration-300 peer-checked:bg-mesh-color-primary-1200 peer-checked:font-semibold
           peer-checked:text-mesh-color-others-black peer-hover:cursor-pointer"
             >
