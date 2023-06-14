@@ -11,8 +11,10 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
 
   useEffect(() => setPageSelectorIndex(1), [])
 
+  const ceilPage = Math.ceil(pages)
+
   const renderComponent = () => {
-    return Array.from({ length: pages }).map((item, index) => {
+    return Array.from({ length: ceilPage }).map((item, index) => {
       const page = index + 1
       if (
         page >= Number(pageSelectorIndex) - 2 &&
@@ -31,7 +33,7 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
                 // PARA O PRIMEIRO DA LISTA
                 (pageSelectorIndex === 1 && index === 0) ||
                 // PARA O ÚLTIMO DA LISTA
-                (pageSelectorIndex === pages && index === pages - 1)
+                (pageSelectorIndex === ceilPage && index === ceilPage - 1)
               }
             />
             <label
@@ -94,8 +96,8 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
             id={'pageselector-last'}
             name="pageselector"
             className="peer"
-            value={pages}
-            onChange={() => setPageSelectorIndex(pages)}
+            value={ceilPage}
+            onChange={() => setPageSelectorIndex(ceilPage)}
           />
           <label
             htmlFor={'pageselector-last'}
@@ -103,7 +105,7 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
           text-white transition-all duration-500 peer-checked:bg-mesh-color-primary-1200 peer-checked:font-semibold
           peer-checked:text-mesh-color-others-black peer-hover:cursor-pointer"
           >
-            {pages}
+            {ceilPage}
           </label>
         </nav>
       ) : (
