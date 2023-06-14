@@ -64,7 +64,7 @@ export default function Home() {
             </HeroInformation>
           </div>
         </div>
-        <div className="mb-28 mt-16">
+        <div className="mx-auto mb-28 mt-16 flex justify-center">
           <AllSkins itemsPerPage={20} center />
         </div>
       </main>

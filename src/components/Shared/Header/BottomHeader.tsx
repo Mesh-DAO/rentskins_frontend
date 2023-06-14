@@ -15,12 +15,11 @@ type PropsContainer = {
 
 type PropsItems = {
   title: string
-  linkRef?: string
 }
 
 export function BottomHeader() {
   return (
-    <div className="mx-auto flex w-10/12 justify-between gap-10 p-4">
+    <div className="mx-auto flex w-10/12 select-none justify-between gap-10 p-4">
       <ContainerItem title="Faca" iconSeta={<IconSetaType />} isList={true}>
         <ItemLink title="Baioneta" />
         <ItemLink title="Faca Bowie" />
@@ -68,16 +67,17 @@ export function BottomHeader() {
       </ContainerItem>
 
       <ContainerItem title="Pistolas" iconSeta={<IconSetaType />} isList={true}>
-        <ItemLink title="P2000" linkRef="P2000" />
-        <ItemLink title="Glock 18" linkRef="Glock 18" />
-        <ItemLink title="P250" linkRef="P250" />
-        <ItemLink title="Five-SeveN" linkRef="Five-SeveN" />
-        <ItemLink title="Tec-9" linkRef="Tec-9" />
-        <ItemLink title="CZ75-Auto" linkRef="CZ75-Auto" />
-        <ItemLink title="Dual Berettas" linkRef="Dual Berettas" />
-        <ItemLink title="Desert Eagle" linkRef="Desert Eagle" />
-        <ItemLink title="R8 Revolver" linkRef="R8 Revolver" />
-        <ItemLink title="Dual Berettas" linkRef="Dual Berettas" />
+        <ItemLink title="USP-S" />
+        <ItemLink title="P2000" />
+        <ItemLink title="Glock-18" />
+        <ItemLink title="P250" />
+        <ItemLink title="Five-SeveN" />
+        <ItemLink title="Tec-9" />
+        <ItemLink title="CZ75-Auto" />
+        <ItemLink title="Dual Berettas" />
+        <ItemLink title="Desert Eagle" />
+        <ItemLink title="R8 Revolver" />
+        <ItemLink title="Dual Berettas" />
       </ContainerItem>
 
       <ContainerItem
@@ -134,9 +134,7 @@ export const ContainerItem = ({
     <div className={classNames('group relative z-20 ', className)}>
       {isList ? (
         <div className="flex items-center">
-          <Title color="white" className="cursor-pointer">
-            {title}
-          </Title>
+          <Title color="white">{title}</Title>
           <span className="ml-2 transition duration-300 ease-in-out  group-hover:rotate-180">
             {iconSeta}
           </span>
@@ -158,12 +156,12 @@ export const ContainerItem = ({
   )
 }
 
-export const ItemLink = ({ title, linkRef }: PropsItems) => {
+export const ItemLink = ({ title }: PropsItems) => {
   return (
-    <li className="mx-1 flex h-12 items-center whitespace-nowrap rounded p-2 font-semibold hover:bg-[#3C403C]">
-      <Link href={`/categorias/${linkRef}`} rel="noopener noreferrer">
+    <Link href={`/categorias/${title}`} rel="noopener noreferrer">
+      <li className="mx-1 flex h-12 cursor-pointer items-center whitespace-nowrap rounded p-2 font-semibold hover:bg-[#3C403C]">
         {title}
-      </Link>
-    </li>
+      </li>
+    </Link>
   )
 }
