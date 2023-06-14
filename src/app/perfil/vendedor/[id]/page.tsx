@@ -14,7 +14,11 @@ export default function Perfil() {
       <main className="mx-auto flex w-4/5 flex-col items-center py-7">
         <PerfilPerson />
         <ChoiceItems thereIsRented={true} />
-        {profileTabValue === 'sales' ? <AllSkins /> : <RentedSkins />}
+        {profileTabValue === 'sales' ? (
+          <AllSkins itemsPerPage={15} />
+        ) : (
+          <RentedSkins />
+        )}
       </main>
     </LayoutPage>
   )
