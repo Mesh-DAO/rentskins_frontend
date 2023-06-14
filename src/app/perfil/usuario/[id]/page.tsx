@@ -9,7 +9,7 @@ export default function PerfilUsuario() {
       <main className="mx-auto flex w-4/5 flex-col items-center py-7">
         <PerfilPerson isSeller={false} />
         <ChoiceItems />
-        <AllSkins />
+        <AllSkins itemsPerPage={15} />
       </main>
     </LayoutPage>
   )
