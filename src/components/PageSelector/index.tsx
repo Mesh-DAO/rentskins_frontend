@@ -83,7 +83,7 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
 
       {renderComponent()}
 
-      {pageSelectorIndex <= Number(pages) - 3 ? (
+      {pageSelectorIndex <= Number(pages) - 2 ? (
         <nav className="flex w-full justify-start">
           <span
             className="text-md mr-2 rounded-lg px-3 py-2
