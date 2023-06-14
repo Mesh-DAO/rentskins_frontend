@@ -16,6 +16,8 @@ interface IStates {
   setRefoundGeneralIndex: (index: 0 | 1 | 2 | 3) => void
   paymentRefound: { value: number; method: PaymentMethodRefound }
   setPaymentRefound: (paymentRefound: IPaymentRefound) => void
+  pageSelectorIndex: number
+  setPageSelectorIndex: (index: number) => void
 }
 
 const useComponentStore = create<IStates>((set) => ({
@@ -52,6 +54,11 @@ const useComponentStore = create<IStates>((set) => ({
   paymentRefound: { value: 5, method: 'mastercard' },
   setPaymentRefound: (paymentRefound: IPaymentRefound) => {
     set(() => ({ paymentRefound }))
+  },
+
+  pageSelectorIndex: 1,
+  setPageSelectorIndex: (index: number) => {
+    set(() => ({ pageSelectorIndex: index }))
   },
 }))
 
