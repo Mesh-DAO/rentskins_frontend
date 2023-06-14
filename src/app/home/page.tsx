@@ -65,7 +65,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mb-28 mt-16">
-          <AllSkins itemsPerPage={15} center />
+          <AllSkins itemsPerPage={20} center />
         </div>
       </main>
     </LayoutPage>

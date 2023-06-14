@@ -28,7 +28,7 @@ export default function AllSkins({
 
   const allSkins = skinsCategories || skins
   return (
-    <div className="flex flex-col items-center">
+    <div className="mx-auto flex w-11/12 flex-col items-center">
       <div
         className={classNames('mt-6 flex w-full flex-wrap gap-5 ', {
           'mb-6 mt-0 w-auto': skinsCategories !== undefined,
