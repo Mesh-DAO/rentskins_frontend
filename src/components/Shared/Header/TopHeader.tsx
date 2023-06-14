@@ -16,7 +16,7 @@ import logo from '../../../assets/logo.svg'
 import fallen from '@/assets/fallen.svg'
 
 export function TopHeader() {
-  const [isUser, setIsUser] = useState(false)
+  const [isUser, setIsUser] = useState(true)
 
   return (
     <div className="mx-auto flex w-10/12 items-center justify-between">
@@ -38,12 +38,15 @@ export function TopHeader() {
       {/* ---------------- RIGHT ----------------------- */}
       {isUser ? (
         <div className="flex space-x-4">
-          <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-mesh-color-others-black  p-2 text-[#A7B0A0]">
+          <Link
+            href={'/carrinho'}
+            className="flex h-[44px] w-[220px] justify-center rounded-[14px] border border-[#A7B0A0] bg-mesh-color-others-black  p-2 text-[#A7B0A0]"
+          >
             <span className="mr-2">
               <IconCarrinho />
             </span>
             Carrinho de compra
-          </Button>
+          </Link>
           <Button
             className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-[#95BC1E] opacity-100"
             onClick={() => setIsUser(!isUser)}
