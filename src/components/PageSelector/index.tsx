@@ -12,7 +12,7 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
   useEffect(() => setPageSelectorIndex(1), [])
 
   const renderComponent = () => {
-    return Array.from({ length: Math.ceil(pages) }).map((item, index) => {
+    return Array.from({ length: pages }).map((item, index) => {
       const page = index + 1
       if (
         page >= Number(pageSelectorIndex) - 2 &&
@@ -27,12 +27,17 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
               className="peer"
               value={Number(index) + 1}
               onChange={handleOnChange}
-              defaultChecked={pageSelectorIndex === 1 && index === 0}
+              defaultChecked={
+                // PARA O PRIMEIRO DA LISTA
+                (pageSelectorIndex === 1 && index === 0) ||
+                // PARA O ÚLTIMO DA LISTA
+                (pageSelectorIndex === pages && index === pages - 1)
+              }
             />
             <label
               htmlFor={'pageselector-' + page}
               className="text-md rounded-lg border border-mesh-color-neutral-300 px-3 py-2 text-center
-          text-white transition-all duration-500 peer-checked:bg-mesh-color-primary-1200 peer-checked:font-semibold
+          text-white transition-all duration-300 peer-checked:bg-mesh-color-primary-1200 peer-checked:font-semibold
           peer-checked:text-mesh-color-others-black peer-hover:cursor-pointer"
             >
               {page}
@@ -89,7 +94,7 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
             id={'pageselector-last'}
             name="pageselector"
             className="peer"
-            value={Math.ceil(pages)}
+            value={pages}
             onChange={() => setPageSelectorIndex(pages)}
           />
           <label
@@ -98,7 +103,7 @@ export function PageSelector({ pages, handleOnChange }: IProps) {
           text-white transition-all duration-500 peer-checked:bg-mesh-color-primary-1200 peer-checked:font-semibold
           peer-checked:text-mesh-color-others-black peer-hover:cursor-pointer"
           >
-            {Math.ceil(pages)}
+            {pages}
           </label>
         </nav>
       ) : (

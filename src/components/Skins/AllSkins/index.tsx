@@ -53,9 +53,8 @@ export default function AllSkins({
         })}
       </div>
       <PageSelector
-        pages={allSkins.length / itemsPerPage}
+        pages={Math.ceil(allSkins.length / itemsPerPage)}
         handleOnChange={(event) =>
-          // FIX!
           setPageSelectorIndex(event.target.value as unknown as number)
         }
       />
