@@ -40,7 +40,7 @@ export function TopHeader() {
         <div className="flex space-x-4">
           <Link
             href={'/carrinho'}
-            className="flex h-[44px] w-[220px] justify-center rounded-[14px] border border-[#A7B0A0] bg-mesh-color-others-black  p-2 text-[#A7B0A0]"
+            className="flex h-[44px] w-[220px] justify-center rounded-[14px] border border-mesh-color-neutral-200 bg-mesh-color-others-black  p-2 text-mesh-color-neutral-200"
           >
             <span className="mr-2">
               <IconCarrinho />
@@ -48,7 +48,7 @@ export function TopHeader() {
             Carrinho de compra
           </Link>
           <Button
-            className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-[#95BC1E] opacity-100"
+            className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-mesh-color-primary-1400 opacity-100"
             onClick={() => setIsUser(!isUser)}
           >
             <span className="mr-2">
@@ -63,7 +63,7 @@ export function TopHeader() {
             <div className="flex items-center gap-3">
               <Link
                 href={'/inventory'}
-                className="flex items-center gap-2 text-[#A7B0A0]"
+                className="flex items-center gap-2 text-mesh-color-neutral-200"
               >
                 <span>
                   <IconMira />
@@ -71,7 +71,7 @@ export function TopHeader() {
                 Inventário
               </Link>
             </div>
-            <div className="flex h-[44px] items-center gap-2 rounded-lg bg-[#222723] px-4 py-2">
+            <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
               <Title bold={500} color="white">
                 R$12,42
               </Title>
