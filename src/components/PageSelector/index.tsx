@@ -1,3 +1,4 @@
+'use client'
 import useComponentStore from '@/stores/components.store'
 import { ChangeEventHandler, useEffect } from 'react'
 
