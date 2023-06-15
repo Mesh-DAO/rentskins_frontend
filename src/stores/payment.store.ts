@@ -4,7 +4,7 @@ import {
   IStates,
   IWithdrawInfo,
   TypeMethod,
-} from './payment.interface'
+} from './interfaces/payment.interface'
 
 const usePaymentStore = create<IStates>((set) => ({
   paymentAdd: { value: 5, method: 'mastercard' },
