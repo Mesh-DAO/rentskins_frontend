@@ -1,7 +1,7 @@
 import { IconSetaType } from '@/components/Icons'
+import { ItemLink } from '@/components/ItemLink'
 import { Title } from '@/components/Title'
 import classNames from 'classnames'
-import Link from 'next/link'
 import React from 'react'
 
 type PropsContainer = {
@@ -13,71 +13,83 @@ type PropsContainer = {
   top?: '10' | '14'
 }
 
-type PropsItems = {
-  title: string
-  linkRef?: string
-}
-
 export function BottomHeader() {
   return (
-    <div className="mx-auto flex w-10/12 justify-between gap-10 p-4">
+    <div className="mx-auto flex w-10/12 select-none justify-between gap-10 p-4">
       <ContainerItem title="Faca" iconSeta={<IconSetaType />} isList={true}>
-        <ItemLink title="Baioneta" />
-        <ItemLink title="Faca Bowie" />
-        <ItemLink title="Canivete Borboleta" />
-        <ItemLink title="Faca Clássica" />
-        <ItemLink title="Faca Falchion" />
-        <ItemLink title="Faca Virar" />
-        <ItemLink title="Faca Gut" />
-        <ItemLink title="Faca de Caçador" />
-        <ItemLink title="Baioneta M9" />
-        <ItemLink title="Faca Navaja" />
-        <ItemLink title="Faca Nômade" />
-        <ItemLink title="Faca Paracord" />
-        <ItemLink title="Adagas das Sombras" />
-        <ItemLink title="Faca de Esqueleto" />
-        <ItemLink title="Faca Estilete" />
-        <ItemLink title="Faca de Sobrevivência" />
-        <ItemLink title="Faca de Guerra" />
-        <ItemLink title="Faca de Ursus" />
+        <ItemLink
+          items={[
+            'Baioneta',
+            'Faca Bowie',
+            'Canivete Borboleta',
+            'Faca Clássica',
+            'Faca Falchion',
+            'Faca Virar',
+            'Faca Gut',
+            'Faca de Caçador',
+            'Baioneta M9',
+            'Faca Navaja',
+            'Faca Nômade',
+            'Faca Paracord',
+            'Adagas das Sombras',
+            'Faca de Esqueleto',
+            'Faca Estilete',
+            'Faca de Sobrevivência',
+            'Faca de Guerra',
+            'Faca de Ursus',
+          ]}
+        />
       </ContainerItem>
 
       <ContainerItem title="Rifles" iconSeta={<IconSetaType />} isList={true}>
-        <ItemLink title="FAMAS" />
-        <ItemLink title="Galil AR" />
-        <ItemLink title="M4A4" />
-        <ItemLink title="M4A1-S" />
-        <ItemLink title="AK-47" />
-        <ItemLink title="AUG" />
-        <ItemLink title="SG 553" />
-        <ItemLink title="SSG 08" />
-        <ItemLink title="AWP" />
-        <ItemLink title="SCAR-20" />
-        <ItemLink title="G3SG1" />
+        <ItemLink
+          items={[
+            'FAMAS',
+            'Galil AR',
+            'M4A4',
+            'M4A1-S',
+            'AK-47',
+            'AUG',
+            'SG 553',
+            'SSG 08',
+            'AWP',
+            'SCAR-20',
+            'G3SG1',
+          ]}
+        />
       </ContainerItem>
 
       <ContainerItem title="Luvas" iconSeta={<IconSetaType />} isList={true}>
-        <ItemLink title="Envoltórios de mão" />
-        <ItemLink title="Luvas de moto" />
-        <ItemLink title="Luvas Especializadas" />
-        <ItemLink title="Luvas Esportivas" />
-        <ItemLink title="Luvas de cão de caça" />
-        <ItemLink title="Luvas de Hidra" />
-        <ItemLink title="Luvas de motorista" />
-        <ItemLink title="Luvas de presas quebradas" />
+        <ItemLink
+          items={[
+            'Envoltórios de Mão',
+            'Luvas de Moto',
+            'Luvas Especializadas',
+            'Luvas Esportivas',
+            'Luvas de Cão de Caça',
+            'Luvas de Hidra',
+            'Luvas de Motorista',
+            'Luvas de Presas Quebradas',
+          ]}
+        />
       </ContainerItem>
 
       <ContainerItem title="Pistolas" iconSeta={<IconSetaType />} isList={true}>
-        <ItemLink title="P2000" linkRef="P2000" />
-        <ItemLink title="Glock 18" linkRef="Glock 18" />
-        <ItemLink title="P250" linkRef="P250" />
-        <ItemLink title="Five-SeveN" linkRef="Five-SeveN" />
-        <ItemLink title="Tec-9" linkRef="Tec-9" />
-        <ItemLink title="CZ75-Auto" linkRef="CZ75-Auto" />
-        <ItemLink title="Dual Berettas" linkRef="Dual Berettas" />
-        <ItemLink title="Desert Eagle" linkRef="Desert Eagle" />
-        <ItemLink title="R8 Revolver" linkRef="R8 Revolver" />
-        <ItemLink title="Dual Berettas" linkRef="Dual Berettas" />
+        <ItemLink
+          items={[
+            'USP-S',
+            'P2000',
+            'Glock-18',
+            'P250',
+            'Five-SeveN',
+            'Tec-9',
+            'CZ75-Auto',
+            'Dual Berettas',
+            'Desert Eagle',
+            'R8 Revolver',
+            'Dual Berettas',
+          ]}
+        />
       </ContainerItem>
 
       <ContainerItem
@@ -85,13 +97,17 @@ export function BottomHeader() {
         iconSeta={<IconSetaType />}
         isList={true}
       >
-        <ItemLink title="MP9" />
-        <ItemLink title="MAC-10" />
-        <ItemLink title="PP-Bizon" />
-        <ItemLink title="MP7" />
-        <ItemLink title="UMP-45" />
-        <ItemLink title="P90" />
-        <ItemLink title="MP5-SD" />
+        <ItemLink
+          items={[
+            'MP9',
+            'MAC-10',
+            'PP-Bizon',
+            'MP7',
+            'UMP-45',
+            'P90',
+            'MP5-SD',
+          ]}
+        />
       </ContainerItem>
 
       <ContainerItem
@@ -99,10 +115,7 @@ export function BottomHeader() {
         iconSeta={<IconSetaType />}
         isList={true}
       >
-        <ItemLink title="Nova" />
-        <ItemLink title="XM1014" />
-        <ItemLink title="MAG-7" />
-        <ItemLink title="Sawed-Off" />
+        <ItemLink items={['Nova', 'XM1014', 'MAG-7', 'Sawed-Off']} />
       </ContainerItem>
 
       <ContainerItem
@@ -110,15 +123,12 @@ export function BottomHeader() {
         iconSeta={<IconSetaType />}
         isList={true}
       >
-        <ItemLink title="M249" />
-        <ItemLink title="Negev" />
+        <ItemLink items={['M249', 'Negev']} />
       </ContainerItem>
 
-      <ContainerItem title="Figurinhas" isList={false}>
-        <ItemLink title="Rifle 1" />
-      </ContainerItem>
+      <ContainerItem title="Figurinhas" isList={false} />
 
-      <ContainerItem title="Agentes" isList={false}></ContainerItem>
+      <ContainerItem title="Agentes" isList={false} />
     </div>
   )
 }
@@ -134,9 +144,7 @@ export const ContainerItem = ({
     <div className={classNames('group relative z-20 ', className)}>
       {isList ? (
         <div className="flex items-center">
-          <Title color="white" className="cursor-pointer">
-            {title}
-          </Title>
+          <Title color="white">{title}</Title>
           <span className="ml-2 transition duration-300 ease-in-out  group-hover:rotate-180">
             {iconSeta}
           </span>
@@ -155,15 +163,5 @@ export const ContainerItem = ({
         </div>
       )}
     </div>
-  )
-}
-
-export const ItemLink = ({ title, linkRef }: PropsItems) => {
-  return (
-    <li className="mx-1 flex h-12 items-center whitespace-nowrap rounded p-2 font-semibold hover:bg-[#3C403C]">
-      <Link href={`/categorias/${linkRef}`} rel="noopener noreferrer">
-        {title}
-      </Link>
-    </li>
   )
 }

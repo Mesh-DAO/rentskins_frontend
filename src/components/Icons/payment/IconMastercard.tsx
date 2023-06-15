@@ -1,8 +1,13 @@
-export function IconMastercard() {
+interface IProps {
+  width?: number
+  height?: number
+}
+
+export function IconMastercard({ width = 77, height = 52 }: IProps) {
   return (
     <svg
-      width="77"
-      height="52"
+      width={width}
+      height={height}
       viewBox="0 0 77 52"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,6 @@
 /* eslint-disable camelcase */
+'use client'
+import { useState } from 'react'
 import { skins } from '@/Mock'
 import CartSkinCard from '@/components/CartSkinCard'
 
@@ -6,21 +8,32 @@ interface skin {
   name: string
   name_color: string
   icon_url: string
+  classid: string
 }
 
 export default function AllSkinsCart() {
+  const [filteredIndex, setFilteredIndex] = useState<string[]>([])
+  const allSkinCart = skins.filter(
+    (skin) => !filteredIndex.some((classid) => classid === skin.classid),
+  )
+
   return (
     <div className="flex w-[798px] flex-col items-start gap-6">
-      {skins
-        .slice(0, 6)
-        .map(({ name, name_color, icon_url }: skin, idx: number) => (
-          <CartSkinCard
-            iconUrl={icon_url}
-            name={name}
-            nameColor={name_color}
-            key={`${name}-${idx}`}
-          />
-        ))}
+      {allSkinCart.map(
+        ({ name, name_color, icon_url, classid }: skin, idx: number) => {
+          return (
+            <CartSkinCard
+              iconUrl={icon_url}
+              name={name}
+              nameColor={name_color}
+              key={`${name}-${idx}`}
+              handleOnClick={() =>
+                setFilteredIndex([...filteredIndex, classid])
+              }
+            />
+          )
+        },
+      )}
     </div>
   )
 }
