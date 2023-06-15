@@ -1,7 +1,8 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import SteamService from '@/services/steam.service'
 /* ----------------- COMPONENTS ----------------- */
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
@@ -13,10 +14,26 @@ import { IconCruz } from '@/components/Icons/IconCruz'
 import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
-import fallen from '@/assets/fallen.svg'
+import LocalStorage from '@/tools/localstorage.tool'
+import useUserStore from '@/stores/user.store'
 
 export function TopHeader() {
-  const [isUser, setIsUser] = useState(true)
+  const { user } = useUserStore()
+  const [username, setUsername] = useState('')
+  const [picture, setPicture] = useState('')
+
+  const handleOnSteam = () => {
+    SteamService.redirect()
+  }
+
+  useEffect(() => {
+    const user = LocalStorage.getUser()
+
+    if (user !== undefined && user !== null) {
+      setUsername(user.username)
+      setPicture(user.picture)
+    }
+  }, [user])
 
   return (
     <div className="mx-auto flex w-10/12 items-center justify-between">
@@ -36,7 +53,7 @@ export function TopHeader() {
         </div>
       </div>
       {/* ---------------- RIGHT ----------------------- */}
-      {isUser ? (
+      {!user.steamid ? (
         <div className="flex space-x-4">
           <Link
             href={'/carrinho'}
@@ -49,7 +66,7 @@ export function TopHeader() {
           </Link>
           <Button
             className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-mesh-color-primary-1400 opacity-100"
-            onClick={() => setIsUser(!isUser)}
+            onClick={() => handleOnSteam()}
           >
             <span className="mr-2">
               <IconSteam />
@@ -60,6 +77,7 @@ export function TopHeader() {
       ) : (
         <div className="flex items-center gap-x-6">
           <div className="flex items-center gap-4">
+            <span className="text-white">{username}</span>
             <div className="flex items-center gap-3">
               <Link
                 href={'/inventory'}
@@ -91,8 +109,8 @@ export function TopHeader() {
             </Button>
 
             <Image
-              src={fallen}
-              alt=""
+              src={picture}
+              alt={username}
               className="rounded-full"
               width={44}
               height={44}
