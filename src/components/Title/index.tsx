@@ -30,10 +30,13 @@ export function Title({
           'text-mesh-color-primary-1200': color === 'green',
         },
         {
-          'text-mesh-color-neutral-500': color === 'cinza',
+          'text-mesh-color-neutral-300': color === 'cinza',
         },
         {
           'text-xs': size === 'xs',
+        },
+        {
+          'text-base': size === 'base',
         },
         {
           'text-sm': size === 'sm',

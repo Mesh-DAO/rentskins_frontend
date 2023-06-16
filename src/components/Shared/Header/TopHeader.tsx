@@ -1,21 +1,39 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import SteamService from '@/services/steam.service'
 /* ----------------- COMPONENTS ----------------- */
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { Title } from '@/components/Title'
+import { ModalPayment } from '@/components/Modal'
 /* ----------------- ICONS ----------------- */
 import { IconCarrinho, IconSteam, IconSearch } from '@/components/Icons'
 import { IconCruz } from '@/components/Icons/IconCruz'
 import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
-import fallen from '@/assets/fallen.svg'
+import LocalStorage from '@/tools/localstorage.tool'
+import useUserStore from '@/stores/user.store'
 
 export function TopHeader() {
-  const [isUser, setIsUser] = useState(false)
+  const { user } = useUserStore()
+  const [username, setUsername] = useState('')
+  const [picture, setPicture] = useState('')
+
+  const handleOnSteam = () => {
+    SteamService.redirect()
+  }
+
+  useEffect(() => {
+    const user = LocalStorage.getUser()
+
+    if (user !== undefined && user !== null) {
+      setUsername(user.username)
+      setPicture(user.picture)
+    }
+  }, [user])
 
   return (
     <div className="mx-auto flex w-10/12 items-center justify-between">
@@ -35,17 +53,20 @@ export function TopHeader() {
         </div>
       </div>
       {/* ---------------- RIGHT ----------------------- */}
-      {isUser ? (
+      {!user.steamid ? (
         <div className="flex space-x-4">
-          <Button className="h-[44px] w-[220px] rounded-[14px] border border-[#A7B0A0] bg-mesh-color-others-black  p-2 text-[#A7B0A0]">
+          <Link
+            href={'/carrinho'}
+            className="flex h-[44px] w-[220px] justify-center rounded-[14px] border border-mesh-color-neutral-200 bg-mesh-color-others-black  p-2 text-mesh-color-neutral-200"
+          >
             <span className="mr-2">
               <IconCarrinho />
             </span>
             Carrinho de compra
-          </Button>
+          </Link>
           <Button
-            className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-[#95BC1E] opacity-100"
-            onClick={() => setIsUser(!isUser)}
+            className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-mesh-color-primary-1400 opacity-100"
+            onClick={() => handleOnSteam()}
           >
             <span className="mr-2">
               <IconSteam />
@@ -56,24 +77,29 @@ export function TopHeader() {
       ) : (
         <div className="flex items-center gap-x-6">
           <div className="flex items-center gap-4">
+            <span className="text-white">{username}</span>
             <div className="flex items-center gap-3">
-              <span>
-                <IconMira />
-              </span>
-              <Link href={'/inventory'} className="text-[#A7B0A0]">
+              <Link
+                href={'/inventory'}
+                className="flex items-center gap-2 text-mesh-color-neutral-200"
+              >
+                <span>
+                  <IconMira />
+                </span>
                 Inventário
               </Link>
             </div>
-            <div className="flex h-[44px] items-center gap-2 rounded-lg bg-[#222723] px-4 py-2">
+            <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
               <Title bold={500} color="white">
-                RS:12,42
+                R$12,42
               </Title>
-              <Button
-                className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
-                onClick={() => setIsUser(!isUser)}
-              >
-                <IconCruz />
-              </Button>
+              <ModalPayment
+                activator={
+                  <Button className="h-5 w-5 border-transparent bg-mesh-color-primary-1400">
+                    <IconCruz />
+                  </Button>
+                }
+              />
             </div>
           </div>
 
@@ -83,8 +109,8 @@ export function TopHeader() {
             </Button>
 
             <Image
-              src={fallen}
-              alt=""
+              src={picture}
+              alt={username}
               className="rounded-full"
               width={44}
               height={44}
@@ -93,26 +119,6 @@ export function TopHeader() {
           </div>
         </div>
       )}
-      {/* ---------------- RIGHT FIM ----------------------- */}
-      {/* ----------BUTTON ------------ */}
-      <div className="flex space-x-4">
-        <Button
-          className="h-[44px] w-[220px] rounded-[14px] 
-        border border-mesh-color-neutral-400 bg-transparent p-2 text-mesh-color-neutral-200"
-        >
-          <span className="mr-2">
-            <IconCarrinho />
-          </span>
-          Carrinho de compra
-        </Button>
-        <Button className="h-[44px] w-[220px] rounded-[14px] border-mesh-color-primary-1400 border-transparent bg-mesh-color-primary-1400 opacity-100">
-          <span className="mr-2">
-            <IconSteam />
-          </span>
-          Entre com sua steam
-        </Button>
-      </div>
-      {/* ----------BUTTON FIM ------------ */}
     </div>
   )
 }

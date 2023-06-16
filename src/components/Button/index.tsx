@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from 'react'
 import classNames from 'classnames'
 
-type Props = {
+interface Props extends React.HTMLProps<HTMLButtonElement> {
   type?: 'button' | 'submit'
   className?: string
   children: React.ReactNode
@@ -23,6 +23,7 @@ export function Button({
   width = 'w-[32px]',
   height = 'w-[32px]',
   disable,
+  ...rest
 }: Props) {
   return (
     <button
@@ -47,6 +48,7 @@ export function Button({
         },
         className,
       )}
+      {...rest}
     >
       {children}
     </button>

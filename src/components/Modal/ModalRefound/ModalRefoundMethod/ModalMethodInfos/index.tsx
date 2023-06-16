@@ -16,7 +16,7 @@ export default function ModalMethodInfos() {
           </Title>
           <h1 className="flex items-center gap-2">
             <IconSecurity />
-            <span className="mesh-light-2 text-sm font-normal">
+            <span className="text-mesh-light-2 text-sm font-normal">
               Segurança KYC
             </span>
           </h1>

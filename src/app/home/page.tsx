@@ -1,5 +1,4 @@
 'use client'
-
 import { SteamButton } from '@/components/SteamButton'
 import { HeroInformation } from '@/components/HeroInformation'
 import { LayoutPage } from '@/components/Shared'
@@ -9,14 +8,22 @@ import {
   IconMagnifyingGlass,
   IconDevolution,
 } from '@/components/Icons'
-import { ModalPayment } from '@/components/Modal'
+import AllSkins from '@/components/Skins/AllSkins'
+import SteamService from '@/services/steam.service'
+import useUserStore from '@/stores/user.store'
 
 export default function Home() {
+  const { user } = useUserStore()
+
+  const handleOnSteam = () => {
+    SteamService.redirect()
+  }
+
   return (
     <LayoutPage>
-      <main className="h-[2000px]">
+      <main className="h-full">
         {/* Hero */}
-        <div className="flex h-1/2 flex-col items-center justify-center bg-mesh-image-hero bg-cover bg-center bg-no-repeat">
+        <div className="flex h-[1024px] flex-col items-center justify-center bg-mesh-image-hero bg-cover bg-center bg-no-repeat">
           {/* Hero - Content */}
           <div className="flex flex-col items-center space-y-8 text-center text-white">
             <p className="max-w-2xl text-[3.5rem] font-bold leading-none">
@@ -31,7 +38,7 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            <ModalPayment activator={<SteamButton />} />
+            {!user.steamid && <SteamButton onClick={() => handleOnSteam()} />}
           </div>
         </div>
         {/* Hero - Bottom */}
@@ -63,6 +70,9 @@ export default function Home() {
               Facilitamos a devolução ou troca, de acordo com nossos termos.
             </HeroInformation>
           </div>
+        </div>
+        <div className="mx-auto mb-28 mt-16 flex justify-center">
+          <AllSkins itemsPerPage={20} center />
         </div>
       </main>
     </LayoutPage>
