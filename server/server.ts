@@ -42,27 +42,20 @@ app.get('/auth/steam/authenticate/callback', async (req, res) => {
 app.get('/teste', async (req, res) => {
   const community = new SteamCommunity()
 
-  return community.getSteamUser('z3ik3n', (error, user) => {
-    if (error) {
-      console.log(error)
-    } else {
-      console.log(user.steamID)
-      user.getInventoryContents(730, 2, false, 'english', (error, response) => {
-        if (error) {
-          console.log(error)
-        } else {
-          const data = response.map((item) => {
-            if (!item.name.includes('Case')) {
-              return item
-            }
-            return null
-          })
-
-          console.log(data)
-        }
-      })
-    }
-  })
+  community.getUserInventoryContents(
+    '76561199205585878',
+    730,
+    2,
+    false,
+    'english',
+    (error, response) => {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log(response)
+      }
+    },
+  )
 })
 
 app
