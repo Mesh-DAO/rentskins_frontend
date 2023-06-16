@@ -1,8 +1,17 @@
 import fastify from 'fastify'
 import SteamAuth from 'node-steam-openid'
+import SteamUser from 'steam-user'
+import GlobalOffensive from 'globaloffensive'
+import SteamCommunity from 'steamcommunity'
 
 const app = fastify()
+const user = new SteamUser()
+const csgo = new GlobalOffensive(user)
 const port = 3001
+const appid = 730
+const steamid = '76561198195920183'
+const apiKey = 'B8079E42FFC7D0C84CDA7D0A167544F8'
+
 const steam = new SteamAuth({
   // Crie uma nova chave utilizando o domínio que está sendo utilizado (localhost
   // para produção / domínio para produto).
@@ -10,7 +19,7 @@ const steam = new SteamAuth({
 
   realm: `http://localhost:${port}`, // Site name displayed to users on logon
   returnUrl: `http://localhost:${port}/auth/steam/authenticate/callback`, // Your return route
-  apiKey: '84FA1FDB6AF8E8F49B0E689C819B3A43', // Steam API key
+  apiKey, // Steam API key
 })
 
 app.get('/auth/steam/authenticate', async (req, res) => {
@@ -28,6 +37,32 @@ app.get('/auth/steam/authenticate/callback', async (req, res) => {
   } catch (error) {
     console.error(error)
   }
+})
+
+app.get('/teste', async (req, res) => {
+  const community = new SteamCommunity()
+
+  return community.getSteamUser('z3ik3n', (error, user) => {
+    if (error) {
+      console.log(error)
+    } else {
+      console.log(user.steamID)
+      user.getInventoryContents(730, 2, false, 'english', (error, response) => {
+        if (error) {
+          console.log(error)
+        } else {
+          const data = response.map((item) => {
+            if (!item.name.includes('Case')) {
+              return item
+            }
+            return null
+          })
+
+          console.log(data)
+        }
+      })
+    }
+  })
 })
 
 app
