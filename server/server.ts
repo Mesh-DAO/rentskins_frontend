@@ -39,10 +39,10 @@ app.get('/auth/steam/authenticate/callback', async (req, res) => {
   }
 })
 
-app.get('/teste', async (req, res) => {
+app.get('/api/retrieveInventory', (req, res) => {
   const community = new SteamCommunity()
 
-  community.getUserInventoryContents(
+  return community.getUserInventoryContents(
     '76561199205585878',
     730,
     2,
@@ -50,9 +50,12 @@ app.get('/teste', async (req, res) => {
     'english',
     (error, response) => {
       if (error) {
-        console.log(error)
+        return res.send({
+          message: 'Error',
+          error,
+        })
       } else {
-        console.log(response)
+        return res.send(response)
       }
     },
   )
