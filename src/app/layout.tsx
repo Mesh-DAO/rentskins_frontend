@@ -6,13 +6,6 @@ import { queryClient } from '@/services/queryClient'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  // CHANGE
-  title: 'Rent Skins - ADICIONAR TEXTO',
-  // CHANGE
-  description: 'ADICIONAR DESCRIÇÃO',
-}
-
 export default function RootLayout({
   children,
 }: {
