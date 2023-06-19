@@ -1,9 +1,10 @@
+import { ISkins } from '@/interfaces/ISkins'
 import { Api } from '@/providers'
 
 export function findByAll() {
-  return Api.get('/v1/skins')
+  return Api.get<ISkins[]>('/v1/skins')
 }
 
 export function findById(id: string) {
-  return Api.get(`/v1/skins/${id}`)
+  return Api.get<ISkins>(`/v1/skins/${id}`)
 }

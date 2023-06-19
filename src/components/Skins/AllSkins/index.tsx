@@ -8,15 +8,17 @@ import classNames from 'classnames'
 import { useQuery } from '@tanstack/react-query'
 import { findByAll } from '@/services/SkinService'
 import Link from 'next/link'
+import { ISkins } from '@/interfaces/ISkins'
 
 interface skin {
-  seller_id: string
+  id: string
   seller_name: string
   skin_price: string
   skin_float: string
   skin_category: string
   name_color: string
   skin_image: string
+  sale_type: string
 }
 
 interface IProps {
@@ -36,9 +38,6 @@ export default function AllSkins({
     queryKey: ['skins'],
     queryFn: findByAll,
   })
-
-  console.log(data?.data)
-  console.log(isLoading)
 
   // const allSkins = skinsCategories || skins
 
@@ -61,14 +60,15 @@ export default function AllSkins({
           data?.data.map(
             (
               {
-                seller_name,
+                skin_name,
                 name_color,
                 skin_image,
                 skin_float,
                 skin_price,
+                sale_type,
                 skin_category,
-                seller_id,
-              }: skin,
+                id,
+              }: ISkins,
               index: number,
             ) => {
               // const itemIndex = index + 1
@@ -78,15 +78,15 @@ export default function AllSkins({
               // )
               return (
                 <>
-                  <Link target="_blank" href={`/details/${seller_id}`}>
+                  <Link target="_blank" href={`/details/${id}`}>
                     <CardSkin
                       skinImage={skin_image}
-                      sellerName={seller_name}
+                      sellerName={skin_name}
                       nameColor={name_color}
-                      skinCategory={skin_category}
+                      skinCategory={sale_type}
                       skinFloat={skin_float}
                       skinPrice={skin_price}
-                      key={`${seller_name}-${index}`}
+                      key={`${skin_name}-${index}`}
                     />
                   </Link>
                 </>

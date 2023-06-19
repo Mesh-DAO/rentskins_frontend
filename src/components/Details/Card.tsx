@@ -1,11 +1,15 @@
 import Image from 'next/image'
-import deagle from '../../assets/deagle.png'
 import Link from 'next/link'
 import { IconSteam } from '../Icons'
 import ColoredLine from '../ColoredLine'
 import { IconOlho } from '../Icons/IconOlho'
 
-export function Card() {
+type PropsType = {
+  skinImage: string
+  skinName: string
+}
+
+export function Card({ skinImage, skinName }: PropsType) {
   return (
     <div className="relative flex min-h-[560px] min-w-[742px] flex-col rounded-lg bg-mesh-image-details">
       <div className="absolute bottom-0 w-full">
@@ -28,8 +32,8 @@ export function Card() {
       </div>
 
       <Image
-        src={deagle}
-        alt=""
+        src={`https://steamcommunity-a.akamaihd.net/economy/image/${skinImage}`}
+        alt={skinName}
         width={510}
         height={380}
         className="mx-auto my-auto"
