@@ -1,7 +1,22 @@
+'use client'
 import { Card, InfoPerfil, InfoVendas, InfoSkin } from '@/components/Details'
 import { LayoutPage } from '@/components/Shared/LayoutPage'
+import { findById } from '@/services/SkinService'
+import { useParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 export default function Details() {
+  const { id } = useParams()
+
+  useEffect((): any => {
+    const find = async () => {
+      const findId = await findById(id)
+      console.log(findId)
+    }
+
+    return find
+  }, [])
+
   return (
     <LayoutPage>
       <main className="w-full bg-mesh-color-others-black">

@@ -78,7 +78,7 @@ export default function AllSkins({
               // )
               return (
                 <>
-                  <Link href={`/details/${seller_id}`}>
+                  <Link target="_blank" href={`/details/${seller_id}`}>
                     <CardSkin
                       skinImage={skin_image}
                       sellerName={seller_name}
