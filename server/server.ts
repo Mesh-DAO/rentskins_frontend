@@ -3,14 +3,18 @@ import SteamAuth from 'node-steam-openid'
 import SteamUser from 'steam-user'
 import GlobalOffensive from 'globaloffensive'
 import SteamCommunity from 'steamcommunity'
+import console from 'console'
 
 const app = fastify()
-const user = new SteamUser()
-const csgo = new GlobalOffensive(user)
 const port = 3001
 const appid = 730
 const steamid = '76561198195920183'
 const apiKey = 'B8079E42FFC7D0C84CDA7D0A167544F8'
+
+const link1 =
+  'steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S%owner_steamid%A%assetid%D9840029597573788429'
+const link2 =
+  'steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M%listingid%A%assetid%D9840029597573788429'
 
 const steam = new SteamAuth({
   // Crie uma nova chave utilizando o domínio que está sendo utilizado (localhost
@@ -59,6 +63,32 @@ app.get('/api/retrieveInventory', (req, res) => {
       }
     },
   )
+})
+
+app.get('/api/retrieveFloat', (req, res) => {
+  const client = new SteamUser()
+  const csgo = new GlobalOffensive(client)
+
+  const id = '76561199205585878'
+  const assetid = '29507892509'
+  const d = '9840029597573788429'
+
+  client.logOn({ accountName: 'usuario', password: 'senha' })
+
+  client.on('loggedOn', (details) => {
+    console.log('Logged on: ' + client.steamID)
+    client.gamesPlayed(730, true)
+
+    csgo.on('connectedToGC', () => {
+      if (csgo.haveGCSession) {
+        console.log('Connected')
+
+        csgo.inspectItem(id, assetid, d, (callback) => {
+          console.log(callback)
+        })
+      }
+    })
+  })
 })
 
 app
