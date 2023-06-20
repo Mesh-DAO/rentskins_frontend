@@ -1,8 +1,9 @@
-import fastify from 'fastify'
+import fastify, { FastifyRequest } from 'fastify'
 import SteamAuth from 'node-steam-openid'
 import SteamUser from 'steam-user'
 import GlobalOffensive from 'globaloffensive'
 import SteamCommunity from 'steamcommunity'
+import { z } from 'zod'
 import console from 'console'
 
 const app = fastify()
@@ -11,10 +12,8 @@ const appid = 730
 const steamid = '76561198195920183'
 const apiKey = 'B8079E42FFC7D0C84CDA7D0A167544F8'
 
-const link1 =
-  'steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S%owner_steamid%A%assetid%D9840029597573788429'
-const link2 =
-  'steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M%listingid%A%assetid%D9840029597573788429'
+const client = new SteamUser()
+const csgo = new GlobalOffensive(client)
 
 const steam = new SteamAuth({
   // Crie uma nova chave utilizando o domínio que está sendo utilizado (localhost
@@ -65,15 +64,25 @@ app.get('/api/retrieveInventory', (req, res) => {
   )
 })
 
-app.get('/api/retrieveFloat', (req, res) => {
-  const client = new SteamUser()
-  const csgo = new GlobalOffensive(client)
+app.post('/api/retrieveFloat', (req, res) => {
+  const bodySchema = z.object({
+    steamid: z.string(),
+    assetid: z.string(),
+    inspectlink: z.string(),
+  })
 
-  const id = '76561199205585878'
-  const assetid = '29507892509'
-  const d = '9840029597573788429'
+  const { steamid, assetid, inspectlink } = bodySchema.parse(req.body)
 
-  client.logOn({ accountName: 'usuario', password: 'senha' })
+  const filteredInspectLink = inspectlink.slice(
+    inspectlink.indexOf('%D') + 2,
+    inspectlink.length,
+  )
+
+  console.log('Entered')
+
+  // CONTA BOT: ADICIONAR INFORMAÇÕES DE LOGIN NAS ENVIRONMENT VARIABLES
+  client.logOn({ accountName: 'RentSkinsBot', password: '6Ilqt2Tv97@g' })
+  // ___________________________________________________________________
 
   client.on('loggedOn', (details) => {
     console.log('Logged on: ' + client.steamID)
@@ -81,10 +90,9 @@ app.get('/api/retrieveFloat', (req, res) => {
 
     csgo.on('connectedToGC', () => {
       if (csgo.haveGCSession) {
-        console.log('Connected')
-
-        csgo.inspectItem(id, assetid, d, (callback) => {
-          console.log(callback)
+        console.log('Has GC Connection')
+        csgo.inspectItem(steamid, assetid, filteredInspectLink, (callback) => {
+          res.send(callback)
         })
       }
     })
