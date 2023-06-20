@@ -12,7 +12,7 @@ type Props = {
 
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
-  const { setUserLogged, userLogged, setUser } = useUserStore()
+  const { setUser } = useUserStore()
 
   useEffect(() => {
     const steamid = params.get('steamid')
@@ -20,22 +20,24 @@ export function LayoutPage({ children }: Props) {
     const username = params.get('username')
     const user = LocalStorage.getUser()
 
-    if (user === undefined || user === null) {
-      if (steamid && picture && username) {
-        LocalStorage.setUser({
-          steamid,
-          picture,
-          username,
-        })
-
-        setUser({ username, picture, steamid })
-        setUserLogged(true)
-      }
-      setUserLogged(false)
+    if (user !== undefined) {
+      setUser({
+        username: user.username,
+        picture: user.picture,
+        steamid: user.steamid,
+      })
     } else {
-      setUserLogged(true)
+      if (steamid && picture && username) {
+        LocalStorage.setUser({ steamid, picture, username })
+
+        setUser({
+          username,
+          picture,
+          steamid,
+        })
+      }
     }
-  }, [userLogged, setUserLogged, params])
+  }, [setUser, params])
 
   return (
     <div className="min-h-screen bg-mesh-color-others-black">
