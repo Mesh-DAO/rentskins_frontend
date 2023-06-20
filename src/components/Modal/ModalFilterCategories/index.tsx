@@ -7,9 +7,10 @@ import useComponentStore from '@/stores/components.store'
 
 interface IProps {
   activator: React.ReactNode
+  child: string
 }
 
-export default function ModalFilterCategories({ activator }: IProps) {
+export default function ModalFilterCategories({ activator, child }: IProps) {
   const { filterType } = useComponentStore()
 
   console.log(filterType)
@@ -20,8 +21,8 @@ export default function ModalFilterCategories({ activator }: IProps) {
       <DropdownMenu.Portal>
         <DropdownMenu.Content>
           <div className="absolute top-4 h-64 w-[497px] rounded-lg bg-mesh-color-neutral-800 p-4">
-            {filterType === 0 && <FilterPrice />}
-            {filterType === 1 && <FilterWear />}
+            {child === 'Preço' && <FilterPrice />}
+            {child === 'Desgaste' && <FilterWear />}
           </div>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

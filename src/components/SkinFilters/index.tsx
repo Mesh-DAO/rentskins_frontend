@@ -10,8 +10,8 @@ export default function SkinFilters() {
   return (
     <div className="flex justify-between">
       <div className="flex gap-3">
-        <ContainerFilter onClick={() => setFilterType(0)} title="Preço" />
-        <ContainerFilter onClick={() => setFilterType(1)} title="Desgaste" />
+        <ContainerFilter title="Preço" />
+        <ContainerFilter title="Desgaste" />
         {/* <ContainerFilter filter="price" title="Categoria" /> */}
       </div>
       <Title color="white">
