@@ -5,20 +5,24 @@ import { Title } from '../Title'
 
 type PropsTypes = {
   skinName: string
-  price: string
-  float: string
-  type: string
+  skinPrice: string
+  skinFloat: string
+  skinCategory: string
+  skinWeapon: string
+  skinColor: string
   sellerId: string
-  arma: string
+  statusFloat: string
 }
 
 export function InfoSkin({
   skinName,
-  price,
-  float,
-  type,
-  arma,
+  skinPrice,
+  skinFloat,
+  skinCategory,
+  skinWeapon,
   sellerId,
+  statusFloat,
+  skinColor,
 }: PropsTypes) {
   return (
     <div className="min-w-[435px] rounded-lg border-2 border-mesh-color-neutral-600 px-4 py-3">
@@ -27,12 +31,12 @@ export function InfoSkin({
           <Title className="text-2xl font-extrabold text-white">
             {skinName}
           </Title>
-          <p className="text-mesh-color-neutral-500">Nova de fábrica</p>
+          <p className="text-mesh-color-neutral-500">{statusFloat}</p>
         </div>
 
         <div>
           <Title className="text-2xl font-extrabold text-white">
-            R$: {price}
+            R$: {skinPrice}
           </Title>
           <p className="text-mesh-color-neutral-500">Preço Total</p>
         </div>
@@ -40,7 +44,7 @@ export function InfoSkin({
         <div>
           <div className="flex items-center">
             <Title className="text-2xl font-extrabold text-white">
-              R$: {Number(price) / 10}
+              R$: {Number(skinPrice) / 10}
             </Title>
             <span className="ml-4 flex h-[24px] w-[42px] items-center justify-center rounded-full border border-none bg-mesh-color-others-green text-mesh-color-accent-600">
               10%
@@ -66,19 +70,21 @@ export function InfoSkin({
         <div className="flex justify-between">
           <Title className="text-mesh-color-neutral-500">Float</Title>
           <div className="flex items-center">
-            <p className="text-white">{float}</p>
-            <div className="ml-2 h-[17px] w-[17px] rounded-[3px] bg-gray-50" />
+            <p className="text-white">{skinFloat}</p>
+            <div
+              className={`ml-2 h-[17px] w-[17px] rounded-[3px] bg-[#${skinColor}]`}
+            />
           </div>
         </div>
 
         <div className="flex justify-between">
           <Title className="text-mesh-color-neutral-500">Tipo</Title>
-          <p className="text-white">{type}</p>
+          <p className="text-white">{skinCategory}</p>
         </div>
 
         <div className="flex justify-between">
           <Title className="text-mesh-color-neutral-500">Arma</Title>
-          <p className="text-white">{arma}</p>
+          <p className="text-white">{skinWeapon}</p>
         </div>
       </div>
 

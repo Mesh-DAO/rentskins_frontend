@@ -19,6 +19,7 @@ interface skin {
   name_color: string
   skin_image: string
   sale_type: string
+  seller_id: string
 }
 
 interface IProps {
@@ -38,6 +39,8 @@ export default function AllSkins({
     queryKey: ['skins'],
     queryFn: findByAll,
   })
+
+  console.log(data?.data)
 
   // const allSkins = skinsCategories || skins
 
@@ -66,8 +69,7 @@ export default function AllSkins({
                 skin_float,
                 skin_price,
                 sale_type,
-                skin_category,
-                id,
+                seller_id,
               }: ISkins,
               index: number,
             ) => {
@@ -78,7 +80,7 @@ export default function AllSkins({
               // )
               return (
                 <>
-                  <Link target="_blank" href={`/details/${id}`}>
+                  <Link href={`/details/${seller_id}`}>
                     <CardSkin
                       skinImage={skin_image}
                       sellerName={skin_name}

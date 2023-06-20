@@ -36,7 +36,7 @@ export function CardSkin({
         />
         <div className="flex h-[154px] w-[206px] items-center justify-center">
           <Image
-            src={`https://steamcommunity-a.akamaihd.net/economy/image/${skinImage}`}
+            src={skinImage}
             alt="placeholder"
             width={206}
             height={154}
