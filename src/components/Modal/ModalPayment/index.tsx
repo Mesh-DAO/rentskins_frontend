@@ -3,16 +3,11 @@ import React, { useEffect, useState, SetStateAction } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { ModalPaymentCheck } from './PaymentCheck'
 import { ModalPaymentAdd } from './PaymentAdd'
-import useComponentStore from '@/stores/components.store'
 import { ModalPaymentRetrieve } from './PaymentRetrieve'
+import useComponentStore from '@/stores/components.store'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
-import { ParsedUrlQuery } from 'querystring'
 
-interface IProps extends ParsedUrlQuery {
-  modalOpen: string
-}
-
-export function ModalPayment({ params }: IProps) {
+export function ModalPayment() {
   const [modalOpen, setModalOpen] = useState<string | undefined>('')
   const [modalType, setModalType] = useState<string | undefined>('')
 
@@ -28,21 +23,20 @@ export function ModalPayment({ params }: IProps) {
 
   useEffect(() => {
     setDomainQuery()
-    console.log(params)
-  }, [])
+  }, [window.location.search])
 
   const setDomainQuery = () => {
     setModalOpen(
       searchParams.get('modalopen') as SetStateAction<string | undefined>,
     )
+
     setModalType(
       searchParams.get('modaltype') as SetStateAction<string | undefined>,
     )
   }
 
   const removeDomainQuery = () => {
-    router.push('')
-    router.replace('', {})
+    router.push(pathname)
   }
 
   const handleModalOnClose = () => {
@@ -53,10 +47,10 @@ export function ModalPayment({ params }: IProps) {
   return (
     <Dialog.Root
       modal
-      open={modalOpen === 'true'}
+      open={modalOpen === 'true' && modalType === 'payment'}
+      defaultOpen={false}
       onOpenChange={() => handleModalOnClose()}
     >
-      <Dialog.Trigger asChild></Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay
           className="fixed inset-0 flex bg-black/70 transition-all"

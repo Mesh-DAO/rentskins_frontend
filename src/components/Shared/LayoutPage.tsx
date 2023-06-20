@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
+import { ModalPayment } from '../Modal'
 
 type Props = {
   children: React.ReactNode
@@ -41,6 +42,8 @@ export function LayoutPage({ children }: Props) {
 
   return (
     <div className="min-h-screen bg-mesh-color-others-black">
+      <ModalPayment />
+
       <Header />
       {children}
       <Footer />
