@@ -1,5 +1,8 @@
 import create from 'zustand'
-import { PaymentMethodRefound, IPaymentRefound } from './Interfaces'
+import {
+  PaymentMethodRefound,
+  IPaymentRefound,
+} from './interfaces/components.interface'
 
 interface IStates {
   paymentGeneralIndex: 0 | 1 | 2
@@ -24,42 +27,42 @@ interface IStates {
 
 const useComponentStore = create<IStates>((set) => ({
   paymentGeneralIndex: 0,
-  setPaymentGeneralIndex: (index: 0 | 1 | 2) => {
+  setPaymentGeneralIndex: (index) => {
     set(() => ({ paymentGeneralIndex: index }))
   },
 
   paymentRetrieveIndex: 0,
-  setPaymentRetrieveIndex: (index: 0 | 1) => {
+  setPaymentRetrieveIndex: (index) => {
     set(() => ({ paymentRetrieveIndex: index }))
   },
 
   paymentWithdrawIndex: 0,
-  setPaymentWithdrawIndex: (index: 0 | 1 | 2 | 3) => {
+  setPaymentWithdrawIndex: (index) => {
     set(() => ({ paymentWithdrawIndex: index }))
   },
 
   settingsIndex: 0,
-  setSettingsIndex: (index: 0 | 1 | 2) => {
+  setSettingsIndex: (index) => {
     set(() => ({ settingsIndex: index }))
   },
 
   refoundGeneralIndex: 0,
-  setRefoundGeneralIndex: (index: 0 | 1 | 2 | 3) => {
+  setRefoundGeneralIndex: (index) => {
     set(() => ({ refoundGeneralIndex: index }))
   },
 
   profileTabValue: 'sales',
-  setProfileTabValue: (value: 'sales' | 'rented') => {
+  setProfileTabValue: (value) => {
     set(() => ({ profileTabValue: value }))
   },
 
   paymentRefound: { value: 5, method: 'mastercard' },
-  setPaymentRefound: (paymentRefound: IPaymentRefound) => {
+  setPaymentRefound: (paymentRefound) => {
     set(() => ({ paymentRefound }))
   },
 
   pageSelectorIndex: 1,
-  setPageSelectorIndex: (index: number) => {
+  setPageSelectorIndex: (index) => {
     set(() => ({ pageSelectorIndex: index }))
   },
 

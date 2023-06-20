@@ -1,5 +1,4 @@
 'use client'
-
 import { SteamButton } from '@/components/SteamButton'
 import { HeroInformation } from '@/components/HeroInformation'
 import { LayoutPage } from '@/components/Shared'
@@ -10,8 +9,16 @@ import {
   IconDevolution,
 } from '@/components/Icons'
 import AllSkins from '@/components/Skins/AllSkins'
+import SteamService from '@/services/steam.service'
+import useUserStore from '@/stores/user.store'
 
 export default function Home() {
+  const { user } = useUserStore()
+
+  const handleOnSteam = () => {
+    SteamService.redirect()
+  }
+
   return (
     <LayoutPage>
       <main className="h-full">
@@ -31,7 +38,7 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            <SteamButton />
+            {!user.steamid && <SteamButton onClick={() => handleOnSteam()} />}
           </div>
         </div>
         {/* Hero - Bottom */}
