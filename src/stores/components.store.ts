@@ -18,6 +18,8 @@ interface IStates {
   setPaymentRefound: (paymentRefound: IPaymentRefound) => void
   pageSelectorIndex: number
   setPageSelectorIndex: (index: number) => void
+  filterType: 0 | 1 | 2
+  setFilterType: (type: 0 | 1 | 2) => void
 }
 
 const useComponentStore = create<IStates>((set) => ({
@@ -59,6 +61,11 @@ const useComponentStore = create<IStates>((set) => ({
   pageSelectorIndex: 1,
   setPageSelectorIndex: (index: number) => {
     set(() => ({ pageSelectorIndex: index }))
+  },
+
+  filterType: 0,
+  setFilterType: (type: 0 | 1 | 2) => {
+    set(() => ({ filterType: type }))
   },
 }))
 
