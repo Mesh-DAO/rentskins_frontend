@@ -23,6 +23,7 @@ export function ModalPayment() {
 
   useEffect(() => {
     setDomainQuery()
+    handleModalOnClose()
   }, [window.location.search])
 
   const setDomainQuery = () => {

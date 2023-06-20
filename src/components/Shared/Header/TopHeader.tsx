@@ -32,7 +32,6 @@ export function TopHeader() {
 
   const handleOnAdd = () => {
     router.push(pathname + '/?modalopen=true&modaltype=payment')
-    router.refresh()
   }
 
   useEffect(() => {
