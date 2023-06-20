@@ -23,7 +23,7 @@
     "eslint-config-next": "13.4.4",
     "fastify": "^4.18.0",
     "next": "13.4.4",
-    "node-steam-openid": "^1.0.1",
+    "node-steam-openid": "^1.1.0",
     "passport": "^0.6.0",
     "passport-steam": "^1.0.17",
     "postcss": "8.4.23",

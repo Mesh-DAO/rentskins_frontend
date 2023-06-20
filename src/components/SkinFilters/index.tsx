@@ -1,12 +1,9 @@
 'use client'
-import useComponentStore from '@/stores/components.store'
 import IconFilter from '../Icons/IconFilter'
 import { Title } from '../Title'
 import ContainerFilter from './ContainerFilter'
 
 export default function SkinFilters() {
-  const { setFilterType } = useComponentStore()
-
   return (
     <div className="flex justify-between">
       <div className="flex gap-3">
