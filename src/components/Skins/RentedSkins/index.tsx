@@ -18,7 +18,7 @@ export default function RentedSkins() {
             skinImage={icon_url}
             sellerName={name}
             skinColor={name_color}
-            skinCategory={''}
+            skinWeapon={''}
             skinFloat={''}
             skinPrice={''}
             itsRent={true}

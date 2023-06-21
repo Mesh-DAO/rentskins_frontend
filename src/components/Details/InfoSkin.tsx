@@ -31,14 +31,14 @@ export function InfoSkin({
           <Title className="text-2xl font-extrabold text-white">
             {skinName}
           </Title>
-          <p className="text-mesh-color-neutral-500">{statusFloat}</p>
+          <p className="text-mesh-color-neutral-200">{statusFloat}</p>
         </div>
 
         <div>
           <Title className="text-2xl font-extrabold text-white">
             R$: {skinPrice}
           </Title>
-          <p className="text-mesh-color-neutral-500">Preço Total</p>
+          <p className="text-mesh-color-neutral-200">Preço Total</p>
         </div>
 
         <div>
@@ -50,25 +50,25 @@ export function InfoSkin({
               10%
             </span>
           </div>
-          <p className="text-mesh-color-neutral-500">Preço do Aluguel</p>
+          <p className="text-mesh-color-neutral-200">Preço do Aluguel</p>
         </div>
       </div>
 
       <div className="mt-6 space-y-4">
         <div className="flex justify-between">
-          <Title className="text-mesh-color-neutral-500">
+          <Title className="text-mesh-color-neutral-200">
             Tendências de mercado
           </Title>
-          <p className="text-white">R$750: NULL</p>
+          <p className="text-white">Undefined</p>
         </div>
 
         <div className="flex justify-between">
-          <Title className="text-mesh-color-neutral-500">ID Padrão</Title>
+          <Title className="text-mesh-color-neutral-200">ID Padrão</Title>
           <p className="text-white">{sellerId}</p>
         </div>
 
         <div className="flex justify-between">
-          <Title className="text-mesh-color-neutral-500">Float</Title>
+          <Title className="text-mesh-color-neutral-200">Float</Title>
           <div className="flex items-center">
             <p className="text-white">{skinFloat}</p>
             <div
@@ -79,12 +79,12 @@ export function InfoSkin({
         </div>
 
         <div className="flex justify-between">
-          <Title className="text-mesh-color-neutral-500">Tipo</Title>
+          <Title className="text-mesh-color-neutral-200">Tipo</Title>
           <p className="text-white">{skinCategory}</p>
         </div>
 
         <div className="flex justify-between">
-          <Title className="text-mesh-color-neutral-500">Arma</Title>
+          <Title className="text-mesh-color-neutral-200">Arma</Title>
           <p className="text-white">{skinWeapon}</p>
         </div>
       </div>

@@ -11,32 +11,44 @@ export function InfoVendas() {
         </Title>
         <div className="mt-4 space-y-6">
           <div className="flex justify-between border-b border-mesh-color-others-black-olive pb-2">
-            <Title color="cinza">30 Jun 2021 • 4:30H</Title>
+            <Title className="text-mesh-color-neutral-0">
+              30 Jun 2021 • 4:30H
+            </Title>
             <span className="text-mesh-color-primary-1400">R$840</span>
           </div>
 
           <div className="flex justify-between border-b border-mesh-color-others-black-olive pb-2">
-            <Title color="cinza">29 Jun 2021 • 23:21H</Title>
+            <Title className="text-mesh-color-neutral-0">
+              29 Jun 2021 • 23:21H
+            </Title>
             <span className="text-mesh-color-primary-1400">R$832,21</span>
           </div>
 
           <div className="flex justify-between border-b border-mesh-color-others-black-olive pb-2">
-            <Title color="cinza">29 Jun 2021 • 23:21H</Title>
+            <Title className="text-mesh-color-neutral-0">
+              29 Jun 2021 • 23:21H
+            </Title>
             <span className="text-mesh-color-primary-1400">R$832,21</span>
           </div>
 
           <div className="flex justify-between border-b border-mesh-color-others-black-olive pb-2">
-            <Title color="cinza">27 Jun 2021 • 9:59H</Title>
+            <Title className="text-mesh-color-neutral-0">
+              27 Jun 2021 • 9:59H
+            </Title>
             <span className="text-mesh-color-primary-1400">R$792</span>
           </div>
 
           <div className="flex justify-between border-b border-mesh-color-others-black-olive pb-2">
-            <Title color="cinza">27 Jun 2021 • 9:59H</Title>
+            <Title className="text-mesh-color-neutral-0">
+              27 Jun 2021 • 9:59H
+            </Title>
             <span className="text-mesh-color-primary-1400">R$792</span>
           </div>
 
           <div className="flex justify-between border-b border-mesh-color-others-black-olive pb-2">
-            <Title color="cinza">27 Jun 2021 • 9:59H</Title>
+            <Title className="text-mesh-color-neutral-0">
+              27 Jun 2021 • 9:59H
+            </Title>
             <span className="text-mesh-color-primary-1400">R$792</span>
           </div>
         </div>
