@@ -9,7 +9,7 @@ export default function SkinFilters() {
       <div className="flex gap-3">
         <ContainerFilter title="Preço" />
         <ContainerFilter title="Desgaste" />
-        {/* <ContainerFilter filter="price" title="Categoria" /> */}
+        <ContainerFilter title="Categoria" />
       </div>
       <Title color="white">
         <IconFilter />

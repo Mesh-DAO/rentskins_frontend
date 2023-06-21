@@ -1,15 +1,18 @@
 'use client'
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
+import InputCheckbox from '@/components/InputCheckbox'
 
-export default function FilterWear() {
+export default function FilterCategory() {
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex flex-col gap-5">
         <Title color="white" size="2xl" bold={600}>
-          Desgaste
+          Categoria
         </Title>
-        <div className="flex w-full items-center gap-5"></div>
+        <div className="flex w-full items-center gap-5">
+          <InputCheckbox inputValues={['Adesivos', 'StatTrak']} />
+        </div>
       </div>
       <div className="flex justify-end gap-3">
         <Button className="h-11 w-32 font-bold text-white">Limpar</Button>

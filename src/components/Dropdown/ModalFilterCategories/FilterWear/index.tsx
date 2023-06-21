@@ -1,19 +1,25 @@
 'use client'
 import { Title } from '@/components/Title'
-import InputValue from './InputValue'
 import { Button } from '@/components/Button'
+import InputCheckbox from '@/components/InputCheckbox'
 
-export default function FilterPrice() {
+export default function FilterWear() {
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex flex-col gap-5">
         <Title color="white" size="2xl" bold={600}>
-          Preço
+          Desgaste
         </Title>
         <div className="flex w-full items-center gap-5">
-          <InputValue title="Preço mínimo" />
-          <hr className="mt-6 w-9" />
-          <InputValue title="Preço máximo" />
+          <InputCheckbox
+            inputValues={[
+              'Nova de fábrica',
+              'Bem usada',
+              'Desgastada',
+              'Pouco usada',
+              'Muito usada',
+            ]}
+          />
         </div>
       </div>
       <div className="flex justify-end gap-3">
