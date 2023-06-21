@@ -1,10 +1,10 @@
 'use client'
 import { IconSetaType } from '@/components/Icons'
-import ModalFilterCategories from '@/components/Modal/ModalFilterCategories'
+import ModalFilterCategories from '@/components/Dropdown/ModalFilterCategories'
 import React from 'react'
 
 interface IProps {
-  title: string
+  title: 'Preço' | 'Desgaste' | 'Categoria' | 'Padrão'
 }
 
 export default function ContainerFilter({ title }: IProps) {

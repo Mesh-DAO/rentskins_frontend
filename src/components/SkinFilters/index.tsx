@@ -1,6 +1,6 @@
 'use client'
+import ModalFilterCategories from '../Dropdown/ModalFilterCategories'
 import IconFilter from '../Icons/IconFilter'
-import { Title } from '../Title'
 import ContainerFilter from './ContainerFilter'
 
 export default function SkinFilters() {
@@ -11,10 +11,17 @@ export default function SkinFilters() {
         <ContainerFilter title="Desgaste" />
         <ContainerFilter title="Categoria" />
       </div>
-      <Title color="white">
-        <IconFilter />
-        Padrão
-      </Title>
+      <div className="relative z-10 flex cursor-pointer items-center">
+        <ModalFilterCategories
+          activator={
+            <button className="flex cursor-pointer items-center gap-2 border-none text-white">
+              <IconFilter />
+              Padrão
+            </button>
+          }
+          child="Padrão"
+        />
+      </div>
     </div>
   )
 }
