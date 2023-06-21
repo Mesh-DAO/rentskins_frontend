@@ -17,7 +17,7 @@ export default function RentedSkins() {
           <CardSkin
             skinImage={icon_url}
             sellerName={name}
-            nameColor={name_color}
+            skinColor={name_color}
             skinCategory={''}
             skinFloat={''}
             skinPrice={''}

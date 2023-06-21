@@ -32,7 +32,7 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
                 {
                   skin_image,
                   skin_name,
-                  name_color,
+                  skin_color,
                   sale_type,
                   skin_float,
                   skin_price,
@@ -43,7 +43,7 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
                   <CardSkin
                     skinImage={skin_image}
                     sellerName={skin_name}
-                    nameColor={name_color}
+                    skinColor={skin_color}
                     skinCategory={sale_type}
                     skinFloat={skin_float}
                     skinPrice={skin_price}
