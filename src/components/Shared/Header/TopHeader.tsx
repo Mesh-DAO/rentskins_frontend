@@ -16,9 +16,13 @@ import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
+import { useRouter } from 'next/navigation'
 
 export function TopHeader() {
+  const router = useRouter()
+
   const { user } = useUserStore()
+
   const [username, setUsername] = useState('')
   const [picture, setPicture] = useState('')
 
@@ -104,7 +108,10 @@ export function TopHeader() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black">
+            <Button
+              className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black"
+              onClick={() => router.push('/usuario/notificacoes')}
+            >
               <IconNotifications />
             </Button>
 
