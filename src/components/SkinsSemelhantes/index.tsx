@@ -36,6 +36,7 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
                   sale_type,
                   skin_float,
                   skin_price,
+                  skin_weapon,
                 }: ISkins,
                 index: number,
               ) => {
@@ -44,7 +45,7 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
                     skinImage={skin_image}
                     sellerName={skin_name}
                     skinColor={skin_color}
-                    skinCategory={sale_type}
+                    skinWeapon={skin_weapon}
                     skinFloat={skin_float}
                     skinPrice={skin_price}
                     key={`${skin_name}-${index}`}

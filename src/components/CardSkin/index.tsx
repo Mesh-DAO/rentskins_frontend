@@ -10,7 +10,7 @@ interface Props {
   sellerName: string
   skinPrice: string
   skinFloat: string
-  skinCategory: string
+  skinWeapon: string
   skinColor: string
   skinImage: string
   itsRent?: boolean
@@ -22,7 +22,7 @@ export function CardSkin({
   skinImage,
   skinFloat,
   skinPrice,
-  skinCategory,
+  skinWeapon,
   itsRent,
 }: Props) {
   // const [skinType, skinName] = name.split('|')
@@ -47,7 +47,7 @@ export function CardSkin({
 
       <h1>{sellerName}</h1>
       <div className="flex items-center justify-between">
-        <h1 className="text-sm font-medium opacity-60">{skinCategory}</h1>
+        <h1 className="text-sm font-medium opacity-60">{skinWeapon}</h1>
         <div className="flex gap-2">
           {itsRent && (
             <Button color="invisible">

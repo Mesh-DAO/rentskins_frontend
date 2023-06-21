@@ -83,7 +83,7 @@ export default function AllSkins({
                       skinImage={skin_image}
                       sellerName={skin_name}
                       skinColor={skin_color}
-                      skinCategory={sale_type}
+                      skinWeapon={sale_type}
                       skinFloat={skin_float}
                       skinPrice={skin_price}
                       key={`${skin_name}-${index}`}

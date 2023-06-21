@@ -69,7 +69,7 @@ export default function Details() {
           <SkinsSemelhantes isLoading={isLoading} data2={data2!} data={data} />
         </main>
       ) : (
-        <Title>Carregando...</Title>
+        <Title color="white">Carregando...</Title>
       )}
     </LayoutPage>
   )
