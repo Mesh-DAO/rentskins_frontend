@@ -20,7 +20,7 @@ export function ModalPayment() {
     setPaymentGeneralIndex,
     setPaymentRetrieveIndex,
   } = useComponentStore()
-
+  //
   useEffect(() => {
     setDomainQuery()
     handleModalOnClose()
