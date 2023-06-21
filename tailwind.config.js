@@ -94,6 +94,7 @@ module.exports = {
             medium: '#FADE5E',
             low: '#E84E6A',
             lowest: '#CA1733',
+            lowest2: '#FF4444',
           },
           others: {
             black: '#151714',

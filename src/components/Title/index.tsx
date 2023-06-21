@@ -33,6 +33,9 @@ export function Title({
           'text-mesh-color-neutral-300': color === 'cinza',
         },
         {
+          'text-mesh-color-rarity-lowest2': color === 'red',
+        },
+        {
           'text-xs': size === 'xs',
         },
         {

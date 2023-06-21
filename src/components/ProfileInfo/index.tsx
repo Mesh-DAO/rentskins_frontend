@@ -13,7 +13,9 @@ export default function ProfileInfo({ title, value }: Props) {
       className="flex w-56 flex-col items-center justify-center gap-1 rounded-xl border
       border-mesh-color-primary-1400 px-2 py-5"
     >
-      <Title className="text-mesh-light-2">{title}</Title>
+      <Title color="white" bold={400} className="opacity-60">
+        {title}
+      </Title>
       <Title color={isPercent}>{value}</Title>
     </div>
   )
