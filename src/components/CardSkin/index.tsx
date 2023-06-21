@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import { Button } from '../Button'
 import IconSteam from '@/assets/IconSteam'
-import IconCart from '@/assets/Cart'
 import IconEye from '@/assets/Eye'
 import ColoredLine from '../ColoredLine'
 import IconMagic from '../Icons/IconMagicpen'
-import Link from 'next/link'
+import Devolution from './Devolution'
+import Buy from './Buy'
 
 interface Props {
   name: string
@@ -60,17 +60,7 @@ export function CardSkin({ name, nameColor, iconUrl, itsRent }: Props) {
       </div>
       <ColoredLine />
       <div className="flex items-center justify-end">
-        <div className="flex gap-2">
-          <Button color="invisible" className="h-10 w-10 border-2">
-            <IconCart />
-          </Button>
-          <Link
-            href={'/details'}
-            className="flex items-center rounded-lg border-transparent bg-mesh-color-neutral-500 px-4 opacity-60 hover:opacity-100"
-          >
-            Comprar
-          </Link>
-        </div>
+        {itsRent ? <Devolution devolutionTime={7} /> : <Buy />}
       </div>
     </article>
   )
