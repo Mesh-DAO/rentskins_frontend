@@ -40,8 +40,6 @@ export default function AllSkins({
     queryFn: findByAll,
   })
 
-  console.log(data?.data)
-
   // const allSkins = skinsCategories || skins
 
   // const allSkinsFilter = allSkins.filter(
@@ -64,7 +62,7 @@ export default function AllSkins({
             (
               {
                 skin_name,
-                name_color,
+                skin_color,
                 skin_image,
                 skin_float,
                 skin_price,
@@ -84,7 +82,7 @@ export default function AllSkins({
                     <CardSkin
                       skinImage={skin_image}
                       sellerName={skin_name}
-                      nameColor={name_color}
+                      skinColor={skin_color}
                       skinCategory={sale_type}
                       skinFloat={skin_float}
                       skinPrice={skin_price}

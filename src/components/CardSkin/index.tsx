@@ -11,14 +11,14 @@ interface Props {
   skinPrice: string
   skinFloat: string
   skinCategory: string
-  nameColor: string
+  skinColor: string
   skinImage: string
   itsRent?: boolean
 }
 
 export function CardSkin({
   sellerName,
-  nameColor,
+  skinColor,
   skinImage,
   skinFloat,
   skinPrice,
@@ -32,12 +32,12 @@ export function CardSkin({
       <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-neutral-400 bg-mesh-gradient-black-pattern">
         <div
           className={`h-2 w-52 rounded-b-full`}
-          style={{ backgroundColor: `#${nameColor}` }}
+          style={{ backgroundColor: `#${skinColor}` }}
         />
         <div className="flex h-[154px] w-[206px] items-center justify-center">
           <Image
             src={skinImage}
-            alt="placeholder"
+            alt={sellerName}
             width={206}
             height={154}
             draggable={false}

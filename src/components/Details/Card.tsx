@@ -18,7 +18,7 @@ export function Card({
   skinLinkSteam,
 }: PropsType) {
   return (
-    <div className="relative flex min-h-[560px] max-w-[742px] flex-col rounded-lg bg-mesh-image-details">
+    <div className="relative min-h-[560px] w-auto rounded-lg bg-mesh-image-details bg-cover bg-no-repeat">
       <div className="absolute bottom-0 w-full">
         <ColoredLine />
       </div>
@@ -41,7 +41,7 @@ export function Card({
         alt={skinName}
         width={510}
         height={380}
-        className="mx-auto my-auto"
+        className="mx-auto my-auto object-cover"
         draggable={false}
       />
     </div>

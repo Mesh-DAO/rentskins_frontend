@@ -4,7 +4,7 @@ import { Title } from '../Title'
 
 export function InfoVendas() {
   return (
-    <div className="mt-8 min-h-[484px] w-[700px] min-w-[742px] rounded-lg border-2 border-mesh-color-others-black-olive">
+    <div className="mt-8 min-h-[484px] rounded-lg border-2 border-mesh-color-others-black-olive">
       <div className="p-4">
         <Title color="white" className="text-[28px] font-bold">
           Últimas vendas

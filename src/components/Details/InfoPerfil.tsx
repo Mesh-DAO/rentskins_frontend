@@ -4,7 +4,7 @@ import { Title } from '../Title'
 
 export function InfoPerfil() {
   return (
-    <div className="mt-10 min-h-[300px] min-w-[435px] rounded-lg border-2 border-mesh-color-neutral-600">
+    <div className="mt-10 min-h-[300px] rounded-lg border-2 border-mesh-color-neutral-600">
       <div className="p-4">
         <div className="flex items-center">
           <Image
