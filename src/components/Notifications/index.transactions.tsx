@@ -25,8 +25,8 @@ export default function NotificationsTransactions() {
         />
         <div className="group flex h-16 w-64 flex-col justify-center">
           <span
-            className="relative -top-12 -mb-10 w-fit select-none flex-wrap whitespace-nowrap rounded-lg bg-mesh-color-neutral-300 px-2
-          text-black opacity-0 transition-all group-hover:opacity-100"
+            className="relative top-10 -mb-10 w-fit select-none flex-wrap whitespace-nowrap rounded-lg
+          bg-mesh-color-neutral-300 px-2 text-black opacity-0 transition-all group-hover:opacity-100"
           >
             {item.name}
           </span>
@@ -61,7 +61,7 @@ export default function NotificationsTransactions() {
           Pendentes
         </span>
         <div
-          className="flex h-[24rem] flex-col gap-4 overflow-y-scroll pt-6"
+          className="flex h-[24rem] flex-col gap-4 overflow-y-scroll"
           data-aos="fade-up"
         >
           {renderPending}
