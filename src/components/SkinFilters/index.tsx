@@ -1,34 +1,27 @@
+'use client'
+import ModalFilterCategories from '../Dropdown/ModalFilterCategories'
 import IconFilter from '../Icons/IconFilter'
-import { ContainerItem } from '../Shared/Header/BottomHeader'
-import { Title } from '../Title'
+import ContainerFilter from './ContainerFilter'
 
 export default function SkinFilters() {
   return (
     <div className="flex justify-between">
       <div className="flex gap-3">
-        <ContainerItem
-          className="rounded-lg border-2 border-mesh-color-neutral-600 px-5 py-3"
-          isList={true}
-          title="Preço"
-          top="14"
-        />
-        <ContainerItem
-          isList={true}
-          title="Desgaste"
-          className="rounded-lg border-2 border-mesh-color-neutral-600 px-5 py-3"
-          top="14"
-        />
-        <ContainerItem
-          isList={true}
-          title="Categoria"
-          className="rounded-lg border-2 border-mesh-color-neutral-600 px-5 py-3"
-          top="14"
+        <ContainerFilter title="Preço" />
+        <ContainerFilter title="Desgaste" />
+        <ContainerFilter title="Categoria" />
+      </div>
+      <div className="relative z-10 flex cursor-pointer items-center">
+        <ModalFilterCategories
+          activator={
+            <button className="flex cursor-pointer items-center gap-2 border-none text-white">
+              <IconFilter />
+              Padrão
+            </button>
+          }
+          child="Padrão"
         />
       </div>
-      <Title color="white">
-        <IconFilter />
-        Padrão
-      </Title>
     </div>
   )
 }
