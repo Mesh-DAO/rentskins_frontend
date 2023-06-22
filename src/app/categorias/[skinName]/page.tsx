@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 'use client'
-import { skins } from '@/Mock'
 import AllSkins from '@/components/Skins/AllSkins'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
 import { LayoutPage } from '@/components/Shared'
@@ -11,12 +10,7 @@ import { useParams } from 'next/navigation'
 
 export default function Categorias() {
   const { skinName } = useParams()
-
   const nameCorrection = decodeURIComponent(skinName.replace(/\+/g, ' '))
-
-  const skinsFiltered = skins.filter(({ name }) =>
-    name.includes(nameCorrection),
-  )
 
   return (
     <LayoutPage>
@@ -28,16 +22,7 @@ export default function Categorias() {
             </Title>
           </Link>
           <SkinFilters />
-          {skinsFiltered.length === 0 ? (
-            <div className="flex h-80 w-full items-center justify-center text-4xl font-bold text-white">
-              Infelizmente ainda não temos nenhuma skin de
-              <span className="ml-2 text-mesh-color-primary-1200">
-                {nameCorrection}
-              </span>
-            </div>
-          ) : (
-            <AllSkins skinsCategories={skinsFiltered} itemsPerPage={15} />
-          )}
+          <AllSkins itemsPerPage={15} />
         </div>
       </div>
     </LayoutPage>
