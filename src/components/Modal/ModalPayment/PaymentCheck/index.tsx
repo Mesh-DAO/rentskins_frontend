@@ -6,8 +6,11 @@ import { Button } from '@/components/Button'
 import Image from 'next/image'
 import Banner from '../../../../../public/banner.png'
 import useComponentStore from '@/stores/components.store'
+import { usePathname, useRouter } from 'next/navigation'
 
 export function ModalPaymentCheck() {
+  const router = useRouter()
+  const pathname = usePathname()
   const { setPaymentGeneralIndex } = useComponentStore()
 
   const handleButton = (index: 1 | 2) => {
@@ -27,7 +30,7 @@ export function ModalPaymentCheck() {
               Saldo
             </Title>
           </Dialog.Title>
-          <Dialog.Close asChild>
+          <Dialog.Close asChild onClick={() => router.push(pathname)}>
             <Button className="border-transparent">
               <IconClose />
             </Button>

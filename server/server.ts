@@ -10,7 +10,7 @@ const steam = new SteamAuth({
 
   realm: `http://localhost:${port}`, // Site name displayed to users on logon
   returnUrl: `http://localhost:${port}/auth/steam/authenticate/callback`, // Your return route
-  apiKey: '84FA1FDB6AF8E8F49B0E689C819B3A43', // Steam API key
+  apiKey: 'B8079E42FFC7D0C84CDA7D0A167544F8', // Steam API key
 })
 
 app.get('/auth/steam/authenticate', async (req, res) => {

@@ -19,6 +19,8 @@ export default function Home() {
     SteamService.redirect()
   }
 
+  console.log(user.steamid)
+
   return (
     <LayoutPage>
       <main className="h-full">
