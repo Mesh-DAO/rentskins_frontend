@@ -68,7 +68,14 @@ export default function TransactionsTable({ data }: IProps) {
             >
               {item.name}
             </p>
-            <p className="group w-52 overflow-hidden text-ellipsis text-lg font-medium text-white">
+            <p
+              className={`group w-52 overflow-hidden text-ellipsis text-lg 
+            font-medium ${
+              item.name.includes('StatTrak')
+                ? 'text-mesh-color-secondary-800'
+                : 'text-white'
+            } `}
+            >
               {item.name}
             </p>
             <p className="text-mesh-color-neutral-300 "> {item.weapon} </p>

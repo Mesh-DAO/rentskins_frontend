@@ -36,7 +36,9 @@ export default function NotificationsTransactions({ data }: IProps) {
             {item.name}
           </span>
           <span
-            className={`group w-64 overflow-hidden text-ellipsis text-lg font-medium`}
+            className={`group w-64 overflow-hidden text-ellipsis text-lg font-medium ${
+              item.name.includes('StatTrak') && 'text-mesh-color-secondary-800'
+            }`}
           >
             {item.name}
           </span>
