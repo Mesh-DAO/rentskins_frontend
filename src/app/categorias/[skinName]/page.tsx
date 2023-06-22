@@ -18,6 +18,8 @@ export default function Categorias() {
     queryFn: async () => findAllSkinsByWeapon(skinName),
   })
 
+  console.log(data)
+
   return (
     <LayoutPage>
       <div className="flex w-full justify-center">
