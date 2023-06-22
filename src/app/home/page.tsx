@@ -11,6 +11,8 @@ import {
 import AllSkins from '@/components/Skins/AllSkins'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
+import { findByAll } from '@/services/SkinService'
+import { useQuery } from '@tanstack/react-query'
 
 export default function Home() {
   const { user } = useUserStore()
@@ -18,6 +20,11 @@ export default function Home() {
   const handleOnSteam = () => {
     SteamService.redirect()
   }
+
+  const { data, isLoading } = useQuery({
+    queryKey: ['skins'],
+    queryFn: findByAll,
+  })
 
   return (
     <LayoutPage>
@@ -72,7 +79,12 @@ export default function Home() {
           </div>
         </div>
         <div className="mx-auto mb-28 mt-16 flex justify-center">
-          <AllSkins itemsPerPage={20} center />
+          <AllSkins
+            skinsCategories={data}
+            isLoading={isLoading}
+            itemsPerPage={20}
+            center
+          />
         </div>
       </main>
     </LayoutPage>

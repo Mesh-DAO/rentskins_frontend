@@ -7,10 +7,16 @@ import SkinFilters from '@/components/SkinFilters'
 import { Title } from '@/components/Title'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
+import { findAllSkinsByWeapon } from '@/services/SkinService'
+import { useQuery } from '@tanstack/react-query'
 
 export default function Categorias() {
   const { skinName } = useParams()
   const nameCorrection = decodeURIComponent(skinName.replace(/\+/g, ' '))
+  const { data, isLoading } = useQuery({
+    queryKey: ['skinsWeapon'],
+    queryFn: async () => findAllSkinsByWeapon(skinName),
+  })
 
   return (
     <LayoutPage>
@@ -22,7 +28,11 @@ export default function Categorias() {
             </Title>
           </Link>
           <SkinFilters />
-          <AllSkins itemsPerPage={15} />
+          <AllSkins
+            skinsCategories={data}
+            isLoading={isLoading}
+            itemsPerPage={15}
+          />
         </div>
       </div>
     </LayoutPage>

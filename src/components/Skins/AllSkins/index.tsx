@@ -5,40 +5,24 @@ import { CardSkin } from '../../CardSkin'
 import classNames from 'classnames'
 // import { PageSelector } from '@/components/PageSelector'
 // import useComponentStore from '@/stores/components.store'
-import { useQuery } from '@tanstack/react-query'
-import { findByAll } from '@/services/SkinService'
 import Link from 'next/link'
 import { ISkins } from '@/interfaces/ISkins'
-
-interface skin {
-  id: string
-  seller_name: string
-  skin_price: string
-  skin_float: string
-  skin_category: string
-  name_color: string
-  skin_image: string
-  skin_weapon: string
-  seller_id: string
-}
+import { AxiosResponse } from 'axios'
 
 interface IProps {
-  skinsCategories?: skin[]
+  skinsCategories: AxiosResponse<ISkins[], any> | undefined
   center?: boolean
   itemsPerPage: number
+  isLoading: boolean
 }
 
 export default function AllSkins({
   skinsCategories,
   center = false,
   itemsPerPage = 10,
+  isLoading,
 }: IProps) {
   // const { setPageSelectorIndex, pageSelectorIndex } = useComponentStore()
-
-  const { data, isLoading } = useQuery({
-    queryKey: ['skins'],
-    queryFn: findByAll,
-  })
 
   // const allSkins = skinsCategories || skins
 
@@ -58,7 +42,7 @@ export default function AllSkins({
         })}
       >
         {!isLoading &&
-          data?.data.map(
+          skinsCategories?.data.map(
             (
               {
                 skin_name,
@@ -67,7 +51,6 @@ export default function AllSkins({
                 skin_float,
                 skin_price,
                 skin_weapon,
-                seller_id,
                 id,
               }: ISkins,
               index: number,
@@ -87,7 +70,7 @@ export default function AllSkins({
                       skinWeapon={skin_weapon}
                       skinFloat={skin_float}
                       skinPrice={skin_price}
-                      key={`${skin_name}-${index}`}
+                      key={id}
                     />
                   </Link>
                 </>
