@@ -2,6 +2,7 @@
 import { ISkins } from '@/interfaces/ISkins'
 import { CardSkin } from '../CardSkin'
 import { Title } from '../Title'
+import Link from 'next/link'
 
 type PropsTypes = {
   isLoading: boolean
@@ -33,23 +34,24 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
                   skin_image,
                   skin_name,
                   skin_color,
-                  sale_type,
                   skin_float,
                   skin_price,
                   skin_weapon,
+                  id,
                 }: ISkins,
                 index: number,
               ) => {
                 return (
-                  <CardSkin
-                    skinImage={skin_image}
-                    sellerName={skin_name}
-                    skinColor={skin_color}
-                    skinWeapon={skin_weapon}
-                    skinFloat={skin_float}
-                    skinPrice={skin_price}
-                    key={`${skin_name}-${index}`}
-                  />
+                  <Link key={`${skin_name}-${index}`} href={`/details/${id}`}>
+                    <CardSkin
+                      skinImage={skin_image}
+                      sellerName={skin_name}
+                      skinColor={skin_color}
+                      skinWeapon={skin_weapon}
+                      skinFloat={skin_float}
+                      skinPrice={skin_price}
+                    />
+                  </Link>
                 )
               },
             )}

@@ -18,7 +18,7 @@ interface skin {
   skin_category: string
   name_color: string
   skin_image: string
-  sale_type: string
+  skin_weapon: string
   seller_id: string
 }
 
@@ -66,8 +66,9 @@ export default function AllSkins({
                 skin_image,
                 skin_float,
                 skin_price,
-                sale_type,
+                skin_weapon,
                 seller_id,
+                id,
               }: ISkins,
               index: number,
             ) => {
@@ -78,12 +79,12 @@ export default function AllSkins({
               // )
               return (
                 <>
-                  <Link href={`/details/${seller_id}`}>
+                  <Link key={index} href={`/details/${id}`}>
                     <CardSkin
                       skinImage={skin_image}
                       sellerName={skin_name}
                       skinColor={skin_color}
-                      skinWeapon={sale_type}
+                      skinWeapon={skin_weapon}
                       skinFloat={skin_float}
                       skinPrice={skin_price}
                       key={`${skin_name}-${index}`}
