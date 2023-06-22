@@ -28,7 +28,16 @@ export default function Categorias() {
             </Title>
           </Link>
           <SkinFilters />
-          <AllSkins skinsCategories={skinsFiltered} itemsPerPage={15} />
+          {skinsFiltered.length === 0 ? (
+            <div className="flex h-80 w-full items-center justify-center text-4xl font-bold text-white">
+              Infelizmente ainda não temos nenhuma skin de
+              <span className="ml-2 text-mesh-color-primary-1200">
+                {nameCorrection}
+              </span>
+            </div>
+          ) : (
+            <AllSkins skinsCategories={skinsFiltered} itemsPerPage={15} />
+          )}
         </div>
       </div>
     </LayoutPage>

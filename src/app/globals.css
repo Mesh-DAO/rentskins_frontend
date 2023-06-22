@@ -2,7 +2,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #1C1C24;
+  scrollbar-color: #1c1c24;
 }
 
 /* Works on Chrome, Edge, and Safari */
@@ -15,15 +15,13 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #A6CF2B;
+  background-color: #a6cf2b;
   border-radius: 20px;
 }
-
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -33,9 +31,8 @@ body {
   box-sizing: border-box;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-
