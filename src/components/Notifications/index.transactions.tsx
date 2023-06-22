@@ -2,16 +2,8 @@ import { transactionsMock } from '@/Mock/notification.transaction.mock'
 import Image from 'next/image'
 import { Button } from '../Button'
 import TransactionsTable from '../Settings/Transactions/table'
-import { useEffect } from 'react'
-import Aos from 'aos'
 
 export default function NotificationsTransactions() {
-  useEffect(() => {
-    Aos.init({
-      duration: 1000,
-    })
-  }, [])
-
   const renderPending = transactionsMock.pending.map((item, index) => (
     <div
       key={'pending-' + index}
@@ -30,7 +22,9 @@ export default function NotificationsTransactions() {
           >
             {item.name}
           </span>
-          <span className="group w-64 overflow-hidden text-ellipsis text-lg">
+          <span
+            className={`group w-64 overflow-hidden text-ellipsis text-lg font-medium`}
+          >
             {item.name}
           </span>
           <span className="text-white/40"> {item.weapon} </span>
@@ -61,7 +55,7 @@ export default function NotificationsTransactions() {
           Pendentes
         </span>
         <div
-          className="flex h-[24rem] flex-col gap-4 overflow-y-scroll"
+          className="mt-4 flex h-[24rem] w-full scroll-p-24 flex-col gap-4 overflow-y-scroll pr-2"
           data-aos="fade-up"
         >
           {renderPending}

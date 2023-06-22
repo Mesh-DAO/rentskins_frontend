@@ -12,7 +12,7 @@ export const transactionsMock = {
     },
     {
       image: famas,
-      name: 'StatTrak™Kumicho Dragon',
+      name: 'Kumicho Dragon',
       weapon: 'Desert Eagle',
       condition: 'Nova de fábrica',
       float: 0.0089,
@@ -36,7 +36,7 @@ export const transactionsMock = {
     },
     {
       image: famas,
-      name: 'StatTrak™Kumicho Dragon',
+      name: 'Kumicho Dragon',
       weapon: 'Desert Eagle',
       condition: 'Nova de fábrica',
       float: 0.0089,

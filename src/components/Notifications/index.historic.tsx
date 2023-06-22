@@ -1,15 +1,7 @@
-import { useEffect } from 'react'
 import { historicMock } from '@/Mock/notification.historic.mock'
 import Image from 'next/image'
-import AOS from 'aos'
 
 export default function NotificationsHistoric() {
-  useEffect(() => {
-    AOS.init({
-      duration: 2000,
-    })
-  }, [])
-
   const renderContent = historicMock.map((item, index) => (
     <div
       key={index}
