@@ -1,12 +1,14 @@
 'use client'
+import Aos from 'aos'
+import { useEffect } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/Button'
 import NotificationsHistoric from '@/components/Notifications/index.historic'
 import NotificationsTransactions from '@/components/Notifications/index.transactions'
 import { LayoutPage } from '@/components/Shared'
 import { Title } from '@/components/Title'
-import Aos from 'aos'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { historicMock } from '@/Mock/notification.historic.mock'
+import { transactionsMock } from '@/Mock/notification.transaction.mock'
 
 export default function NotificationPage() {
   const searchParams = useSearchParams()
@@ -74,9 +76,11 @@ export default function NotificationPage() {
             Tudo
           </Button>
         </div>
-        {searchParams.get('type') === 'historic' && <NotificationsHistoric />}
+        {searchParams.get('type') === 'historic' && (
+          <NotificationsHistoric data={historicMock} />
+        )}
         {searchParams.get('type') === 'transactions' && (
-          <NotificationsTransactions />
+          <NotificationsTransactions data={transactionsMock.pending} />
         )}
       </main>
     </LayoutPage>

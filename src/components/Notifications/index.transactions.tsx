@@ -1,10 +1,23 @@
-import { transactionsMock } from '@/Mock/notification.transaction.mock'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { Button } from '../Button'
 import TransactionsTable from '../Settings/Transactions/table'
+import { transactionsMock } from '@/Mock/notification.transaction.mock'
 
-export default function NotificationsTransactions() {
-  const renderPending = transactionsMock.pending.map((item, index) => (
+interface IData {
+  image: string | StaticImageData
+  name: string
+  weapon: string
+  condition: string
+  float: number
+  value: number
+}
+
+interface IProps {
+  data: IData[]
+}
+
+export default function NotificationsTransactions({ data }: IProps) {
+  const renderPending = data.map((item, index) => (
     <div
       key={'pending-' + index}
       className="flex items-center justify-between rounded-lg bg-mesh-color-neutral-800 px-4 py-3 text-white"

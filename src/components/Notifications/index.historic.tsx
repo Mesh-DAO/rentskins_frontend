@@ -1,8 +1,18 @@
-import { historicMock } from '@/Mock/notification.historic.mock'
-import Image from 'next/image'
+import React from 'react'
+import Image, { StaticImageData } from 'next/image'
 
-export default function NotificationsHistoric() {
-  const renderContent = historicMock.map((item, index) => (
+interface IData {
+  content: string
+  icon: string | StaticImageData
+  timestamp: number
+}
+
+interface IProps {
+  data: IData[]
+}
+
+export default function NotificationsHistoric({ data }: IProps) {
+  const renderContent = data.map((item, index) => (
     <div
       key={index}
       className="flex items-center justify-between rounded-lg bg-mesh-color-neutral-800 px-3 py-3 ease-in-out"
@@ -10,8 +20,8 @@ export default function NotificationsHistoric() {
       <div className="flex items-center gap-4">
         <Image
           className="w-20 rounded-lg bg-mesh-color-neutral-1000 p-2"
-          src={item.icon as unknown as string}
-          alt={item.icon as unknown as string}
+          src={item.icon}
+          alt={String(item.icon)}
         />
         <span className="text-mesh-color-neutral-200">{item.content}</span>
       </div>
