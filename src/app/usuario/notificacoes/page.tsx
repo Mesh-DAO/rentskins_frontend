@@ -1,5 +1,7 @@
 'use client'
 import { Button } from '@/components/Button'
+import NotificationsHistoric from '@/components/Notifications/index.historic'
+import NotificationsTransactions from '@/components/Notifications/index.transactions'
 import { LayoutPage } from '@/components/Shared'
 import { Title } from '@/components/Title'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
@@ -31,7 +33,7 @@ export default function NotificationPage() {
         <Title size="3xl" bold={700} color="white">
           Notificação
         </Title>
-        <div className="flex items-center justify-between">
+        <div className="mt-5 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <label className="flex cursor-pointer flex-col">
               <input
@@ -45,7 +47,7 @@ export default function NotificationPage() {
               <span className="text-xl font-semibold text-white/50 transition-all peer-checked:text-white">
                 Transações
               </span>
-              <div className="mt-2 h-0.5 w-0 place-self-center bg-mesh-color-primary-900 pl-0 transition-all peer-checked:pl-28" />
+              <div className="mt-2 h-0.5 w-0 place-self-center bg-mesh-color-primary-900 pl-0 transition-all peer-checked:pl-20" />
             </label>
             <label className="flex cursor-pointer flex-col">
               <input
@@ -59,13 +61,17 @@ export default function NotificationPage() {
               <span className="text-xl font-semibold text-white/50 transition-all peer-checked:text-white">
                 Histórico
               </span>
-              <div className="mt-2 h-0.5 w-0 place-self-center bg-mesh-color-primary-900 pl-0 transition-all peer-checked:pl-20" />
+              <div className="mt-2 h-0.5 w-0 place-self-center bg-mesh-color-primary-900 pl-0 transition-all peer-checked:pl-16" />
             </label>
           </div>
           <Button className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold">
             Tudo
           </Button>
         </div>
+        {searchParams.get('type') === 'historic' && <NotificationsHistoric />}
+        {searchParams.get('type') === 'transactions' && (
+          <NotificationsTransactions />
+        )}
       </main>
     </LayoutPage>
   )

@@ -1,55 +1,51 @@
-interface IWeaponsMock {
-  descricao: string
-  arma: string
-  status: 'Concluído' | 'Em andamento' | 'Falhou'
-  preco: number
-  tipo: string
-  float: number
-  stage: string
-}
+import deagle from '@/../public/details-item.png'
 
-export const weaponsMock: IWeaponsMock[] = [
+export const weaponsMock = [
   // 1
   {
-    descricao: 'Kumicho Dragon',
-    stage: 'Nova de Fábrica',
+    image: deagle,
+    name: 'Kumicho Dragon',
+    weapon: 'Desert Eagle',
+    condition: 'Nova de Fábrica',
     float: 0.0001,
-    arma: 'Desert Eagle',
+    value: 2000,
     status: 'Concluído',
-    preco: 2000,
-    tipo: 'Alugado',
+    type: 'Alugado',
   },
 
   // 2
   {
-    descricao: 'Kumicho Dragon',
-    stage: 'Nova de Fábrica',
+    image: deagle,
+    name: 'Kumicho Dragon',
+    weapon: 'Desert Eagle',
+    condition: 'Nova de Fábrica',
     float: 0.0001,
-    arma: 'Desert Eagle',
+    value: 2000,
     status: 'Em andamento',
-    preco: 2000,
-    tipo: 'Comprado',
+    type: 'Comprado',
   },
 
   // 3
   {
-    descricao: 'Kumicho Dragon',
-    stage: 'Nova de Fábrica',
+    image: deagle,
+    name: 'Kumicho Dragon',
+    weapon: 'Desert Eagle',
+    condition: 'Nova de Fábrica',
     float: 0.0001,
-    arma: 'Desert Eagle',
+    value: 2000,
     status: 'Falhou',
-    preco: 2000,
-    tipo: 'Alugado',
+    type: 'Alugado',
   },
 
   // 3
   {
-    descricao: 'Kumicho Dragon',
-    stage: 'Nova de Fábrica',
+    image: deagle,
+    name: 'Kumicho Dragon',
+    weapon: 'Desert Eagle',
+    condition: 'Nova de Fábrica',
     float: 0.0001,
-    arma: 'Desert Eagle',
+    value: 2000,
     status: 'Falhou',
-    preco: 2000,
-    tipo: 'Comprado',
+    type: 'Comprado',
   },
 ]
