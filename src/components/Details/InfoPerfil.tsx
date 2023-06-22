@@ -4,7 +4,7 @@ import { Title } from '../Title'
 
 export function InfoPerfil() {
   return (
-    <div className="mt-10 min-h-[300px] min-w-[435px] rounded-lg border-2 border-mesh-color-neutral-600">
+    <div className="mt-10 min-h-[300px] rounded-lg border-2 border-mesh-color-neutral-600">
       <div className="p-4">
         <div className="flex items-center">
           <Image
@@ -24,29 +24,37 @@ export function InfoPerfil() {
         </div>
         <div className="mt-7 space-y-3">
           <div className="flex justify-between">
-            <Title color="cinza">Taxa de entrega</Title>
+            <Title className="text-mesh-color-neutral-200">
+              Taxa de entrega
+            </Title>
             <span className="font-medium text-mesh-color-primary-1400">
               92%
             </span>
           </div>
 
           <div className="flex justify-between">
-            <Title color="cinza">Tempo de entrega</Title>
+            <Title className="text-mesh-color-neutral-200">
+              Tempo de entrega
+            </Title>
             <span className="font-medium text-white">20 minutos</span>
           </div>
 
           <div className="flex justify-between">
-            <Title color="cinza">Total de trocas</Title>
+            <Title className="text-mesh-color-neutral-200">
+              Total de trocas
+            </Title>
             <span className="font-medium text-white">242</span>
           </div>
 
           <div className="flex justify-between">
-            <Title color="cinza">Steam level</Title>
+            <Title className="text-mesh-color-neutral-200">Steam level</Title>
             <span className="font-medium text-white">175</span>
           </div>
 
           <div className="flex justify-between">
-            <Title color="cinza">Membro da Steam desde</Title>
+            <Title className="text-mesh-color-neutral-200">
+              Membro da Steam desde
+            </Title>
             <span className="font-medium text-white">Dez 30, 2020</span>
           </div>
         </div>

@@ -7,7 +7,6 @@ import SteamService from '@/services/steam.service'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { Title } from '@/components/Title'
-import { ModalPayment } from '@/components/Modal'
 /* ----------------- ICONS ----------------- */
 import { IconCarrinho, IconSteam, IconSearch } from '@/components/Icons'
 import { IconCruz } from '@/components/Icons/IconCruz'
@@ -16,10 +15,11 @@ import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export function TopHeader() {
   const router = useRouter()
+  const pathname = usePathname()
 
   const { user } = useUserStore()
 
@@ -28,6 +28,10 @@ export function TopHeader() {
 
   const handleOnSteam = () => {
     SteamService.redirect()
+  }
+
+  const handleOnAdd = () => {
+    router.push(pathname + '/?modalopen=true&modaltype=payment')
   }
 
   useEffect(() => {
@@ -97,13 +101,12 @@ export function TopHeader() {
               <Title bold={500} color="white">
                 R$12,42
               </Title>
-              <ModalPayment
-                activator={
-                  <Button className="h-5 w-5 border-transparent bg-mesh-color-primary-1400">
-                    <IconCruz />
-                  </Button>
-                }
-              />
+              <Button
+                className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
+                onClick={() => handleOnAdd()}
+              >
+                <IconCruz />
+              </Button>
             </div>
           </div>
 
@@ -115,14 +118,16 @@ export function TopHeader() {
               <IconNotifications />
             </Button>
 
-            <Image
-              src={picture}
-              alt={username}
-              className="rounded-full"
-              width={44}
-              height={44}
-              draggable={false}
-            />
+            {picture && (
+              <Image
+                src={picture}
+                alt={username}
+                className="rounded-full"
+                width={44}
+                height={44}
+                draggable={false}
+              />
+            )}
           </div>
         </div>
       )}

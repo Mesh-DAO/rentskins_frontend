@@ -1,15 +1,25 @@
 /* eslint-disable camelcase */
 // import { skins } from '@/Mock'
-import { skins } from '@/Mock/skins.mock'
+
 import { CardSkin } from '../../CardSkin'
 import classNames from 'classnames'
-import { PageSelector } from '@/components/PageSelector'
-import useComponentStore from '@/stores/components.store'
+// import { PageSelector } from '@/components/PageSelector'
+// import useComponentStore from '@/stores/components.store'
+import { useQuery } from '@tanstack/react-query'
+import { findByAll } from '@/services/SkinService'
+import Link from 'next/link'
+import { ISkins } from '@/interfaces/ISkins'
 
 interface skin {
-  name: string
+  id: string
+  seller_name: string
+  skin_price: string
+  skin_float: string
+  skin_category: string
   name_color: string
-  icon_url: string
+  skin_image: string
+  skin_weapon: string
+  seller_id: string
 }
 
 interface IProps {
@@ -23,17 +33,21 @@ export default function AllSkins({
   center = false,
   itemsPerPage = 10,
 }: IProps) {
-  const { setPageSelectorIndex, pageSelectorIndex } = useComponentStore()
-  console.log(skins.length)
+  // const { setPageSelectorIndex, pageSelectorIndex } = useComponentStore()
 
-  const allSkins = skinsCategories || skins
+  const { data, isLoading } = useQuery({
+    queryKey: ['skins'],
+    queryFn: findByAll,
+  })
 
-  const allSkinsFilter = allSkins.filter(
-    ({ name }: skin) =>
-      !name.includes('Coin') &&
-      !name.includes('Pin') &&
-      !name.includes('Graffiti'),
-  )
+  // const allSkins = skinsCategories || skins
+
+  // const allSkinsFilter = allSkins.filter(
+  //   ({ name }: skin) =>
+  //     !name.includes('Coin') &&
+  //     !name.includes('Pin') &&
+  //     !name.includes('Graffiti'),
+  // )
 
   return (
     <div className="flex w-11/12 flex-col items-center">
@@ -43,31 +57,51 @@ export default function AllSkins({
           'justify-center': center,
         })}
       >
-        {allSkinsFilter.map(
-          ({ name, name_color, icon_url }: skin, index: number) => {
-            const itemIndex = index + 1
-            if (
-              itemIndex > itemsPerPage * (pageSelectorIndex - 1) &&
-              itemIndex <= itemsPerPage * pageSelectorIndex
-            )
+        {!isLoading &&
+          data?.data.map(
+            (
+              {
+                skin_name,
+                skin_color,
+                skin_image,
+                skin_float,
+                skin_price,
+                skin_weapon,
+                seller_id,
+                id,
+              }: ISkins,
+              index: number,
+            ) => {
+              // const itemIndex = index + 1
+              // if (
+              //   itemIndex > itemsPerPage * (pageSelectorIndex - 1) &&
+              //   itemIndex <= itemsPerPage * pageSelectorIndex
+              // )
               return (
-                <CardSkin
-                  iconUrl={icon_url}
-                  name={name}
-                  nameColor={name_color}
-                  key={`${name}-${index}`}
-                />
+                <>
+                  <Link key={index} href={`/details/${id}`}>
+                    <CardSkin
+                      skinImage={skin_image}
+                      sellerName={skin_name}
+                      skinColor={skin_color}
+                      skinWeapon={skin_weapon}
+                      skinFloat={skin_float}
+                      skinPrice={skin_price}
+                      key={`${skin_name}-${index}`}
+                    />
+                  </Link>
+                </>
               )
-            return null
-          },
-        )}
+              // return null
+            },
+          )}
       </div>
-      <PageSelector
+      {/* <PageSelector
         pages={allSkinsFilter.length / itemsPerPage}
         handleOnChange={(event) =>
           setPageSelectorIndex(event.target.value as unknown as number)
         }
-      />
+      /> */}
     </div>
   )
 }

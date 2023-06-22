@@ -15,9 +15,12 @@ export default function RentedSkins() {
         .slice(0, 3)
         .map(({ name, name_color, icon_url }: skin, idx: number) => (
           <CardSkin
-            iconUrl={icon_url}
-            name={name}
-            nameColor={name_color}
+            skinImage={icon_url}
+            sellerName={name}
+            skinColor={name_color}
+            skinWeapon={''}
+            skinFloat={''}
+            skinPrice={''}
             itsRent={true}
             key={`${name}-${idx}`}
           />
