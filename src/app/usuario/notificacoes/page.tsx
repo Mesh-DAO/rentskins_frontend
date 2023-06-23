@@ -23,6 +23,8 @@ export default function NotificationPage() {
 
     const titleQuery = searchParams.get('type') as 'historic' | 'transactions'
 
+    console.log(titleQuery)
+
     if (titleQuery !== 'historic') {
       if (titleQuery !== 'transactions') {
         router.push(pathname + '/?type=historic')

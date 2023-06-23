@@ -43,7 +43,6 @@ export function LayoutPage({ children }: Props) {
   return (
     <div className="min-h-screen bg-mesh-color-others-black">
       <ModalPayment />
-
       <Header />
       {children}
       <Footer />

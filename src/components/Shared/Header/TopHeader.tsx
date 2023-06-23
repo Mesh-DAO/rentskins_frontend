@@ -16,6 +16,7 @@ import logo from '../../../assets/logo.svg'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { usePathname, useRouter } from 'next/navigation'
+import URLQuery from '@/tools/urlquery.tool'
 
 export function TopHeader() {
   const router = useRouter()
@@ -31,6 +32,7 @@ export function TopHeader() {
   }
 
   const handleOnAdd = () => {
+    URLQuery.addQuery('modalopen', 'true')
     router.push(pathname + '/?modalopen=true&modaltype=payment')
   }
 
