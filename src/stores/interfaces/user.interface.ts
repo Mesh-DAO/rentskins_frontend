@@ -5,9 +5,6 @@ export interface IUser {
 }
 
 export interface IStates {
-  userLogged: boolean
-  setUserLogged: (bool: boolean) => void
-
   user: IUser
   setUser: (user: IUser) => void
 }

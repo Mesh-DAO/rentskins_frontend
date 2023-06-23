@@ -5,6 +5,7 @@ import IconCart from '@/assets/Cart'
 import IconEye from '@/assets/Eye'
 import ColoredLine from '../ColoredLine'
 import IconMagic from '../Icons/IconMagicpen'
+import Link from 'next/link'
 
 interface Props {
   sellerName: string
@@ -75,9 +76,12 @@ export function CardSkin({
           <Button color="invisible" className="h-10 w-10 border-2">
             <IconCart />
           </Button>
-          <Button className="border-transparent bg-mesh-color-neutral-500 px-4">
+          <Link
+            href={'/details'}
+            className="flex items-center rounded-lg border-transparent bg-mesh-color-neutral-500 px-4 opacity-60 hover:opacity-100"
+          >
             Comprar
-          </Button>
+          </Link>
         </div>
       </div>
     </article>
