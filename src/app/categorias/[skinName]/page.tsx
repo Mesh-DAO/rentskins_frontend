@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable camelcase */
 'use client'
 import AllSkins from '@/components/Skins/AllSkins'
@@ -9,16 +10,28 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { findAllSkinsByWeapon } from '@/services/SkinService'
 import { useQuery } from '@tanstack/react-query'
+import useComponentStore from '@/stores/components.store'
+import { useEffect } from 'react'
+import { ISkins } from '@/interfaces/ISkins'
+import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 
 export default function Categorias() {
   const { skinName } = useParams()
   const nameCorrection = decodeURIComponent(skinName.replace(/\+/g, ' '))
+  const { setAllSkinsCategory, skinsFiltredByPrice } = useComponentStore()
   const { data, isLoading } = useQuery({
     queryKey: ['skinsWeapon'],
     queryFn: async () => findAllSkinsByWeapon(skinName),
   })
 
-  console.log(data)
+  useEffect(() => {
+    if (!isLoading) {
+      setAllSkinsCategory(data?.data as ISkins[])
+    }
+  }, [data])
+
+  const allSkinCategories =
+    skinsFiltredByPrice.length > 0 ? skinsFiltredByPrice : data?.data
 
   return (
     <LayoutPage>
@@ -30,11 +43,11 @@ export default function Categorias() {
             </Title>
           </Link>
           <SkinFilters />
-          <AllSkins
-            skinsCategories={data}
-            isLoading={isLoading}
-            itemsPerPage={15}
-          />
+          {isLoading ? (
+            <AllSkeletonSkins />
+          ) : (
+            <AllSkins skinsCategories={allSkinCategories} itemsPerPage={15} />
+          )}
         </div>
       </div>
     </LayoutPage>

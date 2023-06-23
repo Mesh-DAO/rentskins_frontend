@@ -13,6 +13,7 @@ import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
 import { findByAll } from '@/services/SkinService'
 import { useQuery } from '@tanstack/react-query'
+import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 
 export default function Home() {
   const { user } = useUserStore()
@@ -78,13 +79,12 @@ export default function Home() {
             </HeroInformation>
           </div>
         </div>
-        <div className="mx-auto mb-28 mt-16 flex justify-center">
-          <AllSkins
-            skinsCategories={data}
-            isLoading={isLoading}
-            itemsPerPage={20}
-            center
-          />
+        <div className="mb-28 mt-16 flex">
+          {isLoading ? (
+            <AllSkeletonSkins />
+          ) : (
+            <AllSkins skinsCategories={data?.data} itemsPerPage={20} center />
+          )}
         </div>
       </main>
     </LayoutPage>
