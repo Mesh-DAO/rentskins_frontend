@@ -9,6 +9,7 @@ import { LayoutPage } from '@/components/Shared'
 import { Title } from '@/components/Title'
 import { historicMock } from '@/Mock/notification.historic.mock'
 import { transactionsMock } from '@/Mock/notification.transaction.mock'
+import URLQuery from '@/tools/urlquery.tool'
 
 export default function NotificationPage() {
   const searchParams = useSearchParams()
@@ -23,11 +24,11 @@ export default function NotificationPage() {
 
     const titleQuery = searchParams.get('type') as 'historic' | 'transactions'
 
-    console.log(titleQuery)
-
     if (titleQuery !== 'historic') {
       if (titleQuery !== 'transactions') {
-        router.push(pathname + '/?type=historic')
+        router.push(
+          pathname + URLQuery.addQuery([{ key: 'type', value: 'historic' }]),
+        )
       }
     }
   }, [])

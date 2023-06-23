@@ -1,15 +1,36 @@
 import queryString from 'query-string'
 
+interface IAddQuery {
+  key: string
+  value: string
+}
+
 export default class URLQuery {
-  public static addQuery(key: string, value: string) {
+  public static addQuery(queries: IAddQuery[], path: boolean = true) {
     const query = queryString.parse(location.search)
 
-    query[key] = [value]
+    queries.forEach((item) => {
+      query[item.key] = item.value
+    })
 
-    location.search = queryString.stringify(query)
+    console.log(path)
+
+    if (path) {
+      return location.pathname + '?' + queryString.stringify(query)
+    }
+    return '/?' + queryString.stringify(query)
   }
 
-  public static removeQuery(key: string) {
-    location.search = queryString.exclude(location.search, [key])
+  public static removeQuery(key: string[], path: boolean = true) {
+    const query = queryString.parse(location.search)
+
+    key.forEach((item) => {
+      delete query[item]
+    })
+
+    if (path) {
+      return location.pathname + '?' + queryString.stringify(query)
+    }
+    return '/?' + queryString.stringify(query)
   }
 }

@@ -15,12 +15,11 @@ import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
-import { usePathname, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import URLQuery from '@/tools/urlquery.tool'
 
 export function TopHeader() {
   const router = useRouter()
-  const pathname = usePathname()
 
   const { user } = useUserStore()
 
@@ -32,8 +31,12 @@ export function TopHeader() {
   }
 
   const handleOnAdd = () => {
-    URLQuery.addQuery('modalopen', 'true')
-    router.push(pathname + '/?modalopen=true&modaltype=payment')
+    router.push(
+      URLQuery.addQuery([
+        { key: 'modalopen', value: 'true' },
+        { key: 'modaltype', value: 'payment' },
+      ]),
+    )
   }
 
   useEffect(() => {

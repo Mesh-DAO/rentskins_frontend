@@ -5,14 +5,14 @@ import { ModalPaymentCheck } from './PaymentCheck'
 import { ModalPaymentAdd } from './PaymentAdd'
 import { ModalPaymentRetrieve } from './PaymentRetrieve'
 import useComponentStore from '@/stores/components.store'
-import { useSearchParams, usePathname, useRouter } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
+import URLQuery from '@/tools/urlquery.tool'
 
 export function ModalPayment() {
   const [modalOpen, setModalOpen] = useState<string | undefined>('')
   const [modalType, setModalType] = useState<string | undefined>('')
 
   const searchParams = useSearchParams()
-  const pathname = usePathname()
   const router = useRouter()
 
   const {
@@ -37,7 +37,7 @@ export function ModalPayment() {
   }
 
   const removeDomainQuery = () => {
-    router.push(pathname)
+    router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
   }
 
   const handleModalOnClose = () => {
