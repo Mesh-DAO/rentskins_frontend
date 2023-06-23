@@ -13,8 +13,6 @@ export default class URLQuery {
       query[item.key] = item.value
     })
 
-    console.log(path)
-
     if (path) {
       return location.pathname + '?' + queryString.stringify(query)
     }

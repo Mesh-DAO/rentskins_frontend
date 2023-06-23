@@ -26,16 +26,14 @@ export default function NotificationPage() {
 
     if (titleQuery !== 'historic') {
       if (titleQuery !== 'transactions') {
-        router.push(
-          pathname + URLQuery.addQuery([{ key: 'type', value: 'historic' }]),
-        )
+        router.push(URLQuery.addQuery([{ key: 'type', value: 'historic' }]))
       }
     }
   }, [])
 
   // MUDAR TIPAGEM
   const handleOnRadio = ({ target }: any) => {
-    router.push(pathname + '/?type=' + target.value)
+    router.push(URLQuery.addQuery([{ key: 'type', value: target.value }]))
   }
 
   return (
