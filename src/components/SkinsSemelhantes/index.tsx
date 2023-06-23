@@ -7,7 +7,9 @@ import Link from 'next/link'
 type PropsTypes = {
   isLoading: boolean
   data: {
-    data: ISkins
+    data: {
+      [index: number]: ISkins
+    }
   }
   data2: {
     data: ISkins[]
@@ -15,20 +17,21 @@ type PropsTypes = {
 }
 
 export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
+  const find = data2?.data.filter(
+    ({ skin_weapon, seller_id }: ISkins) =>
+      skin_weapon === data!.data[0].skin_weapon &&
+      seller_id !== data!.data[0].seller_id,
+  )
+
   return (
-    <div className="w-full pb-16">
+    <>
       <Title color="white" bold={700} className="mb-6  text-[28px]">
         Semelhantes
       </Title>
-      <div className="flex gap-4">
-        {!isLoading &&
-          data2?.data
-            .filter(
-              ({ skin_weapon, seller_id }: ISkins) =>
-                skin_weapon === data!.data.skin_weapon &&
-                seller_id !== data!.data.seller_id,
-            )
-            .map(
+      <div className="w-full pb-16">
+        <div className="flex gap-4">
+          {!isLoading && find?.length > 0 ? (
+            find.map(
               (
                 {
                   skin_image,
@@ -42,7 +45,7 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
                 index: number,
               ) => {
                 return (
-                  <Link key={`${skin_name}-${index}`} href={`/details/${id}`}>
+                  <Link href={`/details/${id}`} key={`${skin_name}-${index}`}>
                     <CardSkin
                       skinImage={skin_image}
                       sellerName={skin_name}
@@ -54,8 +57,12 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
                   </Link>
                 )
               },
-            )}
+            )
+          ) : (
+            <Title color="white">Não há nenhuma skin semelhante</Title>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

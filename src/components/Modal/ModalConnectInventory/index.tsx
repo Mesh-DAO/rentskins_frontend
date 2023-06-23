@@ -1,16 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { IconClose } from '@/components/Icons/IconClose'
 import { Title } from '@/components/Title'
 import { Input } from '@/components/Input'
 import { InputRadio } from '@/components/InputRadio'
 import { Button } from '@/components/Button'
+// import { createdConfig } from '@/services/Configuracao.service'
 
 interface IProps {
   activator: React.ReactNode
 }
 
+//    owner_id,
+//   owner_name,
+//   owner_email,
+//   steam_guard,
+//   url_sell,
+//   url_trade,
+
 export function ModalConnectInventario({ activator }: IProps) {
+  const [linkTrade, setLinkTrade] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  console.log(linkTrade)
+
+  async function onSubmit() {
+    try {
+      const user = localStorage.getItem('user')
+      if (user) {
+        const findUser = JSON.parse(user)
+        console.log(findUser)
+        // const created = await createdConfig(user.steamid, user.username)
+      }
+    } catch (error) {}
+  }
+
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>{activator}</Dialog.Trigger>
@@ -51,6 +74,8 @@ export function ModalConnectInventario({ activator }: IProps) {
                       <Input
                         className="w-10/12  bg-mesh-color-neutral-500 text-base text-mesh-color-neutral-100 placeholder:text-mesh-color-neutral-100"
                         placeHolder="https://steamcommunity.com/tradeoffer/new/?partner=240416830&token=vzAomQ5n"
+                        value={linkTrade}
+                        onChange={(event) => setLinkTrade(event.target.value)}
                       />
                       <Button className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2">
                         <IconClose />
@@ -75,6 +100,8 @@ export function ModalConnectInventario({ activator }: IProps) {
                   <Input
                     className="w-1/3 rounded-lg bg-mesh-color-neutral-500 text-base text-mesh-color-neutral-100 placeholder:text-mesh-color-neutral-100"
                     placeHolder="SeuEmail@gmail.com"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
                   />
                 </div>
 
@@ -102,7 +129,10 @@ export function ModalConnectInventario({ activator }: IProps) {
                     </Title>
                   </InputRadio>
                 </div>
-                <Button className="h-11 w-1/4 bg-mesh-color-primary-1400 font-bold text-mesh-color-neutral-300">
+                <Button
+                  onClick={onSubmit}
+                  className="h-11 w-1/4 bg-mesh-color-primary-1400 font-bold text-mesh-color-neutral-300"
+                >
                   Concluir
                 </Button>
               </div>

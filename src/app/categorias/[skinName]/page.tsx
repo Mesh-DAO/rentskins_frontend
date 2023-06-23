@@ -16,7 +16,7 @@ export default function Categorias() {
     <LayoutPage>
       <div className="flex w-full justify-center">
         <div className="mx-auto my-6 flex w-4/5 flex-col gap-6">
-          <Link href={'/home'}>
+          <Link href={'/'}>
             <Title className="w-fit stroke-mesh-color-neutral-300 text-mesh-color-neutral-300 transition-all hover:stroke-white hover:text-white">
               <IconArrowLeft /> Home &bull; {nameCorrection}
             </Title>
