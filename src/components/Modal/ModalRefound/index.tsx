@@ -16,8 +16,6 @@ interface IProps {
 export function ModalRefound({ activator, name, nameColor, iconUrl }: IProps) {
   const { setRefoundGeneralIndex, refoundGeneralIndex } = useComponentStore()
 
-  console.log(refoundGeneralIndex)
-
   return (
     <Dialog.Root modal onOpenChange={() => setRefoundGeneralIndex(0)}>
       <Dialog.Trigger asChild>{activator}</Dialog.Trigger>
