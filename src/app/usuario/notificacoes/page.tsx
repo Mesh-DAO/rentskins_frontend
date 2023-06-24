@@ -1,7 +1,7 @@
 'use client'
 import Aos from 'aos'
 import { useEffect } from 'react'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/Button'
 import NotificationsHistoric from '@/components/Notifications/index.historic'
 import NotificationsTransactions from '@/components/Notifications/index.transactions'
@@ -10,11 +10,13 @@ import { Title } from '@/components/Title'
 import { historicMock } from '@/Mock/notification.historic.mock'
 import { transactionsMock } from '@/Mock/notification.transaction.mock'
 import URLQuery from '@/tools/urlquery.tool'
+import useFilterStore from '@/stores/filters.store'
 
 export default function NotificationPage() {
+  const { notificationFilter } = useFilterStore()
+
   const searchParams = useSearchParams()
   const router = useRouter()
-  const pathname = usePathname()
 
   useEffect(() => {
     Aos.init({
@@ -31,9 +33,17 @@ export default function NotificationPage() {
     }
   }, [])
 
-  // MUDAR TIPAGEM
   const handleOnRadio = ({ target }: any) => {
     router.push(URLQuery.addQuery([{ key: 'type', value: target.value }]))
+  }
+
+  const handleOnFilter = () => {
+    router.push(
+      URLQuery.addQuery([
+        { key: 'modalopen', value: true },
+        { key: 'modaltype', value: 'filter' },
+      ]),
+    )
   }
 
   return (
@@ -62,7 +72,7 @@ export default function NotificationPage() {
               <input
                 type="radio"
                 name="notification-radio"
-                className="peer appearance-none"
+                className="peer"
                 defaultChecked={searchParams.get('type') === 'historic'}
                 value={'historic'}
                 onClick={(event) => handleOnRadio(event)}
@@ -73,8 +83,11 @@ export default function NotificationPage() {
               <div className="mt-2 h-0.5 w-0 place-self-center bg-mesh-color-primary-900 pl-0 transition-all peer-checked:pl-16" />
             </label>
           </div>
-          <Button className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold">
-            Tudo
+          <Button
+            className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold"
+            onClick={() => handleOnFilter()}
+          >
+            {notificationFilter}
           </Button>
         </div>
         {searchParams.get('type') === 'historic' && (

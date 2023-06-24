@@ -2,7 +2,7 @@ import queryString from 'query-string'
 
 interface IAddQuery {
   key: string
-  value: string
+  value: string | boolean | number
 }
 
 export default class URLQuery {
@@ -10,7 +10,8 @@ export default class URLQuery {
     const query = queryString.parse(location.search)
 
     queries.forEach((item) => {
-      query[item.key] = item.value
+      const stringValue = String(item.value)
+      query[item.key] = stringValue
     })
 
     if (path) {

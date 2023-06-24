@@ -33,7 +33,7 @@ export function TopHeader() {
   const handleOnAdd = () => {
     router.push(
       URLQuery.addQuery([
-        { key: 'modalopen', value: 'true' },
+        { key: 'modalopen', value: true },
         { key: 'modaltype', value: 'payment' },
       ]),
     )
@@ -118,7 +118,7 @@ export function TopHeader() {
           <div className="flex items-center gap-4">
             <Button
               className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black"
-              onClick={() => router.push('/usuario/notificacoes')}
+              onClick={() => router.push('/usuario/notificacoes?type=historic')}
             >
               <IconNotifications />
             </Button>
