@@ -37,9 +37,9 @@ export function ModalNotificationPopup({ activator, type, id }: IProps) {
           <IconClose />
         </Dialog.Close>
         <h2 className="text-center text-xl font-semibold text-white">
-          Tem certeza de que deseja cancelar esta transação? Ao cancelar, a
-          troca com o comprador será interrompida e a skin não será transferida.
-          Esta ação não pode ser desfeita.
+          Tem certeza de que deseja cancelar esta transação? <br /> Ao cancelar,
+          a troca com o comprador será interrompida e a skin não será
+          transferida. Esta ação não pode ser desfeita.
         </h2>
       </div>
       <div className="flex gap-8 self-end">
