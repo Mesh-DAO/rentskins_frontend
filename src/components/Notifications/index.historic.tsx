@@ -9,9 +9,10 @@ interface IData {
 
 interface IProps {
   data: IData[]
+  loading: boolean
 }
 
-export default function NotificationsHistoric({ data }: IProps) {
+export default function NotificationsHistoric({ data, loading }: IProps) {
   const renderContent = data.map((item, index) => (
     <div
       key={index}

@@ -7,7 +7,7 @@ import { IconClose } from '@/components/Icons'
 import { Button } from '@/components/Button'
 import useFilterStore from '@/stores/filters.store'
 
-export function ModalNotification() {
+export function ModalNotificationFilter() {
   const { notificationFilter, setNotificationFilter } = useFilterStore()
 
   const [modalOpen, setModalOpen] = useState<string | undefined>('')
@@ -39,12 +39,12 @@ export function ModalNotification() {
     setSelectedFilter(target.value)
   }
 
-  const handleOnApplyFilter = () => {
-    setNotificationFilter(selectedFilter)
-  }
-
-  const handleOnClearFilter = () => {
-    setNotificationFilter('Tudo')
+  const handleOnApplyFilter = (apply: boolean = true) => {
+    if (apply) {
+      setNotificationFilter(selectedFilter)
+    } else {
+      setNotificationFilter('Tudo')
+    }
     removeDomainQuery()
   }
 
@@ -114,13 +114,13 @@ export function ModalNotification() {
                 className="h-fit w-fit cursor-pointer select-none
               font-semibold text-mesh-color-neutral-200 opacity-50
               hover:opacity-100"
-                onClick={handleOnClearFilter}
+                onClick={() => handleOnApplyFilter(false)}
               >
                 Limpar
               </span>
               <Button
                 className="border-none bg-mesh-color-primary-1200 px-6 py-2 font-semibold"
-                onClick={handleOnApplyFilter}
+                onClick={() => handleOnApplyFilter()}
               >
                 Aplicar
               </Button>

@@ -1,6 +1,6 @@
 'use client'
 import Aos from 'aos'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/Button'
 import NotificationsHistoric from '@/components/Notifications/index.historic'
@@ -14,6 +14,7 @@ import useFilterStore from '@/stores/filters.store'
 
 export default function NotificationPage() {
   const { notificationFilter } = useFilterStore()
+  const [isLoading] = useState(false)
 
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -91,10 +92,13 @@ export default function NotificationPage() {
           </Button>
         </div>
         {searchParams.get('type') === 'historic' && (
-          <NotificationsHistoric data={historicMock} />
+          <NotificationsHistoric data={historicMock} loading={isLoading} />
         )}
         {searchParams.get('type') === 'transactions' && (
-          <NotificationsTransactions data={transactionsMock.pending} />
+          <NotificationsTransactions
+            data={transactionsMock.pending}
+            loading={isLoading}
+          />
         )}
       </main>
     </LayoutPage>

@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image'
 import { Button } from '../Button'
 import TransactionsTable from '../Settings/Transactions/table'
 import { transactionsMock } from '@/Mock/notification.transaction.mock'
+import { ModalNotificationPopup } from '../Modal/ModalNotification/index.popup'
 
 interface IData {
   image: string | StaticImageData
@@ -14,9 +15,10 @@ interface IData {
 
 interface IProps {
   data: IData[]
+  loading: boolean
 }
 
-export default function NotificationsTransactions({ data }: IProps) {
+export default function NotificationsTransactions({ data, loading }: IProps) {
   const renderPending = data.map((item, index) => (
     <div
       key={'pending-' + index}
@@ -53,12 +55,30 @@ export default function NotificationsTransactions({ data }: IProps) {
       </div>
       <span>R${item.value.toFixed(2).replace('.', ',')}</span>
       <div className="flex gap-4">
-        <Button className="border-none bg-mesh-color-primary-1200 px-4 font-semibold text-black">
-          Aceitar troca
-        </Button>
-        <Button className="border border-mesh-color-neutral-400 px-2 font-semibold text-mesh-color-neutral-400">
-          Cancelar
-        </Button>
+        <ModalNotificationPopup
+          id={index}
+          type="accept"
+          activator={
+            <Button
+              className="border-none bg-mesh-color-primary-1200 px-4
+              font-semibold text-black"
+            >
+              Aceitar troca
+            </Button>
+          }
+        />
+        <ModalNotificationPopup
+          id={index}
+          type="cancel"
+          activator={
+            <Button
+              className="border border-mesh-color-neutral-400 px-2 font-semibold
+            text-mesh-color-neutral-400"
+            >
+              Cancelar
+            </Button>
+          }
+        />
       </div>
     </div>
   ))

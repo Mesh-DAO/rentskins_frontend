@@ -6,7 +6,10 @@ import { useSearchParams, usePathname } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
-import { ModalNotification } from '../Modal/ModalNotification/index.filter'
+import {
+  ModalNotification,
+  ModalNotificationFilter,
+} from '../Modal/ModalNotification/index.filter'
 
 type Props = {
   children: React.ReactNode
@@ -45,7 +48,7 @@ export function LayoutPage({ children }: Props) {
   const modalRender = () => {
     switch (pathname) {
       case '/usuario/notificacoes':
-        return <ModalNotification />
+        return <ModalNotificationFilter />
     }
   }
 
