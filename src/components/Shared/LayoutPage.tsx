@@ -2,17 +2,19 @@
 import Header from './Header'
 import { Footer } from '../Footer'
 import React, { useEffect } from 'react'
-import { useSearchParams, usePathname } from 'next/navigation'
+import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
 import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
+import URLQuery from '@/tools/urlquery.tool'
 
 type Props = {
   children: React.ReactNode
 }
 
 export function LayoutPage({ children }: Props) {
+  const router = useRouter()
   const params = useSearchParams()
   const pathname = usePathname()
   const { setUser } = useUserStore()
@@ -42,6 +44,8 @@ export function LayoutPage({ children }: Props) {
         })
       }
     }
+
+    router.push(URLQuery.removeQuery(['username', 'steamid', 'picture']))
   }, [setUser, params])
 
   const modalRender = () => {

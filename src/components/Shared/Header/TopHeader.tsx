@@ -17,6 +17,7 @@ import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { useRouter } from 'next/navigation'
 import URLQuery from '@/tools/urlquery.tool'
+import DropdownHeaderUser from '@/components/Dropdown/DropdownHeaderUser'
 
 export function TopHeader() {
   const router = useRouter()
@@ -123,16 +124,22 @@ export function TopHeader() {
               <IconNotifications />
             </Button>
 
-            {picture && (
-              <Image
-                src={picture}
-                alt={username}
-                className="rounded-full"
-                width={44}
-                height={44}
-                draggable={false}
-              />
-            )}
+            <DropdownHeaderUser
+              activator={
+                picture && (
+                  <div className="rounded-full">
+                    <Image
+                      src={picture}
+                      alt={username}
+                      className="cursor-pointer select-none rounded-full"
+                      width={44}
+                      height={44}
+                      draggable={false}
+                    />
+                  </div>
+                )
+              }
+            />
           </div>
         </div>
       )}
