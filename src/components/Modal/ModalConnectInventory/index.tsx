@@ -6,7 +6,7 @@ import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { createConfig } from '@/services/Configuracao.service'
 import { shortenUrl } from '@/utils/bitli'
-import InputCheckBox from '@/components/InputCheckBox'
+import Checkbox from '@/components/Checked'
 
 interface IProps {
   activator: React.ReactNode
@@ -66,7 +66,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                 </Title>
               </Dialog.Title>
               <Dialog.Close asChild>
-                <Button className="border-transparent outline-none">
+                <Button className="border-none">
                   <IconClose />
                 </Button>
               </Dialog.Close>
@@ -92,7 +92,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                         onChange={(event) => setLinkTrade(event.target.value)}
                       />
                       <Button
-                        className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2"
+                        className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2 border-none"
                         onClick={() => setLinkTrade('')}
                       >
                         <IconClose />
@@ -123,7 +123,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                 </div>
 
                 <div className="flex flex-col space-y-2 text-white">
-                  <InputCheckBox
+                  <Checkbox
                     label="Deseja receber promoções em seu email?"
                     checked={agreedEmails}
                     onChange={(event: any) =>
@@ -131,7 +131,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                     }
                   />
 
-                  <InputCheckBox
+                  <Checkbox
                     label="Eu concordo com os"
                     label2="Termos de Serviço, Política de Privacidade e Política de Reembolso da RentSkins."
                     checked={agreedTerms}
