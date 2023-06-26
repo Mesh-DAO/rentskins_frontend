@@ -36,7 +36,7 @@ export function ModalConnectInventario({ activator }: IProps) {
             owner_email: email,
             steam_guard: false,
             url_sell: urlSellAwait,
-            url_trade: urlTrade,
+            url_trade: linkTrade,
             agreed_with_emails: agreedEmails,
             agreed_with_terms: agreedTerms,
           })
