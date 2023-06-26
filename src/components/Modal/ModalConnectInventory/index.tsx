@@ -23,19 +23,17 @@ export function ModalConnectInventario({ activator }: IProps) {
       const user = localStorage.getItem('user')
       if (user) {
         const findUser = JSON.parse(user)
-        const urlTrade = await shortenUrl(
-          'https://steamcommunity.com/tradeoffer/new/?partner=1245320150&token=d8vVto9K',
-        )
-        const urlSell = `https://rentskins-frontend.vercel.app/${findUser.steamid}`
-        const urlSellAwait = await shortenUrl(urlSell)
-
-        if (urlTrade && urlSellAwait) {
+        const urlTrade = await shortenUrl(linkTrade)
+        const urlSell = `https://rentskins/?sellerid=${findUser.steamid}`
+        // const urlSellAwait = await shortenUrl(urlSell)
+        console.log(urlTrade)
+        if (urlTrade) {
           const create = await createConfig({
             owner_id: findUser.steamid,
             owner_name: findUser.username,
             owner_email: email,
             steam_guard: false,
-            url_sell: urlSellAwait,
+            url_sell: urlSell,
             url_trade: linkTrade,
             agreed_with_emails: agreedEmails,
             agreed_with_terms: agreedTerms,
