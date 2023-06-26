@@ -17,7 +17,8 @@ export function LayoutPage({ children }: Props) {
   const router = useRouter()
   const params = useSearchParams()
   const pathname = usePathname()
-  const { setUser } = useUserStore()
+
+  const { setUser, logout, setLogout } = useUserStore()
 
   useEffect(() => {
     const steamid = params.get('steamid')
@@ -47,6 +48,14 @@ export function LayoutPage({ children }: Props) {
 
     router.push(URLQuery.removeQuery(['username', 'steamid', 'picture']))
   }, [setUser, params])
+
+  useEffect(() => {
+    if (logout) {
+      LocalStorage.removeItem('user')
+      location.reload()
+      setLogout(false)
+    }
+  }, [logout, setLogout])
 
   const modalRender = () => {
     switch (pathname) {

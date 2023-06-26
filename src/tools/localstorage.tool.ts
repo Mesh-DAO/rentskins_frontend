@@ -17,4 +17,8 @@ export default class LocalStorage {
       return JSON.parse(response as string) as IUser
     }
   }
+
+  public static removeItem(item: string) {
+    localStorage.removeItem(item)
+  }
 }
