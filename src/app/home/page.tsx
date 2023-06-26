@@ -22,10 +22,14 @@ export default function Home() {
     SteamService.redirect()
   }
 
+<<<<<<< HEAD
   const { data, isLoading } = useQuery({
     queryKey: ['skins'],
     queryFn: findByAll,
   })
+=======
+  console.log(user.steamid)
+>>>>>>> origin
 
   return (
     <LayoutPage>
