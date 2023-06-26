@@ -1,6 +1,5 @@
 import React from 'react'
 import { Title } from '../Title'
-import { Input } from '../Input'
 
 type PropsType = {
   label: string
@@ -12,7 +11,7 @@ type PropsType = {
 const Checked = ({ label, checked, label2, onChange }: PropsType) => {
   return (
     <label className="flex items-center space-x-2">
-      <Input
+      <input
         type="checkbox"
         className="!h-5 !w-5 rounded-[4px] border border-mesh-color-neutral-200 px-0 checked:bg-[#B7E03E]"
         checked={checked}

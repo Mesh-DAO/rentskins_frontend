@@ -6,7 +6,7 @@ import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { createConfig } from '@/services/Configuracao.service'
 import { shortenUrl } from '@/utils/bitli'
-import Checkbox from '@/components/Checked'
+import Checked from '@/components/Checked'
 
 interface IProps {
   activator: React.ReactNode
@@ -123,7 +123,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                 </div>
 
                 <div className="flex flex-col space-y-2 text-white">
-                  <Checkbox
+                  <Checked
                     label="Deseja receber promoções em seu email?"
                     checked={agreedEmails}
                     onChange={(event: any) =>
@@ -131,7 +131,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                     }
                   />
 
-                  <Checkbox
+                  <Checked
                     label="Eu concordo com os"
                     label2="Termos de Serviço, Política de Privacidade e Política de Reembolso da RentSkins."
                     checked={agreedTerms}
