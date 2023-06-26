@@ -1,7 +1,7 @@
 'use client'
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
-import InputCheckbox from '@/components/InputCheckbox'
+import InputCheckbox from '@/components/InputCheckboxFilter'
 
 export default function FilterCategory() {
   return (

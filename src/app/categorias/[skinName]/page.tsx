@@ -11,7 +11,6 @@ import { useParams } from 'next/navigation'
 import { findAllSkinsByWeapon } from '@/services/SkinService'
 import { useQuery } from '@tanstack/react-query'
 import useComponentStore from '@/stores/components.store'
-import { useEffect } from 'react'
 import { ISkins } from '@/interfaces/ISkins'
 import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 
@@ -21,14 +20,14 @@ export default function Categorias() {
   const { setAllSkinsCategory, skinsFiltredByPrice } = useComponentStore()
   const { data, isLoading } = useQuery({
     queryKey: ['skinsWeapon'],
-    queryFn: async () => findAllSkinsByWeapon(skinName),
+    queryFn: async () => {
+      const data = await findAllSkinsByWeapon(nameCorrection)
+      setAllSkinsCategory(data?.data as ISkins[])
+      return data
+    },
   })
 
-  useEffect(() => {
-    if (!isLoading) {
-      setAllSkinsCategory(data?.data as ISkins[])
-    }
-  }, [data])
+  console.log(skinsFiltredByPrice)
 
   const allSkinCategories =
     skinsFiltredByPrice.length > 0 ? skinsFiltredByPrice : data?.data

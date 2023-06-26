@@ -2,7 +2,7 @@ interface IProps {
   inputValues: string[]
 }
 
-export default function InputCheckbox({ inputValues }: IProps) {
+export default function InputCheckboxFilter({ inputValues }: IProps) {
   return (
     <div className="grid grid-cols-2 gap-x-10 gap-y-5">
       {inputValues.map((value, idx) => (

@@ -6,13 +6,13 @@ import { useState } from 'react'
 import useComponentStore from '@/stores/components.store'
 
 export default function FilterPrice() {
-  const [minPrice, setMinPrice] = useState<number>()
-  const [maxPrice, setMaxPrice] = useState<number>()
+  const [minPrice, setMinPrice] = useState<number | undefined>()
+  const [maxPrice, setMaxPrice] = useState<number | undefined>()
 
   const { setSkinsFiltredByPrice, setCleanFilter } = useComponentStore()
 
   const handleClickSetFilterPrice = () => {
-    if (minPrice! > 0 && maxPrice! > 0) {
+    if (minPrice! > 0 && maxPrice! > 0 && maxPrice! > minPrice!) {
       setSkinsFiltredByPrice(minPrice!, maxPrice!)
     }
   }

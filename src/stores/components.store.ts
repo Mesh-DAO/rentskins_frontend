@@ -80,11 +80,21 @@ const useComponentStore = create<IStates>((set) => ({
 
   skinsFiltredByPrice: [],
   setSkinsFiltredByPrice: (minPrice: number, maxPrice: number) => {
-    set(({ allSkinsCategory }) => ({
-      skinsFiltredByPrice: allSkinsCategory?.filter(
-        ({ skin_price }) => +skin_price >= minPrice && +skin_price <= maxPrice,
-      ),
-    }))
+    set(({ allSkinsCategory }) => {
+      return {
+        skinsFiltredByPrice: allSkinsCategory?.filter(({ skin_price }) => {
+          console.log(
+            +skin_price.replace(',', '.') >= minPrice / 1 &&
+              +skin_price <= maxPrice / 1,
+          )
+          console.log(minPrice)
+          console.log(maxPrice)
+          return (
+            +skin_price.replace(',', '.') >= minPrice && +skin_price <= maxPrice
+          )
+        }),
+      }
+    })
   },
 
   setCleanFilter: (selectedArray: string) => {

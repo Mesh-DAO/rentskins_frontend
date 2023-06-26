@@ -10,5 +10,5 @@ export function findById(id: string) {
 }
 
 export async function findAllSkinsByWeapon(weapon: string) {
-  return Api.get<ISkins[]>(`/v1/skins/${weapon}`)
+  return Api.get<ISkins[]>(`/v1/skins/weapon/${weapon}`)
 }

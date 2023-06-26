@@ -12,14 +12,12 @@ interface IProps {
   skinsCategories: ISkins[] | undefined
   center?: boolean
   itemsPerPage: number
-  isLoading: boolean
 }
 
 export default function AllSkins({
   skinsCategories,
   center = false,
   itemsPerPage = 10,
-  isLoading,
 }: IProps) {
   // const { setPageSelectorIndex, pageSelectorIndex } = useComponentStore()
 
@@ -31,7 +29,6 @@ export default function AllSkins({
   //     !name.includes('Pin') &&
   //     !name.includes('Graffiti'),
   // )
-  console.log(isLoading)
 
   return (
     <div className="flex w-full flex-col items-center">
