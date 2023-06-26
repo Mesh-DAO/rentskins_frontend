@@ -1,7 +1,6 @@
 'use client'
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
-import InputCheckbox from '../../../InputCheckBox'
 
 export default function FilterCategory() {
   return (
@@ -11,7 +10,7 @@ export default function FilterCategory() {
           Categoria
         </Title>
         <div className="flex w-full items-center gap-5">
-          <InputCheckbox inputValues={['Adesivos', 'StatTrak']} />
+          {/* <InputCheckbox inputValues={['Adesivos', 'StatTrak']} /> */}
         </div>
       </div>
       <div className="flex justify-end gap-3">

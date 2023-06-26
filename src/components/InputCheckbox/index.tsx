@@ -1,27 +1,28 @@
-interface IProps {
-  inputValues: string[]
+import React from 'react'
+import { Title } from '../Title'
+
+type PropsType = {
+  label: string
+  label2?: string
+  checked: boolean
+  onChange?: any
 }
 
-export default function InputCheckbox({ inputValues }: IProps) {
+const InputCheckBox = ({ label, label2, checked, onChange }: PropsType) => {
   return (
-    <div className="grid grid-cols-2 gap-x-10 gap-y-5">
-      {inputValues.map((value, idx) => (
-        <label
-          key={`${value}-${idx}`}
-          className="group flex cursor-pointer items-center gap-2 text-white"
-        >
-          <div className="flex items-center justify-center">
-            <input
-              type="checkbox"
-              value={value}
-              className="peer absolute z-[-1]"
-            />
-            <div className="flex h-5 w-5 items-start justify-center rounded border border-mesh-color-neutral-400 transition-all group-hover:bg-mesh-color-primary-100 peer-checked:bg-mesh-color-primary-1200"></div>
-            <div className="absolute mb-1 h-2 w-3 -rotate-45 border-black peer-checked:border-b-2 peer-checked:border-l-2" />
-          </div>
-          {value}
-        </label>
-      ))}
-    </div>
+    <label className="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        className="form-checkbox border-text-mesh-color-neutral-200 h-5 w-5 rounded-[4px] border checked:bg-blue-500"
+        checked={checked}
+        onChange={onChange}
+      />
+      <Title className="text-mesh-color-neutral-200">
+        {label}
+        <span className="text-[#B7E03E]">{label2}</span>
+      </Title>
+    </label>
   )
 }
+
+export default InputCheckBox

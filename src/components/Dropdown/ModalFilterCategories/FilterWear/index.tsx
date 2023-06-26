@@ -1,7 +1,6 @@
 'use client'
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
-import InputCheckbox from '../../../InputCheckBox'
 
 export default function FilterWear() {
   return (
@@ -11,7 +10,7 @@ export default function FilterWear() {
           Desgaste
         </Title>
         <div className="flex w-full items-center gap-5">
-          <InputCheckbox
+          {/* <InputCheckbox
             inputValues={[
               'Nova de fábrica',
               'Bem usada',
@@ -19,7 +18,7 @@ export default function FilterWear() {
               'Pouco usada',
               'Muito usada',
             ]}
-          />
+          /> */}
         </div>
       </div>
       <div className="flex justify-end gap-3">
