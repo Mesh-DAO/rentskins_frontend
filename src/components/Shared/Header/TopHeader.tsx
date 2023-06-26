@@ -13,7 +13,6 @@ import { IconCruz } from '@/components/Icons/IconCruz'
 import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
-import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { usePathname, useRouter } from 'next/navigation'
 
@@ -35,8 +34,6 @@ export function TopHeader() {
   }
 
   useEffect(() => {
-    const user = LocalStorage.getUser()
-
     if (user !== undefined && user !== null) {
       setUsername(user.username)
       setPicture(user.picture)

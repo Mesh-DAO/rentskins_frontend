@@ -1,13 +1,16 @@
-export interface IUser {
-  steamid: string | number
-  picture: string
-  username: string
-}
+import { IUser } from '@/stores/interfaces/user.interface'
 
 export default class LocalStorage {
-  public static setUser({ steamid, picture, username }: IUser) {
-    const user = { steamid, picture, username }
-    localStorage.setItem('user', JSON.stringify(user))
+  public static create(key: string, value: object | string) {
+    localStorage.setItem(key, JSON.stringify(value))
+  }
+
+  public static get(key: string) {
+    const response = localStorage.getItem(key)
+
+    if (response !== null || response !== undefined) {
+      return JSON.parse(response as string)
+    }
   }
 
   public static getUser() {

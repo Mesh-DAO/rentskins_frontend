@@ -6,6 +6,8 @@ import { useSearchParams } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
+import JsonWebToken from '@/tools/jsonwebtoken.tool'
+import { IUser } from '@/stores/interfaces/user.interface'
 
 type Props = {
   children: React.ReactNode
@@ -16,26 +18,46 @@ export function LayoutPage({ children }: Props) {
   const { setUser } = useUserStore()
 
   useEffect(() => {
-    const steamid = params.get('steamid')
-    const picture = params.get('picture')
-    const username = params.get('username')
-    const user = LocalStorage.getUser()
+    const tokenOnURL = params.get('token')
 
-    if (user !== undefined) {
+    const createUserInStore = (verification: IUser) => {
       setUser({
-        username: user.username,
-        picture: user.picture,
-        steamid: user.steamid,
+        username: verification.username,
+        picture: verification.picture,
+        steamid: verification.steamid,
       })
-    } else {
-      if (steamid && picture && username) {
-        LocalStorage.setUser({ steamid, picture, username })
+    }
 
-        setUser({
-          username,
-          picture,
-          steamid,
-        })
+    if (tokenOnURL) {
+      const verification = JsonWebToken.verify(tokenOnURL) as IUser
+
+      if (
+        verification !== null &&
+        verification !== undefined &&
+        verification.steamid
+      ) {
+        LocalStorage.create('token', tokenOnURL)
+        createUserInStore(verification)
+        console.log('User first login')
+      }
+    } else {
+      const storage = LocalStorage.get('token')
+
+      if (storage !== null && storage !== undefined) {
+        const verification = JsonWebToken.verify(storage) as IUser
+
+        if (
+          verification !== null &&
+          verification !== undefined &&
+          verification.steamid
+        ) {
+          createUserInStore(verification)
+          console.log('User returning login')
+        } else {
+          console.log('User not logged in.')
+        }
+      } else {
+        console.log('User not logged in')
       }
     }
   }, [setUser, params])

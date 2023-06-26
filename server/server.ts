@@ -1,3 +1,4 @@
+import JsonWebToken from '@/tools/jsonwebtoken.tool'
 import fastify from 'fastify'
 import SteamAuth from 'node-steam-openid'
 
@@ -22,9 +23,15 @@ app.get('/auth/steam/authenticate/callback', async (req, res) => {
   try {
     const user = await steam.authenticate(req)
 
-    return res.redirect(
-      `http://localhost:3000/?steamid=${user.steamid}&picture=${user.avatar.large}&username=${user.username}`,
-    )
+    const data = {
+      username: user.username,
+      picture: user.avatar.large,
+      steamid: user.steamid,
+    }
+
+    const token = JsonWebToken.create(data)
+
+    return res.redirect(`http://localhost:3000/?token=${token}`)
   } catch (error) {
     console.error(error)
   }
