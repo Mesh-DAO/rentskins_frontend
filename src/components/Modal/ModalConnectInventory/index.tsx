@@ -3,35 +3,49 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { IconClose } from '@/components/Icons/IconClose'
 import { Title } from '@/components/Title'
 import { Input } from '@/components/Input'
-import { InputRadio } from '@/components/InputRadio'
 import { Button } from '@/components/Button'
-// import { createdConfig } from '@/services/Configuracao.service'
+import { createConfig } from '@/services/Configuracao.service'
+import { shortenUrl } from '@/utils/bitli'
+import InputCheckBox from '@/components/InputCheckBox'
 
 interface IProps {
   activator: React.ReactNode
 }
 
-//    owner_id,
-//   owner_name,
-//   owner_email,
-//   steam_guard,
-//   url_sell,
-//   url_trade,
-
 export function ModalConnectInventario({ activator }: IProps) {
   const [linkTrade, setLinkTrade] = useState<string>('')
   const [email, setEmail] = useState<string>('')
-  console.log(linkTrade)
+  const [agreedTerms, setAgreedTerms] = useState<boolean>(false)
+  const [agreedEmails, setAgreedEmails] = useState<boolean>(false)
 
   async function onSubmit() {
     try {
       const user = localStorage.getItem('user')
       if (user) {
         const findUser = JSON.parse(user)
-        console.log(findUser)
-        // const created = await createdConfig(user.steamid, user.username)
+        const urlTrade = await shortenUrl(
+          'https://steamcommunity.com/tradeoffer/new/?partner=1245320150&token=d8vVto9K',
+        )
+        const urlSell = `https://rentskins-frontend.vercel.app/${findUser.steamid}`
+        const urlSellAwait = await shortenUrl(urlSell)
+
+        if (urlTrade && urlSellAwait) {
+          const create = await createConfig({
+            owner_id: findUser.steamid,
+            owner_name: findUser.username,
+            owner_email: email,
+            steam_guard: false,
+            url_sell: urlSellAwait,
+            url_trade: urlTrade,
+            agreed_with_emails: agreedEmails,
+            agreed_with_terms: agreedTerms,
+          })
+          return create
+        }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -77,7 +91,10 @@ export function ModalConnectInventario({ activator }: IProps) {
                         value={linkTrade}
                         onChange={(event) => setLinkTrade(event.target.value)}
                       />
-                      <Button className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2">
+                      <Button
+                        className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2"
+                        onClick={() => setLinkTrade('')}
+                      >
                         <IconClose />
                       </Button>
                     </div>
@@ -105,29 +122,23 @@ export function ModalConnectInventario({ activator }: IProps) {
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <InputRadio
-                    name="promo"
-                    radio="filter"
-                    className="text-white"
-                  >
-                    <Title className="ml-2">
-                      Deseja receber promoções em seu email?
-                    </Title>
-                  </InputRadio>
-                  <InputRadio
-                    name="termos"
-                    radio="filter"
-                    className="text-white"
-                  >
-                    <Title className="ml-2">
-                      Eu concordo com os{' '}
-                      <span className="text-mesh-color-primary-1400">
-                        Termos de Serviço, Política de Privacidade e Política de
-                        Reembolso da RentSkins.
-                      </span>
-                    </Title>
-                  </InputRadio>
+                <div className="flex flex-col space-y-2 text-white">
+                  <InputCheckBox
+                    label="Deseja receber promoções em seu email?"
+                    checked={agreedEmails}
+                    onChange={(event: any) =>
+                      setAgreedEmails(event.target.checked)
+                    }
+                  />
+
+                  <InputCheckBox
+                    label="Eu concordo com os"
+                    label2="Termos de Serviço, Política de Privacidade e Política de Reembolso da RentSkins."
+                    checked={agreedTerms}
+                    onChange={(event: any) =>
+                      setAgreedTerms(event.target.checked)
+                    }
+                  />
                 </div>
                 <Button
                   onClick={onSubmit}

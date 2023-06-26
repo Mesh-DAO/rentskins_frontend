@@ -24,6 +24,7 @@ export default function Details() {
     queryKey: ['weapon', weaponName],
     queryFn: async () => await findByWeapon(weaponName),
   })
+
   return (
     <LayoutPage>
       {!isLoading && data?.data ? (

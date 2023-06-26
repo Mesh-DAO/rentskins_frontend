@@ -67,7 +67,6 @@ export default function AllSkins({
                 skin_float,
                 skin_price,
                 skin_weapon,
-                seller_id,
                 id,
               }: ISkins,
               index: number,
@@ -78,21 +77,18 @@ export default function AllSkins({
               //   itemIndex <= itemsPerPage * pageSelectorIndex
               // )
               return (
-                <>
-                  <Link key={index} href={`/details/${id}`}>
-                    <CardSkin
-                      skinImage={skin_image}
-                      sellerName={skin_name}
-                      skinColor={skin_color}
-                      skinWeapon={skin_weapon}
-                      skinFloat={skin_float}
-                      skinPrice={skin_price}
-                      key={`${skin_name}-${index}`}
-                    />
-                  </Link>
-                </>
+                <Link key={index} href={`/details/${id}`}>
+                  <CardSkin
+                    skinImage={skin_image}
+                    sellerName={skin_name}
+                    skinColor={skin_color}
+                    skinWeapon={skin_weapon}
+                    skinFloat={skin_float}
+                    skinPrice={skin_price}
+                    key={`${skin_name}-${index}`}
+                  />
+                </Link>
               )
-              // return null
             },
           )}
       </div>

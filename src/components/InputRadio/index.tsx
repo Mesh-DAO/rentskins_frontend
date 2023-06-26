@@ -8,6 +8,8 @@ interface Props {
   style?: string
   radio?: string
   name: string
+  checked?: boolean
+  onChange?: any
 }
 
 export function InputRadio({
@@ -16,6 +18,7 @@ export function InputRadio({
   style,
   radio,
   name,
+  onChange,
   defaultChecked,
 }: Props) {
   return (
