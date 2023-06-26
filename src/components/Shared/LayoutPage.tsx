@@ -6,10 +6,7 @@ import { useSearchParams, usePathname } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
-import {
-  ModalNotification,
-  ModalNotificationFilter,
-} from '../Modal/ModalNotification/index.filter'
+import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
 
 type Props = {
   children: React.ReactNode
