@@ -2,10 +2,11 @@
 import Header from './Header'
 import { Footer } from '../Footer'
 import React, { useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, usePathname } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
+import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
 
 type Props = {
   children: React.ReactNode
@@ -13,6 +14,7 @@ type Props = {
 
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
+  const pathname = usePathname()
   const { setUser } = useUserStore()
 
   useEffect(() => {
@@ -21,12 +23,14 @@ export function LayoutPage({ children }: Props) {
     const username = params.get('username')
     const user = LocalStorage.getUser()
 
-    if (user !== undefined) {
-      setUser({
-        username: user.username,
-        picture: user.picture,
-        steamid: user.steamid,
-      })
+    if (user !== undefined && user !== null) {
+      if (user.username && user.picture && user.steamid) {
+        setUser({
+          username: user.username,
+          picture: user.picture,
+          steamid: user.steamid,
+        })
+      }
     } else {
       if (steamid && picture && username) {
         LocalStorage.setUser({ steamid, picture, username })
@@ -40,10 +44,17 @@ export function LayoutPage({ children }: Props) {
     }
   }, [setUser, params])
 
+  const modalRender = () => {
+    switch (pathname) {
+      case '/usuario/notificacoes':
+        return <ModalNotificationFilter />
+    }
+  }
+
   return (
     <div className="min-h-screen bg-mesh-color-others-black">
       <ModalPayment />
-
+      {modalRender()}
       <Header />
       {children}
       <Footer />
