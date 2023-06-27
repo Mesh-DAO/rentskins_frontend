@@ -39,7 +39,7 @@ export default function FilterPrice() {
       </div>
       <div className="flex justify-end gap-3">
         <Button
-          onClick={() => setCleanFilter('skinsFiltredByPrice')}
+          onClick={() => setCleanFilter('skinsFiltred')}
           className="h-11 w-32 font-bold text-white"
         >
           Limpar

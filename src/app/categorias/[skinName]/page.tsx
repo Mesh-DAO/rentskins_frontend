@@ -17,7 +17,12 @@ import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 export default function Categorias() {
   const { skinName } = useParams()
   const nameCorrection = decodeURIComponent(skinName.replace(/\+/g, ' '))
-  const { setAllSkinsCategory, skinsFiltredByPrice } = useComponentStore()
+  const {
+    setAllSkinsCategory,
+    // skinsFiltredByPrice,
+    skinsFiltredByCategory,
+    // skinsFiltredByWear,
+  } = useComponentStore()
   const { data, isLoading } = useQuery({
     queryKey: ['skinsWeapon'],
     queryFn: async () => {
@@ -27,10 +32,8 @@ export default function Categorias() {
     },
   })
 
-  console.log(skinsFiltredByPrice)
-
   const allSkinCategories =
-    skinsFiltredByPrice.length > 0 ? skinsFiltredByPrice : data?.data
+    skinsFiltredByCategory.length > 0 ? skinsFiltredByCategory : data?.data
 
   return (
     <LayoutPage>

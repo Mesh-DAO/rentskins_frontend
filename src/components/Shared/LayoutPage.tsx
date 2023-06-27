@@ -21,7 +21,7 @@ export function LayoutPage({ children }: Props) {
     const username = params.get('username')
     const user = LocalStorage.getUser()
 
-    if (user !== undefined) {
+    if (user!) {
       setUser({
         username: user.username,
         picture: user.picture,

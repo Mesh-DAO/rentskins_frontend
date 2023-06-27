@@ -27,6 +27,10 @@ interface IStates {
   setFilterType: (type: 0 | 1 | 2) => void
   skinsFiltredByPrice: ISkins[]
   setSkinsFiltredByPrice: (minPrice: number, maxPrice: number) => void
+  skinsFiltredByWear: ISkins[]
+  setSkinsFiltredByWear: (...wears: string[]) => void
+  skinsFiltredByCategory: ISkins[]
+  setSkinsFiltredByCategory: (...categories: string[]) => void
   allSkinsCategory: ISkins[] | undefined
   setAllSkinsCategory: (skins: ISkins[]) => void
   setCleanFilter: (selectedArray: string) => void
@@ -80,21 +84,33 @@ const useComponentStore = create<IStates>((set) => ({
 
   skinsFiltredByPrice: [],
   setSkinsFiltredByPrice: (minPrice: number, maxPrice: number) => {
-    set(({ allSkinsCategory }) => {
-      return {
-        skinsFiltredByPrice: allSkinsCategory?.filter(({ skin_price }) => {
-          console.log(
-            +skin_price.replace(',', '.') >= minPrice / 1 &&
-              +skin_price <= maxPrice / 1,
-          )
-          console.log(minPrice)
-          console.log(maxPrice)
-          return (
-            +skin_price.replace(',', '.') >= minPrice && +skin_price <= maxPrice
-          )
-        }),
-      }
-    })
+    set(({ allSkinsCategory }) => ({
+      skinsFiltredByPrice: allSkinsCategory?.filter(
+        ({ skin_price }) =>
+          +skin_price.replace(',', '.') >= minPrice &&
+          +skin_price.replace(',', '.') <= maxPrice,
+      ),
+    }))
+  },
+
+  skinsFiltredByWear: [],
+  setSkinsFiltredByWear: (...wears: string[]) => {
+    set(({ allSkinsCategory }) => ({
+      skinsFiltredByWear: allSkinsCategory?.filter(({ status_float }) =>
+        wears.includes(status_float),
+      ),
+    }))
+  },
+
+  skinsFiltredByCategory: [],
+  setSkinsFiltredByCategory: (...categories: string[]) => {
+    console.log(categories[0])
+    set(({ allSkinsCategory }) => ({
+      skinsFiltredByCategory: allSkinsCategory?.filter(({ skin_name }) => {
+        console.log(skin_name)
+        return skin_name.includes(categories[0])
+      }),
+    }))
   },
 
   setCleanFilter: (selectedArray: string) => {
