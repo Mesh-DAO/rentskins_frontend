@@ -23,7 +23,7 @@ export function TopHeader() {
 
   const refDropdown = useRef(null)
 
-  const { user } = useUserStore()
+  const { user, setLogout } = useUserStore()
 
   const [username, setUsername] = useState('')
   const [picture, setPicture] = useState('')
@@ -34,7 +34,7 @@ export function TopHeader() {
   }
 
   const handleOnProfileClick = () => {
-    setShowProfileDropdown(true)
+    setShowProfileDropdown((state) => !state)
   }
 
   const handleOnAdd = () => {
@@ -50,10 +50,10 @@ export function TopHeader() {
     switch (type) {
       case 'config':
         return router.push('usuario/configuracoes')
-      // case 'profile':
-      //   return router.push('usuario/')
-      case 'logout':
+      case 'profile':
         return console.log('ok')
+      case 'logout':
+        return setLogout(true)
     }
   }
 
@@ -171,7 +171,7 @@ export function TopHeader() {
               </div>
               {showProfileDropdown && (
                 <div
-                  className="absolute top-24 z-30 flex h-36 w-48 select-none flex-col items-start justify-center gap-2 overflow-hidden
+                  className="absolute top-20 z-30 flex h-36 w-48 select-none flex-col items-start justify-center gap-2 overflow-hidden
                   rounded-lg bg-mesh-color-others-eerie-black px-3 py-2"
                   ref={refDropdown}
                 >

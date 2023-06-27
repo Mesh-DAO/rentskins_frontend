@@ -17,7 +17,8 @@ type Props = {
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
-  const { setUser } = useUserStore()
+
+  const { setUser, logout, setLogout } = useUserStore()
 
   useEffect(() => {
     const tokenOnURL = params.get('token')
@@ -63,6 +64,14 @@ export function LayoutPage({ children }: Props) {
       }
     }
   }, [setUser, params])
+
+  useEffect(() => {
+    if (logout) {
+      LocalStorage.remove('token')
+      location.reload()
+      setLogout(false)
+    }
+  }, [logout, setLogout])
 
   const modalRender = () => {
     switch (pathname) {
