@@ -2,13 +2,14 @@
 import Header from './Header'
 import { Footer } from '../Footer'
 import React, { useEffect } from 'react'
-import { useSearchParams, usePathname } from 'next/navigation'
+import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
 import JsonWebToken from '@/tools/jsonwebtoken.tool'
 import { IUser } from '@/stores/interfaces/user.interface'
 import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
+import URLQuery from '@/tools/urlquery.tool'
 
 type Props = {
   children: React.ReactNode
@@ -17,8 +18,9 @@ type Props = {
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
+  const router = useRouter()
 
-  const { setUser } = useUserStore()
+  const { setUser, logout, setLogout } = useUserStore()
 
   useEffect(() => {
     const tokenOnURL = params.get('token')
@@ -63,7 +65,19 @@ export function LayoutPage({ children }: Props) {
         console.log('User not logged in')
       }
     }
-  }, [setUser, params])
+
+    if (tokenOnURL) {
+      router.push(URLQuery.removeQuery(['token']))
+    }
+  }, [setUser, params, router])
+
+  useEffect(() => {
+    if (logout) {
+      LocalStorage.remove('token')
+      location.reload()
+      setLogout(false)
+    }
+  }, [logout, setLogout])
 
   const modalRender = () => {
     switch (pathname) {
