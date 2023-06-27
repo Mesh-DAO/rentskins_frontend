@@ -4,13 +4,11 @@ import { Card, InfoPerfil, InfoVendas, InfoSkin } from '@/components/Details'
 import { SkinsSemelhantes } from '@/components/SkinsSemelhantes'
 import { Title } from '@/components/Title'
 import { LayoutPage } from '@/components/Shared/LayoutPage'
-import { findByAll, findById } from '@/services/SkinService'
+import { findById, findByWeapon } from '@/services/SkinService'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
 import { IconArrow } from '@/components/Icons'
 import Link from 'next/link'
-
-// https://steamcommunity-a.akamaihd.net/economy/image/
 
 export default function Details() {
   const { id } = useParams()
@@ -20,9 +18,11 @@ export default function Details() {
     queryFn: async () => await findById(id),
   })
 
+  const weaponName = data?.data[0].skin_weapon
+
   const { data: data2 } = useQuery({
-    queryKey: ['skins'],
-    queryFn: async () => await findByAll(),
+    queryKey: ['weapon', weaponName],
+    queryFn: async () => await findByWeapon(weaponName),
   })
 
   return (
@@ -34,18 +34,18 @@ export default function Details() {
               <IconArrow />
             </Link>
             <Title color="cinza">
-              Home &bull; {data?.data.skin_weapon} &bull;{' '}
-              <span className="text-[#49E671]">{data?.data.skin_name}</span>
+              Home &bull; {data?.data[0].skin_weapon} &bull;{' '}
+              <span className="text-[#49E671]">{data?.data[0].skin_name}</span>
             </Title>
           </div>
 
           <div className="mx-auto grid w-full grid-cols-5 py-10">
             <div className="col-span-3">
               <Card
-                skinImage={data!.data.skin_image}
-                skinName={data!.data.skin_name}
-                skinLinkGame={data!.data.skin_link_game}
-                skinLinkSteam={data!.data.skin_link_steam}
+                skinImage={data!.data[0].skin_image}
+                skinName={data!.data[0].skin_name}
+                skinLinkGame={data!.data[0].skin_link_game}
+                skinLinkSteam={data!.data[0].skin_link_steam}
               />
 
               <div>
@@ -54,14 +54,14 @@ export default function Details() {
             </div>
             <div className="col-span-2 ml-4">
               <InfoSkin
-                skinName={data!.data.skin_name}
-                skinPrice={data!.data.skin_price}
-                skinFloat={data!.data.skin_float}
-                skinCategory={data!.data.skin_category}
-                skinWeapon={data!.data.skin_weapon}
-                skinColor={data!.data.skin_color}
-                sellerId={data!.data.seller_id}
-                statusFloat={data!.data.status_float}
+                skinName={data!.data[0].skin_name}
+                skinPrice={data!.data[0].skin_price}
+                skinFloat={data!.data[0].skin_float}
+                skinCategory={data!.data[0].skin_category}
+                skinWeapon={data!.data[0].skin_weapon}
+                skinColor={data!.data[0].skin_color}
+                sellerId={data!.data[0].seller_id}
+                statusFloat={data!.data[0].status_float}
               />
               <InfoPerfil />
             </div>

@@ -1,16 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { IconClose } from '@/components/Icons/IconClose'
 import { Title } from '@/components/Title'
 import { Input } from '@/components/Input'
-import { InputRadio } from '@/components/InputRadio'
 import { Button } from '@/components/Button'
+import { createConfig } from '@/services/Configuracao.service'
+import { shortenUrl } from '@/utils/bitli'
+import Checked from '@/components/Checked'
 
 interface IProps {
   activator: React.ReactNode
 }
 
 export function ModalConnectInventario({ activator }: IProps) {
+  const [linkTrade, setLinkTrade] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  const [agreedTerms, setAgreedTerms] = useState<boolean>(false)
+  const [agreedEmails, setAgreedEmails] = useState<boolean>(false)
+
+  async function onSubmit() {
+    try {
+      const user = localStorage.getItem('user')
+      if (user) {
+        const findUser = JSON.parse(user)
+        const urlTrade = await shortenUrl(linkTrade)
+        const urlSell = `https://rentskins/?sellerid=${findUser.steamid}`
+        // const urlSellAwait = await shortenUrl(urlSell)
+        console.log(urlTrade)
+        if (urlTrade) {
+          const create = await createConfig({
+            owner_id: findUser.steamid,
+            owner_name: findUser.username,
+            owner_email: email,
+            steam_guard: false,
+            url_sell: urlSell,
+            url_trade: linkTrade,
+            agreed_with_emails: agreedEmails,
+            agreed_with_terms: agreedTerms,
+          })
+          return create
+        }
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>{activator}</Dialog.Trigger>
@@ -29,7 +64,7 @@ export function ModalConnectInventario({ activator }: IProps) {
                 </Title>
               </Dialog.Title>
               <Dialog.Close asChild>
-                <Button className="border-transparent outline-none">
+                <Button className="border-none">
                   <IconClose />
                 </Button>
               </Dialog.Close>
@@ -51,8 +86,13 @@ export function ModalConnectInventario({ activator }: IProps) {
                       <Input
                         className="w-10/12  bg-mesh-color-neutral-500 text-base text-mesh-color-neutral-100 placeholder:text-mesh-color-neutral-100"
                         placeHolder="https://steamcommunity.com/tradeoffer/new/?partner=240416830&token=vzAomQ5n"
+                        value={linkTrade}
+                        onChange={(event) => setLinkTrade(event.target.value)}
                       />
-                      <Button className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2">
+                      <Button
+                        className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2 border-none"
+                        onClick={() => setLinkTrade('')}
+                      >
                         <IconClose />
                       </Button>
                     </div>
@@ -75,34 +115,33 @@ export function ModalConnectInventario({ activator }: IProps) {
                   <Input
                     className="w-1/3 rounded-lg bg-mesh-color-neutral-500 text-base text-mesh-color-neutral-100 placeholder:text-mesh-color-neutral-100"
                     placeHolder="SeuEmail@gmail.com"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <InputRadio
-                    name="promo"
-                    radio="filter"
-                    className="text-white"
-                  >
-                    <Title className="ml-2">
-                      Deseja receber promoções em seu email?
-                    </Title>
-                  </InputRadio>
-                  <InputRadio
-                    name="termos"
-                    radio="filter"
-                    className="text-white"
-                  >
-                    <Title className="ml-2">
-                      Eu concordo com os{' '}
-                      <span className="text-mesh-color-primary-1400">
-                        Termos de Serviço, Política de Privacidade e Política de
-                        Reembolso da RentSkins.
-                      </span>
-                    </Title>
-                  </InputRadio>
+                <div className="flex flex-col space-y-2 text-white">
+                  <Checked
+                    label="Deseja receber promoções em seu email?"
+                    checked={agreedEmails}
+                    onChange={(event: any) =>
+                      setAgreedEmails(event.target.checked)
+                    }
+                  />
+
+                  <Checked
+                    label="Eu concordo com os"
+                    label2="Termos de Serviço, Política de Privacidade e Política de Reembolso da RentSkins."
+                    checked={agreedTerms}
+                    onChange={(event: any) =>
+                      setAgreedTerms(event.target.checked)
+                    }
+                  />
                 </div>
-                <Button className="h-11 w-1/4 bg-mesh-color-primary-1400 font-bold text-mesh-color-neutral-300">
+                <Button
+                  onClick={onSubmit}
+                  className="h-11 w-1/4 bg-mesh-color-primary-1400 font-bold text-mesh-color-neutral-300"
+                >
                   Concluir
                 </Button>
               </div>

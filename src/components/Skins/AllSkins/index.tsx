@@ -67,7 +67,6 @@ export default function AllSkins({
                 skin_float,
                 skin_price,
                 skin_weapon,
-                seller_id,
                 id,
               }: ISkins,
               index: number,
@@ -92,7 +91,6 @@ export default function AllSkins({
                   </Link>
                 </>
               )
-              // return null
             },
           )}
       </div>
