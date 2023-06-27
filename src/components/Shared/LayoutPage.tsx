@@ -12,7 +12,7 @@ import { IUser } from '@/stores/interfaces/user.interface'
 type Props = {
   children: React.ReactNode
 }
-
+//
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
   const { setUser } = useUserStore()
