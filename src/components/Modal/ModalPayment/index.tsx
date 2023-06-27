@@ -5,14 +5,21 @@ import { ModalPaymentCheck } from './PaymentCheck'
 import { ModalPaymentAdd } from './PaymentAdd'
 import { ModalPaymentRetrieve } from './PaymentRetrieve'
 import useComponentStore from '@/stores/components.store'
-import { useSearchParams, usePathname, useRouter } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
+import URLQuery from '@/tools/urlquery.tool'
+import Aos from 'aos'
 
 export function ModalPayment() {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    })
+  }, [])
+
   const [modalOpen, setModalOpen] = useState<string | undefined>('')
   const [modalType, setModalType] = useState<string | undefined>('')
 
   const searchParams = useSearchParams()
-  const pathname = usePathname()
   const router = useRouter()
 
   const {
@@ -24,7 +31,7 @@ export function ModalPayment() {
   useEffect(() => {
     setDomainQuery()
     handleModalOnClose()
-  }, [])
+  }, [location.search])
 
   const setDomainQuery = () => {
     setModalOpen(
@@ -37,7 +44,7 @@ export function ModalPayment() {
   }
 
   const removeDomainQuery = () => {
-    router.push(pathname)
+    router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
   }
 
   const handleModalOnClose = () => {
@@ -54,7 +61,7 @@ export function ModalPayment() {
     >
       <Dialog.Portal>
         <Dialog.Overlay
-          className="fixed inset-0 flex bg-black/70 transition-all"
+          className="fixed inset-0 z-20 flex bg-black/70 transition-all"
           onClick={() => removeDomainQuery()}
         />
         {paymentGeneralIndex === 0 && <ModalPaymentCheck />}

@@ -1,5 +1,6 @@
 import { Title } from '../../Title'
 import TransactionsTable from './table'
+import { weaponsMock } from './transactions.mock'
 
 export function SettingsTransactions() {
   return (
@@ -13,27 +14,27 @@ export function SettingsTransactions() {
         <table className="w-full select-none text-center">
           <thead className="px-4">
             <tr>
-              <th className="px-4 py-2 text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
+              <th className="text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
                 Item
               </th>
-              <th className="px-4 py-2 text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
+              <th className="text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
                 Descrição
               </th>
-              <th className="px-4 py-2 text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
+              <th className="text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
                 Arma
               </th>
-              <th className="px-4 py-2 text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
+              <th className="text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
                 Status
               </th>
-              <th className="px-4 py-2 text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
+              <th className="text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
                 Preço
               </th>
-              <th className="px-4 py-2 text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
+              <th className="text-center text-lg font-medium tracking-wider text-mesh-color-neutral-200">
                 Tipo
               </th>
             </tr>
           </thead>
-          {<TransactionsTable />}
+          {<TransactionsTable data={weaponsMock} />}
         </table>
       </div>
     </div>
