@@ -77,7 +77,10 @@ export function ModalConnectInventario({ activator }: IProps) {
               </Dialog.Close>
             </div>
             {/* MIDDLE */}
-            <div className="flex h-full w-11/12 items-start justify-between">
+            <form
+              onSubmit={onSubmit}
+              className="flex h-full w-11/12 items-start justify-between"
+            >
               <div className="flex h-full w-11/12 flex-col gap-7 ">
                 <div className=" space-y-2">
                   {/* CHANGE COLOR */}
@@ -146,13 +149,13 @@ export function ModalConnectInventario({ activator }: IProps) {
                   />
                 </div>
                 <Button
-                  onClick={onSubmit}
+                  type="submit"
                   className="h-11 w-1/4 bg-mesh-color-primary-1400 font-bold text-mesh-color-neutral-300"
                 >
                   Concluir
                 </Button>
               </div>
-            </div>
+            </form>
             {/* DIVISOR */}
             <div />
           </div>
