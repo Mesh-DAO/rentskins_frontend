@@ -67,7 +67,6 @@ export default function AllSkins({
                 skin_float,
                 skin_price,
                 skin_weapon,
-                seller_id,
                 id,
               }: ISkins,
               index: number,
@@ -79,7 +78,7 @@ export default function AllSkins({
               // )
               return (
                 <>
-                  <Link key={index} href={`/details/${id}`}>
+                  <Link key={'skin-' + id} href={`/details/${id}`}>
                     <CardSkin
                       skinImage={skin_image}
                       sellerName={skin_name}
@@ -92,7 +91,6 @@ export default function AllSkins({
                   </Link>
                 </>
               )
-              // return null
             },
           )}
       </div>

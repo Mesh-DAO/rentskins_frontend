@@ -1,12 +1,10 @@
 import classNames from 'classnames'
 import React from 'react'
 
-type Props = {
-  className?: string
-  type?: string
-  placeHolder?: string
-  name?: string
-}
+type Props = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+> & { placeHolder?: string }
 
 export function Input({
   className,

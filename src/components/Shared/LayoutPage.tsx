@@ -2,19 +2,21 @@
 import Header from './Header'
 import { Footer } from '../Footer'
 import React, { useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, usePathname } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
 import JsonWebToken from '@/tools/jsonwebtoken.tool'
 import { IUser } from '@/stores/interfaces/user.interface'
+import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
 
 type Props = {
   children: React.ReactNode
 }
-//
+
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
+  const pathname = usePathname()
   const { setUser } = useUserStore()
 
   useEffect(() => {
@@ -62,10 +64,17 @@ export function LayoutPage({ children }: Props) {
     }
   }, [setUser, params])
 
+  const modalRender = () => {
+    switch (pathname) {
+      case '/usuario/notificacoes':
+        return <ModalNotificationFilter />
+    }
+  }
+
   return (
     <div className="min-h-screen bg-mesh-color-others-black">
       <ModalPayment />
-
+      {modalRender()}
       <Header />
       {children}
       <Footer />

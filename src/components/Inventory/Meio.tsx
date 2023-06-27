@@ -1,12 +1,13 @@
 'use client'
 
 import { Button } from '../Button'
+import { ModalConnectInventario } from '../Modal'
 import { ModalAddSkin } from '../Modal/ModalAddSkin'
 import { Title } from '../Title'
 import { CardSkinInventory } from './CardSkinInventory'
 
 export function Meio() {
-  const num = 1
+  const num = 2
 
   return (
     <div className="min-h-[1000px]">
@@ -16,9 +17,13 @@ export function Meio() {
             Para ter acesso às suas skins e realizar transações, é necessário
             vincular seu inventário à Steam
           </Title>
-          <Button className="mt-4 h-10 w-full rounded-xl border-transparent bg-mesh-color-primary-1400 font-semibold text-black">
-            Conectar-se
-          </Button>
+          <ModalConnectInventario
+            activator={
+              <Button className="mt-4 h-10 w-full rounded-xl bg-mesh-color-primary-1400 font-semibold text-black">
+                Conectar-se
+              </Button>
+            }
+          />
         </div>
       ) : (
         <div className="flex justify-center space-x-6">

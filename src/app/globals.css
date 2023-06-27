@@ -36,3 +36,9 @@ input[type='radio'] {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}

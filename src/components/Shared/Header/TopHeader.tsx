@@ -14,23 +14,28 @@ import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
 import useUserStore from '@/stores/user.store'
-import { usePathname, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import URLQuery from '@/tools/urlquery.tool'
 
 export function TopHeader() {
-  const [username, setUsername] = useState('')
-  const [picture, setPicture] = useState('')
+  const router = useRouter()
 
   const { user } = useUserStore()
 
-  const pathname = usePathname()
-  const router = useRouter()
+  const [username, setUsername] = useState('')
+  const [picture, setPicture] = useState('')
 
   const handleOnSteam = () => {
     SteamService.redirect()
   }
 
   const handleOnAdd = () => {
-    router.push(pathname + '/?modalopen=true&modaltype=payment')
+    router.push(
+      URLQuery.addQuery([
+        { key: 'modalopen', value: true },
+        { key: 'modaltype', value: 'payment' },
+      ]),
+    )
   }
 
   useEffect(() => {
@@ -108,7 +113,10 @@ export function TopHeader() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black">
+            <Button
+              className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black"
+              onClick={() => router.push('/usuario/notificacoes?type=historic')}
+            >
               <IconNotifications />
             </Button>
 
