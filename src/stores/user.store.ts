@@ -6,6 +6,10 @@ const useUserStore = create<IStates>((set) => ({
   setUser: (user) => {
     set(() => ({ user }))
   },
+  logout: false,
+  setLogout: (logout) => {
+    set(() => ({ logout }))
+  },
 }))
 
 export default useUserStore
