@@ -70,7 +70,9 @@ export function CardSkin({
           <span className="opacity-60">{skinFloat}</span>
         </h1>
       </div>
-      <ColoredLine />
+      <ColoredLine
+        position={Math.abs(Number(skinFloat.replace(',', '.')) * 100 - 100)}
+      />
       <div className="flex items-center justify-end">
         <div className="flex gap-2">
           <Button color="invisible" className="h-10 w-10 border-2">
