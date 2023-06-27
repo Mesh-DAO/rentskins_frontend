@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
+import { createConfig } from '@/services/Configuracao.service'
+import { shortenUrl } from '@/utils/bitli'
+// ----------------- LIBS ----------------
 import * as Dialog from '@radix-ui/react-dialog'
+import { toast } from 'react-hot-toast'
+// ----------------- COMPONENTS ----------------
 import { IconClose } from '@/components/Icons/IconClose'
 import { Title } from '@/components/Title'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
-import { createConfig } from '@/services/Configuracao.service'
-import { shortenUrl } from '@/utils/bitli'
 import Checked from '@/components/Checked'
 
 interface IProps {
@@ -25,24 +28,28 @@ export function ModalConnectInventario({ activator }: IProps) {
         const findUser = JSON.parse(user)
         const urlTrade = await shortenUrl(linkTrade)
         const urlSell = `https://rentskins/?sellerid=${findUser.steamid}`
-        // const urlSellAwait = await shortenUrl(urlSell)
-        console.log(urlTrade)
-        if (urlTrade) {
-          const create = await createConfig({
-            owner_id: findUser.steamid,
-            owner_name: findUser.username,
-            owner_email: email,
-            steam_guard: false,
-            url_sell: urlSell,
-            url_trade: linkTrade,
-            agreed_with_emails: agreedEmails,
-            agreed_with_terms: agreedTerms,
-          })
-          return create
+
+        if (!urlTrade) {
+          toast.error('LinkTrade invalid')
+          return
         }
+
+        const create = await createConfig({
+          owner_id: findUser.steamid,
+          owner_name: findUser.username,
+          owner_email: email,
+          steam_guard: false,
+          url_sell: urlSell,
+          url_trade: linkTrade,
+          agreed_with_emails: agreedEmails,
+          agreed_with_terms: agreedTerms,
+        })
+        toast.success('Created Successfully')
+        return create
       }
     } catch (error) {
       console.log(error)
+      toast.error('Algo deu errado !!')
     }
   }
 
