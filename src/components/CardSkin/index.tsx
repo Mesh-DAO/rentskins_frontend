@@ -26,8 +26,6 @@ export function CardSkin({
   skinWeapon,
   itsRent,
 }: Props) {
-  // const [skinType, skinName] = name.split('|')
-
   return (
     <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
       <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-neutral-400 bg-mesh-gradient-black-pattern">
