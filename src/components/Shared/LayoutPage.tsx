@@ -9,6 +9,8 @@ import { ModalPayment } from '../Modal'
 import JsonWebToken from '@/tools/jsonwebtoken.tool'
 import { IUser } from '@/stores/interfaces/user.interface'
 import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
+import useNextjsStore from '@/stores/nextjs.store'
+import Head from 'next/head'
 
 type Props = {
   children: React.ReactNode
@@ -17,7 +19,10 @@ type Props = {
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
+
   const { setUser } = useUserStore()
+
+  const { customMetadata } = useNextjsStore()
 
   useEffect(() => {
     const tokenOnURL = params.get('token')
@@ -74,6 +79,10 @@ export function LayoutPage({ children }: Props) {
   return (
     <div className="min-h-screen bg-mesh-color-others-black">
       <ModalPayment />
+
+      <title> Rentskins </title>
+      <meta property="og:title" content="My page title" key="title" />
+
       {modalRender()}
       <Header />
       {children}
