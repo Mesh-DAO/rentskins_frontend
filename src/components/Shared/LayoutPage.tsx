@@ -2,11 +2,14 @@
 import Header from './Header'
 import { Footer } from '../Footer'
 import React, { useEffect } from 'react'
-import { useSearchParams, usePathname } from 'next/navigation'
+import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
+import JsonWebToken from '@/tools/jsonwebtoken.tool'
+import { IUser } from '@/stores/interfaces/user.interface'
 import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
+import URLQuery from '@/tools/urlquery.tool'
 
 type Props = {
   children: React.ReactNode
@@ -15,34 +18,66 @@ type Props = {
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
-  const { setUser } = useUserStore()
+  const router = useRouter()
+
+  const { setUser, logout, setLogout } = useUserStore()
 
   useEffect(() => {
-    const steamid = params.get('steamid')
-    const picture = params.get('picture')
-    const username = params.get('username')
-    const user = LocalStorage.getUser()
+    const tokenOnURL = params.get('token')
 
-    if (user !== undefined && user !== null) {
-      if (user.username && user.picture && user.steamid) {
-        setUser({
-          username: user.username,
-          picture: user.picture,
-          steamid: user.steamid,
-        })
+    const createUserInStore = (verification: IUser) => {
+      setUser({
+        username: verification.username,
+        picture: verification.picture,
+        steamid: verification.steamid,
+      })
+    }
+
+    if (tokenOnURL) {
+      const verification = JsonWebToken.verify(tokenOnURL) as IUser
+
+      if (
+        verification !== null &&
+        verification !== undefined &&
+        verification.steamid
+      ) {
+        LocalStorage.create('token', tokenOnURL)
+        createUserInStore(verification)
+        console.log('User first login')
       }
     } else {
-      if (steamid && picture && username) {
-        LocalStorage.setUser({ steamid, picture, username })
+      const storage = LocalStorage.get('token')
 
-        setUser({
-          username,
-          picture,
-          steamid,
-        })
+      if (storage !== null && storage !== undefined) {
+        const verification = JsonWebToken.verify(storage) as IUser
+
+        if (
+          verification !== null &&
+          verification !== undefined &&
+          verification.steamid
+        ) {
+          createUserInStore(verification)
+          console.log('User returning login')
+        } else {
+          console.log('User not logged in.')
+        }
+      } else {
+        console.log('User not logged in')
       }
     }
-  }, [setUser, params])
+
+    if (tokenOnURL) {
+      router.push(URLQuery.removeQuery(['token']))
+    }
+  }, [setUser, params, router])
+
+  useEffect(() => {
+    if (logout) {
+      LocalStorage.remove('token')
+      location.reload()
+      setLogout(false)
+    }
+  }, [logout, setLogout])
 
   const modalRender = () => {
     switch (pathname) {
