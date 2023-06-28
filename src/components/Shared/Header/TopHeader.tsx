@@ -20,7 +20,7 @@ import URLQuery from '@/tools/urlquery.tool'
 export function TopHeader() {
   const router = useRouter()
 
-  const { user } = useUserStore()
+  const { user, wallet } = useUserStore()
 
   const [username, setUsername] = useState('')
   const [picture, setPicture] = useState('')
@@ -102,8 +102,7 @@ export function TopHeader() {
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
               <Title bold={500} color="white">
                 R$
-                {/* {Number(data?.data.value).toFixed(2).replace('.', ',') ||
-                  '0,00'} */}
+                {wallet.data?.value || '0,00'}
               </Title>
               <Button
                 className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
