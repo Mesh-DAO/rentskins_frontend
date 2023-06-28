@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { createConfig } from '@/services/Configuracao.service'
-import { shortenUrl } from '@/utils/bitli'
 // ----------------- LIBS ----------------
 import * as Dialog from '@radix-ui/react-dialog'
 import { toast } from 'react-hot-toast'
@@ -10,6 +9,7 @@ import { Title } from '@/components/Title'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import Checked from '@/components/Checked'
+import LocalStorage from '@/tools/localstorage.tool'
 
 interface IProps {
   activator: React.ReactNode
@@ -21,35 +21,36 @@ export function ModalConnectInventario({ activator }: IProps) {
   const [agreedTerms, setAgreedTerms] = useState<boolean>(false)
   const [agreedEmails, setAgreedEmails] = useState<boolean>(false)
 
-  async function onSubmit() {
+  const user = LocalStorage.getUser()
+
+  async function create() {
     try {
-      const user = localStorage.getItem('user')
-      if (user) {
-        const findUser = JSON.parse(user)
-        const urlTrade = await shortenUrl(linkTrade)
-        const urlSell = `https://rentskins/?sellerid=${findUser.steamid}`
-
-        if (!urlTrade) {
-          toast.error('LinkTrade invalid')
-          return
-        }
-
-        const create = await createConfig({
-          owner_id: findUser.steamid,
-          owner_name: findUser.username,
-          owner_email: email,
-          steam_guard: false,
-          url_sell: urlSell,
-          url_trade: linkTrade,
-          agreed_with_emails: agreedEmails,
-          agreed_with_terms: agreedTerms,
-        })
-        toast.success('Created Successfully')
-        return create
-      }
+      const urlSell = `https://rentskins/?sellerid=${user!.steamid}`
+      const created = await createConfig({
+        owner_id: user!.steamid,
+        owner_name: user!.username,
+        owner_email: email,
+        steam_guard: false,
+        url_sell: urlSell,
+        url_trade: linkTrade,
+        agreed_with_emails: agreedEmails,
+        agreed_with_terms: agreedTerms,
+      })
+      return created
     } catch (error) {
       console.log(error)
-      toast.error('Algo deu errado !!')
+      toast.error('Algo deu errado !')
+    }
+  }
+
+  async function onSubmit(event: any) {
+    event.preventDefault()
+    if (user) {
+      await create()
+      toast.success('Configuração criada')
+      window.location.reload()
+    } else {
+      toast.error('Você precisa está logado !')
     }
   }
 

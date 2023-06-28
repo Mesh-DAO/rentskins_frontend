@@ -1,5 +1,5 @@
 export interface IUser {
-  steamid: string | number
+  steamid: string
   picture: string
   username: string
 }

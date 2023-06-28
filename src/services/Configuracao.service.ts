@@ -23,3 +23,7 @@ export function createConfig({
     agreed_with_terms,
   })
 }
+
+export function findByConfigUserId(id: string) {
+  return Api.get<IConfig>(`/v1/configuration/user/${id}`)
+}
