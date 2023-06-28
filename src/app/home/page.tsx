@@ -27,8 +27,6 @@ export default function Home() {
     queryFn: findByAll,
   })
 
-  console.log(user.steamid)
-
   return (
     <LayoutPage>
       <main className="h-full">
