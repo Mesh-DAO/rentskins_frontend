@@ -18,9 +18,10 @@ export default function Categorias() {
   const { skinName } = useParams()
   const nameCorrection = decodeURIComponent(skinName.replace(/\+/g, ' '))
   const {
+    allSkinsFiltred,
     setAllSkinsCategory,
     // skinsFiltredByPrice,
-    skinsFiltredByCategory,
+    // skinsFiltredByCategory,
     // skinsFiltredByWear,
   } = useComponentStore()
   const { data, isLoading } = useQuery({
@@ -33,7 +34,7 @@ export default function Categorias() {
   })
 
   const allSkinCategories =
-    skinsFiltredByCategory.length > 0 ? skinsFiltredByCategory : data?.data
+    allSkinsFiltred.length > 0 ? allSkinsFiltred : data?.data
 
   return (
     <LayoutPage>

@@ -3,18 +3,40 @@ import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
 import InputCheckbox from '@/components/InputCheckboxFilter'
 import useComponentStore from '@/stores/components.store'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function FilterCategory() {
   const [categories, setCategories] = useState<string[]>([])
 
-  const { setSkinsFiltredByCategory, setCleanFilter } = useComponentStore()
+  const {
+    setSkinsFiltredByCategory,
+    setCleanFilter,
+    setAllSkinsFiltred,
+    setSkinsFiltredByPrice,
+    skinsFiltredByPrice,
+    skinsFiltredByCategory,
+    setSkinsFiltredByWear,
+    skinsFiltredByWear,
+  } = useComponentStore()
 
   const handleClickSetFilterCategory = () => {
     if (categories!.length > 0) {
       setSkinsFiltredByCategory(...categories)
+      setAllSkinsFiltred()
     }
   }
+
+  useEffect(() => {
+    setAllSkinsFiltred()
+  }, [
+    setSkinsFiltredByPrice,
+    skinsFiltredByPrice,
+    setSkinsFiltredByCategory,
+    skinsFiltredByCategory,
+    setSkinsFiltredByWear,
+    skinsFiltredByWear,
+    setAllSkinsFiltred,
+  ])
 
   return (
     <div className="flex h-full flex-col justify-between">

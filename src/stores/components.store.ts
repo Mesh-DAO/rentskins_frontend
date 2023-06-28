@@ -31,6 +31,8 @@ interface IStates {
   setSkinsFiltredByWear: (...wears: string[]) => void
   skinsFiltredByCategory: ISkins[]
   setSkinsFiltredByCategory: (...categories: string[]) => void
+  allSkinsFiltred: ISkins[]
+  setAllSkinsFiltred: () => void
   allSkinsCategory: ISkins[] | undefined
   setAllSkinsCategory: (skins: ISkins[]) => void
   setCleanFilter: (selectedArray: string) => void
@@ -104,14 +106,19 @@ const useComponentStore = create<IStates>((set) => ({
 
   skinsFiltredByCategory: [],
   setSkinsFiltredByCategory: (...categories: string[]) => {
-    console.log(categories[0])
     set(({ allSkinsCategory }) => ({
       skinsFiltredByCategory: allSkinsCategory?.filter(({ skin_name }) => {
-        console.log(skin_name)
-        return skin_name.includes(categories[0])
+        let isCategory = false
+        categories.forEach(
+          (category) => (isCategory = skin_name.includes(category)),
+        )
+        return isCategory
       }),
     }))
   },
+
+  allSkinsFiltred: [],
+  setAllSkinsFiltred: () => {},
 
   setCleanFilter: (selectedArray: string) => {
     set(() => ({ [selectedArray]: [] }))

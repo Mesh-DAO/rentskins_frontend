@@ -2,20 +2,42 @@
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
 import InputValue from './InputValue'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useComponentStore from '@/stores/components.store'
 
 export default function FilterPrice() {
   const [minPrice, setMinPrice] = useState<number | undefined>()
   const [maxPrice, setMaxPrice] = useState<number | undefined>()
 
-  const { setSkinsFiltredByPrice, setCleanFilter } = useComponentStore()
+  const {
+    setSkinsFiltredByPrice,
+    setCleanFilter,
+    setAllSkinsFiltred,
+    skinsFiltredByPrice,
+    setSkinsFiltredByCategory,
+    skinsFiltredByCategory,
+    setSkinsFiltredByWear,
+    skinsFiltredByWear,
+  } = useComponentStore()
 
   const handleClickSetFilterPrice = () => {
     if (minPrice! > 0 && maxPrice! > 0 && maxPrice! > minPrice!) {
       setSkinsFiltredByPrice(minPrice!, maxPrice!)
+      setAllSkinsFiltred()
     }
   }
+
+  useEffect(() => {
+    setAllSkinsFiltred()
+  }, [
+    setSkinsFiltredByPrice,
+    skinsFiltredByPrice,
+    setSkinsFiltredByCategory,
+    skinsFiltredByCategory,
+    setSkinsFiltredByWear,
+    skinsFiltredByWear,
+    setAllSkinsFiltred,
+  ])
 
   return (
     <div className="flex h-full flex-col justify-between">
