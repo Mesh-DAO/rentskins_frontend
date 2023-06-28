@@ -7,4 +7,6 @@ export interface IUser {
 export interface IStates {
   user: IUser
   setUser: (user: IUser) => void
+  logout: boolean
+  setLogout: (logout: boolean) => void
 }

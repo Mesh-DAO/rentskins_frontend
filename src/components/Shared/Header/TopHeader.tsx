@@ -1,8 +1,10 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import SteamService from '@/services/steam.service'
+import URLQuery from '@/tools/urlquery.tool'
 /* ----------------- COMPONENTS ----------------- */
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
@@ -13,21 +15,26 @@ import { IconCruz } from '@/components/Icons/IconCruz'
 import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
 import logo from '../../../assets/logo.svg'
-import LocalStorage from '@/tools/localstorage.tool'
 import useUserStore from '@/stores/user.store'
-import { useRouter } from 'next/navigation'
-import URLQuery from '@/tools/urlquery.tool'
+import BlankUser from '@/../public/blank-profile.png'
 
 export function TopHeader() {
   const router = useRouter()
 
-  const { user } = useUserStore()
+  const refDropdown = useRef(null)
+
+  const { user, setLogout } = useUserStore()
 
   const [username, setUsername] = useState('')
   const [picture, setPicture] = useState('')
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false)
 
   const handleOnSteam = () => {
     SteamService.redirect()
+  }
+
+  const handleOnProfileClick = () => {
+    setShowProfileDropdown((state) => !state)
   }
 
   const handleOnAdd = () => {
@@ -39,9 +46,31 @@ export function TopHeader() {
     )
   }
 
-  useEffect(() => {
-    const user = LocalStorage.getUser()
+  const handleDropdownButton = (type: 'config' | 'profile' | 'logout') => {
+    switch (type) {
+      case 'config':
+        return router.push('usuario/configuracoes')
+      case 'profile':
+        return console.log('ok')
+      case 'logout':
+        return setLogout(true)
+    }
+  }
 
+  useEffect(() => {
+    const handleOutsideClick = (event: any) => {
+      if (refDropdown.current) {
+        const reference = refDropdown.current as any
+        if (!reference.contains(event.target)) {
+          setShowProfileDropdown(false)
+        }
+      }
+    }
+
+    document.addEventListener('click', handleOutsideClick, true)
+  }, [])
+
+  useEffect(() => {
     if (user !== undefined && user !== null) {
       setUsername(user.username)
       setPicture(user.picture)
@@ -123,16 +152,50 @@ export function TopHeader() {
               <IconNotifications />
             </Button>
 
-            {picture && (
-              <Image
-                src={picture}
-                alt={username}
-                className="rounded-full"
-                width={44}
-                height={44}
-                draggable={false}
-              />
-            )}
+            <div className="flex items-end justify-center">
+              <div
+                className={`${
+                  !picture &&
+                  'flex h-[44px] w-[44px] cursor-pointer items-center justify-center rounded-full bg-[#e4e6e7]'
+                }`}
+              >
+                <Image
+                  src={picture || BlankUser}
+                  alt={username}
+                  className="cursor-pointer rounded-full"
+                  width={picture ? 44 : 32}
+                  height={picture ? 44 : 32}
+                  draggable={false}
+                  onClick={handleOnProfileClick}
+                />
+              </div>
+              {showProfileDropdown && (
+                <div
+                  className="absolute top-20 z-30 flex h-36 w-48 select-none flex-col items-start justify-center gap-2 overflow-hidden
+                  rounded-lg bg-mesh-color-others-eerie-black px-3 py-2"
+                  ref={refDropdown}
+                >
+                  <Button
+                    className="border-none font-semibold text-mesh-color-neutral-200"
+                    onClick={() => handleDropdownButton('config')}
+                  >
+                    Configurações
+                  </Button>
+                  <Button
+                    className="border-none font-semibold text-mesh-color-neutral-200"
+                    onClick={() => handleDropdownButton('profile')}
+                  >
+                    Perfil
+                  </Button>
+                  <Button
+                    className="border-none font-semibold text-mesh-color-neutral-200"
+                    onClick={() => handleDropdownButton('logout')}
+                  >
+                    Sair
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

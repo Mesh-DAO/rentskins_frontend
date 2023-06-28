@@ -8,14 +8,17 @@ import { Title } from '../Title'
 import { CardSkinInventory } from './CardSkinInventory'
 import { findByConfigUserId } from '@/services/Configuracao.service'
 import LocalStorage from '@/tools/localstorage.tool'
+import JsonWebToken from '@/tools/jsonwebtoken.tool'
 
 export function Meio() {
-  const user = LocalStorage.getUser()
+  const token = LocalStorage.get('token')
+  const tokenWeb = JsonWebToken.verify(token)
+  const { steamid }: any = tokenWeb
 
   const { data } = useQuery({
-    queryKey: ['config'],
-    queryFn: async () => findByConfigUserId(user!.steamid!),
-    enabled: !!user?.steamid,
+    queryKey: ['config', steamid],
+    queryFn: async () => findByConfigUserId(steamid),
+    enabled: !!steamid,
   })
 
   return (

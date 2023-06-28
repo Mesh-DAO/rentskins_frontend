@@ -5,16 +5,19 @@ export interface IUser {
 }
 
 export default class LocalStorage {
-  public static setUser({ steamid, picture, username }: IUser) {
-    const user = { steamid, picture, username }
-    localStorage.setItem('user', JSON.stringify(user))
+  public static create(key: string, value: object | string) {
+    localStorage.setItem(key, JSON.stringify(value))
   }
 
-  public static getUser() {
-    const response = localStorage.getItem('user')
+  public static get(key: string) {
+    const response = localStorage.getItem(key)
 
     if (response !== null || response !== undefined) {
-      return JSON.parse(response as string) as IUser
+      return JSON.parse(response as string)
     }
+  }
+
+  public static remove(key: string) {
+    localStorage.removeItem(key)
   }
 }
