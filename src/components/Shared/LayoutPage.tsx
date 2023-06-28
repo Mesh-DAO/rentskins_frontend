@@ -11,6 +11,7 @@ import { IUser } from '@/stores/interfaces/user.interface'
 import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
 import { useQuery } from '@tanstack/react-query'
 import WalletService from '@/services/wallet.service'
+import Authentication from '@/tools/authentication.tool'
 
 type Props = {
   children: React.ReactNode
@@ -22,54 +23,19 @@ export function LayoutPage({ children }: Props) {
   const { setUser, user } = useUserStore()
 
   useEffect(() => {
-    const tokenOnURL = params.get('token')
-
-    const createUserInStore = (verification: IUser) => {
-      setUser({
-        username: verification.username,
-        picture: verification.picture,
-        steamid: verification.steamid,
-      })
-    }
-
-    if (tokenOnURL) {
-      const verification = JsonWebToken.verify(tokenOnURL) as IUser
-
-      if (
-        verification !== null &&
-        verification !== undefined &&
-        verification.steamid
-      ) {
-        LocalStorage.create('token', tokenOnURL)
-        createUserInStore(verification)
-        console.log('User first login')
-      }
-    } else {
-      const storage = LocalStorage.get('token')
-
-      if (storage !== null && storage !== undefined) {
-        const verification = JsonWebToken.verify(storage) as IUser
-
-        if (
-          verification !== null &&
-          verification !== undefined &&
-          verification.steamid
-        ) {
-          createUserInStore(verification)
-          console.log('User returning login')
-        } else {
-          console.log('User not logged in.')
-        }
-      } else {
-        console.log('User not logged in')
-      }
-    }
+    Authentication.login(params, setUser)
   }, [setUser, params])
 
   useQuery({
-    queryKey: ['createEmptyWallet'],
+    queryKey: ['WalletService.createEmptyWallet'],
     queryFn: () =>
       WalletService.createEmptyWallet(user.username, user.steamid as string),
+    enabled: !!user.steamid,
+  })
+
+  const { data } = useQuery({
+    queryKey: ['WalletService.getUserByID'],
+    queryFn: () => WalletService.getUserByID(user.steamid as string),
     enabled: !!user.steamid,
   })
 
@@ -89,4 +55,49 @@ export function LayoutPage({ children }: Props) {
       <Footer />
     </div>
   )
+}
+
+const userAuthentication = (params: any, setUser: any) => {
+  const tokenOnURL = params.get('token')
+
+  const createUserInStore = (verification: IUser) => {
+    setUser({
+      username: verification.username,
+      picture: verification.picture,
+      steamid: verification.steamid,
+    })
+  }
+
+  if (tokenOnURL) {
+    const verification = JsonWebToken.verify(tokenOnURL) as IUser
+
+    if (
+      verification !== null &&
+      verification !== undefined &&
+      verification.steamid
+    ) {
+      LocalStorage.create('token', tokenOnURL)
+      createUserInStore(verification)
+      console.log('User first login')
+    }
+  } else {
+    const storage = LocalStorage.get('token')
+
+    if (storage !== null && storage !== undefined) {
+      const verification = JsonWebToken.verify(storage) as IUser
+
+      if (
+        verification !== null &&
+        verification !== undefined &&
+        verification.steamid
+      ) {
+        createUserInStore(verification)
+        console.log('User returning login')
+      } else {
+        console.log('User not logged in.')
+      }
+    } else {
+      console.log('User not logged in')
+    }
+  }
 }
