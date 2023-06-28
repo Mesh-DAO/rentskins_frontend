@@ -3,7 +3,7 @@ import JsonWebToken from './jsonwebtoken.tool'
 import LocalStorage from './localstorage.tool'
 
 export default class Authentication {
-  public static login(params: any, setUser: any) {
+  public static login(params: any, setUser: any, router: any, URLQuery: any) {
     const tokenOnURL = params.get('token')
 
     const createUserInStore = (verification: IUser) => {
@@ -45,6 +45,9 @@ export default class Authentication {
       } else {
         console.log('User not logged in')
       }
+    }
+    if (tokenOnURL) {
+      router.push(URLQuery.removeQuery(['token']))
     }
   }
 }

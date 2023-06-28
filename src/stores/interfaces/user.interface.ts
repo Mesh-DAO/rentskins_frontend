@@ -22,4 +22,7 @@ export interface IStates {
 
   wallet: IWalletUser
   setWallet: (wallet: IWalletUser) => void
+
+  logout: boolean
+  setLogout: (logout: boolean) => void
 }

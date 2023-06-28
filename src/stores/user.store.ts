@@ -19,6 +19,10 @@ const useUserStore = create<IStates>((set) => ({
     }
     set(() => ({ wallet: newWallet }))
   },
+  logout: false,
+  setLogout: (logout) => {
+    set(() => ({ logout }))
+  },
 }))
 
 export default useUserStore

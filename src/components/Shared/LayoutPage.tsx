@@ -2,13 +2,15 @@
 import Header from './Header'
 import { Footer } from '../Footer'
 import React, { useEffect } from 'react'
-import { useSearchParams, usePathname } from 'next/navigation'
+import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
 import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
 import { useQuery } from '@tanstack/react-query'
 import WalletService from '@/services/wallet.service'
 import Authentication from '@/tools/authentication.tool'
+import URLQuery from '@/tools/urlquery.tool'
+import LocalStorage from '@/tools/localstorage.tool'
 
 type Props = {
   children: React.ReactNode
@@ -17,11 +19,20 @@ type Props = {
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
-  const { setUser, user, setWallet } = useUserStore()
+  const router = useRouter()
+  const { setUser, user, setWallet, logout, setLogout } = useUserStore()
 
   useEffect(() => {
-    Authentication.login(params, setUser)
-  }, [setUser, params])
+    Authentication.login(params, setUser, router, URLQuery)
+  }, [setUser, params, router])
+
+  useEffect(() => {
+    if (logout) {
+      LocalStorage.remove('token')
+      location.reload()
+      setLogout(false)
+    }
+  }, [logout, setLogout])
 
   useQuery({
     queryKey: ['WalletService.createEmptyWallet'],
