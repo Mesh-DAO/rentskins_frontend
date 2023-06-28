@@ -68,7 +68,7 @@ export function LayoutPage({ children }: Props) {
 
   useQuery({
     queryKey: ['createEmptyWallet'],
-    queryFn: async () =>
+    queryFn: () =>
       WalletService.createEmptyWallet(user.username, user.steamid as string),
     enabled: !!user.steamid,
   })

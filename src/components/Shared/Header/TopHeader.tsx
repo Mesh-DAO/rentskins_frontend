@@ -16,6 +16,8 @@ import logo from '../../../assets/logo.svg'
 import useUserStore from '@/stores/user.store'
 import { useRouter } from 'next/navigation'
 import URLQuery from '@/tools/urlquery.tool'
+import { useQuery } from '@tanstack/react-query'
+import WalletService from '@/services/wallet.service'
 
 export function TopHeader() {
   const router = useRouter()
@@ -28,6 +30,12 @@ export function TopHeader() {
   const handleOnSteam = () => {
     SteamService.redirect()
   }
+
+  const { data } = useQuery({
+    queryKey: [''],
+    queryFn: () => WalletService.getUserByID(user.steamid as string),
+    enabled: !!user.steamid,
+  })
 
   const handleOnAdd = () => {
     router.push(
@@ -101,7 +109,9 @@ export function TopHeader() {
             </div>
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
               <Title bold={500} color="white">
-                R$12,42
+                R$
+                {Number(data?.data.value).toFixed(2).replace('.', ',') ||
+                  '0,00'}
               </Title>
               <Button
                 className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
