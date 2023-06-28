@@ -22,11 +22,7 @@ export function Card({
   return (
     <div className="relative min-h-[560px] w-auto rounded-lg bg-mesh-image-details bg-cover bg-no-repeat">
       <div className="absolute bottom-0 w-full">
-        <ColoredLine
-          position={Math.abs(
-            Number(String(skinFloat).replace(',', '.')) * 100 - 100,
-          )}
-        />
+        <ColoredLine position={skinFloat} />
       </div>
       <div className="flex space-x-4 p-2">
         <div className="flex h-8 w-[300px] items-center gap-2 rounded-lg border border-neutral-600 fill-white p-2 text-white opacity-50  first-line:border-neutral-600">

@@ -5,10 +5,13 @@ interface IProps {
 }
 
 export default function ColoredLine({ position }: IProps) {
+  const percentage = Math.abs(
+    Number(String(position).replace(',', '.')) * 100 - 100,
+  )
   return (
     <div className="relative mb-2 flex w-full flex-col">
       <div
-        style={{ width: position + '%' }}
+        style={{ width: percentage + '%' }}
         className={`z-10 mx-1 flex justify-end bg-red-500`}
       >
         <LitleArrow />
