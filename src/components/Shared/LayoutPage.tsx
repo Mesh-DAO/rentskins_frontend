@@ -9,6 +9,8 @@ import { ModalPayment } from '../Modal'
 import JsonWebToken from '@/tools/jsonwebtoken.tool'
 import { IUser } from '@/stores/interfaces/user.interface'
 import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
+import { useQuery } from '@tanstack/react-query'
+import WalletService from '@/services/wallet.service'
 
 type Props = {
   children: React.ReactNode
@@ -17,7 +19,7 @@ type Props = {
 export function LayoutPage({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
-  const { setUser } = useUserStore()
+  const { setUser, user } = useUserStore()
 
   useEffect(() => {
     const tokenOnURL = params.get('token')
@@ -63,6 +65,13 @@ export function LayoutPage({ children }: Props) {
       }
     }
   }, [setUser, params])
+
+  useQuery({
+    queryKey: ['createEmptyWallet'],
+    queryFn: async () =>
+      WalletService.createEmptyWallet(user.username, user.steamid as string),
+    enabled: !!user.steamid,
+  })
 
   const modalRender = () => {
     switch (pathname) {
