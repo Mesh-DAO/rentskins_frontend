@@ -31,7 +31,7 @@ export function Meio() {
           </Title>
           <ModalConnectInventario
             activator={
-              <Button className="mt-4 h-10 w-full rounded-xl bg-mesh-color-primary-1400 font-semibold text-black">
+              <Button className="mt-4 h-10 w-full rounded-xl border-none bg-mesh-color-primary-1400 font-semibold text-black">
                 Conectar-se
               </Button>
             }
