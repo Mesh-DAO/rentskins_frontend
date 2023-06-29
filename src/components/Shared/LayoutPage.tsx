@@ -34,24 +34,28 @@ export function LayoutPage({ children }: Props) {
     }
   }, [logout, setLogout])
 
-  useQuery({
-    queryKey: ['WalletService.createEmptyWallet'],
-    queryFn: () =>
-      WalletService.createEmptyWallet(user.username, user.steamid as string),
-    enabled: !!user.steamid,
-  })
-
-  const { data } = useQuery({
+  const { data: walletData, isSuccess: walletSuccess } = useQuery({
     queryKey: ['WalletService.getUserByID'],
     queryFn: () => WalletService.getUserByID(user.steamid as string),
     enabled: !!user.steamid,
   })
 
+  const { data: walletDataCreated } = useQuery({
+    queryKey: ['WalletService.createEmptyWallet'],
+    queryFn: () =>
+      WalletService.createEmptyWallet(user.username, user.steamid as string),
+    enabled: !!user.steamid && walletData?.response?.status === 404,
+  })
+
   useEffect(() => {
-    if (data?.data) {
-      setWallet(data)
+    if (walletData?.data) {
+      setWallet(walletData)
+    } else {
+      if (walletDataCreated?.data) {
+        setWallet(walletDataCreated)
+      }
     }
-  }, [data, setWallet])
+  }, [walletData, setWallet, walletDataCreated, walletSuccess])
 
   const modalRender = () => {
     switch (pathname) {
