@@ -7,7 +7,6 @@ export default class JsonWebToken {
 
   public static verify(token: string) {
     const data = jwt.verify(token, 'secret')
-
     return data
   }
 }
