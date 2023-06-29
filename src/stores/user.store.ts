@@ -6,6 +6,19 @@ const useUserStore = create<IStates>((set) => ({
   setUser: (user) => {
     set(() => ({ user }))
   },
+
+  wallet: { data: {} },
+  setWallet: (wallet) => {
+    const newWallet = {
+      data: {
+        ...wallet.data,
+        value: new Intl.NumberFormat('pt-BR').format(
+          Number(wallet.data?.value),
+        ),
+      },
+    }
+    set(() => ({ wallet: newWallet }))
+  },
   logout: false,
   setLogout: (logout) => {
     set(() => ({ logout }))
