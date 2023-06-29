@@ -46,6 +46,7 @@ export default function Details() {
                 skinName={data!.data[0].skin_name}
                 skinLinkGame={data!.data[0].skin_link_game}
                 skinLinkSteam={data!.data[0].skin_link_steam}
+                skinFloat={data!.data[0].skin_float}
               />
 
               <div>

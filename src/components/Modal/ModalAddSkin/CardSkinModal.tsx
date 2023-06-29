@@ -12,7 +12,7 @@ export function CardSkinModal() {
         draggable={false}
       />
       <div className="absolute bottom-0 w-full">
-        <ColoredLine />
+        <ColoredLine position={1} />
       </div>
     </div>
   )
