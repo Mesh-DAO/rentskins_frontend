@@ -10,16 +10,14 @@ export default function Perfil() {
   const { profileTabValue } = useComponentStore()
 
   return (
-    <LayoutPage>
-      <main className="mx-auto flex w-4/5 flex-col items-center py-7">
-        <PerfilPerson />
-        <ChoiceItems thereIsRented={true} />
-        {profileTabValue === 'sales' ? (
-          <AllSkins itemsPerPage={15} />
-        ) : (
-          <RentedSkins />
-        )}
-      </main>
-    </LayoutPage>
+    <main className="mx-auto flex w-4/5 flex-col items-center py-7">
+      <PerfilPerson />
+      <ChoiceItems thereIsRented={true} />
+      {profileTabValue === 'sales' ? (
+        <AllSkins itemsPerPage={15} />
+      ) : (
+        <RentedSkins />
+      )}
+    </main>
   )
 }
