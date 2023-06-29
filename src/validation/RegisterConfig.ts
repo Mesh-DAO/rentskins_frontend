@@ -2,7 +2,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
 const RegisterConfigSchema = yup.object({
-  linkTrade: yup.string().required('LinkTarde é obrigatório'),
+  linkTrade: yup
+    .string()
+    .url('Url inválido')
+    .required('LinkTrade é obrigatório'),
   email: yup
     .string()
     .required('E-mail é obrigatório')

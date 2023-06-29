@@ -6,12 +6,12 @@ import { Title } from '@/components/Title'
 import { useForm } from 'react-hook-form'
 import { createConfig } from '@/services/Configuracao.service'
 import toast from 'react-hot-toast'
-import JsonWebToken from '@/tools/jsonwebtoken.tool'
-import LocalStorage from '@/tools/localstorage.tool'
+import useUserStore from '@/stores/user.store'
 
 export function FormModalConnectInventory() {
-  const token = LocalStorage.get('token')
-  const tokenWeb = JsonWebToken.verify(token)
+  const {
+    user: { steamid, username },
+  } = useUserStore()
 
   const {
     register,
@@ -22,8 +22,6 @@ export function FormModalConnectInventory() {
   })
 
   async function create(
-    steamid: string,
-    username: string,
     email: string,
     linkTrade: string,
     agreedEmails: boolean,
@@ -32,7 +30,7 @@ export function FormModalConnectInventory() {
     try {
       const urlSell = `https://rentskins/?sellerid=${steamid}`
       const created = await createConfig({
-        owner_id: steamid,
+        owner_id: steamid as string,
         owner_name: username,
         owner_email: email,
         steam_guard: false,
@@ -51,9 +49,8 @@ export function FormModalConnectInventory() {
   async function onSubmit(data: any) {
     const { email, linkTrade, promo, termos } = data
 
-    if (tokenWeb) {
-      const { steamid, username }: any = tokenWeb
-      await create(steamid, username, email, linkTrade, promo, termos)
+    if (steamid) {
+      await create(email, linkTrade, promo, termos)
       toast.success('Configuração criada')
       window.location.reload()
     } else {
@@ -80,6 +77,7 @@ export function FormModalConnectInventory() {
             <div className="relative w-10/12 rounded-[4px] bg-[#3C403C]">
               <input
                 className="h-[42px] w-10/12 rounded-[4px] bg-[#3C403C] px-4 text-base text-mesh-color-neutral-100 outline-none placeholder:text-mesh-color-neutral-100 placeholder:opacity-40"
+                autoComplete="off"
                 placeholder="https://steamcommunity.com/tradeoffer/new/?partner=240416830&token=vzAomQ5n"
                 {...register('linkTrade')}
               />
@@ -105,6 +103,7 @@ export function FormModalConnectInventory() {
 
           <input
             type="email"
+            autoComplete="off"
             placeholder="SeuEmail@gmail.com"
             className="h-[42px] w-[40%] rounded-[4px] bg-mesh-color-neutral-500 px-4 text-base text-mesh-color-neutral-100 outline-none placeholder:text-mesh-color-neutral-100 placeholder:opacity-40"
             {...register('email')}
