@@ -33,7 +33,7 @@ export function CardSkinInventory({ nameColor }: Props) {
         <strong>FT / </strong>
         <span className="opacity-60">0.0003</span>
       </Title>
-      <ColoredLine />
+      <ColoredLine position={1} />
     </div>
   )
 }
