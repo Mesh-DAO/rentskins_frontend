@@ -4,6 +4,7 @@ import './globals.css'
 import 'aos/dist/aos.css'
 import { Inter } from 'next/font/google'
 import { queryClient } from '@/services/queryClient'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
+      <html lang="pt-BR">
+        <body className={inter.className}>
+          <Toaster position="top-right" />
+          {children}
+        </body>
       </html>
     </QueryClientProvider>
   )
