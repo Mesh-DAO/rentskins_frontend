@@ -3,7 +3,7 @@
 import { Card, InfoPerfil, InfoVendas, InfoSkin } from '@/components/Details'
 import { SkinsSemelhantes } from '@/components/SkinsSemelhantes'
 import { Title } from '@/components/Title'
-import { LayoutPage } from '@/components/Shared/LayoutPage'
+
 import { findById, findByWeapon } from '@/services/SkinService'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
@@ -26,7 +26,7 @@ export default function Details() {
   })
 
   return (
-    <LayoutPage>
+    <div>
       {!isLoading && data?.data ? (
         <main className="mx-auto w-10/12 bg-mesh-color-others-black">
           <div className="mt-8 flex items-center gap-4">
@@ -72,6 +72,6 @@ export default function Details() {
       ) : (
         <Title color="white">Carregando...</Title>
       )}
-    </LayoutPage>
+    </div>
   )
 }
