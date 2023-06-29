@@ -1,7 +1,6 @@
 'use client'
 import { SteamButton } from '@/components/SteamButton'
 import { HeroInformation } from '@/components/HeroInformation'
-import { LayoutPage } from '@/components/Shared'
 import {
   IconShield,
   IconPhone,

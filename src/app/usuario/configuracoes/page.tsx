@@ -5,7 +5,6 @@ import {
   SettingsTransactions,
 } from '@/components/Settings'
 import { SideRadioButton } from '@/components/Settings/SideRadioButton'
-import { LayoutPage } from '@/components/Shared'
 import { Title } from '@/components/Title'
 import useComponentStore from '@/stores/components.store'
 

@@ -1,4 +1,3 @@
-import { LayoutPage } from '@/components/Shared'
 import { Title } from '@/components/Title'
 
 export default function Privacidade() {

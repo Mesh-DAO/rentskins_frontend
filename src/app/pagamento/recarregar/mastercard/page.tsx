@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { LayoutPage } from '@/components/Shared'
 import { Button } from '@/components/Button'
 import { IconLeftArrow } from '@/components/Icons/iconLeftArrow'
 import { Title } from '@/components/Title'

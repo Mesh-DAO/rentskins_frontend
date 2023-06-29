@@ -1,6 +1,5 @@
 'use client'
 import { Button } from '@/components/Button'
-import { LayoutPage } from '@/components/Shared'
 import { Title } from '@/components/Title'
 import { useRouter } from 'next/navigation'
 
