@@ -117,19 +117,25 @@ export function TopHeader() {
         </div>
       ) : (
         <div className="flex items-center gap-x-6">
-          <div className="flex items-center gap-4">
-            <span className="text-white">{username}</span>
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-6">
+            <nav className="flex items-center gap-4">
+              <Link
+                href={'/carrinho'}
+                className="flex items-center gap-2 text-mesh-color-neutral-200 opacity-70 transition-all hover:opacity-100"
+              >
+                <IconCarrinho />
+                Carrinho
+              </Link>
               <Link
                 href={'/inventory'}
-                className="flex items-center gap-2 text-mesh-color-neutral-200"
+                className="flex items-center gap-2 text-mesh-color-neutral-200 opacity-70 transition-all hover:opacity-100"
               >
                 <span>
                   <IconMira />
                 </span>
                 Inventário
               </Link>
-            </div>
+            </nav>
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
               <Title bold={500} color="white">
                 {wallet.data?.value || 'R$ 0,00'}
