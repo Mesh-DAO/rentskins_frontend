@@ -23,6 +23,8 @@ export default class WalletService {
       })
         .then((response) => response)
         .catch((e) => e)
+    } else {
+      return { message: 'User wallet already exists' }
     }
   }
 
