@@ -89,6 +89,10 @@ export function LayoutPage({ children }: Props) {
   return (
     <div className="min-h-screen bg-mesh-color-others-black">
       <ModalPayment />
+
+      <title> Rentskins </title>
+      <meta property="og:title" content="My page title" key="title" />
+
       {modalRender()}
       <Header />
       {children}
