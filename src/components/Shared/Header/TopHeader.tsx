@@ -98,7 +98,7 @@ export function TopHeader() {
         <div className="flex space-x-4">
           <Link
             href={'/carrinho'}
-            className="flex h-[44px] w-[220px] justify-center rounded-[14px] border border-mesh-color-neutral-200 bg-mesh-color-others-black  p-2 text-mesh-color-neutral-200"
+            className="flex h-[44px] w-[220px] justify-center rounded-[14px] p-2 text-mesh-color-neutral-200"
           >
             <span className="mr-2">
               <IconCarrinho />
@@ -106,7 +106,7 @@ export function TopHeader() {
             Carrinho de compra
           </Link>
           <Button
-            className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-mesh-color-primary-1400 opacity-100"
+            className="h-[44px] w-[220px] rounded-[14px] border-transparent bg-mesh-color-primary-1400 font-medium opacity-100"
             onClick={() => handleOnSteam()}
           >
             <span className="mr-2">
