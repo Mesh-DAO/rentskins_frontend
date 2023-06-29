@@ -20,13 +20,10 @@ import BlankUser from '@/../public/blank-profile.png'
 
 export function TopHeader() {
   const router = useRouter()
-
   const { user, wallet, setLogout } = useUserStore()
-  const refDropdown = useRef(null)
-
-  const [username, setUsername] = useState('')
-  const [picture, setPicture] = useState('')
   const [showProfileDropdown, setShowProfileDropdown] = useState(false)
+  const [searchItem, setSearchItem] = useState('')
+  const refDropdown = useRef(null)
 
   const handleOnSteam = () => {
     SteamService.redirect()
@@ -69,13 +66,6 @@ export function TopHeader() {
     document.addEventListener('click', handleOutsideClick, true)
   }, [])
 
-  useEffect(() => {
-    if (user !== undefined && user !== null) {
-      setUsername(user.username)
-      setPicture(user.picture)
-    }
-  }, [user])
-
   return (
     <div className="mx-auto flex w-10/12 items-center justify-between">
       <div className="flex items-center gap-x-6 p-[18px]">
@@ -84,12 +74,23 @@ export function TopHeader() {
         </Link>
 
         <div className="flex items-center rounded-[12px] bg-mesh-color-neutral-800">
-          <span className="ml-4">
-            <IconSearch />
-          </span>
+          <button
+            disabled={searchItem.length <= 0}
+            className={`stroke-mesh-color-neutral-200 pl-3 transition-all ${
+              searchItem.length > 0 ? 'opacity-100' : 'opacity-30'
+            }`}
+          >
+            <IconSearch
+              classname="transition-all"
+              width={searchItem.length > 0 ? 25 : 20}
+              height={searchItem.length > 0 ? 25 : 20}
+            />
+          </button>
           <Input
-            className="bg-mesh-color-neutral-800 text-base text-mesh-color-neutral-200"
+            className="bg-mesh-color-neutral-800 pl-3 text-base text-mesh-color-neutral-200"
             placeHolder="Pesquise o item..."
+            onChange={(event: any) => setSearchItem(event.target.value)}
+            value={searchItem}
           />
         </div>
       </div>
@@ -157,16 +158,16 @@ export function TopHeader() {
             <div className="flex items-end justify-center">
               <div
                 className={`${
-                  !picture &&
+                  !user.picture &&
                   'flex h-[44px] w-[44px] cursor-pointer items-center justify-center rounded-full bg-[#e4e6e7]'
                 }`}
               >
                 <Image
-                  src={picture || BlankUser}
-                  alt={username}
+                  src={user.picture || BlankUser}
+                  alt={user.username}
                   className="cursor-pointer rounded-full"
-                  width={picture ? 44 : 32}
-                  height={picture ? 44 : 32}
+                  width={user.picture ? 44 : 32}
+                  height={user.picture ? 44 : 32}
                   draggable={false}
                   onClick={handleOnProfileClick}
                 />
