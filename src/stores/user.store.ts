@@ -12,9 +12,11 @@ const useUserStore = create<IStates>((set) => ({
     const newWallet = {
       data: {
         ...wallet.data,
-        value: new Intl.NumberFormat('pt-BR').format(
-          Number(wallet.data?.value),
-        ),
+        value: Number(wallet.data?.value).toLocaleString('pt-br', {
+          style: 'currency',
+          currency: 'BRL',
+          minimumFractionDigits: 2,
+        }),
       },
     }
     set(() => ({ wallet: newWallet }))

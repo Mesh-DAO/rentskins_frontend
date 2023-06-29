@@ -55,8 +55,7 @@ export function ModalPaymentCheck() {
                 Saldo Atual
               </Title>
               <Title bold={800} color="white" size="2xl">
-                R$
-                {wallet.data?.value || '0,00'}
+                {wallet.data?.value || 'R$ 0,00'}
               </Title>
             </div>
             <div>
