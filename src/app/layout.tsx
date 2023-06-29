@@ -4,7 +4,7 @@ import './globals.css'
 import 'aos/dist/aos.css'
 import { Inter } from 'next/font/google'
 import { queryClient } from '@/services/queryClient'
-import Page } from '@/components/Shared'
+import { LayoutPage } from '@/components/Shared'
 
 const inter = Inter({ subsets: ['latin'] })
 
