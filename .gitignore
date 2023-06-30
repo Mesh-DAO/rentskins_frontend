@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
@@ -37,3 +38,5 @@ next-env.d.ts
 
 # node
 package-lock.json
+
+.env

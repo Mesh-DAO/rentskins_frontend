@@ -2,7 +2,11 @@
 import { IConfig } from '@/interfaces/IConfig'
 import { Api } from '@/providers'
 
-export function createConfig({
+export async function findByConfigUserId(id: string) {
+  return Api.get<IConfig>(`/v1/configuration/user/${id}`)
+}
+
+export async function createConfig({
   owner_id,
   owner_name,
   owner_email,
