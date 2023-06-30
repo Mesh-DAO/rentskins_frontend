@@ -157,6 +157,7 @@ const useComponentStore = create<IStates>((set) => ({
         }
 
         if (skinsFiltredByWear.length) {
+          console.log(finalArray2.length)
           if (finalArray2.length) {
             finalArray3.push(
               ...finalArray2.filter((item) =>

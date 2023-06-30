@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use client'
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
@@ -22,7 +23,6 @@ export default function FilterWear() {
   const handleClickSetFilterPrice = () => {
     if (wears!.length > 0) {
       setSkinsFiltredByWear(...wears)
-      console.log(skinsFiltredByWear)
     }
   }
 
@@ -49,7 +49,7 @@ export default function FilterWear() {
             setValues={setWears}
             values={wears}
             inputValues={[
-              'Nova de fábrica',
+              'Boa de campo',
               'Bem usada',
               'Desgastada',
               'Pouca usada',
