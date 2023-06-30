@@ -26,8 +26,6 @@ export function CardSkin({
   skinWeapon,
   itsRent,
 }: Props) {
-  // const [skinType, skinName] = name.split('|')
-
   return (
     <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
       <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-neutral-400 bg-mesh-gradient-black-pattern">
@@ -70,7 +68,7 @@ export function CardSkin({
           <span className="opacity-60">{skinFloat}</span>
         </h1>
       </div>
-      <ColoredLine />
+      <ColoredLine position={skinFloat} />
       <div className="flex items-center justify-end">
         <div className="flex gap-2">
           <Button color="invisible" className="h-10 w-10 border-2">
