@@ -1,8 +1,13 @@
-export function IconCarrinho() {
+interface IProps {
+  width?: number
+  height?: number
+}
+
+export function IconCarrinho({ width = 24, height = 21 }: IProps) {
   return (
     <svg
-      width="24"
-      height="21"
+      width={width}
+      height={height}
       viewBox="0 0 24 21"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
