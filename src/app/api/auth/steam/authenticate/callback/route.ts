@@ -1,10 +1,9 @@
 import { Api } from '@/providers/Api'
 import JsonWebToken from '@/tools/jsonwebtoken.tool'
-import { NextApiRequest } from 'next'
 import { NextResponse } from 'next/server'
 import queryString from 'query-string'
 
-export async function GET(req: NextApiRequest, res: any) {
+export async function GET(req: any, res: any) {
   const key = 'CBED4D515E26D768D330CDDC83AB1AB2'
   const queries = queryString.parse(req.url!)
 
