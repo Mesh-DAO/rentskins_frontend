@@ -23,7 +23,6 @@ export default function FilterPrice() {
   const handleClickSetFilterPrice = () => {
     if (minPrice! > 0 && maxPrice! > 0 && maxPrice! > minPrice!) {
       setSkinsFiltredByPrice(minPrice!, maxPrice!)
-      setAllSkinsFiltred()
     }
   }
 
@@ -61,7 +60,7 @@ export default function FilterPrice() {
       </div>
       <div className="flex justify-end gap-3">
         <Button
-          onClick={() => setCleanFilter('skinsFiltred')}
+          onClick={() => setCleanFilter('skinsFiltredByPrice')}
           className="h-11 w-32 font-bold text-white"
         >
           Limpar

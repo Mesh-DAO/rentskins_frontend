@@ -22,7 +22,6 @@ export default function FilterCategory() {
   const handleClickSetFilterCategory = () => {
     if (categories!.length > 0) {
       setSkinsFiltredByCategory(...categories)
-      setAllSkinsFiltred()
     }
   }
 

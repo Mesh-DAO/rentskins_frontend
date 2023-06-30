@@ -3,18 +3,40 @@ import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
 import InputCheckbox from '@/components/InputCheckboxFilter'
 import useComponentStore from '@/stores/components.store'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function FilterWear() {
   const [wears, setWears] = useState<string[]>([])
 
-  const { setSkinsFiltredByWear, setCleanFilter } = useComponentStore()
+  const {
+    setSkinsFiltredByPrice,
+    setCleanFilter,
+    setAllSkinsFiltred,
+    skinsFiltredByPrice,
+    setSkinsFiltredByCategory,
+    skinsFiltredByCategory,
+    setSkinsFiltredByWear,
+    skinsFiltredByWear,
+  } = useComponentStore()
 
   const handleClickSetFilterPrice = () => {
     if (wears!.length > 0) {
       setSkinsFiltredByWear(...wears)
+      console.log(skinsFiltredByWear)
     }
   }
+
+  useEffect(() => {
+    setAllSkinsFiltred()
+  }, [
+    setSkinsFiltredByPrice,
+    skinsFiltredByPrice,
+    setSkinsFiltredByCategory,
+    skinsFiltredByCategory,
+    setSkinsFiltredByWear,
+    skinsFiltredByWear,
+    setAllSkinsFiltred,
+  ])
 
   return (
     <div className="flex h-full flex-col justify-between">
@@ -30,7 +52,7 @@ export default function FilterWear() {
               'Nova de fábrica',
               'Bem usada',
               'Desgastada',
-              'Pouco usada',
+              'Pouca usada',
               'Muito usada',
             ]}
           />
