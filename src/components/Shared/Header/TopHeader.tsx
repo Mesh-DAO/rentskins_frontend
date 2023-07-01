@@ -22,6 +22,7 @@ export function TopHeader() {
   const router = useRouter()
 
   const { user, wallet, setLogout } = useUserStore()
+  const id = user.steamid
   const refDropdown = useRef(null)
 
   const [username, setUsername] = useState('')
@@ -121,7 +122,7 @@ export function TopHeader() {
             <span className="text-white">{username}</span>
             <div className="flex items-center gap-3">
               <Link
-                href={'/inventory'}
+                href={`/inventory/${id}`}
                 className="flex items-center gap-2 text-mesh-color-neutral-200"
               >
                 <span>
