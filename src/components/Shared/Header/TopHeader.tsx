@@ -25,12 +25,12 @@ export function TopHeader() {
   const id = user.steamid
   const refDropdown = useRef(null)
 
-  const [username, setUsername] = useState('')
-  const [picture, setPicture] = useState('')
+  // const [username, setUsername] = useState('')
+  // const [picture, setPicture] = useState('')
 
   const [showProfileDropdown, setShowProfileDropdown] = useState(false)
   const [searchItem, setSearchItem] = useState('')
-  const refDropdown = useRef(null)
+  // const refDropdown = useRef(null)
 
   const handleOnSteam = () => {
     SteamService.redirect()
