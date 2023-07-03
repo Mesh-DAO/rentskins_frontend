@@ -10,6 +10,7 @@ interface Props {
   name: string
   checked?: boolean
   onChange?: any
+  value?: string
 }
 
 export function InputRadio({
@@ -18,6 +19,7 @@ export function InputRadio({
   style,
   radio,
   name,
+  value,
   onChange,
   defaultChecked,
 }: Props) {
@@ -27,6 +29,8 @@ export function InputRadio({
         type="radio"
         name={name}
         defaultChecked={defaultChecked}
+        value={value}
+        onChange={onChange}
         className={classNames({
           'peer absolute z-[-1]': radio === 'dia',
           ' h-5 w-5 cursor-pointer rounded border border-mesh-color-neutral-300 checked:bg-mesh-color-primary-1400':
