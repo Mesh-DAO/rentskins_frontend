@@ -1,8 +1,7 @@
-import Image, { StaticImageData } from 'next/image'
-import { Button } from '../Button'
+import { StaticImageData } from 'next/image'
 import TransactionsTable from '../Settings/Transactions/table'
 import { transactionsMock } from '@/Mock/notification.transaction.mock'
-import { ModalNotificationPopup } from '../Modal/ModalNotification/index.popup'
+import TransactionCard from '../TransactionCard'
 
 interface IData {
   image: string | StaticImageData
@@ -20,67 +19,32 @@ interface IProps {
 
 export default function NotificationsTransactions({ data, loading }: IProps) {
   const renderPending = data.map((item, index) => (
-    <div
-      key={'pending-' + index}
-      className="flex items-center justify-between rounded-lg bg-mesh-color-neutral-800 px-4 py-3 text-white"
-    >
+    <TransactionCard.Root key={'transactions-' + index}>
       <div className="flex items-center gap-4">
-        <Image
-          src={item.image}
-          alt={item.name}
-          className="w-28 rounded-lg bg-mesh-color-others-black p-4"
-        />
-        <div className="group flex h-16 w-64 flex-col justify-center">
-          <span
-            className="relative top-10 -mb-10 w-fit select-none flex-wrap whitespace-nowrap rounded-lg
-          bg-mesh-color-neutral-300 px-2 text-black opacity-0 transition-all group-hover:opacity-100"
-          >
-            {item.name}
-          </span>
-          <span
-            className={`group w-64 overflow-hidden text-ellipsis text-lg font-medium ${
-              item.name.includes('StatTrak') && 'text-mesh-color-secondary-800'
-            }`}
-          >
-            {item.name}
-          </span>
-          <span className="text-white/40"> {item.weapon} </span>
-        </div>
+        <TransactionCard.Image image={item.image} alt={item.name} />
+        <TransactionCard.Label name={item.name} weapon={item.weapon} />
       </div>
-      <div className="flex items-center gap-4">
-        <div className="flex flex-col">
-          <span> {item.condition} </span>
-          <span className="text-white/40"> {item.float} </span>
-        </div>
-      </div>
-      <span>R${item.value.toFixed(2).replace('.', ',')}</span>
-      <div className="flex gap-4">
-        <ModalNotificationPopup
-          id={index}
-          type="accept"
-          activator={
-            <Button
-              className="border-none bg-mesh-color-primary-1200 px-4
-              font-semibold text-black"
-            >
-              Aceitar troca
-            </Button>
-          }
+      <TransactionCard.Content
+        text={item.condition}
+        subtext={item.float}
+        textIsCurrency={false}
+      />
+      <TransactionCard.Content text={item.value} textIsCurrency />
+      <TransactionCard.Actions>
+        <TransactionCard.Button
+          modal
+          modalOptions={{ action: 'accept', id: index + 1 }}
+          buttonStyle="full"
+          text="Aceitar troca"
         />
-        <ModalNotificationPopup
-          id={index}
-          type="cancel"
-          activator={
-            <Button
-              className="border border-mesh-color-neutral-400 px-2 font-semibold
-            text-mesh-color-neutral-400"
-            >
-              Cancelar
-            </Button>
-          }
+        <TransactionCard.Button
+          modal
+          modalOptions={{ action: 'decline', id: index + 1 }}
+          buttonStyle="opaque"
+          text="Cancelar"
         />
-      </div>
-    </div>
+      </TransactionCard.Actions>
+    </TransactionCard.Root>
   ))
 
   return (

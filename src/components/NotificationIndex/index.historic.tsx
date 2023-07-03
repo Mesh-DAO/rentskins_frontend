@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticImageData } from 'next/image'
-import Notification from '../Notification'
+import NotificationCard from '../NotificationCard'
 
 interface IData {
   content: string
@@ -15,14 +15,14 @@ interface IProps {
 
 export default function NotificationsHistoric({ data, loading }: IProps) {
   const renderContent = data.map((item, index) => (
-    <Notification.Root key={'notification-' + index}>
+    <NotificationCard.Root key={'notification-' + index}>
       <div className="flex items-center gap-4">
-        <Notification.Image image={item.icon} />
-        <Notification.Content>{item.content}</Notification.Content>
+        <NotificationCard.Image image={item.icon} />
+        <NotificationCard.Content>{item.content}</NotificationCard.Content>
       </div>
 
-      <Notification.Time timestamp={item.timestamp} />
-    </Notification.Root>
+      <NotificationCard.Time timestamp={item.timestamp} />
+    </NotificationCard.Root>
   ))
 
   return (

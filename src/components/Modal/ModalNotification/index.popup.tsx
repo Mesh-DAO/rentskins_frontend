@@ -5,9 +5,9 @@ import { IconClose } from '@/components/Icons'
 import { Button } from '@/components/Button'
 
 interface IProps {
-  activator: React.ReactNode
-  type: 'accept' | 'cancel'
-  id: string | number
+  activator?: React.ReactNode
+  type: 'accept' | 'decline' | undefined
+  id: string | number | undefined
 }
 
 export function ModalNotificationPopup({ activator, type, id }: IProps) {
