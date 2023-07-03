@@ -3,8 +3,8 @@ import Aos from 'aos'
 import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/Button'
-import NotificationsHistoric from '@/components/Notifications/index.historic'
-import NotificationsTransactions from '@/components/Notifications/index.transactions'
+import NotificationsHistoric from '@/components/NotificationIndex/index.historic'
+import NotificationsTransactions from '@/components/NotificationIndex/index.transactions'
 import { Title } from '@/components/Title'
 import { historicMock } from '@/Mock/notification.historic.mock'
 import { transactionsMock } from '@/Mock/notification.transaction.mock'
@@ -31,7 +31,7 @@ export default function NotificationPage() {
         router.push(URLQuery.addQuery([{ key: 'type', value: 'historic' }]))
       }
     }
-  }, [])
+  }, [searchParams, router])
 
   const handleOnRadio = ({ target }: any) => {
     router.push(URLQuery.addQuery([{ key: 'type', value: target.value }]))
