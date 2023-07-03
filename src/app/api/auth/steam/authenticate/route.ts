@@ -6,8 +6,8 @@ const steam = new SteamAuth({
   // para produção / domínio para produto).
   // Link para o registro do site: https://steamcommunity.com/dev/registerkey.
 
-  realm: `http://localhost:3000`, // Site name displayed to users on logon
-  returnUrl: `http://localhost:3000/api/auth/steam/authenticate/callback`, // Your return route
+  realm: `${process.env.NEXT_PUBLIC_URL}`, // Site name displayed to users on logon
+  returnUrl: `${process.env.NEXT_PUBLIC_URL}/api/auth/steam/authenticate/callback`, // Your return route
   apiKey: 'CBED4D515E26D768D330CDDC83AB1AB2', // Steam API key
 })
 
