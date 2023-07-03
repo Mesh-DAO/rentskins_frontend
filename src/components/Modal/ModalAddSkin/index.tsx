@@ -10,9 +10,10 @@ import { Button } from '@/components/Button'
 interface IProps {
   activator: React.ReactNode
   isEdition?: boolean
+  image?: string
 }
 
-export function ModalAddSkin({ activator, isEdition }: IProps) {
+export function ModalAddSkin({ activator, isEdition, image }: IProps) {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>{activator}</Dialog.Trigger>
@@ -41,7 +42,7 @@ export function ModalAddSkin({ activator, isEdition }: IProps) {
             </div>
             {/* MIDDLE */}
             <div className="flex h-full w-11/12 items-center justify-between">
-              <CardSkinModal />
+              <CardSkinModal icon_url={image} />
               <InfoSkinModal />
             </div>
             <div />
