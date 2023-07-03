@@ -20,7 +20,6 @@ export default function NotificationsHistoric({ data, loading }: IProps) {
         <NotificationCard.Image image={item.icon} />
         <NotificationCard.Content>{item.content}</NotificationCard.Content>
       </div>
-
       <NotificationCard.Time timestamp={item.timestamp} />
     </NotificationCard.Root>
   ))
@@ -28,7 +27,7 @@ export default function NotificationsHistoric({ data, loading }: IProps) {
   return (
     <div className="mb-12 mt-4 h-screen gap-4 overflow-y-scroll pr-4">
       <div className="flex flex-col gap-4" data-aos="fade-up">
-        {renderContent}
+        {data ? renderContent : <NotificationCard.Skeleton quantity={8} />}
       </div>
     </div>
   )
