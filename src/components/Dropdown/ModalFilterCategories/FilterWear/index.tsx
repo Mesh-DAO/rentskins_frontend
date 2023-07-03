@@ -5,6 +5,7 @@ import { Button } from '@/components/Button'
 import InputCheckbox from '@/components/InputCheckboxFilter'
 import useComponentStore from '@/stores/components.store'
 import { useEffect, useState } from 'react'
+import useFilterStore from '@/stores/filters.store'
 
 export default function FilterWear() {
   const [wears, setWears] = useState<string[]>([])
@@ -20,9 +21,12 @@ export default function FilterWear() {
     skinsFiltredByWear,
   } = useComponentStore()
 
+  const { selectedFilters, setSelectedFilters } = useFilterStore()
+
   const handleClickSetFilterPrice = () => {
     if (wears!.length > 0) {
       setSkinsFiltredByWear(...wears)
+      setSelectedFilters({ ...selectedFilters, wear: [...wears] })
     }
   }
 
@@ -55,6 +59,11 @@ export default function FilterWear() {
               'Pouca usada',
               'Muito usada',
             ]}
+            defaultChecks={
+              selectedFilters.wear && selectedFilters.wear?.length > 0
+                ? selectedFilters.wear
+                : []
+            }
           />
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Button } from '@/components/Button'
 import InputValue from './InputValue'
 import { useEffect, useState } from 'react'
 import useComponentStore from '@/stores/components.store'
+import useFilterStore from '@/stores/filters.store'
 
 export default function FilterPrice() {
   const [minPrice, setMinPrice] = useState<number | undefined>()
@@ -20,9 +21,15 @@ export default function FilterPrice() {
     skinsFiltredByWear,
   } = useComponentStore()
 
+  const { selectedFilters, setSelectedFilters } = useFilterStore()
+
   const handleClickSetFilterPrice = () => {
     if (minPrice! > 0 && maxPrice! > 0 && maxPrice! > minPrice!) {
       setSkinsFiltredByPrice(minPrice!, maxPrice!)
+      setSelectedFilters({
+        ...selectedFilters,
+        price: { max: maxPrice!, min: minPrice! },
+      })
     }
   }
 
@@ -48,12 +55,22 @@ export default function FilterPrice() {
           <InputValue
             setValue={setMinPrice}
             value={minPrice}
+            defaultValue={
+              selectedFilters.price.min !== null
+                ? selectedFilters.price.min
+                : minPrice
+            }
             title="Preço mínimo"
           />
           <hr className="mt-6 w-9" />
           <InputValue
             setValue={setMaxPrice}
             value={maxPrice}
+            defaultValue={
+              selectedFilters.price.max !== null
+                ? selectedFilters.price.max
+                : maxPrice
+            }
             title="Preço máximo"
           />
         </div>

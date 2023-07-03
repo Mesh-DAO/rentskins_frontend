@@ -2,12 +2,14 @@ interface IProps {
   inputValues: string[]
   setValues: (wears: string[]) => void
   values: string[]
+  defaultChecks?: string[] | null
 }
 
 export default function InputCheckboxFilter({
   inputValues,
   setValues,
   values,
+  defaultChecks,
 }: IProps) {
   return (
     <div className="grid grid-cols-2 gap-x-10 gap-y-5">
@@ -21,6 +23,7 @@ export default function InputCheckboxFilter({
               type="checkbox"
               value={value}
               className="peer absolute z-[-1]"
+              defaultChecked={defaultChecks?.includes(value)}
               onChange={({ target: { value } }) => {
                 if (!values.includes(value)) {
                   setValues([...values, value])

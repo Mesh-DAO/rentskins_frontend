@@ -4,6 +4,7 @@ import { Button } from '@/components/Button'
 import InputCheckbox from '@/components/InputCheckboxFilter'
 import useComponentStore from '@/stores/components.store'
 import { useEffect, useState } from 'react'
+import useFilterStore from '@/stores/filters.store'
 
 export default function FilterCategory() {
   const [categories, setCategories] = useState<string[]>([])
@@ -19,9 +20,12 @@ export default function FilterCategory() {
     skinsFiltredByWear,
   } = useComponentStore()
 
+  const { selectedFilters, setSelectedFilters } = useFilterStore()
+
   const handleClickSetFilterCategory = () => {
     if (categories!.length > 0) {
       setSkinsFiltredByCategory(...categories)
+      setSelectedFilters({ ...selectedFilters, category: [...categories] })
     }
   }
 

@@ -13,17 +13,22 @@ import { useQuery } from '@tanstack/react-query'
 import useComponentStore from '@/stores/components.store'
 import { ISkins } from '@/interfaces/ISkins'
 import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
+import useFilterStore from '@/stores/filters.store'
+import { useEffect, useState } from 'react'
 
 export default function Categorias() {
   const { skinName } = useParams()
+  const [filteredSkins, setFiltedSkins] = useState([])
   const nameCorrection = decodeURIComponent(skinName.replace(/\+/g, ' '))
   const {
-    allSkinsFiltred,
     setAllSkinsCategory,
     // skinsFiltredByPrice,
     // skinsFiltredByCategory,
     // skinsFiltredByWear,
   } = useComponentStore()
+
+  const { selectedFilters } = useFilterStore()
+
   const { data, isLoading } = useQuery({
     queryKey: ['skinsWeapon'],
     queryFn: async () => {
@@ -33,8 +38,38 @@ export default function Categorias() {
     },
   })
 
-  const allSkinCategories =
-    allSkinsFiltred.length > 0 ? allSkinsFiltred : data?.data
+  useEffect(() => {
+    if (data) {
+      // console.log(selectedFilters)
+      // console.log(data!.data)
+
+      const filteredItems = data?.data.filter((item) => {
+        if (
+          selectedFilters.wear?.length !== 0 &&
+          !selectedFilters.wear?.includes(item.status_float)
+        ) {
+          return false
+        }
+        if (
+          selectedFilters.price.max !== null &&
+          selectedFilters.price.min !== null &&
+          (Number(item.skin_price.replace(',', '.')) >
+            selectedFilters.price.max ||
+            Number(item.skin_price.replace(',', '.')) <
+              selectedFilters.price.min)
+        ) {
+          return false
+        }
+        // ADICIONAR O DO CATEGORIA AQUI COM O RETORNO "FALSE"
+        // if (selectedFilters.category && !selectedFilters.category.includes(...))
+        return true
+      })
+
+      // console.log(filteredItems)
+
+      setFiltedSkins(filteredItems as any)
+    }
+  }, [selectedFilters, data])
 
   return (
     <LayoutPage>
@@ -49,7 +84,7 @@ export default function Categorias() {
           {isLoading ? (
             <AllSkeletonSkins />
           ) : (
-            <AllSkins skinsCategories={allSkinCategories} itemsPerPage={15} />
+            <AllSkins skinsCategories={filteredSkins} itemsPerPage={15} />
           )}
         </div>
       </div>

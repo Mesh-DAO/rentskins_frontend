@@ -128,17 +128,16 @@ const useComponentStore = create<IStates>((set) => ({
             ...skinsFiltredByWear,
           ]),
         ]
+
+        console.log(destructuredArray)
+
         const finalArray1: ISkins[] = []
         const finalArray2: ISkins[] = []
         const finalArray3: ISkins[] = []
 
-        if (skinsFiltredByCategory.length) {
-          finalArray1.push(
-            ...destructuredArray.filter((item) =>
-              skinsFiltredByCategory.includes(item),
-            ),
-          )
-        }
+        console.log(skinsFiltredByPrice)
+        console.log(skinsFiltredByWear)
+        console.log(skinsFiltredByCategory)
 
         if (skinsFiltredByPrice.length) {
           if (finalArray1.length) {
@@ -156,28 +155,36 @@ const useComponentStore = create<IStates>((set) => ({
           }
         }
 
-        if (skinsFiltredByWear.length) {
-          console.log(finalArray2.length)
-          if (finalArray2.length) {
-            finalArray3.push(
-              ...finalArray2.filter((item) =>
-                skinsFiltredByWear.includes(item),
-              ),
-            )
-          } else if (finalArray1.length) {
-            finalArray3.push(
-              ...finalArray1.filter((item) =>
-                skinsFiltredByWear.includes(item),
-              ),
-            )
-          } else {
-            finalArray3.push(
-              ...destructuredArray.filter((item) =>
-                skinsFiltredByWear.includes(item),
-              ),
-            )
-          }
-        }
+        // if (skinsFiltredByCategory.length) {
+        //   finalArray1.push(
+        //     ...destructuredArray.filter((item) =>
+        //       skinsFiltredByCategory.includes(item),
+        //     ),
+        //   )
+        // }
+
+        // if (skinsFiltredByWear.length) {
+        //   console.log(finalArray2.length)
+        //   if (finalArray2.length) {
+        //     finalArray3.push(
+        //       ...finalArray2.filter((item) =>
+        //         skinsFiltredByWear.includes(item),
+        //       ),
+        //     )
+        //   } else if (finalArray1.length) {
+        //     finalArray3.push(
+        //       ...finalArray1.filter((item) =>
+        //         skinsFiltredByWear.includes(item),
+        //       ),
+        //     )
+        //   } else {
+        //     finalArray3.push(
+        //       ...destructuredArray.filter((item) =>
+        //         skinsFiltredByWear.includes(item),
+        //       ),
+        //     )
+        //   }
+        // }
 
         return {
           allSkinsFiltred: [

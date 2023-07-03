@@ -9,6 +9,7 @@ type Props = {
   onChange?: (value: number) => void
   errors?: any
   value: number | undefined
+  defaultValue?: number | string
 }
 
 export function InputCurrency({
@@ -17,6 +18,7 @@ export function InputCurrency({
   className,
   value,
   errors,
+  defaultValue,
   ...props
 }: Props) {
   return (
@@ -27,6 +29,7 @@ export function InputCurrency({
         decimalSeparator=","
         decimalsLimit={2}
         value={value}
+        defaultValue={defaultValue}
         onValueChange={(value) =>
           onChange ? onChange(Number(value)) : () => {}
         }
