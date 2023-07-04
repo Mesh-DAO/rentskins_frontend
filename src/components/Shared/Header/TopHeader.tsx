@@ -132,7 +132,7 @@ export function TopHeader() {
                 Carrinho
               </Link>
               <Link
-                href={`/inventory/${id}`}
+                href={`/inventario/${id}`}
                 className="flex items-center gap-2 text-mesh-color-neutral-200"
               >
                 <span>

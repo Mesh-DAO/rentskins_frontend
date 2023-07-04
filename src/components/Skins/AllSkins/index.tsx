@@ -78,7 +78,7 @@ export default function AllSkins({
               // )
               return (
                 <>
-                  <Link key={'skin-' + id} href={`/details/${id}`}>
+                  <Link key={'skin-' + id} href={`/detalhes/${id}`}>
                     <CardSkin
                       skinImage={skin_image}
                       sellerName={skin_name}
