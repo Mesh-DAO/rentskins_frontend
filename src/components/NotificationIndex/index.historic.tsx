@@ -7,6 +7,7 @@ interface IData {
   content: string
   icon: string | StaticImageData
   timestamp: number
+  new: boolean
 }
 
 interface IProps {
@@ -38,7 +39,7 @@ export default function NotificationsHistoric({ data, loading }: IProps) {
       (item.timestamp >= timeFilter()[0] && item.timestamp <= timeFilter()[1])
     ) {
       return (
-        <NotificationCard.Root key={'notification-' + index}>
+        <NotificationCard.Root key={'notification-' + index} newCard={item.new}>
           <div className="flex items-center gap-4">
             <NotificationCard.Image image={item.icon} />
             <NotificationCard.Content>{item.content}</NotificationCard.Content>

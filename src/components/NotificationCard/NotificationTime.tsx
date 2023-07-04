@@ -11,11 +11,15 @@ export function NotificationTime({ timestamp }: IProps) {
     } else if (timestamp < 60) {
       return `Há ${timestamp} segundos`
     } else if (timestamp < 3600) {
-      const elapsedTime = Math.floor(timestamp / 60)
-      return `Há ${elapsedTime} minutos`
+      return `Há ${Math.floor(timestamp / 60)} minutos`
+    } else if (timestamp < 86400) {
+      return `Há ${Math.floor(timestamp / 3600)} horas`
+    } else if (timestamp < 604800) {
+      return `Há ${Math.floor(timestamp / 86400)} dias`
+    } else if (timestamp < 2592000) {
+      return `Há ${Math.floor(timestamp / 604800)} semanas`
     } else {
-      const elapsedTime = Math.floor(timestamp / 3600)
-      return `Há ${elapsedTime} horas`
+      return `Há ${Math.floor(timestamp / 2592000)} meses`
     }
   }
   return (
