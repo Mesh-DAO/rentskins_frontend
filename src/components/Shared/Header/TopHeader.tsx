@@ -152,8 +152,8 @@ export function TopHeader() {
               className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black"
               onClick={() => router.push('/usuario/notificacoes?type=historic')}
             >
-              <div className="fixed top-8 ml-4 h-2 w-2 rounded-full bg-mesh-color-primary-1200" />
-              <div className="fixed top-8 ml-4 h-2 w-2 animate-ping rounded-full bg-mesh-color-primary-1200" />
+              <div className="absolute top-8 ml-4 h-2 w-2 rounded-full bg-mesh-color-primary-1200" />
+              <div className="absolute top-8 ml-4 h-2 w-2 animate-ping rounded-full bg-mesh-color-primary-1200" />
               <IconNotifications />
             </Button>
 
