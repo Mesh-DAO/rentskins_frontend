@@ -82,12 +82,15 @@ export default function NotificationPage() {
             <div className="mt-2 h-0.5 w-0 place-self-center bg-mesh-color-primary-900 pl-0 transition-all peer-checked:pl-16" />
           </label>
         </div>
-        <Button
-          className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold"
-          onClick={() => handleOnFilter()}
-        >
-          {notificationFilter}
-        </Button>
+        {searchParams.get('type') === 'historic' && (
+          <Button
+            className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold"
+            onClick={() => handleOnFilter()}
+            data-aos="zoom-in"
+          >
+            {notificationFilter}
+          </Button>
+        )}
       </div>
       {searchParams.get('type') === 'historic' && (
         <NotificationsHistoric data={historicMock} loading={isLoading} />
