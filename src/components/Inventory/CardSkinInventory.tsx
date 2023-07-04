@@ -23,9 +23,17 @@ export function CardSkinInventory({ steamid }: Props) {
         data?.data.descriptions.map(
           ({ icon_url, market_name, name, name_color }: any, index: number) => {
             const primeiroName = name.split('|')[0]
+            const statusFloatText = market_name.match(/\((.*?)\)/g)
+
             return (
               <ModalAddSkin
                 key={index}
+                image={icon_url}
+                weapon={primeiroName}
+                name={name}
+                preco="2566"
+                statusFloatText={statusFloatText[0].replace(/\(|\)/g, '')}
+                float={'0.2555'}
                 activator={
                   <div className="mb-2 w-[206px] gap-3 rounded-lg border-[1px] border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
                     <CardSkin.Root>

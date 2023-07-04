@@ -3,20 +3,24 @@ import Image from 'next/image'
 import ColoredLine from '@/components/ColoredLine'
 
 type Props = {
-  icon_url?: string
+  icon_url: string
+  weapon: string
+  float: string
 }
 
-export function CardSkinModal({ icon_url }: Props) {
+export function CardSkinModal({ icon_url, weapon, float }: Props) {
   return (
     <div className="relative mr-6 mt-2 flex h-full w-[60%] items-center justify-center rounded-lg bg-mesh-image-details bg-cover bg-no-repeat">
       <Image
-        src={icon_url || ''}
-        alt=""
-        className="w-[80%] object-cover"
+        src={`https://steamcommunity-a.akamaihd.net/economy/image/${icon_url}`}
+        alt={weapon}
+        width={481}
+        height={284}
         draggable={false}
+        className="object-cover"
       />
-      <div className="absolute bottom-0 w-full">
-        <ColoredLine position={1} />
+      <div className="absolute -bottom-2 w-full">
+        <ColoredLine position={float} />
       </div>
     </div>
   )
