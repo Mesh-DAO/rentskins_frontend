@@ -3,6 +3,7 @@ import { TransactionActions } from './TransactionActions'
 import { TransactionContent } from './TransactionContent'
 import { TransactionImage } from './TransactionImage'
 import { TransactionLabel } from './TransactionLabel'
+import { TransactionSkeleton } from './TransactionSkeleton'
 import TransactionRoot from './TransactionRoot'
 
 const TransactionCard = {
@@ -12,6 +13,7 @@ const TransactionCard = {
   Content: TransactionContent,
   Actions: TransactionActions,
   Button: TransactionButton,
+  Skeleton: TransactionSkeleton,
 }
 
 export default TransactionCard
