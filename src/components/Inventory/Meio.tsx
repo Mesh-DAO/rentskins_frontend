@@ -11,7 +11,7 @@ export function Meio() {
     user: { steamid },
   } = useUserStore()
 
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['config'],
     queryFn: async () => findByConfigUserId(steamid as string),
     enabled: !!steamid,
@@ -19,28 +19,22 @@ export function Meio() {
 
   return (
     <div className="mb-6 min-h-[1000px]">
-      {!isLoading ? (
-        <>
-          {!data || data.status !== 200 ? (
-            <div className="mx-auto w-[60%] rounded-xl bg-mesh-color-others-eerie-black px-5 py-5">
-              <Title bold={700} color="white" className="text-center font-bold">
-                Para ter acesso às suas skins e realizar transações, é
-                necessário vincular seu inventário à Steam
-              </Title>
-              <ModalConnectInventario
-                activator={
-                  <Button className="mt-4 h-10 w-full rounded-xl border-none bg-mesh-color-primary-1400 font-semibold text-black">
-                    Conectar-se
-                  </Button>
-                }
-              />
-            </div>
-          ) : (
-            <CardSkinInventory steamid={`${steamid}`} />
-          )}
-        </>
+      {!data || data.status !== 200 ? (
+        <div className="mx-auto w-[60%] rounded-xl bg-mesh-color-others-eerie-black px-5 py-5">
+          <Title bold={700} color="white" className="text-center font-bold">
+            Para ter acesso às suas skins e realizar transações, é necessário
+            vincular seu inventário à Steam
+          </Title>
+          <ModalConnectInventario
+            activator={
+              <Button className="mt-4 h-10 w-full rounded-xl border-none bg-mesh-color-primary-1400 font-semibold text-black">
+                Conectar-se
+              </Button>
+            }
+          />
+        </div>
       ) : (
-        <Title>Aguarde !!!</Title>
+        <CardSkinInventory steamid={`${steamid}`} />
       )}
     </div>
   )

@@ -11,6 +11,7 @@ export function CheckBox({ name, id, children, value }: Props) {
   const { inventoryFilter, setInventoryFilter } = useFilterStore()
 
   const handleOnChange = ({ target }: any) => {
+    console.log(target.checked)
     if (target.checked) {
       if (!inventoryFilter.includes(target.value)) {
         setInventoryFilter([...inventoryFilter, target.value])

@@ -30,13 +30,12 @@ export function CardSkinInventory({ steamid }: Props) {
         return true
       })
     }
-    return <Title>Algo de errado ocorreu</Title>
   }
 
   return (
     <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
       {!isLoading ? (
-        applyFilter()!.map(
+        applyFilter().map(
           ({ icon_url, name, name_color, market_name }: any, index: number) => {
             const primeiroName = name.split('|')[0]
             const statusFloatText = market_name.match(/\((.*?)\)/g)
