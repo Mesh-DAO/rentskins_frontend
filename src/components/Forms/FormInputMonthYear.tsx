@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes } from 'react'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   hasLabel?: boolean
-  label: string
+  label?: string
   labelSide?: 'up' | 'down'
   labelClassName?: string
   inputClassName?: string
@@ -18,10 +18,15 @@ export function FormInputMonthYear({
   stateValue,
   ...rest
 }: IProps) {
-  const formatCardNumber = (value: string): string => {
-    const limitCardNumber = value.slice(0, 19)
-    const result = limitCardNumber.replace(/(\d{4})(?=\d)/g, '$1 ')
-    return result
+  const formatMonthYear = (value: string): string => {
+    const numbers = value.replace(/\D/g, '')
+    const month = numbers.slice(0, 2)
+    const year = numbers.slice(2, 4)
+
+    if (value.length > 2) {
+      return String(month) + '/' + String(year)
+    }
+    return String(month)
   }
 
   return (
@@ -29,8 +34,8 @@ export function FormInputMonthYear({
       {hasLabel && labelSide === 'up' && label}
       <input
         type="text"
-        onChange={({ target }) => formatCardNumber(target.value as any)}
-        value={formatCardNumber(stateValue)}
+        onChange={({ target }) => formatMonthYear(target.value as any)}
+        value={formatMonthYear(stateValue)}
         className={`${inputClassName} rounded-md border-[2px]
         border-mesh-color-primary-1100/50 bg-mesh-color-others-eerie-black px-3 py-3 placeholder:text-white/70`}
         {...rest}

@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes } from 'react'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   hasLabel?: boolean
-  label: string
+  label?: string
   labelSide?: 'up' | 'down'
   labelClassName?: string
   inputClassName?: string

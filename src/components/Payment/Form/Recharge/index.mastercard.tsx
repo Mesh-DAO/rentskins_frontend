@@ -51,6 +51,12 @@ export function PaymentRechargeMastercardForm({ handleFormSubmit }: IProps) {
           stateValue={cardNumber}
           onChange={({ target }) => setCardNumber(target.value)}
         />
+        <Form.InputMonthYear
+          hasLabel={false}
+          placeholder="MM / YY"
+          stateValue={cardValidity}
+          onChange={({ target }) => setCardValidity(target.value)}
+        />
       </Form.Root>
 
       {/* <FormInput
@@ -64,7 +70,7 @@ export function PaymentRechargeMastercardForm({ handleFormSubmit }: IProps) {
       /> */}
 
       <div className="-mt-5 grid w-full grid-cols-2 items-center">
-        <FormInput
+        {/* <FormInput
           type="text"
           name="mastercard-card-validity"
           placeholder="MM / YY"
@@ -72,7 +78,7 @@ export function PaymentRechargeMastercardForm({ handleFormSubmit }: IProps) {
           rounded="rounded-bl-md"
           value={cardValidity}
           onChange={(event) => setCardValidity(event.target.value)}
-        />
+        /> */}
         <FormInput
           type="text"
           name="mastercard-card-cvc"
