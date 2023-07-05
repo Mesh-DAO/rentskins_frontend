@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button'
+import Form from '@/components/Forms'
 import { FormInput } from '@/components/Forms/Input'
 import usePaymentStore from '@/stores/payment.store'
 import router from 'next/router'
@@ -33,16 +34,26 @@ export function PaymentRechargeMastercardForm({ handleFormSubmit }: IProps) {
 
   return (
     <>
-      <FormInput
+      {/* <FormInput
         label="Email"
         type="email"
         name="mastercard-email"
         placeholder="email@example.com"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
-      />
+      /> */}
 
-      <FormInput
+      <Form.Root>
+        <Form.InputText label="Email" placeholder="email@exemplo.com" />
+        <Form.InputCard
+          label="Informações do Cartão"
+          placeholder="0000 0000 0000 0000"
+          stateValue={cardNumber}
+          onChange={({ target }) => setCardNumber(target.value)}
+        />
+      </Form.Root>
+
+      {/* <FormInput
         label="Informações do Cartão"
         type="text"
         name="mastercard-card-number"
@@ -50,7 +61,7 @@ export function PaymentRechargeMastercardForm({ handleFormSubmit }: IProps) {
         placeholder="0000 0000 0000 0000"
         value={cardNumber}
         onChange={(event) => setCardNumber(event.target.value)}
-      />
+      /> */}
 
       <div className="-mt-5 grid w-full grid-cols-2 items-center">
         <FormInput
