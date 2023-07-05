@@ -3,8 +3,8 @@ import Aos from 'aos'
 import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/Button'
-import NotificationsHistoric from '@/components/Notifications/index.historic'
-import NotificationsTransactions from '@/components/Notifications/index.transactions'
+import NotificationsHistoric from '@/components/NotificationIndex/index.historic'
+import NotificationsTransactions from '@/components/NotificationIndex/index.transactions'
 import { Title } from '@/components/Title'
 import { historicMock } from '@/Mock/notification.historic.mock'
 import { transactionsMock } from '@/Mock/notification.transaction.mock'
@@ -31,7 +31,7 @@ export default function NotificationPage() {
         router.push(URLQuery.addQuery([{ key: 'type', value: 'historic' }]))
       }
     }
-  }, [])
+  }, [searchParams, router])
 
   const handleOnRadio = ({ target }: any) => {
     router.push(URLQuery.addQuery([{ key: 'type', value: target.value }]))
@@ -82,12 +82,15 @@ export default function NotificationPage() {
             <div className="mt-2 h-0.5 w-0 place-self-center bg-mesh-color-primary-900 pl-0 transition-all peer-checked:pl-16" />
           </label>
         </div>
-        <Button
-          className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold"
-          onClick={() => handleOnFilter()}
-        >
-          {notificationFilter}
-        </Button>
+        {searchParams.get('type') === 'historic' && (
+          <Button
+            className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold"
+            onClick={() => handleOnFilter()}
+            data-aos="zoom-in"
+          >
+            {notificationFilter}
+          </Button>
+        )}
       </div>
       {searchParams.get('type') === 'historic' && (
         <NotificationsHistoric data={historicMock} loading={isLoading} />
