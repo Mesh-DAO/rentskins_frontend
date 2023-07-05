@@ -21,9 +21,16 @@ import BlankUser from '@/../public/blank-profile.png'
 export function TopHeader() {
   const router = useRouter()
   const { user, wallet, setLogout } = useUserStore()
+
+  const id = user.steamid
+  const refDropdown = useRef(null)
+
+  // const [username, setUsername] = useState('')
+  // const [picture, setPicture] = useState('')
+
   const [showProfileDropdown, setShowProfileDropdown] = useState(false)
   const [searchItem, setSearchItem] = useState('')
-  const refDropdown = useRef(null)
+  // const refDropdown = useRef(null)
 
   const handleOnSteam = () => {
     SteamService.redirect()
@@ -125,8 +132,8 @@ export function TopHeader() {
                 Carrinho
               </Link>
               <Link
-                href={'/inventory'}
-                className="flex items-center gap-2 text-mesh-color-neutral-200 opacity-70 transition-all hover:opacity-100"
+                href={`/inventario/${id}`}
+                className="flex items-center gap-2 text-mesh-color-neutral-200"
               >
                 <span>
                   <IconMira />

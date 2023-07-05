@@ -6,6 +6,16 @@ const useFilterStore = create<IStates>((set) => ({
   setNotificationFilter: (notificationFilter: string) => {
     set(() => ({ notificationFilter }))
   },
+
+  inventoryFilter: [],
+  setInventoryFilter: (inventoryFilter: string[]) => {
+    set(() => ({ inventoryFilter }))
+  },
+
+  inventoryMainFilter: undefined,
+  setInventoryMainFilter: (inventoryMainFilter) => {
+    set(() => ({ inventoryMainFilter }))
+  },
 }))
 
 export default useFilterStore

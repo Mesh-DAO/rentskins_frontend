@@ -1,18 +1,25 @@
 'use client'
 import { Button } from '@/components/Button'
+import { CheckBox } from '@/components/CheckBox'
 import { Input } from '@/components/Input'
-import { InputRadio } from '@/components/InputRadio'
 import { Title } from '@/components/Title'
 
-export function InfoSkinModal() {
+type Props = {
+  name: string
+  weapon: string
+  statusFloatText: string
+  preco: string
+}
+
+export function InfoSkinModal({ name, preco, statusFloatText, weapon }: Props) {
   return (
     <div className="flex h-full w-[40%] flex-col">
       <div>
-        <Title color="white" className=" text-[28px]">
-          Kumicho Dragon
+        <Title color="white" className="text-[24px]">
+          {name}
         </Title>
-        <p className="-mt-2 font-medium text-mesh-color-neutral-200">
-          Desert • Nova de fábrica
+        <p className="-mt-1 font-medium text-mesh-color-neutral-200">
+          {weapon} • {statusFloatText}
         </p>
       </div>
 
@@ -22,7 +29,7 @@ export function InfoSkinModal() {
             <Title size="md" bold={500} color="white">
               Preço recomendado
             </Title>
-            <span className="text-mesh-color-accent-1000">R$21,32</span>
+            <span className="text-mesh-color-accent-1000">R$: {preco}</span>
           </div>
           <p className="w-[70%] text-mesh-color-neutral-200">
             Preço que recomendamos com base no mercado do momento
@@ -54,22 +61,18 @@ export function InfoSkinModal() {
         </div>
         {/* ---------INPUT FIM -------------  */}
 
-        <div className=" space-y-6">
+        <div className="space-y-6">
           <Button className="mt-4 h-11 w-full border-transparent bg-mesh-color-primary-1400">
             <Title bold={600} className="rounded-xl">
               Anunciar
             </Title>
           </Button>
-          <InputRadio
-            name="ciente"
-            radio="filter"
-            className="ml-4 w-[90%] text-mesh-color-neutral-200"
-          >
+          <CheckBox>
             Estou ciente que esta plataforma possui a modalidade de locação, e
             meu item poderá ser disponibilizado em caráter temporário, fazendo
             com que o recebimento pela venda ou locação deste item só seja
             realizado no prazo final da transação.
-          </InputRadio>
+          </CheckBox>
         </div>
       </div>
     </div>

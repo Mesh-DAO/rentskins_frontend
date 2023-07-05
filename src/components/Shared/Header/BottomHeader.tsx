@@ -15,7 +15,7 @@ type PropsContainer = {
 
 export function BottomHeader() {
   return (
-    <div className="mx-auto flex w-10/12 select-none justify-between gap-10 p-4">
+    <div className="z-0 mx-auto flex w-10/12 select-none justify-between gap-10 p-4">
       <ContainerItem title="Faca" iconSeta={<IconSetaType />} isList={true}>
         <ItemLink
           items={[

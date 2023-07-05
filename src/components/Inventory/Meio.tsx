@@ -1,12 +1,10 @@
-'use client'
 import { useQuery } from '@tanstack/react-query'
 import { Button } from '../Button'
 import { ModalConnectInventario } from '../Modal'
-import { ModalAddSkin } from '../Modal/ModalAddSkin'
 import { Title } from '../Title'
-import { CardSkinInventory } from './CardSkinInventory'
 import { findByConfigUserId } from '@/services/Configuracao.service'
 import useUserStore from '@/stores/user.store'
+import { CardSkinInventory } from './CardSkinInventory'
 
 export function Meio() {
   const {
@@ -20,7 +18,7 @@ export function Meio() {
   })
 
   return (
-    <div className="min-h-[1000px]">
+    <div className="mb-6 min-h-[1000px]">
       {!data || data.status !== 200 ? (
         <div className="mx-auto w-[60%] rounded-xl bg-mesh-color-others-eerie-black px-5 py-5">
           <Title bold={700} color="white" className="text-center font-bold">
@@ -36,14 +34,7 @@ export function Meio() {
           />
         </div>
       ) : (
-        <div className="flex justify-center space-x-6">
-          <ModalAddSkin
-            activator={CardSkinInventory({ nameColor: 'DFDFDF' })}
-          />
-          <ModalAddSkin
-            activator={CardSkinInventory({ nameColor: 'DFDFDF' })}
-          />
-        </div>
+        <CardSkinInventory steamid={`${steamid}`} />
       )}
     </div>
   )
