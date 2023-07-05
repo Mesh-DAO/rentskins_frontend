@@ -12,8 +12,8 @@ const useFilterStore = create<IStates>((set) => ({
     set(() => ({ inventoryFilter }))
   },
 
-  inventoryMainFilter: '',
-  setInventoryMainFilter: (inventoryMainFilter: string) => {
+  inventoryMainFilter: undefined,
+  setInventoryMainFilter: (inventoryMainFilter) => {
     set(() => ({ inventoryMainFilter }))
   },
 }))

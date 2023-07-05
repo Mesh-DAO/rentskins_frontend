@@ -5,6 +5,12 @@ export interface IStates {
   inventoryFilter: string[]
   setInventoryFilter: (value: string[]) => void
 
-  inventoryMainFilter: string
-  setInventoryMainFilter: (value: string) => void
+  inventoryMainFilter:
+    | 'biggestPrice'
+    | 'lowestPrice'
+    | 'biggestFloat'
+    | undefined
+  setInventoryMainFilter: (
+    value: 'biggestPrice' | 'lowestPrice' | 'biggestFloat' | undefined,
+  ) => void
 }

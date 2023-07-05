@@ -16,20 +16,10 @@ export function LadoEsquerdo() {
 
       <div className="mt-6 w-56 space-y-4 border-b border-t border-mesh-color-neutral-300 py-6">
         <InputRadio
-          name="skin"
-          radio="filter"
-          style="filter"
-          value="mais recente"
-        >
-          <Title color="white" className="ml-8">
-            Mais recente
-          </Title>
-        </InputRadio>
-        <InputRadio
           style="filter"
           name="skin"
           radio="filter"
-          value="menor preco"
+          value="lowestPrice"
         >
           <Title color="white" className="ml-8">
             Menor preço
@@ -39,7 +29,7 @@ export function LadoEsquerdo() {
           style="filter"
           name="skin"
           radio="filter"
-          value="maior preco"
+          value="biggestPrice"
         >
           <Title color="white" className="ml-8">
             Maior preço
@@ -49,10 +39,16 @@ export function LadoEsquerdo() {
           style="filter"
           name="skin"
           radio="filter"
-          value="mehlor float"
+          value="biggestFloat"
         >
           <Title color="white" className="ml-8">
             Melhor float
+          </Title>
+        </InputRadio>
+
+        <InputRadio style="filter" name="skin" radio="filter" value={undefined}>
+          <Title color="white" className="ml-8">
+            Limpar
           </Title>
         </InputRadio>
       </div>
@@ -63,11 +59,11 @@ export function LadoEsquerdo() {
         <CheckBox value="Sniper Rifle">Rifles de precisão</CheckBox>
         <CheckBox value="Pistol">Pistolas</CheckBox>
         <CheckBox value="SMG">Submetralhadoras</CheckBox>
-        <CheckBox value="Metralhadoras">Metralhadoras</CheckBox>
+        <CheckBox value="Machinegun">Metralhadoras</CheckBox>
         <CheckBox value="Shotgun">Escopetas</CheckBox>
         <CheckBox value="Gloves">Luvas</CheckBox>
         <CheckBox value="Sticker">Figurinhas</CheckBox>
-        <CheckBox value="Agentes">Agentes</CheckBox>
+        <CheckBox value="Agent">Agentes</CheckBox>
       </div>
     </div>
   )

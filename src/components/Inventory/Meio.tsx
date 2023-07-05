@@ -18,7 +18,7 @@ export function Meio() {
   })
 
   return (
-    <div className="min-h-[1000px]">
+    <div className="mb-6 min-h-[1000px]">
       {!isLoading ? (
         <>
           {!data || data.status !== 200 ? (
