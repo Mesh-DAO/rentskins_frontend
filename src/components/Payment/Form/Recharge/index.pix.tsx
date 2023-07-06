@@ -24,7 +24,7 @@ export function PaymentRechargePixForm({
   }
 
   return (
-    <Form.Root className="my-8 flex flex-col gap-4">
+    <Form.Root className="my-8 flex w-full flex-col gap-4">
       <Form.Input.Text
         label="Nome"
         placeholder="Nome Completo"

@@ -61,7 +61,7 @@ export default function PaymentAddMastercardPage() {
         enabled={isLoading}
         className="flex h-2/3 items-center justify-center"
       >
-        <div className="mt-8 flex w-fit flex-col">
+        <div className="mt-8 flex w-1/3 flex-col">
           <div className="mb-8 flex w-full items-center justify-start">
             <Button
               className="border-transparent"
@@ -80,7 +80,10 @@ export default function PaymentAddMastercardPage() {
             </span>
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
-            <Title size="2xl"> Recarregar saldo com Cartão </Title>
+            <Title size="2xl">
+              Recarregar saldo com{' '}
+              {method.charAt(0).toUpperCase() + method.slice(1)}
+            </Title>
             {methodComponent}
           </div>
         </div>
@@ -91,7 +94,7 @@ export default function PaymentAddMastercardPage() {
   const renderFailed = <div>Error...</div>
 
   return (
-    <main className="flex h-screen flex-col items-center justify-start bg-mesh-color-others-black text-white">
+    <main className="flex h-screen w-full flex-col items-center justify-start bg-mesh-color-others-black text-white">
       {methodComponent !== undefined ? renderContent : renderFailed}
     </main>
   )

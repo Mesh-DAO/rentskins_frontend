@@ -32,7 +32,7 @@ export function PaymentRechargeMastercardForm({
   }
 
   return (
-    <Form.Root className="my-8 flex flex-col gap-4">
+    <Form.Root className="my-8 flex w-full flex-col gap-4">
       <Form.Input.Text
         label="Email"
         placeholder="email@exemplo.com"
