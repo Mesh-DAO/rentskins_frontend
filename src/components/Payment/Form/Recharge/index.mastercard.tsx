@@ -41,7 +41,7 @@ export function PaymentRechargeMastercardForm({
   return (
     <>
       <Form.Root className="mb-8 flex flex-col gap-4">
-        <Form.InputText
+        <Form.Input.Text
           label="Email"
           placeholder="email@exemplo.com"
           value={email}
@@ -49,7 +49,7 @@ export function PaymentRechargeMastercardForm({
         />
 
         <div>
-          <Form.InputCard
+          <Form.Input.Card
             label="Informações do Cartão"
             placeholder="0000 0000 0000 0000"
             stateValue={cardNumber}
@@ -57,12 +57,12 @@ export function PaymentRechargeMastercardForm({
           />
 
           <div className="grid w-full grid-cols-2 items-center">
-            <Form.InputMonthYear
+            <Form.Input.MonthYear
               placeholder="MM / YY"
               stateValue={cardValidity}
               onChange={({ target }) => setCardValidity(target.value)}
             />
-            <Form.InputNumber
+            <Form.Input.Number
               placeholder="CVC"
               stateValue={cardCVC}
               limit={3}
@@ -71,7 +71,7 @@ export function PaymentRechargeMastercardForm({
           </div>
         </div>
 
-        <Form.InputText
+        <Form.Input.Text
           label="Nome do Portador"
           placeholder="Nome"
           value={cardOwner}
@@ -91,14 +91,14 @@ export function PaymentRechargeMastercardForm({
           </div>
 
           <div className="flex flex-col gap-4 text-xl font-semibold">
-            <Form.InputButton
+            <Form.Input.Button
               type="submit"
               label="Pagar"
               buttonStyle="full"
               disabled={validateForm()}
               onClick={handleFormSubmit}
             />
-            <Form.InputButton
+            <Form.Input.Button
               type="button"
               label="Cancelar"
               buttonStyle="opaque"

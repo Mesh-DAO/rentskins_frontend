@@ -7,11 +7,13 @@ import { FormRoot } from './FormRoot'
 
 const Form = {
   Root: FormRoot,
-  InputText: FormInputText,
-  InputCard: FormInputCard,
-  InputMonthYear: FormInputMonthYear,
-  InputNumber: FormInputNumber,
-  InputButton: FormInputButton,
+  Input: {
+    Text: FormInputText,
+    Card: FormInputCard,
+    MonthYear: FormInputMonthYear,
+    Number: FormInputNumber,
+    Button: FormInputButton,
+  },
 }
 
 export default Form
