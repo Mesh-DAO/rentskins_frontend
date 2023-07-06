@@ -1,95 +1,171 @@
-// import usePaymentStore from '@/stores/payment.store'
-// import { useState } from 'react'
+import usePaymentStore from '@/stores/payment.store'
+import { MouseEventHandler, useEffect, useState } from 'react'
+import Form from '@/components/Forms'
+import { Title } from '@/components/Title'
 
-export function PaymentWithdrawStepTransaction() {
-  // const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
-  // const [bank, setBank] = useState('')
-  // const [agency, setAgency] = useState('')
-  // const [accountNumber, setAccountNumber] = useState('')
-  // const [keyType, setKeyType] = useState('')
-  // const [keyNumber, setKeyNumber] = useState('')
+interface IProps {
+  handleFormSubmit: MouseEventHandler
+  handleFormCancel: MouseEventHandler
+}
+export function PaymentWithdrawStepTransaction({
+  handleFormSubmit,
+  handleFormCancel,
+}: IProps) {
+  const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
+  const [bank, setBank] = useState('Santander')
+  const [agency, setAgency] = useState('')
+  const [accountNumber, setAccountNumber] = useState('')
+  const [keyType, setKeyType] = useState('CPF')
+  const [keyValue, setKeyValue] = useState('')
 
-  // const handleOnChange = () => {
-  //   setPaymentWithdrawInfo({
-  //     ...paymentWithdrawInfo,
-  //     transference: {
-  //       bank,
-  //       agency,
-  //       accountNumber,
-  //       keyType,
-  //       keyNumber,
-  //     },
-  //   })
-  // }
+  useEffect(() => {
+    setPaymentWithdrawInfo({
+      ...paymentWithdrawInfo,
+      transference: {
+        bank,
+        agency,
+        accountNumber,
+        keyType,
+        keyValue,
+      },
+    })
+  }, [bank, agency, accountNumber, keyType, keyValue, setPaymentWithdrawInfo])
+
+  const selectKeyValueType = () => {
+    const types = {
+      CPF: (
+        <Form.Input.CPF
+          label="Chave Pix"
+          placeholder="000.000.000-00"
+          state={keyValue}
+          setState={setKeyValue}
+          required
+        />
+      ),
+      Email: (
+        <Form.Input.Email
+          label="Chave Pix"
+          placeholder="example@mail.com"
+          state={keyValue}
+          setState={setKeyValue}
+          required
+        />
+      ),
+      Telefone: (
+        <Form.Input.Phone
+          label="Chave Pix"
+          placeholder="(00) 00000-0000"
+          state={keyValue}
+          setState={setKeyValue}
+          required
+        />
+      ),
+    }
+
+    return types[keyType as 'CPF' | 'Email' | 'Telefone']
+  }
+
+  const validateForm = () => {
+    return !(
+      agency.length === 4 &&
+      accountNumber.length === 7 &&
+      keyValue.length > 0
+    )
+  }
 
   return (
-    <>
-      {/* <FormInput
-        label="Banco"
-        type="text"
-        name="withdraw-bank"
-        placeholder="Selecione o banco"
-        value={bank}
-        onChange={(event) => {
-          setBank(event.target.value)
-          handleOnChange()
-        }}
-      />
+    <div>
+      <text className="text-sm text-mesh-color-neutral-200">
+        Terceira Etapa
+      </text>
+      <Title size={'lg'} bold={600}>
+        Informações Bancárias
+      </Title>
+      <text className="text-sm">
+        Para receber seus ganhos da plataforma, por favor, preencha as
+        informações bancárias abaixo. A conta bancária deve estar registrada em
+        seu CPF.
+      </text>
 
-      <div className="grid w-full grid-cols-2 grid-rows-1">
-        <FormInput
-          label="Agência"
-          type="text"
-          name="withdraw-agency"
-          className="border-r-0"
-          rounded="rounded-tl-md rounded-bl-md"
-          placeholder="Seu estado"
-          value={agency}
-          maxLength={4}
-          onChange={(event) => {
-            setAgency(event.target.value)
-            handleOnChange()
-          }}
+      <Form.Root className="mt-6 flex flex-col gap-4">
+        <Form.Dropdown
+          label="Banco"
+          state={bank}
+          setState={setBank}
+          options={[
+            { label: 'Santander', value: 'Santander' },
+            { label: 'Banco do Brasil', value: 'Banco do Brasil' },
+            { label: 'Caixa', value: 'Caixa' },
+            { label: 'Itaú', value: 'Itaú' },
+            { label: 'Nubank', value: 'Nubank' },
+          ]}
         />
 
-        <FormInput
-          label="Número da conta"
-          type="text"
-          name="withdraw-account-number"
-          className=""
-          rounded="rounded-tr-md rounded-br-md"
-          placeholder="0000000"
-          value={accountNumber}
-          onChange={(event) => {
-            setAccountNumber(event.target.value)
-            handleOnChange()
-          }}
+        <div className="grid grid-cols-2 gap-2">
+          <Form.Input.Number
+            label="Agência"
+            limit={4}
+            placeholder="0000"
+            state={agency}
+            setState={setAgency}
+            required
+          />
+          <Form.Input.Number
+            label="Número da Conta"
+            limit={7}
+            placeholder="0000000"
+            state={accountNumber}
+            setState={setAccountNumber}
+            required
+          />
+        </div>
+
+        <Form.Dropdown
+          label="Tipo de Chave"
+          state={keyType}
+          setState={setKeyType}
+          options={[
+            { label: 'CPF/CNPJ', value: 'CPF' },
+            { label: 'Email', value: 'Email' },
+            { label: 'Número de Telefone', value: 'Telefone' },
+          ]}
         />
-      </div>
 
-      <FormInput
-        label="Tipo de Chave"
-        type="text"
-        name="withdraw-key-type"
-        placeholder="Selecione o tipo"
-        value={keyType}
-        onChange={(event) => {
-          setKeyType(event.target.value)
-          handleOnChange()
-        }}
-      />
+        {selectKeyValueType()}
 
-      <FormInput
-        label="Chave Pix"
-        type="text"
-        name="withdaw-key-number"
-        placeholder="Insira sua chave Pix"
-        value={keyNumber}
-        onChange={(event) => {
-          setKeyNumber(event.target.value)
-          handleOnChange()
-        }}
-      /> */}
-    </>
+        <div className="mt-4">
+          <div className="flex justify-between text-xl font-semibold">
+            <text>Levantamento:</text>
+
+            <span className="text-mesh-color-primary-800">
+              {Number(0).toLocaleString('pt-br', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 2,
+              })}
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-4 text-xl font-semibold">
+            <Form.Button
+              buttonStyle="full"
+              type="submit"
+              className="h-12 w-full border-transparent"
+              onClick={handleFormSubmit}
+              disabled={validateForm()}
+            >
+              Continuar
+            </Form.Button>
+            <Form.Button
+              buttonStyle="opaque"
+              className="h-12 w-full border-neutral-600"
+              onClick={handleFormCancel}
+            >
+              Cancelar
+            </Form.Button>
+          </div>
+        </div>
+      </Form.Root>
+    </div>
   )
 }

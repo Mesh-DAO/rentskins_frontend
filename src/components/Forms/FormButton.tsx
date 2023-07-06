@@ -6,7 +6,7 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
 }
 
-export function FormInputButton({
+export function FormButton({
   buttonStyle,
   children,
   className,

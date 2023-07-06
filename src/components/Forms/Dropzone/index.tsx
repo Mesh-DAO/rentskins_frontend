@@ -7,7 +7,6 @@ interface IProps {
 export default function FormDropzone({ label }: IProps) {
   return (
     <div className="flex w-full items-center justify-center">
-      {/* CHANGE COLOR */}
       <label
         htmlFor="dropzone-file"
         className="group flex h-64

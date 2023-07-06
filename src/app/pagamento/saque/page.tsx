@@ -16,15 +16,12 @@ import {
   PaymentWithdrawStepLocation,
   PaymentWithdrawStepTransaction,
 } from '@/components/Payment/Form/Withdraw/'
-import usePaymentStore from '@/stores/payment.store'
 
 export default function PaymentWithdrawPage() {
   const [isLoading, setIsLoading] = useState(false)
-  const [stepSubLabel, setStepSubLabel] = useState('')
   const router = useRouter()
 
   const { paymentWithdrawIndex, setPaymentWithdrawIndex } = useComponentStore()
-  const { paymentWithdrawInfo } = usePaymentStore()
 
   useEffect(() => setPaymentWithdrawIndex(0), [setPaymentWithdrawIndex])
 
@@ -32,32 +29,46 @@ export default function PaymentWithdrawPage() {
     router.push('/')
   }
 
-  useEffect(() => console.log(paymentWithdrawInfo), [paymentWithdrawInfo])
-
   const handleOnNext = (event: any) => {
     event.preventDefault()
 
-    switch (paymentWithdrawIndex) {
-      case 0:
-        setPaymentWithdrawIndex(1)
-        setStepSubLabel('')
-        break
-      case 1:
-        setPaymentWithdrawIndex(2)
-        setStepSubLabel(
-          'Para receber seus ganhos da plataforma, por favor, preencha as informações bancárias abaixo. A conta bancária deve estar registrada em seu CPF.',
-        )
-        break
-      case 2:
-        setPaymentWithdrawIndex(3)
-        setStepSubLabel(
-          'Por favor, envie a foto frente e verso da sua identidade, CNH ou PDF para que possamos verificar suas informações pessoais. Essa etapa é importante para garantir a segurança da plataforma e dos usuários.',
-        )
-        break
-      case 3:
-        setIsLoading(true)
-        router.push('/pagamento/saque/sucesso')
+    if (paymentWithdrawIndex !== 3) {
+      setPaymentWithdrawIndex((paymentWithdrawIndex + 1) as 0 | 1 | 2 | 3)
+    } else {
+      setIsLoading(true)
+      router.push('/pagamento/saque/sucesso')
     }
+  }
+
+  const renderFormContent = () => {
+    const forms = {
+      0: (
+        <PaymentWithdrawStepPersonal
+          handleFormSubmit={handleOnNext}
+          handleFormCancel={handleOnCancel}
+        />
+      ),
+      1: (
+        <PaymentWithdrawStepLocation
+          handleFormSubmit={handleOnNext}
+          handleFormCancel={handleOnCancel}
+        />
+      ),
+      2: (
+        <PaymentWithdrawStepTransaction
+          handleFormSubmit={handleOnNext}
+          handleFormCancel={handleOnCancel}
+        />
+      ),
+      3: (
+        <PaymentWithdrawStepDocument
+          handleFormSubmit={handleOnNext}
+          handleFormCancel={handleOnCancel}
+        />
+      ),
+    }
+
+    return forms[paymentWithdrawIndex]
   }
 
   return (
@@ -164,23 +175,8 @@ export default function PaymentWithdrawPage() {
                 />
               </div>
             </div>
-            <div className="mt-4 w-full max-w-xl">
-              <div className="w-11/12 leading-tight">
-                <text className="h-2  text-sm leading-none tracking-tighter text-mesh-color-neutral-0">
-                  {stepSubLabel}
-                </text>
-              </div>
-            </div>
-            <div className="w-full transition-all ease-in-out">
-              {paymentWithdrawIndex === 0 && (
-                <PaymentWithdrawStepPersonal
-                  handleFormSubmit={handleOnNext}
-                  handleFormCancel={handleOnCancel}
-                />
-              )}
-              {paymentWithdrawIndex === 1 && <PaymentWithdrawStepLocation />}
-              {paymentWithdrawIndex === 2 && <PaymentWithdrawStepTransaction />}
-              {paymentWithdrawIndex === 3 && <PaymentWithdrawStepDocument />}
+            <div className="mt-4 w-full transition-all ease-in-out">
+              {renderFormContent()}
             </div>
           </div>
         </div>
