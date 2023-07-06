@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { FormHTMLAttributes } from 'react'
 
-interface IProps {
+interface IProps extends FormHTMLAttributes<HTMLFormElement> {
   children: React.ReactNode
+  className?: string
 }
 
-export function FormRoot({ children }: IProps) {
-  return <form className="w-full">{children}</form>
+export function FormRoot({ children, className, ...rest }: IProps) {
+  return (
+    <form className={`${className} w-full`} {...rest}>
+      {children}
+    </form>
+  )
 }

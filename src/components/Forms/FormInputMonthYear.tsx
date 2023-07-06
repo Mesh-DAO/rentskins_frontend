@@ -1,7 +1,6 @@
 import React, { InputHTMLAttributes } from 'react'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
-  hasLabel?: boolean
   label?: string
   labelSide?: 'up' | 'down'
   labelClassName?: string
@@ -10,7 +9,6 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export function FormInputMonthYear({
-  hasLabel = true,
   label,
   labelSide = 'up',
   labelClassName,
@@ -20,18 +18,19 @@ export function FormInputMonthYear({
 }: IProps) {
   const formatMonthYear = (value: string): string => {
     const numbers = value.replace(/\D/g, '')
+
     const month = numbers.slice(0, 2)
     const year = numbers.slice(2, 4)
 
     if (value.length > 2) {
-      return String(month) + '/' + String(year)
+      return `${month}/${year}`
     }
     return String(month)
   }
 
   return (
     <label className={`${labelClassName} flex flex-col text-lg`}>
-      {hasLabel && labelSide === 'up' && label}
+      {label && labelSide === 'up' && label}
       <input
         type="text"
         onChange={({ target }) => formatMonthYear(target.value as any)}
@@ -40,7 +39,7 @@ export function FormInputMonthYear({
         border-mesh-color-primary-1100/50 bg-mesh-color-others-eerie-black px-3 py-3 placeholder:text-white/70`}
         {...rest}
       />
-      {hasLabel && labelSide === 'down' && label}
+      {label && labelSide === 'down' && label}
     </label>
   )
 }
