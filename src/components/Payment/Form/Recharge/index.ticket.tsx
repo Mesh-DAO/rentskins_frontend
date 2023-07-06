@@ -67,19 +67,21 @@ export function PaymentRechargeTicketForm({
         </div>
 
         <div className="flex flex-col gap-4 text-xl font-semibold">
-          <Form.Input.Button
+          <Form.Button
             type="submit"
-            label="Pagar"
             buttonStyle="full"
             disabled={validateForm()}
             onClick={handleFormSubmit}
-          />
-          <Form.Input.Button
+          >
+            Pagar
+          </Form.Button>
+          <Form.Button
             type="button"
-            label="Cancelar"
             buttonStyle="opaque"
             onClick={handleFormCancel}
-          />
+          >
+            Cancelar
+          </Form.Button>
         </div>
       </div>
     </Form.Root>

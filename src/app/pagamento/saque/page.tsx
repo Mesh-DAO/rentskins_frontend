@@ -20,9 +20,7 @@ import usePaymentStore from '@/stores/payment.store'
 
 export default function PaymentWithdrawPage() {
   const [isLoading, setIsLoading] = useState(false)
-  const [stepLabel, setStepLabel] = useState('Primeira etapa')
   const [stepSubLabel, setStepSubLabel] = useState('')
-  const [stepSubtitle, setStepSubtitle] = useState('Informações Pessoais')
   const router = useRouter()
 
   const { paymentWithdrawIndex, setPaymentWithdrawIndex } = useComponentStore()
@@ -42,22 +40,16 @@ export default function PaymentWithdrawPage() {
     switch (paymentWithdrawIndex) {
       case 0:
         setPaymentWithdrawIndex(1)
-        setStepLabel('Segunda Etapa')
-        setStepSubtitle('Informações da Localização')
         setStepSubLabel('')
         break
       case 1:
         setPaymentWithdrawIndex(2)
-        setStepLabel('Terceira Etapa')
-        setStepSubtitle('Informações Bancárias')
         setStepSubLabel(
           'Para receber seus ganhos da plataforma, por favor, preencha as informações bancárias abaixo. A conta bancária deve estar registrada em seu CPF.',
         )
         break
       case 2:
         setPaymentWithdrawIndex(3)
-        setStepLabel('Quarta Etapa')
-        setStepSubtitle('Documentos')
         setStepSubLabel(
           'Por favor, envie a foto frente e verso da sua identidade, CNH ou PDF para que possamos verificar suas informações pessoais. Essa etapa é importante para garantir a segurança da plataforma e dos usuários.',
         )
@@ -179,47 +171,17 @@ export default function PaymentWithdrawPage() {
                 </text>
               </div>
             </div>
-            <form
-              onSubmit={(event) => handleOnNext(event)}
-              className="mt-4 w-full transition-all ease-in-out"
-            >
-              {paymentWithdrawIndex === 0 && <PaymentWithdrawStepPersonal />}
+            <div className="w-full transition-all ease-in-out">
+              {paymentWithdrawIndex === 0 && (
+                <PaymentWithdrawStepPersonal
+                  handleFormSubmit={handleOnNext}
+                  handleFormCancel={handleOnCancel}
+                />
+              )}
               {paymentWithdrawIndex === 1 && <PaymentWithdrawStepLocation />}
               {paymentWithdrawIndex === 2 && <PaymentWithdrawStepTransaction />}
               {paymentWithdrawIndex === 3 && <PaymentWithdrawStepDocument />}
-
-              <br />
-
-              <div className="flex justify-between text-xl font-semibold">
-                <text>Levantamento:</text>
-
-                <span className="text-mesh-color-primary-800">
-                  {Number(0).toLocaleString('pt-br', {
-                    style: 'currency',
-                    currency: 'BRL',
-                    minimumFractionDigits: 2,
-                  })}
-                </span>
-              </div>
-
-              <div className="flex flex-col gap-4 text-xl font-semibold">
-                <Button
-                  type="submit"
-                  color="green"
-                  className="h-12 w-full border-transparent"
-                >
-                  Continuar
-                </Button>
-                {/* COLOR NOT WORKING */}
-                <Button
-                  className="h-12 w-full border-neutral-600"
-                  color="invisible"
-                  onClick={() => handleOnCancel()}
-                >
-                  Cancelar
-                </Button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </CircleLoading>

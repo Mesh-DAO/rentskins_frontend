@@ -1,16 +1,24 @@
 import Form from '@/components/Forms'
 import { Title } from '@/components/Title'
 import usePaymentStore from '@/stores/payment.store'
-import { useState } from 'react'
+import { MouseEventHandler, useEffect, useState } from 'react'
 
-export function PaymentWithdrawStepPersonal() {
+interface IProps {
+  handleFormSubmit: MouseEventHandler
+  handleFormCancel: MouseEventHandler
+}
+
+export function PaymentWithdrawStepPersonal({
+  handleFormSubmit,
+  handleFormCancel,
+}: IProps) {
   const { setPaymentWithdrawInfo } = usePaymentStore()
   const [identification, setIdentification] = useState('')
   const [name, setName] = useState('')
   const [birthday, setBirthday] = useState('')
   const [phone, setPhone] = useState('')
 
-  const handleOnChange = () => {
+  useEffect(() => {
     setPaymentWithdrawInfo({
       personal: {
         identification,
@@ -19,6 +27,15 @@ export function PaymentWithdrawStepPersonal() {
         phone,
       },
     })
+  }, [identification, name, birthday, phone, setPaymentWithdrawInfo])
+
+  const validateForm = () => {
+    return !(
+      identification.length >= 14 &&
+      name.length >= 5 &&
+      birthday.length >= 10 &&
+      phone.length >= 15
+    )
   }
 
   return (
@@ -62,6 +79,39 @@ export function PaymentWithdrawStepPersonal() {
           setState={setPhone}
           required
         />
+
+        <div className="mt-4">
+          <div className="flex justify-between text-xl font-semibold">
+            <text>Levantamento:</text>
+
+            <span className="text-mesh-color-primary-800">
+              {Number(0).toLocaleString('pt-br', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 2,
+              })}
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-4 text-xl font-semibold">
+            <Form.Button
+              buttonStyle="full"
+              type="submit"
+              className="h-12 w-full border-transparent"
+              onClick={handleFormSubmit}
+              disabled={validateForm()}
+            >
+              Continuar
+            </Form.Button>
+            <Form.Button
+              buttonStyle="opaque"
+              className="h-12 w-full border-neutral-600"
+              onClick={handleFormCancel}
+            >
+              Cancelar
+            </Form.Button>
+          </div>
+        </div>
       </Form.Root>
     </div>
   )

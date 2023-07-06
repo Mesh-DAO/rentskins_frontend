@@ -2,13 +2,13 @@ import React, { ButtonHTMLAttributes } from 'react'
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonStyle: 'opaque' | 'full'
-  label: string
+  children: React.ReactNode
   className?: string
 }
 
 export function FormInputButton({
   buttonStyle,
-  label,
+  children,
   className,
   ...rest
 }: IProps) {
@@ -27,7 +27,7 @@ export function FormInputButton({
       }`}
       {...rest}
     >
-      {label}
+      {children}
     </button>
   )
 }

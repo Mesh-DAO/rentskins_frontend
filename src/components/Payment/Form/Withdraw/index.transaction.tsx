@@ -1,26 +1,26 @@
-import usePaymentStore from '@/stores/payment.store'
-import { useState } from 'react'
+// import usePaymentStore from '@/stores/payment.store'
+// import { useState } from 'react'
 
 export function PaymentWithdrawStepTransaction() {
-  const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
-  const [bank, setBank] = useState('')
-  const [agency, setAgency] = useState('')
-  const [accountNumber, setAccountNumber] = useState('')
-  const [keyType, setKeyType] = useState('')
-  const [keyNumber, setKeyNumber] = useState('')
+  // const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
+  // const [bank, setBank] = useState('')
+  // const [agency, setAgency] = useState('')
+  // const [accountNumber, setAccountNumber] = useState('')
+  // const [keyType, setKeyType] = useState('')
+  // const [keyNumber, setKeyNumber] = useState('')
 
-  const handleOnChange = () => {
-    setPaymentWithdrawInfo({
-      ...paymentWithdrawInfo,
-      transference: {
-        bank,
-        agency,
-        accountNumber,
-        keyType,
-        keyNumber,
-      },
-    })
-  }
+  // const handleOnChange = () => {
+  //   setPaymentWithdrawInfo({
+  //     ...paymentWithdrawInfo,
+  //     transference: {
+  //       bank,
+  //       agency,
+  //       accountNumber,
+  //       keyType,
+  //       keyNumber,
+  //     },
+  //   })
+  // }
 
   return (
     <>

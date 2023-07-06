@@ -1,28 +1,28 @@
-import usePaymentStore from '@/stores/payment.store'
-import { useState } from 'react'
+// import usePaymentStore from '@/stores/payment.store'
+// import { useState } from 'react'
 
 export function PaymentWithdrawStepLocation() {
-  const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [cep, setCEP] = useState('')
-  const [neighborhood, setNeighborhood] = useState('')
-  const [complementNumber, setComplementNumber] = useState('')
-  const [address, setAddress] = useState('')
+  // const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
+  // const [city, setCity] = useState('')
+  // const [state, setState] = useState('')
+  // const [cep, setCEP] = useState('')
+  // const [neighborhood, setNeighborhood] = useState('')
+  // const [complementNumber, setComplementNumber] = useState('')
+  // const [address, setAddress] = useState('')
 
-  const handleOnChange = () => {
-    setPaymentWithdrawInfo({
-      ...paymentWithdrawInfo,
-      location: {
-        city,
-        state,
-        cep,
-        neighborhood,
-        complementNumber,
-        address,
-      },
-    })
-  }
+  // const handleOnChange = () => {
+  //   setPaymentWithdrawInfo({
+  //     ...paymentWithdrawInfo,
+  //     location: {
+  //       city,
+  //       state,
+  //       cep,
+  //       neighborhood,
+  //       complementNumber,
+  //       address,
+  //     },
+  //   })
+  // }
 
   return (
     <div>
