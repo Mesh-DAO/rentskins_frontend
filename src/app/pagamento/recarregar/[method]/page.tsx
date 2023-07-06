@@ -91,7 +91,20 @@ export default function PaymentAddMastercardPage() {
     </>
   )
 
-  const renderFailed = <div>Error...</div>
+  const renderFailed = (
+    <div className="flex h-3/5 flex-col items-center justify-center gap-4">
+      <Title bold={800} size="3xl">
+        Página não encontrada.
+      </Title>
+      <Button
+        onClick={() => router.push('/')}
+        className="border-mesh-color-primary-1400 
+      bg-mesh-color-primary-1400 px-4 text-lg font-semibold text-mesh-color-others-black"
+      >
+        Voltar
+      </Button>
+    </div>
+  )
 
   return (
     <main className="flex h-screen w-full flex-col items-center justify-start bg-mesh-color-others-black text-white">
