@@ -37,26 +37,11 @@ export default function PaymentWithdrawPage() {
   const handleOnNext = (event: any) => {
     event.preventDefault()
 
-    switch (paymentWithdrawIndex) {
-      case 0:
-        setPaymentWithdrawIndex(1)
-        setStepSubLabel('')
-        break
-      case 1:
-        setPaymentWithdrawIndex(2)
-        setStepSubLabel(
-          'Para receber seus ganhos da plataforma, por favor, preencha as informações bancárias abaixo. A conta bancária deve estar registrada em seu CPF.',
-        )
-        break
-      case 2:
-        setPaymentWithdrawIndex(3)
-        setStepSubLabel(
-          'Por favor, envie a foto frente e verso da sua identidade, CNH ou PDF para que possamos verificar suas informações pessoais. Essa etapa é importante para garantir a segurança da plataforma e dos usuários.',
-        )
-        break
-      case 3:
-        setIsLoading(true)
-        router.push('/pagamento/saque/sucesso')
+    if (paymentWithdrawIndex !== 3) {
+      setPaymentWithdrawIndex((paymentWithdrawIndex + 1) as 0 | 1 | 2 | 3)
+    } else {
+      setIsLoading(true)
+      router.push('/pagamento/saque/sucesso')
     }
   }
 
@@ -164,15 +149,8 @@ export default function PaymentWithdrawPage() {
                 />
               </div>
             </div>
-            <div className="mt-4 w-full max-w-xl">
-              <div className="w-11/12 leading-tight">
-                <text className="h-2  text-sm leading-none tracking-tighter text-mesh-color-neutral-0">
-                  {stepSubLabel}
-                </text>
-              </div>
-            </div>
-            <div className="w-full transition-all ease-in-out">
-              {paymentWithdrawIndex === 0 && (
+            <div className="mt-4 w-full transition-all ease-in-out">
+              {/* {paymentWithdrawIndex === 0 && (
                 <PaymentWithdrawStepPersonal
                   handleFormSubmit={handleOnNext}
                   handleFormCancel={handleOnCancel}
@@ -184,8 +162,17 @@ export default function PaymentWithdrawPage() {
                   handleFormCancel={handleOnCancel}
                 />
               )}
-              {paymentWithdrawIndex === 2 && <PaymentWithdrawStepTransaction />}
-              {paymentWithdrawIndex === 3 && <PaymentWithdrawStepDocument />}
+              {paymentWithdrawIndex === 2 && (
+                <PaymentWithdrawStepTransaction
+                  handleFormSubmit={handleOnNext}
+                  handleFormCancel={handleOnCancel}
+                />
+              )}
+              {paymentWithdrawIndex === 3 && <PaymentWithdrawStepDocument />} */}
+              <PaymentWithdrawStepTransaction
+                handleFormSubmit={handleOnNext}
+                handleFormCancel={handleOnCancel}
+              />
             </div>
           </div>
         </div>

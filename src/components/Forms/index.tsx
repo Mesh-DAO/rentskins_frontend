@@ -10,10 +10,12 @@ import { FormInputText } from './Type/FormInputText'
 import { FormInputDate } from './Type/FormInputDate'
 import { FormInputPhone } from './Type/FormInputPhone'
 import { FormInputPostalCode } from './Type/FormInputPostalCode'
+import { FormDropdown } from './FormDropdown'
 
 const Form = {
   Root: FormRoot,
   Button: FormButton,
+  Dropdown: FormDropdown,
   Input: {
     Text: FormInputText,
     Email: FormInputEmail,
