@@ -1,4 +1,3 @@
-import { FormInput } from '@/components/Forms/Input'
 import usePaymentStore from '@/stores/payment.store'
 import { useState } from 'react'
 
@@ -26,8 +25,8 @@ export function PaymentWithdrawStepLocation() {
   }
 
   return (
-    <>
-      <FormInput
+    <div>
+      {/* <FormInput
         label="Cidade"
         type="text"
         name="withdraw-city"
@@ -97,7 +96,7 @@ export function PaymentWithdrawStepLocation() {
           setAddress(event.target.value)
           handleOnChange()
         }}
-      />
-    </>
+      /> */}
+    </div>
   )
 }

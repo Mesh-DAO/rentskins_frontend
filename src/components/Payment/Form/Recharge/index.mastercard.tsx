@@ -88,14 +88,14 @@ export function PaymentRechargeMastercardForm({
         </div>
 
         <div className="flex flex-col gap-4 text-xl font-semibold">
-          <Form.Input.Button
+          <Form.Button
             type="submit"
             label="Pagar"
             buttonStyle="full"
             disabled={validateForm()}
             onClick={handleFormSubmit}
           />
-          <Form.Input.Button
+          <Form.Button
             type="button"
             label="Cancelar"
             buttonStyle="opaque"

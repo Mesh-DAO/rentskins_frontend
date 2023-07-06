@@ -1,4 +1,3 @@
-import { FormInput } from '@/components/Forms/Input'
 import usePaymentStore from '@/stores/payment.store'
 import { useState } from 'react'
 
@@ -25,7 +24,7 @@ export function PaymentWithdrawStepTransaction() {
 
   return (
     <>
-      <FormInput
+      {/* <FormInput
         label="Banco"
         type="text"
         name="withdraw-bank"
@@ -90,7 +89,7 @@ export function PaymentWithdrawStepTransaction() {
           setKeyNumber(event.target.value)
           handleOnChange()
         }}
-      />
+      /> */}
     </>
   )
 }

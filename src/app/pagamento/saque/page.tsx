@@ -173,13 +173,6 @@ export default function PaymentWithdrawPage() {
               </div>
             </div>
             <div className="mt-4 w-full max-w-xl">
-              <div className="text-sm text-mesh-color-neutral-200">
-                {stepLabel}
-              </div>
-              <Title size={'lg'} bold={600}>
-                {stepSubtitle}
-              </Title>
-
               <div className="w-11/12 leading-tight">
                 <text className="h-2  text-sm leading-none tracking-tighter text-mesh-color-neutral-0">
                   {stepSubLabel}
@@ -200,7 +193,13 @@ export default function PaymentWithdrawPage() {
               <div className="flex justify-between text-xl font-semibold">
                 <text>Levantamento:</text>
 
-                <span className="text-mesh-color-primary-800">R$0,00</span>
+                <span className="text-mesh-color-primary-800">
+                  {Number(0).toLocaleString('pt-br', {
+                    style: 'currency',
+                    currency: 'BRL',
+                    minimumFractionDigits: 2,
+                  })}
+                </span>
               </div>
 
               <div className="flex flex-col gap-4 text-xl font-semibold">

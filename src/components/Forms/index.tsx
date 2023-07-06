@@ -1,14 +1,17 @@
-import { FormInputButton } from './FormInputButton'
-import { FormInputCPF } from './FormInputCPF'
-import { FormInputCard } from './FormInputCard'
-import { FormInputEmail } from './FormInputEmail'
-import { FormInputMonthYear } from './FormInputMonthYear'
-import { FormInputNumber } from './FormInputNumber'
-import { FormInputText } from './FormInputText'
+import { FormInputButton } from './Type/FormInputButton'
+import { FormInputCPF } from './Type/FormInputCPF'
+import { FormInputCard } from './Type/FormInputCard'
+import { FormInputEmail } from './Type/FormInputEmail'
+import { FormInputMonthYear } from './Type/FormInputMonthYear'
+import { FormInputNumber } from './Type/FormInputNumber'
+import { FormInputText } from './Type/FormInputText'
 import { FormRoot } from './FormRoot'
+import { FormInputDate } from './Type/FormInputDate'
+import { FormInputPhone } from './Type/FormInputPhone'
 
 const Form = {
   Root: FormRoot,
+  Button: FormInputButton,
   Input: {
     Text: FormInputText,
     Email: FormInputEmail,
@@ -16,7 +19,8 @@ const Form = {
     CPF: FormInputCPF,
     MonthYear: FormInputMonthYear,
     Number: FormInputNumber,
-    Button: FormInputButton,
+    Date: FormInputDate,
+    Phone: FormInputPhone,
   },
 }
 

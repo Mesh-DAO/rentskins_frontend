@@ -1,4 +1,5 @@
-import { FormInput } from '@/components/Forms/Input'
+import Form from '@/components/Forms'
+import { Title } from '@/components/Title'
 import usePaymentStore from '@/stores/payment.store'
 import { useState } from 'react'
 
@@ -21,8 +22,49 @@ export function PaymentWithdrawStepPersonal() {
   }
 
   return (
-    <>
-      <FormInput
+    <div>
+      <text className="text-sm text-mesh-color-neutral-200">
+        Primeira etapa
+      </text>
+      <Title size={'lg'} bold={600}>
+        Informações Pessoais
+      </Title>
+
+      <Form.Root className="mt-6 flex flex-col gap-4">
+        <Form.Input.CPF
+          label="CPF"
+          placeholder="000.000.000-00"
+          state={identification}
+          setState={setIdentification}
+          required
+        />
+
+        <Form.Input.Text
+          label="Nome"
+          placeholder="Nome Completo"
+          state={name}
+          setState={setName}
+          required
+        />
+
+        <Form.Input.Date
+          label="Data de Nascimento"
+          placeholder="dd/mm/aaaa"
+          state={birthday}
+          setState={setBirthday}
+          required
+        />
+
+        <Form.Input.Phone
+          label="Data de Nascimento"
+          placeholder="(00) 00000-0000"
+          state={phone}
+          setState={setPhone}
+          required
+        />
+      </Form.Root>
+
+      {/* <FormInput
         label="CPF"
         type="text"
         name="withdraw-identification"
@@ -68,7 +110,7 @@ export function PaymentWithdrawStepPersonal() {
           setPhone(event.target.value)
           handleOnChange()
         }}
-      />
-    </>
+      /> */}
+    </div>
   )
 }
