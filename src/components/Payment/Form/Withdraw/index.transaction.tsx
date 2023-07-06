@@ -1,7 +1,16 @@
-// import usePaymentStore from '@/stores/payment.store'
-// import { useState } from 'react'
+import usePaymentStore from '@/stores/payment.store'
+import { MouseEventHandler, useState } from 'react'
+import Form from '@/components/Forms'
+import { Title } from '@/components/Title'
 
-export function PaymentWithdrawStepTransaction() {
+interface IProps {
+  handleFormSubmit: MouseEventHandler
+  handleFormCancel: MouseEventHandler
+}
+export function PaymentWithdrawStepTransaction({
+  handleFormSubmit,
+  handleFormCancel,
+}: IProps) {
   // const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
   // const [bank, setBank] = useState('')
   // const [agency, setAgency] = useState('')

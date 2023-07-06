@@ -15,7 +15,7 @@ export interface IPersonal {
 export interface ILocation {
   city: string | undefined
   state: string | undefined
-  cep: string | undefined
+  postalCode: string | undefined
   neighborhood: string | undefined
   complementNumber: string | undefined
   address: string | undefined

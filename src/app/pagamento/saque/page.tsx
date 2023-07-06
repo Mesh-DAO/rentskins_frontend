@@ -178,7 +178,12 @@ export default function PaymentWithdrawPage() {
                   handleFormCancel={handleOnCancel}
                 />
               )}
-              {paymentWithdrawIndex === 1 && <PaymentWithdrawStepLocation />}
+              {paymentWithdrawIndex === 1 && (
+                <PaymentWithdrawStepLocation
+                  handleFormSubmit={handleOnNext}
+                  handleFormCancel={handleOnCancel}
+                />
+              )}
               {paymentWithdrawIndex === 2 && <PaymentWithdrawStepTransaction />}
               {paymentWithdrawIndex === 3 && <PaymentWithdrawStepDocument />}
             </div>
