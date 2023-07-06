@@ -1,7 +1,6 @@
 'use client'
 import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
-import { useRouter } from 'next/navigation'
 import { useState, MouseEventHandler } from 'react'
 
 interface IProps {
@@ -19,8 +18,6 @@ export function PaymentRechargeMastercardForm({
   const [cardCVC, setCardCVC] = useState('')
   const [cardOwner, setCardOwner] = useState('')
 
-  const router = useRouter()
-
   const { paymentAdd } = usePaymentStore()
 
   const validateForm = () => {
@@ -34,18 +31,15 @@ export function PaymentRechargeMastercardForm({
     )
   }
 
-  const handleOnCancel = () => {
-    router.push('/')
-  }
-
   return (
     <>
       <Form.Root className="mb-8 flex flex-col gap-4">
         <Form.Input.Text
           label="Email"
           placeholder="email@exemplo.com"
-          value={email}
+          stateValue={email}
           onChange={({ target }) => setEmail(target.value)}
+          required
         />
 
         <div>
@@ -54,6 +48,7 @@ export function PaymentRechargeMastercardForm({
             placeholder="0000 0000 0000 0000"
             stateValue={cardNumber}
             onChange={({ target }) => setCardNumber(target.value)}
+            required
           />
 
           <div className="grid w-full grid-cols-2 items-center">
@@ -61,12 +56,14 @@ export function PaymentRechargeMastercardForm({
               placeholder="MM / YY"
               stateValue={cardValidity}
               onChange={({ target }) => setCardValidity(target.value)}
+              required
             />
             <Form.Input.Number
               placeholder="CVC"
               stateValue={cardCVC}
               limit={3}
               onChange={({ target }) => setCardCVC(target.value)}
+              required
             />
           </div>
         </div>
@@ -74,8 +71,9 @@ export function PaymentRechargeMastercardForm({
         <Form.Input.Text
           label="Nome do Portador"
           placeholder="Nome"
-          value={cardOwner}
+          stateValue={cardOwner}
           onChange={({ target }) => setCardOwner(target.value)}
+          required
         />
 
         <div className="mt-4">
@@ -102,7 +100,7 @@ export function PaymentRechargeMastercardForm({
               type="button"
               label="Cancelar"
               buttonStyle="opaque"
-              onClick={handleOnCancel}
+              onClick={handleFormCancel}
             />
           </div>
         </div>

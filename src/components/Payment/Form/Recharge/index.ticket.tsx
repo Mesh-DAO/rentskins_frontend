@@ -1,14 +1,17 @@
 import { Button } from '@/components/Button'
 import { FormInput } from '@/components/Forms/Input'
 import usePaymentStore from '@/stores/payment.store'
-import router from 'next/router'
 import { useState, MouseEventHandler } from 'react'
 
 interface IProps {
   handleFormSubmit: MouseEventHandler
+  handleFormCancel: MouseEventHandler
 }
 
-export function PaymentRechargeTicketForm({ handleFormSubmit }: IProps) {
+export function PaymentRechargeTicketForm({
+  handleFormSubmit,
+  handleFormCancel,
+}: IProps) {
   const [name, setName] = useState('')
   const [identification, setIdentification] = useState('')
   const [email, setEmail] = useState('')
@@ -16,10 +19,6 @@ export function PaymentRechargeTicketForm({ handleFormSubmit }: IProps) {
 
   const validateForm = () => {
     return name.length > 0 && identification.length > 0 && email.length > 0
-  }
-
-  const handleOnCancel = () => {
-    router.push('/')
   }
 
   return (
@@ -73,7 +72,7 @@ export function PaymentRechargeTicketForm({ handleFormSubmit }: IProps) {
         </Button>
         <Button
           className="w-full border-2 py-2"
-          onClick={() => handleOnCancel()}
+          onClick={handleFormCancel}
           color="invisible"
         >
           Cancelar

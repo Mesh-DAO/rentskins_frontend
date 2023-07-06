@@ -16,7 +16,7 @@ export function FormInputMonthYear({
   stateValue,
   ...rest
 }: IProps) {
-  const formatMonthYear = (value: string): string => {
+  const formatInput = (value: string): string => {
     const numbers = value.replace(/\D/g, '')
 
     const month = numbers.slice(0, 2)
@@ -33,8 +33,8 @@ export function FormInputMonthYear({
       {label && labelSide === 'up' && label}
       <input
         type="text"
-        onChange={({ target }) => formatMonthYear(target.value as any)}
-        value={formatMonthYear(stateValue)}
+        onChange={({ target }) => formatInput(target.value as any)}
+        value={formatInput(stateValue)}
         className={`${inputClassName} rounded-md border-[2px]
         border-mesh-color-primary-1100/50 bg-mesh-color-others-eerie-black px-3 py-3 placeholder:text-white/70`}
         {...rest}

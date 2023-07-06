@@ -17,6 +17,10 @@ export default function PaymentAddMastercardPage() {
     router.push('/pagamento/recarregar/sucesso')
   }
 
+  const handleOnCancel = (event: any) => {
+    router.push('/')
+  }
+
   return (
     <main className="flex h-screen flex-col items-center justify-start bg-mesh-color-others-black text-white">
       <CircleLoading
@@ -44,11 +48,10 @@ export default function PaymentAddMastercardPage() {
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
             <Title size="2xl"> Recarregar saldo com Cartão </Title>
-            <form className="mt-4 w-full">
-              <PaymentRechargeMastercardForm
-                handleFormSubmit={(event) => handleOnSubmit(event)}
-              />
-            </form>
+            <PaymentRechargeMastercardForm
+              handleFormSubmit={(event) => handleOnSubmit(event)}
+              handleFormCancel={(event) => handleOnCancel(event)}
+            />
           </div>
         </div>
       </CircleLoading>

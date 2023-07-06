@@ -8,7 +8,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   stateValue: any
 }
 
-export function FormInputCard({
+export function FormInputEmail({
   label,
   labelSide = 'up',
   labelClassName,
@@ -17,17 +17,14 @@ export function FormInputCard({
   ...rest
 }: IProps) {
   const formatInput = (value: string): string => {
-    const numbers = value.replace(/\D/g, '')
-    const limitCardNumber = numbers.slice(0, 16)
-    const result = limitCardNumber.replace(/(\d{4})(?=\d)/g, '$1 ')
-    return result
+    return value
   }
 
   return (
     <label className={`${labelClassName} flex flex-col text-lg`}>
       {label && labelSide === 'up' && label}
       <input
-        type="text"
+        type="email"
         onChange={({ target }) => formatInput(target.value as any)}
         value={formatInput(stateValue)}
         className={`${inputClassName} rounded-md border-[2px]

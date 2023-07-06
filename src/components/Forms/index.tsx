@@ -1,5 +1,6 @@
 import { FormInputButton } from './FormInputButton'
 import { FormInputCard } from './FormInputCard'
+import { FormInputEmail } from './FormInputEmail'
 import { FormInputMonthYear } from './FormInputMonthYear'
 import { FormInputNumber } from './FormInputNumber'
 import { FormInputText } from './FormInputText'
@@ -9,6 +10,7 @@ const Form = {
   Root: FormRoot,
   Input: {
     Text: FormInputText,
+    Email: FormInputEmail,
     Card: FormInputCard,
     MonthYear: FormInputMonthYear,
     Number: FormInputNumber,
