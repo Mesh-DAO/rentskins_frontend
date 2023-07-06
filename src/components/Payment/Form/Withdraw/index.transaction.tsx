@@ -1,5 +1,5 @@
 import usePaymentStore from '@/stores/payment.store'
-import { MouseEventHandler, useState } from 'react'
+import { MouseEventHandler, useEffect, useState } from 'react'
 import Form from '@/components/Forms'
 import { Title } from '@/components/Title'
 
@@ -11,25 +11,67 @@ export function PaymentWithdrawStepTransaction({
   handleFormSubmit,
   handleFormCancel,
 }: IProps) {
-  // const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
+  const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
   const [bank, setBank] = useState('Santander')
   const [agency, setAgency] = useState('')
   const [accountNumber, setAccountNumber] = useState('')
-  const [keyType, setKeyType] = useState('')
-  const [keyNumber, setKeyNumber] = useState('')
+  const [keyType, setKeyType] = useState('CPF')
+  const [keyValue, setKeyValue] = useState('')
 
-  // const handleOnChange = () => {
-  //   setPaymentWithdrawInfo({
-  //     ...paymentWithdrawInfo,
-  //     transference: {
-  //       bank,
-  //       agency,
-  //       accountNumber,
-  //       keyType,
-  //       keyNumber,
-  //     },
-  //   })
-  // }
+  useEffect(() => {
+    setPaymentWithdrawInfo({
+      ...paymentWithdrawInfo,
+      transference: {
+        bank,
+        agency,
+        accountNumber,
+        keyType,
+        keyValue,
+      },
+    })
+  }, [bank, agency, accountNumber, keyType, keyValue, setPaymentWithdrawInfo])
+
+  const selectKeyValueType = () => {
+    const types = {
+      CPF: (
+        <Form.Input.CPF
+          label="Chave Pix"
+          placeholder="000.000.000-00"
+          state={keyValue}
+          setState={setKeyValue}
+          required
+        />
+      ),
+      Email: (
+        <Form.Input.Email
+          label="Chave Pix"
+          placeholder="example@mail.com"
+          state={keyValue}
+          setState={setKeyValue}
+          required
+        />
+      ),
+      Telefone: (
+        <Form.Input.Phone
+          label="Chave Pix"
+          placeholder="(00) 00000-0000"
+          state={keyValue}
+          setState={setKeyValue}
+          required
+        />
+      ),
+    }
+
+    return types[keyType as 'CPF' | 'Email' | 'Telefone']
+  }
+
+  const validateForm = () => {
+    return !(
+      agency.length === 4 &&
+      accountNumber.length === 7 &&
+      keyValue.length > 0
+    )
+  }
 
   return (
     <div>
@@ -48,21 +90,18 @@ export function PaymentWithdrawStepTransaction({
       <Form.Root className="mt-6 flex flex-col gap-4">
         <Form.Dropdown
           label="Banco"
+          state={bank}
+          setState={setBank}
           options={[
-            {
-              label: 'Santander',
-              value: 'Santander',
-            },
+            { label: 'Santander', value: 'Santander' },
             { label: 'Banco do Brasil', value: 'Banco do Brasil' },
             { label: 'Caixa', value: 'Caixa' },
             { label: 'Itaú', value: 'Itaú' },
             { label: 'Nubank', value: 'Nubank' },
           ]}
-          state={bank}
-          setState={setBank}
         />
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-2">
           <Form.Input.Number
             label="Agência"
             limit={4}
@@ -80,49 +119,19 @@ export function PaymentWithdrawStepTransaction({
             required
           />
         </div>
-        {/* <Form.Input.Text
-          label="Cidade"
-          placeholder="Ex: São Paulo, Salvador, etc..."
-          state={city}
-          setState={setCity}
-          required
+
+        <Form.Dropdown
+          label="Tipo de Chave"
+          state={keyType}
+          setState={setKeyType}
+          options={[
+            { label: 'CPF/CNPJ', value: 'CPF' },
+            { label: 'Email', value: 'Email' },
+            { label: 'Número de Telefone', value: 'Telefone' },
+          ]}
         />
-        <Form.Input.Text
-          label="Estado"
-          placeholder="Ex: Rio de Janeiro, Minas Gerais, etc..."
-          state={state}
-          setState={setState}
-          required
-        />
-        <Form.Input.PostalCode
-          label="CEP"
-          placeholder="00000-000"
-          state={postalCode}
-          setState={setPostalCode}
-          required
-        />
-        <Form.Input.Text
-          label="Bairro"
-          placeholder="Ex: Liberdade, Jardins, etc..."
-          state={neighborhood}
-          setState={setNeighborhood}
-          required
-        />
-        <Form.Input.Number
-          limit={3}
-          label="Número de Complemento"
-          placeholder="000"
-          state={complementNumber}
-          setState={setComplementNumber}
-          required
-        />
-        <Form.Input.Text
-          label="Endereço"
-          placeholder=""
-          state={address}
-          setState={setAddress}
-          required
-        /> */}
+
+        {selectKeyValueType()}
 
         <div className="mt-4">
           <div className="flex justify-between text-xl font-semibold">
@@ -143,7 +152,7 @@ export function PaymentWithdrawStepTransaction({
               type="submit"
               className="h-12 w-full border-transparent"
               onClick={handleFormSubmit}
-              // disabled={validateForm()}
+              disabled={validateForm()}
             >
               Continuar
             </Form.Button>

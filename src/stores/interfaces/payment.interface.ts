@@ -26,7 +26,7 @@ export interface ITransference {
   agency: string | undefined
   accountNumber: string | undefined
   keyType: string | undefined
-  keyNumber: string | undefined
+  keyValue: string | undefined
 }
 
 export interface IWithdrawInfo {

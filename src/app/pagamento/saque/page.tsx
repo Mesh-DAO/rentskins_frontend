@@ -16,23 +16,18 @@ import {
   PaymentWithdrawStepLocation,
   PaymentWithdrawStepTransaction,
 } from '@/components/Payment/Form/Withdraw/'
-import usePaymentStore from '@/stores/payment.store'
 
 export default function PaymentWithdrawPage() {
   const [isLoading, setIsLoading] = useState(false)
-  const [stepSubLabel, setStepSubLabel] = useState('')
   const router = useRouter()
 
   const { paymentWithdrawIndex, setPaymentWithdrawIndex } = useComponentStore()
-  const { paymentWithdrawInfo } = usePaymentStore()
 
   useEffect(() => setPaymentWithdrawIndex(0), [setPaymentWithdrawIndex])
 
   const handleOnCancel = () => {
     router.push('/')
   }
-
-  useEffect(() => console.log(paymentWithdrawInfo), [paymentWithdrawInfo])
 
   const handleOnNext = (event: any) => {
     event.preventDefault()
@@ -43,6 +38,37 @@ export default function PaymentWithdrawPage() {
       setIsLoading(true)
       router.push('/pagamento/saque/sucesso')
     }
+  }
+
+  const renderFormContent = () => {
+    const forms = {
+      0: (
+        <PaymentWithdrawStepPersonal
+          handleFormSubmit={handleOnNext}
+          handleFormCancel={handleOnCancel}
+        />
+      ),
+      1: (
+        <PaymentWithdrawStepLocation
+          handleFormSubmit={handleOnNext}
+          handleFormCancel={handleOnCancel}
+        />
+      ),
+      2: (
+        <PaymentWithdrawStepTransaction
+          handleFormSubmit={handleOnNext}
+          handleFormCancel={handleOnCancel}
+        />
+      ),
+      3: (
+        <PaymentWithdrawStepDocument
+          handleFormSubmit={handleOnNext}
+          handleFormCancel={handleOnCancel}
+        />
+      ),
+    }
+
+    return forms[paymentWithdrawIndex]
   }
 
   return (
@@ -150,29 +176,7 @@ export default function PaymentWithdrawPage() {
               </div>
             </div>
             <div className="mt-4 w-full transition-all ease-in-out">
-              {/* {paymentWithdrawIndex === 0 && (
-                <PaymentWithdrawStepPersonal
-                  handleFormSubmit={handleOnNext}
-                  handleFormCancel={handleOnCancel}
-                />
-              )}
-              {paymentWithdrawIndex === 1 && (
-                <PaymentWithdrawStepLocation
-                  handleFormSubmit={handleOnNext}
-                  handleFormCancel={handleOnCancel}
-                />
-              )}
-              {paymentWithdrawIndex === 2 && (
-                <PaymentWithdrawStepTransaction
-                  handleFormSubmit={handleOnNext}
-                  handleFormCancel={handleOnCancel}
-                />
-              )}
-              {paymentWithdrawIndex === 3 && <PaymentWithdrawStepDocument />} */}
-              <PaymentWithdrawStepTransaction
-                handleFormSubmit={handleOnNext}
-                handleFormCancel={handleOnCancel}
-              />
+              {renderFormContent()}
             </div>
           </div>
         </div>
