@@ -18,16 +18,12 @@ import { useEffect, useState } from 'react'
 
 export default function Categorias() {
   const { skinName } = useParams()
-  const [filteredSkins, setFiltedSkins] = useState([])
+  const [filteredSkins, setFiltedSkins] = useState<ISkins[]>([])
   const nameCorrection = decodeURIComponent(skinName.replace(/\+/g, ' '))
-  const {
-    setAllSkinsCategory,
-    // skinsFiltredByPrice,
-    // skinsFiltredByCategory,
-    // skinsFiltredByWear,
-  } = useComponentStore()
+  const { setAllSkinsCategory } = useComponentStore()
 
-  const { selectedFilters } = useFilterStore()
+  const { selectedFilters, setAllSkinsFiltred, typeFilter, allSkinsFiltred } =
+    useFilterStore()
 
   const { data, isLoading } = useQuery({
     queryKey: ['skinsWeapon'],
@@ -40,36 +36,37 @@ export default function Categorias() {
 
   useEffect(() => {
     if (data) {
-      // console.log(selectedFilters)
-      // console.log(data!.data)
-
       const filteredItems = data?.data.filter((item) => {
         if (
-          selectedFilters.wear?.length !== 0 &&
-          !selectedFilters.wear?.includes(item.status_float)
+          selectedFilters.wears?.length !== 0 &&
+          !selectedFilters.wears?.includes(item.status_float)
         ) {
           return false
         }
         if (
-          selectedFilters.price.max !== null &&
-          selectedFilters.price.min !== null &&
+          selectedFilters.prices.max !== null &&
+          selectedFilters.prices.min !== null &&
           (Number(item.skin_price.replace(',', '.')) >
-            selectedFilters.price.max ||
+            selectedFilters.prices.max ||
             Number(item.skin_price.replace(',', '.')) <
-              selectedFilters.price.min)
+              selectedFilters.prices.min)
         ) {
           return false
         }
-        // ADICIONAR O DO CATEGORIA AQUI COM O RETORNO "FALSE"
-        // if (selectedFilters.category && !selectedFilters.category.includes(...))
+        if (
+          selectedFilters.categories?.length !== 0 &&
+          !selectedFilters.categories?.some((categoryItem) =>
+            item.skin_name.includes(categoryItem),
+          )
+        ) {
+          return false
+        }
         return true
       })
-
-      // console.log(filteredItems)
-
-      setFiltedSkins(filteredItems as any)
+      setFiltedSkins(filteredItems)
+      setAllSkinsFiltred(filteredItems, typeFilter)
     }
-  }, [selectedFilters, data])
+  }, [setAllSkinsFiltred, selectedFilters, typeFilter, data])
 
   return (
     <LayoutPage>
@@ -84,7 +81,10 @@ export default function Categorias() {
           {isLoading ? (
             <AllSkeletonSkins />
           ) : (
-            <AllSkins skinsCategories={filteredSkins} itemsPerPage={15} />
+            <AllSkins
+              skinsCategories={filteredSkins || allSkinsFiltred}
+              itemsPerPage={15}
+            />
           )}
         </div>
       </div>

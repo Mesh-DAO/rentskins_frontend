@@ -2,48 +2,24 @@
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
 import InputValue from './InputValue'
-import { useEffect, useState } from 'react'
-import useComponentStore from '@/stores/components.store'
+import { useState } from 'react'
 import useFilterStore from '@/stores/filters.store'
 
 export default function FilterPrice() {
   const [minPrice, setMinPrice] = useState<number | undefined>()
   const [maxPrice, setMaxPrice] = useState<number | undefined>()
 
-  const {
-    setSkinsFiltredByPrice,
-    setCleanFilter,
-    setAllSkinsFiltred,
-    skinsFiltredByPrice,
-    setSkinsFiltredByCategory,
-    skinsFiltredByCategory,
-    setSkinsFiltredByWear,
-    skinsFiltredByWear,
-  } = useComponentStore()
-
-  const { selectedFilters, setSelectedFilters } = useFilterStore()
+  const { selectedFilters, setSelectedFilters, cleanSelectedFilters } =
+    useFilterStore()
 
   const handleClickSetFilterPrice = () => {
     if (minPrice! > 0 && maxPrice! > 0 && maxPrice! > minPrice!) {
-      setSkinsFiltredByPrice(minPrice!, maxPrice!)
       setSelectedFilters({
         ...selectedFilters,
-        price: { max: maxPrice!, min: minPrice! },
+        prices: { max: maxPrice!, min: minPrice! },
       })
     }
   }
-
-  useEffect(() => {
-    setAllSkinsFiltred()
-  }, [
-    setSkinsFiltredByPrice,
-    skinsFiltredByPrice,
-    setSkinsFiltredByCategory,
-    skinsFiltredByCategory,
-    setSkinsFiltredByWear,
-    skinsFiltredByWear,
-    setAllSkinsFiltred,
-  ])
 
   return (
     <div className="flex h-full flex-col justify-between">
@@ -56,8 +32,8 @@ export default function FilterPrice() {
             setValue={setMinPrice}
             value={minPrice}
             defaultValue={
-              selectedFilters.price.min !== null
-                ? selectedFilters.price.min
+              selectedFilters.prices.min !== null
+                ? selectedFilters.prices.min
                 : minPrice
             }
             title="Preço mínimo"
@@ -67,8 +43,8 @@ export default function FilterPrice() {
             setValue={setMaxPrice}
             value={maxPrice}
             defaultValue={
-              selectedFilters.price.max !== null
-                ? selectedFilters.price.max
+              selectedFilters.prices.max !== null
+                ? selectedFilters.prices.max
                 : maxPrice
             }
             title="Preço máximo"
@@ -77,7 +53,12 @@ export default function FilterPrice() {
       </div>
       <div className="flex justify-end gap-3">
         <Button
-          onClick={() => setCleanFilter('skinsFiltredByPrice')}
+          onClick={() =>
+            cleanSelectedFilters({
+              ...selectedFilters,
+              prices: { max: null, min: null },
+            })
+          }
           className="h-11 w-32 font-bold text-white"
         >
           Limpar

@@ -1,5 +1,5 @@
-import { InputCurrency } from '@/components/InputCurrency'
 import { Title } from '@/components/Title'
+import { InputCurrency } from '@/components/InputCurrency'
 
 interface IProps {
   title: string
@@ -24,7 +24,7 @@ export default function InputValue({
           R$
         </div>
         <InputCurrency
-          onChange={setValue}
+          onChange={() => setValue}
           value={value}
           defaultValue={defaultValue}
           className="h-10 w-full rounded bg-mesh-color-neutral-900 pl-8 text-white outline-none active:border-mesh-color-primary-700"

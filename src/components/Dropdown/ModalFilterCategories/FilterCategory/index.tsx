@@ -2,44 +2,24 @@
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
 import InputCheckbox from '@/components/InputCheckboxFilter'
-import useComponentStore from '@/stores/components.store'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useFilterStore from '@/stores/filters.store'
 
 export default function FilterCategory() {
   const [categories, setCategories] = useState<string[]>([])
 
   const {
-    setSkinsFiltredByCategory,
-    setCleanFilter,
-    setAllSkinsFiltred,
-    setSkinsFiltredByPrice,
-    skinsFiltredByPrice,
-    skinsFiltredByCategory,
-    setSkinsFiltredByWear,
-    skinsFiltredByWear,
-  } = useComponentStore()
-
-  const { selectedFilters, setSelectedFilters } = useFilterStore()
+    selectedFilters,
+    setSelectedFilters,
+    cleanSelectedFilters,
+    checkedInputCheckbox,
+  } = useFilterStore()
 
   const handleClickSetFilterCategory = () => {
     if (categories!.length > 0) {
-      setSkinsFiltredByCategory(...categories)
-      setSelectedFilters({ ...selectedFilters, category: [...categories] })
+      setSelectedFilters({ ...selectedFilters, categories: [...categories] })
     }
   }
-
-  useEffect(() => {
-    setAllSkinsFiltred()
-  }, [
-    setSkinsFiltredByPrice,
-    skinsFiltredByPrice,
-    setSkinsFiltredByCategory,
-    skinsFiltredByCategory,
-    setSkinsFiltredByWear,
-    skinsFiltredByWear,
-    setAllSkinsFiltred,
-  ])
 
   return (
     <div className="flex h-full flex-col justify-between">
@@ -57,12 +37,17 @@ export default function FilterCategory() {
       </div>
       <div className="flex justify-end gap-3">
         <Button
-          onClick={() => setCleanFilter('skinsFiltredByCategory')}
+          onClick={() =>
+            cleanSelectedFilters({ ...selectedFilters, categories: [] })
+          }
           className="h-11 w-32 font-bold text-white"
         >
           Limpar
         </Button>
         <Button
+          checked={
+            checkedInputCheckbox.filter(({ checked }) => checked).length === 0
+          }
           onClick={() => handleClickSetFilterCategory()}
           className="h-11 w-32 border-none bg-mesh-color-primary-1200 font-bold text-black"
         >

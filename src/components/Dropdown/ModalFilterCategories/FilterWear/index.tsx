@@ -3,44 +3,25 @@
 import { Title } from '@/components/Title'
 import { Button } from '@/components/Button'
 import InputCheckbox from '@/components/InputCheckboxFilter'
-import useComponentStore from '@/stores/components.store'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useFilterStore from '@/stores/filters.store'
 
 export default function FilterWear() {
   const [wears, setWears] = useState<string[]>([])
 
   const {
-    setSkinsFiltredByPrice,
-    setCleanFilter,
-    setAllSkinsFiltred,
-    skinsFiltredByPrice,
-    setSkinsFiltredByCategory,
-    skinsFiltredByCategory,
-    setSkinsFiltredByWear,
-    skinsFiltredByWear,
-  } = useComponentStore()
-
-  const { selectedFilters, setSelectedFilters } = useFilterStore()
+    selectedFilters,
+    setSelectedFilters,
+    cleanSelectedFilters,
+    setCheckedInputCheckbox,
+    checkedInputCheckbox,
+  } = useFilterStore()
 
   const handleClickSetFilterPrice = () => {
     if (wears!.length > 0) {
-      setSkinsFiltredByWear(...wears)
-      setSelectedFilters({ ...selectedFilters, wear: [...wears] })
+      setSelectedFilters({ ...selectedFilters, wears: [...wears] })
     }
   }
-
-  useEffect(() => {
-    setAllSkinsFiltred()
-  }, [
-    setSkinsFiltredByPrice,
-    skinsFiltredByPrice,
-    setSkinsFiltredByCategory,
-    skinsFiltredByCategory,
-    setSkinsFiltredByWear,
-    skinsFiltredByWear,
-    setAllSkinsFiltred,
-  ])
 
   return (
     <div className="flex h-full flex-col justify-between">
@@ -60,8 +41,8 @@ export default function FilterWear() {
               'Muito usada',
             ]}
             defaultChecks={
-              selectedFilters.wear && selectedFilters.wear?.length > 0
-                ? selectedFilters.wear
+              selectedFilters.wears && selectedFilters.wears?.length > 0
+                ? selectedFilters.wears
                 : []
             }
           />
@@ -69,12 +50,18 @@ export default function FilterWear() {
       </div>
       <div className="flex justify-end gap-3">
         <Button
-          onClick={() => setCleanFilter('skinsFiltredByWear')}
+          onClick={() => {
+            cleanSelectedFilters({ ...selectedFilters, wears: [] })
+            setCheckedInputCheckbox(null)
+          }}
           className="h-11 w-32 font-bold text-white"
         >
           Limpar
         </Button>
         <Button
+          disable={
+            checkedInputCheckbox.filter(({ checked }) => checked).length === 0
+          }
           onClick={() => handleClickSetFilterPrice()}
           className="h-11 w-32 border-none bg-mesh-color-primary-1200 font-bold text-black"
         >
