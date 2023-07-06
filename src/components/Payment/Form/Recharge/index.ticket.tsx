@@ -1,84 +1,89 @@
-import { Button } from '@/components/Button'
-import { FormInput } from '@/components/Forms/Input'
+// import { Button } from '@/components/Button'
+// import { FormInput } from '@/components/Forms/Input'
+// import usePaymentStore from '@/stores/payment.store'
+import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
-import router from 'next/router'
-import { useState, MouseEventHandler } from 'react'
+import { MouseEventHandler, useState } from 'react'
 
 interface IProps {
   handleFormSubmit: MouseEventHandler
+  handleFormCancel: MouseEventHandler
 }
 
-export function PaymentRechargeTicketForm({ handleFormSubmit }: IProps) {
+export function PaymentRechargeTicketForm({
+  handleFormSubmit,
+  handleFormCancel,
+}: IProps) {
   const [name, setName] = useState('')
   const [identification, setIdentification] = useState('')
   const [email, setEmail] = useState('')
   const { paymentAdd } = usePaymentStore()
 
   const validateForm = () => {
-    return name.length > 0 && identification.length > 0 && email.length > 0
-  }
-
-  const handleOnCancel = () => {
-    router.push('/')
+    return !(
+      name.length >= 5 &&
+      identification.length === 14 &&
+      email.length >= 5 &&
+      email.includes('@')
+    )
   }
 
   return (
-    <>
-      <FormInput
-        label="Nome Completo"
-        type="text"
-        name="ticket-name"
-        placeholder="Nome e sobrenome"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
+    <Form.Root className="my-8 flex flex-col gap-4">
+      <Form.Input.Text
+        label="Nome"
+        placeholder="Nome Completo"
+        setState={setName}
+        state={name}
+        required
       />
 
-      <FormInput
-        label="Informações do Cartão"
-        type="text"
-        name="ticket-identification"
-        placeholder="CPF ou CNPJ"
-        value={identification}
-        onChange={(event) => setIdentification(event.target.value)}
+      <Form.Input.CPF
+        label="CPF"
+        placeholder="000.000.000-00"
+        state={identification}
+        setState={setIdentification}
+        required
       />
 
-      <FormInput
-        label="Nome do Portador"
-        type="text"
-        name="ticket-email"
-        placeholder="Seu email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+      <Form.Input.Email
+        label="Email"
+        placeholder="example@email.com"
+        state={email}
+        setState={setEmail}
+        required
       />
 
-      <br />
+      <div className="mt-4">
+        <div className="flex justify-between text-xl font-semibold">
+          <text>Total:</text>
+          <span className="text-mesh-color-primary-800">
+            {paymentAdd.value?.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 2,
+            })}
+          </span>
+        </div>
 
-      <div className="flex justify-between text-xl font-semibold">
-        <text>Total:</text>
-
-        <span className="text-mesh-color-primary-800">
-          R${paymentAdd.value?.toFixed(2).replace('.', ',')}
-        </span>
+        <div className="flex flex-col gap-4 text-xl font-semibold">
+          <Form.Button
+            type="submit"
+            buttonStyle="full"
+            disabled={validateForm()}
+            onClick={handleFormSubmit}
+          >
+            Pagar
+          </Form.Button>
+          <Form.Button
+            type="button"
+            buttonStyle="opaque"
+            onClick={handleFormCancel}
+          >
+            Cancelar
+          </Form.Button>
+        </div>
       </div>
-
-      <div className="flex flex-col gap-4 text-xl font-semibold">
-        <Button
-          type="button"
-          disable={!validateForm()}
-          onClick={handleFormSubmit}
-          className="h-12 w-full border-transparent"
-          color="green"
-        >
-          Pagar
-        </Button>
-        <Button
-          className="w-full border-2 py-2"
-          onClick={() => handleOnCancel()}
-          color="invisible"
-        >
-          Cancelar
-        </Button>
-      </div>
-    </>
+    </Form.Root>
   )
 }

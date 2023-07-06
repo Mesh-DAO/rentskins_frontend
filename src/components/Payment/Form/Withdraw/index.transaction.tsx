@@ -1,31 +1,30 @@
-import { FormInput } from '@/components/Forms/Input'
-import usePaymentStore from '@/stores/payment.store'
-import { useState } from 'react'
+// import usePaymentStore from '@/stores/payment.store'
+// import { useState } from 'react'
 
 export function PaymentWithdrawStepTransaction() {
-  const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
-  const [bank, setBank] = useState('')
-  const [agency, setAgency] = useState('')
-  const [accountNumber, setAccountNumber] = useState('')
-  const [keyType, setKeyType] = useState('')
-  const [keyNumber, setKeyNumber] = useState('')
+  // const { paymentWithdrawInfo, setPaymentWithdrawInfo } = usePaymentStore()
+  // const [bank, setBank] = useState('')
+  // const [agency, setAgency] = useState('')
+  // const [accountNumber, setAccountNumber] = useState('')
+  // const [keyType, setKeyType] = useState('')
+  // const [keyNumber, setKeyNumber] = useState('')
 
-  const handleOnChange = () => {
-    setPaymentWithdrawInfo({
-      ...paymentWithdrawInfo,
-      transference: {
-        bank,
-        agency,
-        accountNumber,
-        keyType,
-        keyNumber,
-      },
-    })
-  }
+  // const handleOnChange = () => {
+  //   setPaymentWithdrawInfo({
+  //     ...paymentWithdrawInfo,
+  //     transference: {
+  //       bank,
+  //       agency,
+  //       accountNumber,
+  //       keyType,
+  //       keyNumber,
+  //     },
+  //   })
+  // }
 
   return (
     <>
-      <FormInput
+      {/* <FormInput
         label="Banco"
         type="text"
         name="withdraw-bank"
@@ -90,7 +89,7 @@ export function PaymentWithdrawStepTransaction() {
           setKeyNumber(event.target.value)
           handleOnChange()
         }}
-      />
+      /> */}
     </>
   )
 }

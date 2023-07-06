@@ -1,14 +1,17 @@
-import { Button } from '@/components/Button'
-import { FormInput } from '@/components/Forms/Input'
+'use client'
+import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
-import router from 'next/router'
 import { useState, MouseEventHandler } from 'react'
 
 interface IProps {
   handleFormSubmit: MouseEventHandler
+  handleFormCancel: MouseEventHandler
 }
 
-export function PaymentRechargeMastercardForm({ handleFormSubmit }: IProps) {
+export function PaymentRechargeMastercardForm({
+  handleFormSubmit,
+  handleFormCancel,
+}: IProps) {
   const [email, setEmail] = useState('')
   const [cardNumber, setCardNumber] = useState('')
   const [cardValidity, setCardValidity] = useState('')
@@ -18,98 +21,90 @@ export function PaymentRechargeMastercardForm({ handleFormSubmit }: IProps) {
   const { paymentAdd } = usePaymentStore()
 
   const validateForm = () => {
-    return (
-      email.length > 0 &&
-      cardNumber.length > 0 &&
-      cardValidity.length > 0 &&
-      cardCVC.length > 0 &&
-      cardOwner.length > 0
+    return !(
+      email.length > 5 &&
+      email.includes('@') &&
+      cardNumber.length >= 19 &&
+      cardValidity.length > 4 &&
+      cardCVC.length >= 3 &&
+      cardOwner.length >= 5
     )
   }
 
-  const handleOnCancel = () => {
-    router.push('/')
-  }
-
   return (
-    <>
-      <FormInput
+    <Form.Root className="my-8 flex w-full flex-col gap-4">
+      <Form.Input.Text
         label="Email"
-        type="email"
-        name="mastercard-email"
-        placeholder="email@example.com"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        placeholder="email@exemplo.com"
+        state={email}
+        setState={setEmail}
+        required
       />
 
-      <FormInput
-        label="Informações do Cartão"
-        type="text"
-        name="mastercard-card-number"
-        rounded="rounded-t-md"
-        placeholder="0000 0000 0000 0000"
-        value={cardNumber}
-        onChange={(event) => setCardNumber(event.target.value)}
-      />
+      <div>
+        <Form.Input.Card
+          label="Informações do Cartão"
+          placeholder="0000 0000 0000 0000"
+          state={cardNumber}
+          setState={setCardNumber}
+          required
+        />
 
-      <div className="-mt-5 grid w-full grid-cols-2 items-center">
-        <FormInput
-          type="text"
-          name="mastercard-card-validity"
-          placeholder="MM / YY"
-          classname="border-r-0"
-          rounded="rounded-bl-md"
-          value={cardValidity}
-          onChange={(event) => setCardValidity(event.target.value)}
-        />
-        <FormInput
-          type="text"
-          name="mastercard-card-cvc"
-          placeholder="CVC"
-          rounded="rounded-br-md"
-          value={cardCVC}
-          onChange={(event) => setCardCVC(event.target.value)}
-        />
+        <div className="grid w-full grid-cols-2 items-center">
+          <Form.Input.MonthYear
+            placeholder="MM / YY"
+            state={cardValidity}
+            setState={setCardValidity}
+            required
+          />
+          <Form.Input.Number
+            placeholder="CVC"
+            state={cardCVC}
+            setState={setCardCVC}
+            limit={3}
+            required
+          />
+        </div>
       </div>
 
-      <FormInput
+      <Form.Input.Text
         label="Nome do Portador"
-        type="text"
-        name="mastercard-card-owner"
         placeholder="Nome"
-        value={cardOwner}
-        onChange={(event) => setCardOwner(event.target.value)}
+        state={cardOwner}
+        setState={setCardOwner}
+        required
       />
 
-      <br />
+      <div className="mt-4">
+        <div className="flex justify-between text-xl font-semibold">
+          <text>Total:</text>
+          <span className="text-mesh-color-primary-800">
+            {paymentAdd.value?.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 2,
+            })}
+          </span>
+        </div>
 
-      <div className="flex justify-between text-xl font-semibold">
-        <text>Total:</text>
-        {/* CHANGE COLOR */}
-        <span className="text-mesh-color-primary-800">
-          R${paymentAdd.value?.toFixed(2).replace('.', ',')}
-        </span>
+        <div className="flex flex-col gap-4 text-xl font-semibold">
+          <Form.Button
+            type="submit"
+            buttonStyle="full"
+            disabled={validateForm()}
+            onClick={handleFormSubmit}
+          >
+            Pagar
+          </Form.Button>
+          <Form.Button
+            type="button"
+            buttonStyle="opaque"
+            onClick={handleFormCancel}
+          >
+            Cancelar
+          </Form.Button>
+        </div>
       </div>
-
-      {/* CHANGE COLOR */}
-      <div className="flex flex-col gap-4 text-xl font-semibold">
-        <Button
-          type="button"
-          onClick={handleFormSubmit}
-          disable={!validateForm()}
-          className="h-12 w-full border-transparent"
-          color="green"
-        >
-          Pagar
-        </Button>
-        <Button
-          className="w-full border-2 py-2"
-          onClick={() => handleOnCancel()}
-          color="invisible"
-        >
-          Cancelar
-        </Button>
-      </div>
-    </>
+    </Form.Root>
   )
 }
