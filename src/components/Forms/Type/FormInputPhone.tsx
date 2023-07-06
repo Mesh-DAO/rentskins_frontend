@@ -26,12 +26,14 @@ export function FormInputPhone({
       numbers = numbers.slice(0, 11)
     }
 
-    if (numbers.length > 2 && numbers.length <= 11) {
+    if (numbers.length > 2) {
       const ddd = numbers.slice(0, 2)
       const primeiraParte = numbers.slice(2, 7)
       const segundaParte = numbers.slice(7, 11)
 
-      numbers = `(${ddd}) ${primeiraParte}-${segundaParte}`
+      numbers = `(${ddd}) ${primeiraParte}${
+        primeiraParte.length === 5 && segundaParte.length === 4 ? '-' : ''
+      }${segundaParte}`
     }
 
     return numbers
