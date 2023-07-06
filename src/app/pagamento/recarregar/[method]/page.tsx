@@ -24,7 +24,7 @@ export default function PaymentAddMastercardPage() {
       router.push('/pagamento/recarregar/sucesso')
     }
 
-    const handleOnCancel = (event: any) => {
+    const handleOnCancel = () => {
       router.push('/')
     }
 
@@ -71,7 +71,8 @@ export default function PaymentAddMastercardPage() {
             </Button>
 
             <span className="ml-2 text-mesh-color-neutral-200">
-              <text>Saldo •</text>
+              <text>Saldo </text>
+              <text>• </text>
 
               <text className="text-mesh-color-accent-900">
                 Pagamento - {method.charAt(0).toUpperCase() + method.slice(1)}
@@ -80,7 +81,7 @@ export default function PaymentAddMastercardPage() {
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
             <Title size="2xl"> Recarregar saldo com Cartão </Title>
-            {}
+            {methodComponent}
           </div>
         </div>
       </CircleLoading>

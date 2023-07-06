@@ -5,7 +5,7 @@ import { IconLeftArrow } from '@/components/Icons/iconLeftArrow'
 import { Title } from '@/components/Title'
 import { useRouter } from 'next/navigation'
 import CircleLoading from '@/components/CircleLoading'
-import QRCodeExample from '../../../../../../public/qrcode-example.png'
+import QRCodeExample from '@/../public/qrcode-example.png'
 import Image from 'next/image'
 import usePaymentStore from '@/stores/payment.store'
 

@@ -5,7 +5,8 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   labelSide?: 'up' | 'down'
   labelClassName?: string
   inputClassName?: string
-  stateValue: any
+  state: any
+  setState: any
 }
 
 export function FormInputText({
@@ -13,7 +14,8 @@ export function FormInputText({
   labelSide = 'up',
   labelClassName,
   inputClassName,
-  stateValue,
+  state,
+  setState,
   ...rest
 }: IProps) {
   const formatInput = (value: string): string => {
@@ -25,8 +27,8 @@ export function FormInputText({
       {label && labelSide === 'up' && label}
       <input
         type="text"
-        value={formatInput(stateValue)}
-        onChange={({ target }) => formatInput(target.value as any)}
+        onChange={({ target }) => setState(formatInput(target.value))}
+        value={state}
         className={`${inputClassName} rounded-md border-[2px]
         border-mesh-color-primary-1100/50 bg-mesh-color-others-eerie-black px-3 py-3 placeholder:text-white/70`}
         {...rest}

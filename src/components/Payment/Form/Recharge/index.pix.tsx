@@ -1,7 +1,9 @@
-import { Button } from '@/components/Button'
-import { FormInput } from '@/components/Forms/Input'
+// import { Button } from '@/components/Button'
+// import { FormInput } from '@/components/Forms/Input'
+// import usePaymentStore from '@/stores/payment.store'
+import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
-import { useState, MouseEventHandler } from 'react'
+import { MouseEventHandler, useState } from 'react'
 
 interface IProps {
   handleFormSubmit: MouseEventHandler
@@ -18,58 +20,55 @@ export function PaymentRechargePixForm({
   const { paymentAdd } = usePaymentStore()
 
   const validateForm = () => {
-    return name.length > 0 && identification.length > 0
+    return !(name.length >= 5 && identification.length === 14)
   }
 
   return (
-    <>
-      <FormInput
-        label="Nome Completo"
-        type="name"
-        name="pix-name"
-        placeholder="Nome e Sobrenome"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
+    <Form.Root className="my-8 flex flex-col gap-4">
+      <Form.Input.Text
+        label="Nome"
+        placeholder="Nome Completo"
+        setState={setName}
+        state={name}
+        required
       />
 
-      <FormInput
-        label="CPF/CNPJ"
-        type="text"
-        name="pix-cpf"
-        placeholder="CPF ou CNPJ"
-        value={identification}
-        onChange={(event) => setIdentification(event.target.value)}
+      <Form.Input.CPF
+        label="CPF"
+        placeholder="000.000.000-00"
+        setState={setIdentification}
+        state={identification}
+        required
       />
 
-      <br />
+      <div className="mt-4">
+        <div className="flex justify-between text-xl font-semibold">
+          <text>Total:</text>
+          <span className="text-mesh-color-primary-800">
+            {paymentAdd.value?.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 2,
+            })}
+          </span>
+        </div>
 
-      <div className="mt-4 flex justify-between text-xl font-semibold">
-        <text>Total:</text>
-        {/* CHANGE COLOR */}
-        <span className="text-mesh-color-primary-800">
-          R${paymentAdd.value?.toFixed(2).replace('.', ',')}
-        </span>
+        <div className="flex flex-col gap-4 text-xl font-semibold">
+          <Form.Input.Button
+            type="submit"
+            label="Pagar"
+            buttonStyle="full"
+            disabled={validateForm()}
+            onClick={handleFormSubmit}
+          />
+          <Form.Input.Button
+            type="button"
+            label="Cancelar"
+            buttonStyle="opaque"
+            onClick={handleFormCancel}
+          />
+        </div>
       </div>
-
-      {/* CHANGE COLOR */}
-      <div className="flex flex-col gap-4 text-xl font-semibold">
-        <Button
-          type="submit"
-          onClick={handleFormSubmit}
-          disable={!validateForm()}
-          className="h-12 w-full border-transparent"
-          color="green"
-        >
-          Continuar
-        </Button>
-        <Button
-          className="w-full border-2 py-2"
-          onClick={handleFormCancel}
-          color="invisible"
-        >
-          Cancelar
-        </Button>
-      </div>
-    </>
+    </Form.Root>
   )
 }

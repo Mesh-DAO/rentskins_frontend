@@ -32,79 +32,77 @@ export function PaymentRechargeMastercardForm({
   }
 
   return (
-    <>
-      <Form.Root className="mb-8 flex flex-col gap-4">
-        <Form.Input.Text
-          label="Email"
-          placeholder="email@exemplo.com"
-          stateValue={email}
-          onChange={({ target }) => setEmail(target.value)}
+    <Form.Root className="my-8 flex flex-col gap-4">
+      <Form.Input.Text
+        label="Email"
+        placeholder="email@exemplo.com"
+        state={email}
+        setState={setEmail}
+        required
+      />
+
+      <div>
+        <Form.Input.Card
+          label="Informações do Cartão"
+          placeholder="0000 0000 0000 0000"
+          state={cardNumber}
+          setState={setCardNumber}
           required
         />
 
-        <div>
-          <Form.Input.Card
-            label="Informações do Cartão"
-            placeholder="0000 0000 0000 0000"
-            stateValue={cardNumber}
-            onChange={({ target }) => setCardNumber(target.value)}
+        <div className="grid w-full grid-cols-2 items-center">
+          <Form.Input.MonthYear
+            placeholder="MM / YY"
+            state={cardValidity}
+            setState={setCardValidity}
             required
           />
+          <Form.Input.Number
+            placeholder="CVC"
+            state={cardCVC}
+            setState={setCardCVC}
+            limit={3}
+            required
+          />
+        </div>
+      </div>
 
-          <div className="grid w-full grid-cols-2 items-center">
-            <Form.Input.MonthYear
-              placeholder="MM / YY"
-              stateValue={cardValidity}
-              onChange={({ target }) => setCardValidity(target.value)}
-              required
-            />
-            <Form.Input.Number
-              placeholder="CVC"
-              stateValue={cardCVC}
-              limit={3}
-              onChange={({ target }) => setCardCVC(target.value)}
-              required
-            />
-          </div>
+      <Form.Input.Text
+        label="Nome do Portador"
+        placeholder="Nome"
+        state={cardOwner}
+        setState={setCardOwner}
+        required
+      />
+
+      <div className="mt-4">
+        <div className="flex justify-between text-xl font-semibold">
+          <text>Total:</text>
+          <span className="text-mesh-color-primary-800">
+            {paymentAdd.value?.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 2,
+            })}
+          </span>
         </div>
 
-        <Form.Input.Text
-          label="Nome do Portador"
-          placeholder="Nome"
-          stateValue={cardOwner}
-          onChange={({ target }) => setCardOwner(target.value)}
-          required
-        />
-
-        <div className="mt-4">
-          <div className="flex justify-between text-xl font-semibold">
-            <text>Total:</text>
-            <span className="text-mesh-color-primary-800">
-              {paymentAdd.value?.toLocaleString('pt-br', {
-                style: 'currency',
-                currency: 'BRL',
-                minimumFractionDigits: 2,
-              })}
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-4 text-xl font-semibold">
-            <Form.Input.Button
-              type="submit"
-              label="Pagar"
-              buttonStyle="full"
-              disabled={validateForm()}
-              onClick={handleFormSubmit}
-            />
-            <Form.Input.Button
-              type="button"
-              label="Cancelar"
-              buttonStyle="opaque"
-              onClick={handleFormCancel}
-            />
-          </div>
+        <div className="flex flex-col gap-4 text-xl font-semibold">
+          <Form.Input.Button
+            type="submit"
+            label="Pagar"
+            buttonStyle="full"
+            disabled={validateForm()}
+            onClick={handleFormSubmit}
+          />
+          <Form.Input.Button
+            type="button"
+            label="Cancelar"
+            buttonStyle="opaque"
+            onClick={handleFormCancel}
+          />
         </div>
-      </Form.Root>
-    </>
+      </div>
+    </Form.Root>
   )
 }
