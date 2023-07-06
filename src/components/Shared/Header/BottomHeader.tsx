@@ -127,7 +127,6 @@ export function BottomHeader() {
       </ContainerItem>
 
       <ContainerItem title="Figurinhas" isList={false} />
-
       <ContainerItem title="Agentes" isList={false} />
     </div>
   )
@@ -151,7 +150,7 @@ export const ContainerItem = ({
         </div>
       ) : (
         <Title color="white">
-          <a href="">{title}</a>
+          <a href={`/categorias/${title}`}>{title}</a>
         </Title>
       )}
 
