@@ -1,18 +1,19 @@
 import { FormRoot } from './FormRoot'
 import { FormButton } from './FormButton'
 
-import { FormInputCPF } from './Type/FormInputCPF'
-import { FormInputCard } from './Type/FormInputCard'
-import { FormInputEmail } from './Type/FormInputEmail'
-import { FormInputMonthYear } from './Type/FormInputMonthYear'
-import { FormInputNumber } from './Type/FormInputNumber'
-import { FormInputText } from './Type/FormInputText'
-import { FormInputDate } from './Type/FormInputDate'
-import { FormInputPhone } from './Type/FormInputPhone'
-import { FormInputPostalCode } from './Type/FormInputPostalCode'
+import { FormInputCPF } from './Input/FormInputCPF'
+import { FormInputCard } from './Input/FormInputCard'
+import { FormInputEmail } from './Input/FormInputEmail'
+import { FormInputMonthYear } from './Input/FormInputMonthYear'
+import { FormInputNumber } from './Input/FormInputNumber'
+import { FormInputText } from './Input/FormInputText'
+import { FormInputDate } from './Input/FormInputDate'
+import { FormInputPhone } from './Input/FormInputPhone'
+import { FormInputPostalCode } from './Input/FormInputPostalCode'
 import { FormDropdown } from './FormDropdown'
 import { FormDropzone } from './FormDropzone'
-import { FormInputCheckbox } from './Type/FormInputCheckbox'
+import { FormInputCheckbox } from './Input/FormInputCheckbox'
+import { FormInputCurrency } from './Input/FormInputCurrency'
 
 const Form = {
   Root: FormRoot,
@@ -23,6 +24,7 @@ const Form = {
     Card: FormInputCard,
     Checkbox: FormInputCheckbox,
     CPF: FormInputCPF,
+    Currency: FormInputCurrency,
     Date: FormInputDate,
     Email: FormInputEmail,
     MonthYear: FormInputMonthYear,

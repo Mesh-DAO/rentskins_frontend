@@ -10,11 +10,8 @@ import {
 import AllSkins from '@/components/Skins/AllSkins'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
-import Form from '@/components/Forms'
-import { useState } from 'react'
 
 export default function Home() {
-  const [input, setInput] = useState('')
   const { user } = useUserStore()
 
   const handleOnSteam = () => {
@@ -70,12 +67,6 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto mb-28 mt-16 flex justify-center">
-        <Form.Input.Checkbox
-          label="Teste"
-          labelSize="sm"
-          state={input}
-          setState={setInput}
-        />
         <AllSkins itemsPerPage={20} center />
       </div>
     </main>
