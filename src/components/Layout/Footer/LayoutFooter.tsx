@@ -1,17 +1,17 @@
-import LogoIcon from '../../components/Icons/IconLogo'
 import {
   IconFacebook,
-  IconInstagram,
   IconTwitter,
+  IconInstagram,
   IconPinterest,
-} from '../Icons'
+} from '@/components/Icons'
+import IconLogo from '@/components/Icons/IconLogo'
 
-export function Footer() {
+export function LayoutFooter() {
   return (
     <footer>
       <div className="flex h-64 items-center justify-between bg-mesh-color-neutral-800 px-32">
         <div className="flex flex-col gap-4">
-          <LogoIcon />
+          <IconLogo />
           <p>
             <span className="text-mesh-color-others-gray">
               Copyright © 2023 RentSkins. <br /> All rights reserved.

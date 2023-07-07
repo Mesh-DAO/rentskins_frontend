@@ -11,6 +11,7 @@ import WalletService from '@/services/wallet.service'
 import Authentication from '@/tools/authentication.tool'
 import URLQuery from '@/tools/urlquery.tool'
 import LocalStorage from '@/tools/localstorage.tool'
+import Layout from '.'
 
 type Props = {
   children: React.ReactNode
@@ -65,7 +66,7 @@ export function LayoutRoot({ children }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-mesh-color-others-black">
+    <main className="min-h-screen bg-mesh-color-others-black">
       <ModalPayment />
 
       <title> Rentskins </title>
@@ -74,7 +75,7 @@ export function LayoutRoot({ children }: Props) {
       {modalRender()}
       <Header />
       {children}
-      <Footer />
-    </div>
+      <Layout.Footer />
+    </main>
   )
 }
