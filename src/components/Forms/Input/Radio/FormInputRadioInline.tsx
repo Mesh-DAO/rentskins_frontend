@@ -7,15 +7,22 @@ type TypeItem = {
 }
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string
   label?: string
+  labelSide?: 'up' | 'down'
+  labelClassname?: string
   options: TypeItem[]
   state: any
   setState: any
   className?: string
+  default: InputHTMLAttributes<HTMLInputElement>
 }
 
 export function FormInputRadioInline({
+  name,
   label,
+  labelSide = 'up',
+  labelClassname,
   options,
   state,
   className,
@@ -26,11 +33,11 @@ export function FormInputRadioInline({
     <div key={index} className="flex w-full items-center gap-2">
       <input
         type="radio"
-        id={'form-radio-for' + label + '-' + index}
-        name="radio-method-index"
-        className="peer h-3 w-3 cursor-pointer appearance-none rounded-full border-2
+        id={'form-radio-inline-for' + label + '-' + index}
+        name={'form-radio-inline-' + name}
+        className={`${labelClassname} peer h-3 w-3 cursor-pointer appearance-none rounded-full border-2
         border-mesh-color-primary-1100 bg-mesh-color-others-eerie-black
-        transition-all checked:bg-mesh-color-primary-1100"
+        transition-all checked:bg-mesh-color-primary-1100`}
         value={item.value}
         onChange={(event) => setState(event.target.value)}
         defaultChecked={index === 0 && true}
@@ -38,7 +45,7 @@ export function FormInputRadioInline({
         {...rest}
       />
       <label
-        htmlFor={'form-radio-for' + label + '-' + index}
+        htmlFor={'form-radio-inline-for' + label + '-' + index}
         className="cursor-pointer select-none text-white"
       >
         {item.label}
@@ -46,5 +53,11 @@ export function FormInputRadioInline({
     </div>
   ))
 
-  return <div className={`${className}`}> {createItems} </div>
+  return (
+    <div>
+      {label && labelSide === 'up' && label}
+      <div className={`${className}`}> {createItems} </div>
+      {label && labelSide === 'down' && label}
+    </div>
+  )
 }

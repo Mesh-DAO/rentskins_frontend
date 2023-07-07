@@ -73,7 +73,8 @@ export default function Home() {
       </div>
       <div className="mx-auto mb-28 mt-16 flex justify-center">
         <div>
-          <Form.Input.Radio.Inline
+          <Form.Input.Radio.Block
+            name="teste"
             state={input}
             setState={setInput}
             options={[
@@ -81,8 +82,6 @@ export default function Home() {
               { label: 'Dois', value: '2' },
             ]}
           />
-
-          <Form.Input.Currency />
         </div>
         <AllSkins itemsPerPage={20} center />
       </div>
