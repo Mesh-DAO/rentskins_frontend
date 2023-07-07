@@ -12,6 +12,7 @@ import ImageMastercard from '@/../public/payment/mastercard.png'
 import ImagePix from '@/../public/payment/pix.png'
 import ImageTicket from '@/../public/payment/ticket.png'
 import { InputRadioValueArray } from '@/components/InputRadioValueArray'
+import URLQuery from '@/tools/urlquery.tool'
 
 export function ModalPaymentAdd() {
   const router = useRouter()
@@ -48,7 +49,7 @@ export function ModalPaymentAdd() {
 
   return (
     <Dialog.Content
-      className="fixed left-1/2 top-1/2 h-3/5 w-2/3 -translate-x-1/2 -translate-y-1/2
+      className="fixed left-1/2 top-1/2 z-30 h-3/5 w-2/3 -translate-x-1/2 -translate-y-1/2
 rounded-2xl bg-mesh-color-neutral-700"
     >
       <div className="flex h-full w-full">
@@ -75,7 +76,12 @@ rounded-2xl bg-mesh-color-neutral-700"
                   Adicione Créditos
                 </Title>
               </Dialog.Title>
-              <Dialog.Close asChild>
+              <Dialog.Close
+                asChild
+                onClick={() =>
+                  router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
+                }
+              >
                 <Button className="border-transparent">
                   <IconClose />
                 </Button>

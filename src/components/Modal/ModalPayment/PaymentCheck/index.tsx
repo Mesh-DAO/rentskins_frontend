@@ -6,11 +6,13 @@ import { Button } from '@/components/Button'
 import Image from 'next/image'
 import Banner from '../../../../../public/banner.png'
 import useComponentStore from '@/stores/components.store'
-import { usePathname, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import URLQuery from '@/tools/urlquery.tool'
+import useUserStore from '@/stores/user.store'
 
 export function ModalPaymentCheck() {
   const router = useRouter()
-  const pathname = usePathname()
+  const { wallet } = useUserStore()
   const { setPaymentGeneralIndex } = useComponentStore()
 
   const handleButton = (index: 1 | 2) => {
@@ -19,7 +21,7 @@ export function ModalPaymentCheck() {
 
   return (
     <Dialog.Content
-      className="fixed left-1/2 top-1/2 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2
+      className="fixed left-1/2 top-1/2 z-30 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2
   rounded-2xl bg-mesh-color-neutral-700"
     >
       <div className="flex h-full w-full flex-col items-center justify-between pt-8">
@@ -30,7 +32,12 @@ export function ModalPaymentCheck() {
               Saldo
             </Title>
           </Dialog.Title>
-          <Dialog.Close asChild onClick={() => router.push(pathname)}>
+          <Dialog.Close
+            asChild
+            onClick={() =>
+              router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
+            }
+          >
             <Button className="border-transparent">
               <IconClose />
             </Button>
@@ -40,7 +47,6 @@ export function ModalPaymentCheck() {
         <div className="flex h-full w-11/12 items-start justify-between">
           <div className="flex h-full w-11/12 flex-col gap-7 ">
             <div>
-              {/* CHANGE COLOR */}
               <Title
                 bold={600}
                 size="xl"
@@ -49,11 +55,10 @@ export function ModalPaymentCheck() {
                 Saldo Atual
               </Title>
               <Title bold={800} color="white" size="2xl">
-                R$ 1234,20
+                {wallet.data?.value || 'R$ 0,00'}
               </Title>
             </div>
             <div>
-              {/* CHANGE COLOR */}
               <Title
                 bold={600}
                 size="xl"
@@ -62,7 +67,7 @@ export function ModalPaymentCheck() {
                 Levantamento dentro da plataforma
               </Title>
               <Title bold={700} color="white" size="2xl">
-                R$ 00,00
+                R$0,00
               </Title>
             </div>
           </div>

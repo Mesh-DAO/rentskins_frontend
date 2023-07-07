@@ -1,39 +1,80 @@
-import Image from 'next/image'
-import degle from '../../assets/deagle.png'
-import { Title } from '../Title'
+/* eslint-disable camelcase */
+import { findBySkinsInventory } from '@/services/SkinService'
+import { useQuery } from '@tanstack/react-query'
 import ColoredLine from '../ColoredLine'
+import { ModalAddSkin } from '../Modal'
+import { CardSkin } from './CardSkin'
+import useFilterStore from '@/stores/filters.store'
+import { Title } from '../Title'
 
 interface Props {
-  nameColor: string
+  steamid: string
 }
 
-export function CardSkinInventory({ nameColor }: Props) {
-  return (
-    <div className="flex w-60 flex-col gap-3 rounded-lg border-2 border-mesh-color-primary-1400 border-opacity-60 px-3 pb-4 pt-3 text-white">
-      <div className="bg-mesh-skin-gradient relative flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-primary-1400">
-        <div className="absolute top-[-2px] h-[5px] w-2/3 rounded-b-lg bg-mesh-color-primary-1400" />
-        <div className="absolute left-[-10px] top-[-10px] h-7 w-7 rounded-full border bg-mesh-color-primary-1400" />
-        <div className={`h-2 w-52 bg-[#${nameColor}] rounded-b-full`} />
-        <Image
-          src={degle}
-          alt="placeholder"
-          width={206}
-          height={154}
-          draggable={false}
-        />
-      </div>
-      <div>
-        <Title className='className="font-semibold"'>Kumicho Dragon</Title>
-        <Title className="mt-[2px] text-sm font-medium opacity-60">
-          Desert Eagle
-        </Title>
-      </div>
+export function CardSkinInventory({ steamid }: Props) {
+  const { inventoryFilter } = useFilterStore()
+  const { data, isLoading } = useQuery({
+    queryKey: ['skinsInventory'],
+    queryFn: async () => findBySkinsInventory(steamid),
+  })
 
-      <Title>
-        <strong>FT / </strong>
-        <span className="opacity-60">0.0003</span>
-      </Title>
-      <ColoredLine />
+  const applyFilter = () => {
+    if (data?.data.descriptions) {
+      return data?.data.descriptions.filter((skin: any) => {
+        if (
+          inventoryFilter.length !== 0 &&
+          !inventoryFilter.includes(skin.tags[0].localized_tag_name)
+        ) {
+          return false
+        }
+        return true
+      })
+    }
+  }
+
+  return (
+    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+      {!isLoading ? (
+        applyFilter().map(
+          ({ icon_url, name, name_color, market_name }: any, index: number) => {
+            const primeiroName = name.split('|')[0]
+            const statusFloatText = market_name.match(/\((.*?)\)/g)
+            const statusFloatTextMatch =
+              statusFloatText && statusFloatText[0].replace(/\(|\)/g, '')
+
+            return (
+              <ModalAddSkin
+                key={index}
+                image={icon_url}
+                weapon={primeiroName}
+                name={name}
+                preco="Undefined"
+                statusFloatText={statusFloatTextMatch}
+                float={'0.2555'}
+                activator={
+                  <div className="mb-2 w-[206px] gap-3 rounded-lg border-[1px] border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
+                    <CardSkin.Root>
+                      <CardSkin.Image
+                        icon_url={icon_url}
+                        name_color={name_color}
+                        primeiroName={primeiroName}
+                      />
+                      <CardSkin.Content
+                        market_name={market_name}
+                        primeiroName={primeiroName}
+                        float="0.254665"
+                      />
+                    </CardSkin.Root>
+                    <ColoredLine position={0.254665} />
+                  </div>
+                }
+              />
+            )
+          },
+        )
+      ) : (
+        <Title color="white">Carregando...</Title>
+      )}
     </div>
   )
 }

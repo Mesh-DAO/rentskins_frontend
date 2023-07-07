@@ -3,7 +3,6 @@
 'use client'
 import AllSkins from '@/components/Skins/AllSkins'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
-import { LayoutPage } from '@/components/Shared'
 import SkinFilters from '@/components/SkinFilters'
 import { Title } from '@/components/Title'
 import Link from 'next/link'
@@ -88,6 +87,6 @@ export default function Categorias() {
           )}
         </div>
       </div>
-    </LayoutPage>
+    </div>
   )
 }
