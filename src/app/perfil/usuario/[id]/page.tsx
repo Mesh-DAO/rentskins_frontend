@@ -1,6 +1,7 @@
 // import AllSkins from '@/components/Skins/AllSkins'
 import ChoiceItems from '@/components/ChoiceItems'
 import PerfilPerson from '@/components/ProfilePerson'
+import { LayoutPage } from '@/components/Shared'
 
 export default function PerfilUsuario() {
   return (

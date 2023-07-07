@@ -14,6 +14,7 @@ import { ISkins } from '@/interfaces/ISkins'
 import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 import useFilterStore from '@/stores/filters.store'
 import { useEffect, useState } from 'react'
+import { LayoutPage } from '@/components/Shared'
 
 export default function Categorias() {
   const { skinName } = useParams()
@@ -87,6 +88,6 @@ export default function Categorias() {
           )}
         </div>
       </div>
-    </div>
+    </LayoutPage>
   )
 }

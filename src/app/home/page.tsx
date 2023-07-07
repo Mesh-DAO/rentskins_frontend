@@ -10,9 +10,6 @@ import {
 import AllSkins from '@/components/Skins/AllSkins'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
-import { findByAll } from '@/services/SkinService'
-import { useQuery } from '@tanstack/react-query'
-import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 
 export default function Home() {
   const { user } = useUserStore()
@@ -21,53 +18,44 @@ export default function Home() {
     SteamService.redirect()
   }
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['skins'],
-    queryFn: findByAll,
-  })
-
   return (
     <main className="h-full">
-      {/* Hero */}
-      <div className="flex h-[1024px] flex-col items-center justify-center bg-mesh-image-hero bg-cover bg-center bg-no-repeat">
-        {/* Hero - Content */}
-        <div className="flex flex-col items-center space-y-8 text-center text-white">
-          <p className="max-w-2xl text-[3.5rem] font-bold leading-none">
-            <span>
-              Descubra o mundo das skins{' '}
-              <strong className="bg-mesh-gradient-green-pattern bg-clip-text text-transparent">
-                CS:GO
-              </strong>
-            </span>
-          </p>
-          <p className="max-w-3xl text-2xl">
-            Personalize seu arsenal com as skins mais incríveis, encontrando as
-            skins perfeitas para dominar o jogo!
-          </p>
-          {!user.steamid && <SteamButton onClick={() => handleOnSteam()} />}
+      <div className="h-screen">
+        <div className="flex h-4/6 flex-col items-center justify-center bg-mesh-image-hero bg-cover bg-center bg-no-repeat">
+          <div className="flex flex-col items-center space-y-8 text-center text-white">
+            <p className="max-w-2xl text-[3.5rem] font-bold leading-none">
+              <span>
+                Descubra o mundo das skins{' '}
+                <strong className="bg-mesh-gradient-green-pattern bg-clip-text text-transparent">
+                  CS:GO
+                </strong>
+              </span>
+            </p>
+            <p className="max-w-3xl text-2xl">
+              Personalize seu arsenal com as skins mais incríveis, encontrando
+              as skins perfeitas para dominar o jogo!
+            </p>
+            {!user.steamid && <SteamButton onClick={() => handleOnSteam()} />}
+          </div>
         </div>
-      </div>
-      {/* Hero - Bottom */}
-      <div className="h-40 w-full bg-mesh-color-neutral-800">
-        {/* Hero - Green Line */}
-        <hr className="-mt-0.5 h-2 w-full bg-mesh-gradient-green-pattern" />
+        <div className="h-1/5 w-full bg-mesh-color-neutral-800">
+          <hr className="-mt-0.5 h-2 w-full bg-mesh-gradient-green-pattern" />
 
-        {/* Hero - Information */}
-        <div className="flex h-full items-center justify-center">
-          <HeroInformation icon={<IconShield />} title="Pagamento seguro">
-            Realize seus pagamentos com tranquilidade!
-          </HeroInformation>
+          <div className="flex h-full items-center justify-center">
+            <HeroInformation icon={<IconShield />} title="Pagamento seguro">
+              Realize seus pagamentos com tranquilidade!
+            </HeroInformation>
 
-          <HeroInformation icon={<IconPhone />} title="Suporte rápido">
-            Tem alguma dúvida? Entre em contato conosco!
-          </HeroInformation>
+            <HeroInformation icon={<IconPhone />} title="Suporte rápido">
+              Tem alguma dúvida? Entre em contato conosco!
+            </HeroInformation>
 
-          <HeroInformation
-            icon={<IconMagnifyingGlass />}
-            title="Ampla transparência"
-          >
-            Priorizamos a transparência em todas as informações.
-          </HeroInformation>
+            <HeroInformation
+              icon={<IconMagnifyingGlass />}
+              title="Ampla transparência"
+            >
+              Priorizamos a transparência em todas as informações.
+            </HeroInformation>
 
             <HeroInformation
               icon={<IconDevolution />}
@@ -77,16 +65,9 @@ export default function Home() {
             </HeroInformation>
           </div>
         </div>
-        <div className="mb-28 mt-16 flex">
-          {isLoading ? (
-            <AllSkeletonSkins />
-          ) : (
-            <AllSkins skinsCategories={data?.data} itemsPerPage={20} center />
-          )}
-        </div>
       </div>
       <div className="mx-auto mb-28 mt-16 flex justify-center">
-        <AllSkins itemsPerPage={20} center />
+        <AllSkins skinsCategories={[]} itemsPerPage={20} center />
       </div>
     </main>
   )
