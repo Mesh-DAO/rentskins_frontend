@@ -1,13 +1,9 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import { Button } from '@/components/Button'
-import { IconLeftArrow } from '@/components/Icons/iconLeftArrow'
-import { Title } from '@/components/Title'
+import Common from '@/components/Common'
+import { IconLeftArrow } from '@/components/Icons/IconLeftArrow'
+import Pages from '@/components/Pages'
 import { useParams, useRouter } from 'next/navigation'
-import CircleLoading from '@/components/CircleLoading'
-import { PaymentRechargeMastercardForm } from '@/components/Payment/Form/Recharge/index.mastercard'
-import { PaymentRechargePixForm } from '@/components/Payment/Form/Recharge/index.pix'
-import { PaymentRechargeTicketForm } from '@/components/Payment/Form/Recharge/index.ticket'
+import React, { useEffect, useState } from 'react'
 
 export default function PaymentAddMastercardPage() {
   const { method } = useParams()
@@ -30,19 +26,19 @@ export default function PaymentAddMastercardPage() {
 
     const methodComponents = {
       mastercard: (
-        <PaymentRechargeMastercardForm
+        <Pages.Payment.Recharge.Mastercard
           handleFormCancel={handleOnCancel}
           handleFormSubmit={handleOnSubmit}
         />
       ),
       pix: (
-        <PaymentRechargePixForm
+        <Pages.Payment.Recharge.Pix
           handleFormSubmit={handleOnSubmit}
           handleFormCancel={handleOnCancel}
         />
       ),
       boleto: (
-        <PaymentRechargeTicketForm
+        <Pages.Payment.Recharge.Ticket
           handleFormSubmit={handleOnSubmit}
           handleFormCancel={handleOnCancel}
         />
@@ -56,19 +52,19 @@ export default function PaymentAddMastercardPage() {
 
   const renderContent = (
     <>
-      <CircleLoading
+      <Common.Loading
         label="Processando..."
         enabled={isLoading}
         className="flex h-2/3 items-center justify-center"
       >
         <div className="mt-8 flex w-1/3 flex-col">
           <div className="mb-8 flex w-full items-center justify-start">
-            <Button
+            <Common.Button
               className="border-transparent"
               onClick={() => router.push('/')}
             >
               <IconLeftArrow />
-            </Button>
+            </Common.Button>
 
             <span className="ml-2 text-mesh-color-neutral-200">
               <text>Saldo </text>
@@ -80,29 +76,29 @@ export default function PaymentAddMastercardPage() {
             </span>
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
-            <Title size="2xl">
+            <Common.Title size="2xl">
               Recarregar saldo com{' '}
               {method.charAt(0).toUpperCase() + method.slice(1)}
-            </Title>
+            </Common.Title>
             {methodComponent}
           </div>
         </div>
-      </CircleLoading>
+      </Common.Loading>
     </>
   )
 
   const renderFailed = (
     <div className="flex h-3/5 flex-col items-center justify-center gap-4">
-      <Title bold={800} size="3xl">
+      <Common.Title bold={800} size="3xl">
         Página não encontrada.
-      </Title>
-      <Button
+      </Common.Title>
+      <Common.Button
         onClick={() => router.push('/')}
         className="border-mesh-color-primary-1400 
       bg-mesh-color-primary-1400 px-4 text-lg font-semibold text-mesh-color-others-black"
       >
         Voltar
-      </Button>
+      </Common.Button>
     </div>
   )
 

@@ -1,27 +1,22 @@
 'use client'
-import { SteamButton } from '@/components/SteamButton'
-import { HeroInformation } from '@/components/HeroInformation'
+import Common from '@/components/Common'
 import {
-  IconShield,
-  IconPhone,
-  IconMagnifyingGlass,
   IconDevolution,
+  IconMagnifyingGlass,
+  IconPhone,
+  IconShield,
 } from '@/components/Icons'
-import AllSkins from '@/components/Skins/AllSkins'
+import { HeroInformation } from '@/components/Others/HeroInformation'
+import AllSkins from '@/components/Others/Skins/AllSkins'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
-import Form from '@/components/Forms'
-import { useState } from 'react'
 
 export default function Home() {
-  const [input, setInput] = useState()
   const { user } = useUserStore()
 
   const handleOnSteam = () => {
     SteamService.redirect()
   }
-
-  console.log(input)
 
   return (
     <main className="h-full">
@@ -40,7 +35,9 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            {!user.steamid && <SteamButton onClick={() => handleOnSteam()} />}
+            {!user.steamid && (
+              <Common.SteamButton onClick={() => handleOnSteam()} />
+            )}
           </div>
         </div>
         <div className="h-1/5 w-full bg-mesh-color-neutral-800">
@@ -72,17 +69,6 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto mb-28 mt-16 flex justify-center">
-        <div>
-          <Form.Input.Radio.Block
-            name="teste"
-            state={input}
-            setState={setInput}
-            options={[
-              { label: 'Um', value: '1' },
-              { label: 'Dois', value: '2' },
-            ]}
-          />
-        </div>
         <AllSkins itemsPerPage={20} center />
       </div>
     </main>

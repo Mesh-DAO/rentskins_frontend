@@ -1,19 +1,18 @@
-import { Button } from '@/components/Button'
-import { IconSearch, IconCarrinho, IconSteam } from '@/components/Icons'
+import BlankUser from '@/../public/blank-profile.png'
+import Common from '@/components/Common'
+import Form from '@/components/Forms'
+import { IconCarrinho, IconSearch, IconSteam } from '@/components/Icons'
 import { IconCruz } from '@/components/Icons/IconCruz'
 import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
 import SteamService from '@/services/steam.service'
+import useUserStore from '@/stores/user.store'
 import URLQuery from '@/tools/urlquery.tool'
-import { Title } from '@/components/Title'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
-import { Input } from '@/components/Input'
-import { useRef, useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import logo from '../../../assets/logo.svg'
-import useUserStore from '@/stores/user.store'
-import BlankUser from '@/../public/blank-profile.png'
 
 export function LayoutHeaderTop() {
   const router = useRouter()
@@ -90,11 +89,11 @@ export function LayoutHeaderTop() {
               height={searchItem.length > 0 ? 25 : 20}
             />
           </button>
-          <Input
+          <Form.Input.Text
+            state={searchItem}
+            setState={setSearchItem}
             className="bg-mesh-color-neutral-800 pl-3 text-base text-mesh-color-neutral-200"
-            placeHolder="Pesquise o item..."
-            onChange={(event: any) => setSearchItem(event.target.value)}
-            value={searchItem}
+            placeholder="Pesquise o item..."
           />
         </div>
       </div>
@@ -109,13 +108,13 @@ export function LayoutHeaderTop() {
 
             <span>Carrinho de Compras</span>
           </Link>
-          <Button
+          <Common.Button
             className="flex h-[44px] w-[220px] gap-2 rounded-[14px] border-transparent bg-mesh-color-primary-1400 opacity-100"
             onClick={() => handleOnSteam()}
           >
             <IconSteam />
             <span className="font-semibold">Entre com sua Steam</span>
-          </Button>
+          </Common.Button>
         </div>
       ) : (
         <div className="flex items-center gap-x-6">
@@ -139,27 +138,27 @@ export function LayoutHeaderTop() {
               </Link>
             </nav>
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
-              <Title bold={500} color="white">
+              <Common.Title bold={500} color="white">
                 {wallet.data?.value || 'R$ 0,00'}
-              </Title>
-              <Button
+              </Common.Title>
+              <Common.Button
                 className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
                 onClick={() => handleOnAdd()}
               >
                 <IconCruz />
-              </Button>
+              </Common.Button>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <Button
+            <Common.Button
               className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black"
               onClick={() => router.push('/usuario/notificacoes?type=historic')}
             >
               <div className="absolute top-8 ml-4 h-2 w-2 rounded-full bg-mesh-color-primary-1200" />
               <div className="absolute top-8 ml-4 h-2 w-2 animate-ping rounded-full bg-mesh-color-primary-1200" />
               <IconNotifications />
-            </Button>
+            </Common.Button>
 
             <div className="flex items-end justify-center">
               <div
@@ -184,24 +183,24 @@ export function LayoutHeaderTop() {
                   rounded-lg bg-mesh-color-others-eerie-black px-3 py-2"
                   ref={refDropdown}
                 >
-                  <Button
+                  <Common.Button
                     className="border-none font-semibold text-mesh-color-neutral-200"
                     onClick={() => handleDropdownButton('config')}
                   >
                     Configurações
-                  </Button>
-                  <Button
+                  </Common.Button>
+                  <Common.Button
                     className="border-none font-semibold text-mesh-color-neutral-200"
                     onClick={() => handleDropdownButton('profile')}
                   >
                     Perfil
-                  </Button>
-                  <Button
+                  </Common.Button>
+                  <Common.Button
                     className="border-none font-semibold text-mesh-color-neutral-200"
                     onClick={() => handleDropdownButton('logout')}
                   >
                     Sair
-                  </Button>
+                  </Common.Button>
                 </div>
               )}
             </div>

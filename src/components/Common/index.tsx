@@ -3,6 +3,7 @@ import { CommonAvatar } from './CommonAvatar'
 import { CommonButton } from './CommonButton'
 import { CommonLoading } from './CommonLoading'
 import { CommonPagination } from './CommonPagination'
+import { CommonSteamButton } from './CommonSteamButton'
 import { CommonSubtitle } from './CommonSubtitle'
 import { CommonTitle } from './CommonTitle'
 import { CommonTooltip } from './CommonTooltip'
@@ -16,6 +17,7 @@ const Common = {
   Subtitle: CommonSubtitle,
   Title: CommonTitle,
   Tooltip: CommonTooltip,
+  SteamButton: CommonSteamButton,
 }
 
 export default Common

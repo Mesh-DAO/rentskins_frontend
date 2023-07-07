@@ -1,8 +1,8 @@
 'use client'
-import ChoiceItems from '@/components/ChoiceItems'
-import PerfilPerson from '@/components/ProfilePerson'
-import AllSkins from '@/components/Skins/AllSkins'
-import RentedSkins from '@/components/Skins/RentedSkins'
+import ChoiceItems from '@/components/Others/ChoiceItems'
+import PerfilPerson from '@/components/Others/ProfilePerson'
+import AllSkins from '@/components/Others/Skins/AllSkins'
+import RentedSkins from '@/components/Others/Skins/RentedSkins'
 import useComponentStore from '@/stores/components.store'
 
 export default function Perfil() {

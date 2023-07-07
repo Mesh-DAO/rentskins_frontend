@@ -3,9 +3,11 @@ import { LayoutHeaderBottom } from './Header/LayoutHeaderBottom'
 import { LayoutHeaderRoot } from './Header/LayoutHeaderRoot'
 import { LayoutHeaderTop } from './Header/LayoutHeaderTop'
 import { LayoutRoot } from './LayoutRoot'
+import { LayoutNavigator } from './LayoutNavigator'
 
 const Layout = {
   Footer: LayoutFooter,
+  Navigator: LayoutNavigator,
   Header: {
     Bottom: LayoutHeaderBottom,
     Root: LayoutHeaderRoot,

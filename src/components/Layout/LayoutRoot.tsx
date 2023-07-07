@@ -1,15 +1,15 @@
 'use client'
-import React, { useEffect } from 'react'
-import { useSearchParams, usePathname, useRouter } from 'next/navigation'
-import useUserStore from '@/stores/user.store'
-import { ModalPayment } from '../Modal'
-import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
-import { useQuery } from '@tanstack/react-query'
 import WalletService from '@/services/wallet.service'
+import useUserStore from '@/stores/user.store'
 import Authentication from '@/tools/authentication.tool'
-import URLQuery from '@/tools/urlquery.tool'
 import LocalStorage from '@/tools/localstorage.tool'
+import URLQuery from '@/tools/urlquery.tool'
+import { useQuery } from '@tanstack/react-query'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import React, { useEffect } from 'react'
 import Layout from '.'
+import Common from '../Common'
+import Modal from '../Modal'
 
 type Props = {
   children: React.ReactNode
@@ -59,15 +59,15 @@ export function LayoutRoot({ children }: Props) {
   const modalRender = () => {
     switch (pathname) {
       case '/usuario/notificacoes':
-        return <ModalNotificationFilter />
+        return <Modal.Notification.Filter />
     }
   }
 
   return (
     <main className="min-h-screen bg-mesh-color-others-black">
-      <ModalPayment />
+      <Modal.Payment.Main />
 
-      <title> Rentskins </title>
+      <Common.Title> Rentskins </Common.Title>
       <meta property="og:title" content="My page title" key="title" />
       {modalRender()}
 

@@ -1,15 +1,13 @@
 'use client'
-import Aos from 'aos'
-import { useEffect, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { Button } from '@/components/Button'
-import NotificationsHistoric from '@/components/NotificationIndex/index.historic'
-import NotificationsTransactions from '@/components/NotificationIndex/index.transactions'
-import { Title } from '@/components/Title'
-import { historicMock } from '@/Mock/notification.historic.mock'
-import { transactionsMock } from '@/Mock/notification.transaction.mock'
-import URLQuery from '@/tools/urlquery.tool'
+import Common from '@/components/Common'
+import Pages from '@/components/Pages'
+import { historicMock } from '@/mock/notification.historic.mock'
+import { transactionsMock } from '@/mock/notification.transaction.mock'
 import useFilterStore from '@/stores/filters.store'
+import URLQuery from '@/tools/urlquery.tool'
+import Aos from 'aos'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 export default function NotificationPage() {
   const { notificationFilter } = useFilterStore()
@@ -48,9 +46,9 @@ export default function NotificationPage() {
 
   return (
     <main className="mx-auto mt-6 flex w-8/12 flex-col">
-      <Title size="3xl" bold={700} color="white">
+      <Common.Title size="3xl" bold={700} color="white">
         Notificação
-      </Title>
+      </Common.Title>
       <div className="mt-5 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <label className="flex cursor-pointer flex-col">
@@ -83,20 +81,20 @@ export default function NotificationPage() {
           </label>
         </div>
         {searchParams.get('type') === 'historic' && (
-          <Button
+          <Common.Button
             className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold"
             onClick={() => handleOnFilter()}
             data-aos="zoom-in"
           >
             {notificationFilter}
-          </Button>
+          </Common.Button>
         )}
       </div>
       {searchParams.get('type') === 'historic' && (
-        <NotificationsHistoric data={historicMock} loading={isLoading} />
+        <Pages.Notification.Historic data={historicMock} loading={isLoading} />
       )}
       {searchParams.get('type') === 'transactions' && (
-        <NotificationsTransactions
+        <Pages.Notification.Transaction
           data={transactionsMock.pending}
           loading={isLoading}
         />
