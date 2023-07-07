@@ -1,7 +1,5 @@
 'use client'
-import Header from '../Shared/Header'
-import { Footer } from '../Footer'
-import React, { useEffect } from 'react'
+import { React, useEffect } from 'react'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
@@ -71,10 +69,15 @@ export function LayoutRoot({ children }: Props) {
 
       <title> Rentskins </title>
       <meta property="og:title" content="My page title" key="title" />
-
       {modalRender()}
-      <Header />
+
+      <Layout.Header.Root>
+        <Layout.Header.Top />
+        <Layout.Header.Bottom />
+      </Layout.Header.Root>
+
       {children}
+
       <Layout.Footer />
     </main>
   )

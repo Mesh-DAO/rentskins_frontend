@@ -1,5 +1,14 @@
-interface IProps {}
+import React from 'react'
 
-export function LayoutHeaderRoot({}: IProps) {
-  return <div>ok</div>
+interface IProps {
+  children: React.ReactNode
+  className?: string
+}
+
+export function LayoutHeaderRoot({ children, className }: IProps) {
+  return (
+    <header className={`${className} w-full bg-mesh-color-others-black`}>
+      {children}
+    </header>
+  )
 }
