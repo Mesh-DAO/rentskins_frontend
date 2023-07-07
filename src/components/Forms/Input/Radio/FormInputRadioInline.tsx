@@ -28,8 +28,9 @@ export function FormInputRadioInline({
         type="radio"
         id={'form-radio-for' + label + '-' + index}
         name="radio-method-index"
-        className="peer h-3 w-3 appearance-none rounded-full border-2 border-mesh-color-primary-1100/50
-        bg-mesh-color-others-eerie-black checked:bg-mesh-color-primary-1100"
+        className="peer h-3 w-3 cursor-pointer appearance-none rounded-full border-2
+        border-mesh-color-primary-1100 bg-mesh-color-others-eerie-black
+        transition-all checked:bg-mesh-color-primary-1100"
         value={item.value}
         onChange={(event) => setState(event.target.value)}
         defaultChecked={index === 0 && true}
@@ -38,7 +39,7 @@ export function FormInputRadioInline({
       />
       <label
         htmlFor={'form-radio-for' + label + '-' + index}
-        className="text-white"
+        className="cursor-pointer select-none text-white"
       >
         {item.label}
       </label>

@@ -1,4 +1,5 @@
 import React, { InputHTMLAttributes } from 'react'
+import { options } from '../options'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   showCurrencySign?: boolean
@@ -57,8 +58,7 @@ export function FormInputCurrency({
           step="any"
           onChange={({ target }) => setState(formatInput(target.value))}
           value={state}
-          className={`${inputClassName} rounded-md border-[2px] border-mesh-color-primary-1100/50
-        bg-mesh-color-others-eerie-black px-3 py-3 pl-12 placeholder:text-white/70`}
+          className={`${inputClassName} ${options.input.className}`}
           {...rest}
         />
       </div>
