@@ -1,5 +1,5 @@
 'use client'
-import Header from './Header'
+import Header from '../Shared/Header'
 import { Footer } from '../Footer'
 import React, { useEffect } from 'react'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
@@ -16,7 +16,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export function LayoutPage({ children }: Props) {
+export function LayoutRoot({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()

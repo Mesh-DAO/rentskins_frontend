@@ -4,7 +4,7 @@ import './globals.css'
 import 'aos/dist/aos.css'
 import { Inter } from 'next/font/google'
 import { queryClient } from '@/services/queryClient'
-import { LayoutPage } from '@/components/Shared'
+import Layout from '@/components/Layout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +18,7 @@ export default function RootLayout({
     <QueryClientProvider client={queryClient}>
       <html lang="en">
         <body className={inter.className}>
-          <LayoutPage>{children}</LayoutPage>
+          <Layout.Root>{children}</Layout.Root>
         </body>
       </html>
     </QueryClientProvider>
