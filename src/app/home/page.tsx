@@ -81,6 +81,8 @@ export default function Home() {
               { label: 'Dois', value: '2' },
             ]}
           />
+
+          <Form.Input.Currency />
         </div>
         <AllSkins itemsPerPage={20} center />
       </div>

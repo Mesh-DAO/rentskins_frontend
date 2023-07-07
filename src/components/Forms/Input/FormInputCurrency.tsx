@@ -58,7 +58,7 @@ export function FormInputCurrency({
           step="any"
           onChange={({ target }) => setState(formatInput(target.value))}
           value={state}
-          className={`${inputClassName} ${options.input.className}`}
+          className={`${inputClassName} pl-12 ${options.input.className}`}
           {...rest}
         />
       </div>
