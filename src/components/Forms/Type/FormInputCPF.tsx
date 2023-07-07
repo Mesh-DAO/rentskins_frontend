@@ -41,8 +41,6 @@ export function FormInputCPF({
         type="text"
         onChange={({ target }) => setState(formatInput(target.value))}
         value={state}
-        // onChange={({ target }) => formatInput(target.value as any)}
-        // value={formatInput(stateValue)}
         className={`${inputClassName} rounded-md border-[2px]
         border-mesh-color-primary-1100/50 bg-mesh-color-others-eerie-black px-3 py-3 placeholder:text-white/70`}
         {...rest}

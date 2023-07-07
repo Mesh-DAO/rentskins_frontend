@@ -12,6 +12,7 @@ import { FormInputPhone } from './Type/FormInputPhone'
 import { FormInputPostalCode } from './Type/FormInputPostalCode'
 import { FormDropdown } from './FormDropdown'
 import { FormDropzone } from './FormDropzone'
+import { FormInputCheckbox } from './Type/FormInputCheckbox'
 
 const Form = {
   Root: FormRoot,
@@ -19,15 +20,16 @@ const Form = {
   Dropdown: FormDropdown,
   Dropzone: FormDropzone,
   Input: {
-    Text: FormInputText,
-    Email: FormInputEmail,
     Card: FormInputCard,
+    Checkbox: FormInputCheckbox,
     CPF: FormInputCPF,
+    Date: FormInputDate,
+    Email: FormInputEmail,
     MonthYear: FormInputMonthYear,
     Number: FormInputNumber,
-    Date: FormInputDate,
     Phone: FormInputPhone,
     PostalCode: FormInputPostalCode,
+    Text: FormInputText,
   },
 }
 

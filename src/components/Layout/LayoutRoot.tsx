@@ -1,5 +1,5 @@
 'use client'
-import { React, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import useUserStore from '@/stores/user.store'
 import { ModalPayment } from '../Modal'
