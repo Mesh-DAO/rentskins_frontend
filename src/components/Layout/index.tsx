@@ -1,4 +1,4 @@
-import { LayoutFooter } from './Footer/LayoutFooter'
+import { LayoutFooter } from './LayoutFooter'
 import { LayoutHeaderBottom } from './Header/LayoutHeaderBottom'
 import { LayoutHeaderRoot } from './Header/LayoutHeaderRoot'
 import { LayoutHeaderTop } from './Header/LayoutHeaderTop'

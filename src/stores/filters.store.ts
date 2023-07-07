@@ -1,5 +1,5 @@
 import create from 'zustand'
-import { IStates } from './interfaces/filters.store'
+import { IStates } from './interfaces/filters.interface'
 
 const useFilterStore = create<IStates>((set) => ({
   notificationFilter: 'Tudo',

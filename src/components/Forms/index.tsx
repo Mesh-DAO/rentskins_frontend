@@ -14,6 +14,7 @@ import { FormDropdown } from './FormDropdown'
 import { FormDropzone } from './FormDropzone'
 import { FormInputCheckbox } from './Input/FormInputCheckbox'
 import { FormInputCurrency } from './Input/FormInputCurrency'
+import { FormInputRadioInline } from './Input/Radio/FormInputRadioInline'
 
 const Form = {
   Root: FormRoot,
@@ -31,6 +32,9 @@ const Form = {
     Number: FormInputNumber,
     Phone: FormInputPhone,
     PostalCode: FormInputPostalCode,
+    Radio: {
+      Inline: FormInputRadioInline,
+    },
     Text: FormInputText,
   },
 }

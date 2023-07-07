@@ -10,13 +10,18 @@ import {
 import AllSkins from '@/components/Skins/AllSkins'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
+import Form from '@/components/Forms'
+import { useState } from 'react'
 
 export default function Home() {
+  const [input, setInput] = useState()
   const { user } = useUserStore()
 
   const handleOnSteam = () => {
     SteamService.redirect()
   }
+
+  console.log(input)
 
   return (
     <main className="h-full">
@@ -67,6 +72,16 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto mb-28 mt-16 flex justify-center">
+        <div>
+          <Form.Input.Radio.Inline
+            state={input}
+            setState={setInput}
+            options={[
+              { label: 'Um', value: '1' },
+              { label: 'Dois', value: '2' },
+            ]}
+          />
+        </div>
         <AllSkins itemsPerPage={20} center />
       </div>
     </main>
