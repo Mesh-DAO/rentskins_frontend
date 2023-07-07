@@ -1,11 +1,10 @@
 import { Title } from '@/components/Title'
-import { InputCurrency } from '@/components/InputCurrency'
 
 interface IProps {
   title: string
   value: number | undefined
-  defaultValue?: number | string
-  setValue: (value: number) => void
+  defaultValue?: number
+  setValue: (value: number | undefined) => void
 }
 
 export default function InputValue({
@@ -19,17 +18,19 @@ export default function InputValue({
       <Title color="white" size="sm">
         {title}
       </Title>
-      <div className="items flex items-center">
+      <label className="items flex items-center">
         <div className="absolute ml-2 text-sm font-semibold text-mesh-color-neutral-0 opacity-60">
           R$
         </div>
-        <InputCurrency
-          onChange={() => setValue}
-          value={value}
+        <input
+          onChange={({ target: { value } }) =>
+            /^[0-9]+$/.test(value) && setValue(+value)
+          }
+          value={value || ''}
           defaultValue={defaultValue}
           className="h-10 w-full rounded bg-mesh-color-neutral-900 pl-8 text-white outline-none active:border-mesh-color-primary-700"
         />
-      </div>
+      </label>
     </div>
   )
 }

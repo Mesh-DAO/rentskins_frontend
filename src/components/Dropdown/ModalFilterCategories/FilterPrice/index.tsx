@@ -13,7 +13,12 @@ export default function FilterPrice() {
     useFilterStore()
 
   const handleClickSetFilterPrice = () => {
-    if (minPrice! > 0 && maxPrice! > 0 && maxPrice! > minPrice!) {
+    if (
+      typeof minPrice === 'number' &&
+      typeof maxPrice === 'number' &&
+      minPrice! > 0 &&
+      maxPrice! > minPrice!
+    ) {
       setSelectedFilters({
         ...selectedFilters,
         prices: { max: maxPrice!, min: minPrice! },
@@ -22,7 +27,7 @@ export default function FilterPrice() {
   }
 
   return (
-    <div className="flex h-full flex-col justify-between">
+    <form className="flex h-full flex-col justify-between">
       <div className="flex flex-col gap-5">
         <Title color="white" size="2xl" bold={600}>
           Preço
@@ -53,12 +58,14 @@ export default function FilterPrice() {
       </div>
       <div className="flex justify-end gap-3">
         <Button
-          onClick={() =>
+          onClick={() => {
             cleanSelectedFilters({
               ...selectedFilters,
               prices: { max: null, min: null },
             })
-          }
+            setMaxPrice(undefined)
+            setMinPrice(undefined)
+          }}
           className="h-11 w-32 font-bold text-white"
         >
           Limpar
@@ -70,6 +77,6 @@ export default function FilterPrice() {
           Aplicar
         </Button>
       </div>
-    </div>
+    </form>
   )
 }
