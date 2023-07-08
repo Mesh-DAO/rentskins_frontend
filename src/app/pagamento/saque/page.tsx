@@ -1,11 +1,15 @@
 'use client'
 import Common from '@/components/Common'
+import { CommonLoading } from '@/components/Common/CommonLoading'
 import { IconBank } from '@/components/Icons/IconBank'
 import { IconCard } from '@/components/Icons/IconCard'
 import { IconLeftArrow } from '@/components/Icons/IconLeftArrow'
 import { IconLocation } from '@/components/Icons/IconLocation'
 import { IconPerson } from '@/components/Icons/IconPerson'
-import Pages from '@/components/Pages'
+import { PagePaymentWithdrawDocument } from '@/components/Pages/PagePayment/PagePaymentWithdraw/PagePaymentWithdrawDocument'
+import { PagePaymentWithdrawLocation } from '@/components/Pages/PagePayment/PagePaymentWithdraw/PagePaymentWithdrawLocation'
+import { PagePaymentWithdrawPersonal } from '@/components/Pages/PagePayment/PagePaymentWithdraw/PagePaymentWithdrawPersonal'
+import { PagePaymentWithdrawTransaction } from '@/components/Pages/PagePayment/PagePaymentWithdraw/PagePaymentWithdrawTransaction'
 import useComponentStore from '@/stores/components.store'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -36,25 +40,25 @@ export default function PaymentWithdrawPage() {
   const renderFormContent = () => {
     const forms = {
       0: (
-        <Pages.Payment.Withdraw.Personal
+        <PagePaymentWithdrawPersonal
           handleFormSubmit={handleOnNext}
           handleFormCancel={handleOnCancel}
         />
       ),
       1: (
-        <Pages.Payment.Withdraw.Location
+        <PagePaymentWithdrawLocation
           handleFormSubmit={handleOnNext}
           handleFormCancel={handleOnCancel}
         />
       ),
       2: (
-        <Pages.Payment.Withdraw.Transaction
+        <PagePaymentWithdrawTransaction
           handleFormSubmit={handleOnNext}
           handleFormCancel={handleOnCancel}
         />
       ),
       3: (
-        <Pages.Payment.Withdraw.Document
+        <PagePaymentWithdrawDocument
           handleFormSubmit={handleOnNext}
           handleFormCancel={handleOnCancel}
         />
@@ -66,7 +70,7 @@ export default function PaymentWithdrawPage() {
 
   return (
     <main className="flex h-fit flex-col items-center justify-start bg-mesh-color-others-black pb-64 text-white">
-      <Common.Loading
+      <CommonLoading
         label="Processando..."
         enabled={isLoading}
         className="mb-64 mt-32 flex h-full items-center justify-center"
@@ -173,7 +177,7 @@ export default function PaymentWithdrawPage() {
             </div>
           </div>
         </div>
-      </Common.Loading>
+      </CommonLoading>
     </main>
   )
 }

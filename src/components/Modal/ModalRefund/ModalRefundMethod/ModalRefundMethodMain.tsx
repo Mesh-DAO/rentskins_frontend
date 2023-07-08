@@ -1,7 +1,7 @@
 import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons'
 import * as Dialog from '@radix-ui/react-dialog'
-import Modal from '../..'
+import ModalRefundMethodInformationMain from './ModalRefundMethodInformation/ModalRefundMethodInformationMain'
 
 export default function ModalRefundMethodMain() {
   return (
@@ -22,7 +22,7 @@ export default function ModalRefundMethodMain() {
         </Dialog.Close>
       </div>
       <div>
-        <Modal.Refund.Method.Information.Main />
+        <ModalRefundMethodInformationMain />
       </div>
     </Dialog.Content>
   )

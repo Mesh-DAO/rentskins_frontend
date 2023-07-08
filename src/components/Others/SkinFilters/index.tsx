@@ -1,6 +1,6 @@
 'use client'
 import IconFilter from '@/components/Icons/IconFilter'
-import Modal from '@/components/Modal'
+import ModalFiltersMain from '@/components/Modal/ModalFilters/ModalFiltersMain'
 import ContainerFilter from './ContainerFilter'
 
 export default function SkinFilters() {
@@ -12,7 +12,7 @@ export default function SkinFilters() {
         <ContainerFilter title="Categoria" />
       </div>
       <div className="relative z-10 flex cursor-pointer items-center">
-        <Modal.Filters.Main
+        <ModalFiltersMain
           activator={
             <button className="flex cursor-pointer items-center gap-2 border-none text-white">
               <IconFilter />

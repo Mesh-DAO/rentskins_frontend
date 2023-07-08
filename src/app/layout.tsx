@@ -1,10 +1,10 @@
 'use client'
+import { LayoutRoot } from '@/components/Layout/LayoutRoot'
+import { queryClient } from '@/services/queryClient'
 import { QueryClientProvider } from '@tanstack/react-query'
-import './globals.css'
 import 'aos/dist/aos.css'
 import { Inter } from 'next/font/google'
-import { queryClient } from '@/services/queryClient'
-import Layout from '@/components/Layout'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +18,7 @@ export default function RootLayout({
     <QueryClientProvider client={queryClient}>
       <html lang="en">
         <body className={inter.className}>
-          <Layout.Root>{children}</Layout.Root>
+          <LayoutRoot>{children}</LayoutRoot>
         </body>
       </html>
     </QueryClientProvider>

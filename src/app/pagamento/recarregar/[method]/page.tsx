@@ -1,7 +1,10 @@
 'use client'
 import Common from '@/components/Common'
+import { CommonLoading } from '@/components/Common/CommonLoading'
 import { IconLeftArrow } from '@/components/Icons/IconLeftArrow'
-import Pages from '@/components/Pages'
+import { PagePaymentRechargeMastercard } from '@/components/Pages/PagePayment/PagePaymentRecharge/PagePaymentRechargeMastercard'
+import { PagePaymentRechargePix } from '@/components/Pages/PagePayment/PagePaymentRecharge/PagePaymentRechargePix'
+import { PagePaymentRechargeTicket } from '@/components/Pages/PagePayment/PagePaymentRecharge/PagePaymentRechargeTicket'
 import { useParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -26,19 +29,19 @@ export default function PaymentAddMastercardPage() {
 
     const methodComponents = {
       mastercard: (
-        <Pages.Payment.Recharge.Mastercard
+        <PagePaymentRechargeMastercard
           handleFormCancel={handleOnCancel}
           handleFormSubmit={handleOnSubmit}
         />
       ),
       pix: (
-        <Pages.Payment.Recharge.Pix
+        <PagePaymentRechargePix
           handleFormSubmit={handleOnSubmit}
           handleFormCancel={handleOnCancel}
         />
       ),
       boleto: (
-        <Pages.Payment.Recharge.Ticket
+        <PagePaymentRechargeTicket
           handleFormSubmit={handleOnSubmit}
           handleFormCancel={handleOnCancel}
         />
@@ -52,7 +55,7 @@ export default function PaymentAddMastercardPage() {
 
   const renderContent = (
     <>
-      <Common.Loading
+      <CommonLoading
         label="Processando..."
         enabled={isLoading}
         className="flex h-2/3 items-center justify-center"
@@ -83,7 +86,7 @@ export default function PaymentAddMastercardPage() {
             {methodComponent}
           </div>
         </div>
-      </Common.Loading>
+      </CommonLoading>
     </>
   )
 

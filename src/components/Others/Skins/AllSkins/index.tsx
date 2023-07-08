@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 // import { skins } from '@/Mock'
-
+'use client'
 import classNames from 'classnames'
 // import { PageSelector } from '@/components/PageSelector'
 // import useComponentStore from '@/stores/components.store'

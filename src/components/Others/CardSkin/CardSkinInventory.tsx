@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import Common from '@/components/Common'
-import Modal from '@/components/Modal'
+import { ModalSkinShowcaseMain } from '@/components/Modal/ModalSkinShowcase/ModalSkinShowcaseMain'
 import { findBySkinsInventory } from '@/services/SkinService'
 import useFilterStore from '@/stores/filters.store'
 import { useQuery } from '@tanstack/react-query'
@@ -43,7 +43,7 @@ export function CardSkinInventory({ steamid }: Props) {
               statusFloatText && statusFloatText[0].replace(/\(|\)/g, '')
 
             return (
-              <Modal.SkinShowcase.Main
+              <ModalSkinShowcaseMain
                 key={index}
                 image={icon_url}
                 weapon={primeiroName}

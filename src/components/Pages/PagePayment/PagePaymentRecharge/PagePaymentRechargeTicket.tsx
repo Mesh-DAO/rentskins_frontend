@@ -1,6 +1,4 @@
-// import { Button } from '@/components/Button'
-// import { FormInput } from '@/components/Forms/Input'
-// import usePaymentStore from '@/stores/payment.store'
+'use client'
 import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
 import { MouseEventHandler, useState } from 'react'

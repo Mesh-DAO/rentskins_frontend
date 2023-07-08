@@ -1,5 +1,5 @@
 import Common from '@/components/Common'
-import Pages from '@/components/Pages'
+import { PageFAQ } from '@/components/Pages/PageFAQ/PageFAQ'
 
 export default function Faq() {
   return (
@@ -11,7 +11,7 @@ export default function Faq() {
       >
         Perguntas Frequentes (FAQ)
       </Common.Title>
-      <Pages.FAQ />
+      <PageFAQ />
     </main>
   )
 }

@@ -1,4 +1,6 @@
+'use client'
 import Common from '@/components/Common'
+import { CommonLoading } from '@/components/Common/CommonLoading'
 import { IconClose } from '@/components/Icons'
 import * as Dialog from '@radix-ui/react-dialog'
 import classNames from 'classnames'
@@ -14,7 +16,7 @@ export default function ModalRefundKYC() {
         { 'flex items-center justify-center': isLoading === true },
       )}
     >
-      <Common.Loading enabled={isLoading} label="Processando...">
+      <CommonLoading enabled={isLoading} label="Processando...">
         <div className="mb-5 flex h-full w-full flex-col items-end justify-between">
           <Dialog.Close>
             <Common.Button className="self-end border-none">
@@ -32,7 +34,7 @@ export default function ModalRefundKYC() {
             Prosseguir
           </Common.Button>
         </div>
-      </Common.Loading>
+      </CommonLoading>
     </Dialog.Content>
   )
 }

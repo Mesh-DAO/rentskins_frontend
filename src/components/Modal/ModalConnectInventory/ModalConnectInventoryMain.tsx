@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 
 // ----------------- LIBS ----------------
@@ -5,7 +6,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 // ----------------- COMPONENTS ----------------
 import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons/IconClose'
-import Modal from '..'
+import { ModalConnectInventoryForm } from './ModalConnectInventoryForm'
 
 interface IProps {
   activator: React.ReactNode
@@ -36,7 +37,7 @@ export function ModalConnectInventoryMain({ activator }: IProps) {
               </Dialog.Close>
             </div>
             {/* MIDDLE */}
-            <Modal.ConnectInventory.Form />
+            <ModalConnectInventoryForm />
             {/* DIVISOR */}
             <div />
           </div>

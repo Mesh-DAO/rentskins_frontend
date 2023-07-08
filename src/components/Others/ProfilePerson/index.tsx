@@ -1,3 +1,4 @@
+'use client'
 import perfil from '@/assets/perfil.png'
 import Common from '@/components/Common'
 import { IconSend } from '@/components/Icons/IconSend'

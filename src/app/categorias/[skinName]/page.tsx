@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-'use client'
 import Common from '@/components/Common'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
 import SkinFilters from '@/components/Others/SkinFilters'

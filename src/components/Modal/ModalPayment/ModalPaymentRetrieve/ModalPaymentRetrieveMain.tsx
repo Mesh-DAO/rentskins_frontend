@@ -4,7 +4,8 @@ import useComponentStore from '@/stores/components.store'
 import URLQuery from '@/tools/urlquery.tool'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRouter } from 'next/navigation'
-import Modal from '../..'
+import { ModalPaymentRetrieveSelection } from './ModalPaymentRetrieveSelection'
+import { ModalPaymentRetrieveWarning } from './ModalPaymentRetrieveWarning'
 
 export function ModalPaymentRetrieveMain() {
   const router = useRouter()
@@ -35,8 +36,8 @@ export function ModalPaymentRetrieveMain() {
           </Dialog.Close>
         </div>
         <div className="flex h-full w-11/12 items-start justify-between">
-          {paymentRetrieveIndex === 0 && <Modal.Payment.Retrieve.Selection />}
-          {paymentRetrieveIndex === 1 && <Modal.Payment.Retrieve.Warning />}
+          {paymentRetrieveIndex === 0 && <ModalPaymentRetrieveSelection />}
+          {paymentRetrieveIndex === 1 && <ModalPaymentRetrieveWarning />}
         </div>
         <div />
       </div>

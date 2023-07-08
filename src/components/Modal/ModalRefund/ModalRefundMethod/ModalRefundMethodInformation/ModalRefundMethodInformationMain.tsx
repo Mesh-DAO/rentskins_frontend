@@ -1,7 +1,7 @@
 import Common from '@/components/Common'
 import IconSecurity from '@/components/Icons/IconSecurity'
-import Modal from '@/components/Modal'
 import useComponentStore from '@/stores/components.store'
+import { ModalRefundMethodInformationPayment } from './ModalRefundMethodInformationPayment'
 
 export default function ModalRefundMethodInformationMain() {
   const { setRefoundGeneralIndex } = useComponentStore()
@@ -24,7 +24,7 @@ export default function ModalRefundMethodInformationMain() {
           R$742,50
         </Common.Title>
       </div>
-      <Modal.Refund.Method.Information.Payment />
+      <ModalRefundMethodInformationPayment />
       <Common.Button
         onClick={() => setRefoundGeneralIndex(2)}
         color="green"

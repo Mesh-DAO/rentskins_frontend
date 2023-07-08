@@ -1,4 +1,4 @@
-import Modal from '@/components/Modal'
+import { ModalNotificationPopup } from '@/components/Modal/ModalNotification/ModalNotificationPopup'
 import { ButtonHTMLAttributes, ElementType } from 'react'
 
 type ModalType = {
@@ -25,7 +25,7 @@ export function TransactionButton({
   ...rest
 }: IProps) {
   const withModal = (
-    <Modal.Notification.Popup
+    <ModalNotificationPopup
       id={modalOptions?.id}
       type={modalOptions?.action}
       activator={

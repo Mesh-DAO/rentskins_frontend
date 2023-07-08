@@ -1,6 +1,6 @@
 import Common from '@/components/Common'
 import { weaponsMock } from '@/mock/transactions.mock'
-import Pages from '../..'
+import { PageSettingsTransactionsTable } from './PageSettingsTransactionsTable'
 
 export function PageSettingsTransactionsContent() {
   return (
@@ -34,7 +34,7 @@ export function PageSettingsTransactionsContent() {
               </th>
             </tr>
           </thead>
-          {<Pages.Settings.Transactions.Table data={weaponsMock} />}
+          {<PageSettingsTransactionsTable data={weaponsMock} />}
         </table>
       </div>
     </div>

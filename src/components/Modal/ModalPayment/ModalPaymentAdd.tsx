@@ -1,4 +1,5 @@
 import Common from '@/components/Common'
+import { CommonLoading } from '@/components/Common/CommonLoading'
 import { IconClose } from '@/components/Icons/IconClose'
 import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
 import usePaymentStore from '@/stores/payment.store'
@@ -66,7 +67,7 @@ rounded-2xl bg-mesh-color-neutral-700"
             handleOnClick={(event) => handleMethodChange(event)}
           /> */}
         </div>
-        <Common.Loading label="Processando..." enabled={isLoading}>
+        <CommonLoading label="Processando..." enabled={isLoading}>
           <div className="flex h-full w-3/4 flex-col items-center justify-start">
             <div className=" mt-6 flex w-11/12 items-center justify-between">
               <Dialog.Title>
@@ -172,7 +173,7 @@ rounded-2xl bg-mesh-color-neutral-700"
               </div>
             </div>
           </div>
-        </Common.Loading>
+        </CommonLoading>
       </div>
     </Dialog.Content>
   )

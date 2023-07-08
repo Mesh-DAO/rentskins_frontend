@@ -1,4 +1,3 @@
-'use client'
 import ChoiceItems from '@/components/Others/ChoiceItems'
 import PerfilPerson from '@/components/Others/ProfilePerson'
 import AllSkins from '@/components/Others/Skins/AllSkins'

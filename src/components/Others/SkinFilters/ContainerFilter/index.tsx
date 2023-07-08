@@ -1,6 +1,6 @@
 'use client'
 import { IconSetaType } from '@/components/Icons'
-import Modal from '@/components/Modal'
+import ModalFiltersMain from '@/components/Modal/ModalFilters/ModalFiltersMain'
 
 interface IProps {
   title: 'Preço' | 'Desgaste' | 'Categoria' | 'Padrão'
@@ -17,5 +17,5 @@ export default function ContainerFilter({ title }: IProps) {
       </button>
     </div>
   )
-  return <Modal.Filters.Main activator={activator} child={title} />
+  return <ModalFiltersMain activator={activator} child={title} />
 }

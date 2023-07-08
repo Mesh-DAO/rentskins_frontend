@@ -1,5 +1,6 @@
 'use client'
 import Common from '@/components/Common'
+import { CommonLoading } from '@/components/Common/CommonLoading'
 import { IconShield } from '@/components/Icons'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -15,7 +16,7 @@ export function ModalPaymentRetrieveWarning() {
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-evenly gap-7 ">
-      <Common.Loading label="Processando..." enabled={isLoading}>
+      <CommonLoading label="Processando..." enabled={isLoading}>
         {/* CHANGE COLOR */}
         <div
           className="mt-7 flex items-center
@@ -46,7 +47,7 @@ export function ModalPaymentRetrieveWarning() {
             Prosseguir
           </Common.Button>
         </div>
-      </Common.Loading>
+      </CommonLoading>
     </div>
   )
 }

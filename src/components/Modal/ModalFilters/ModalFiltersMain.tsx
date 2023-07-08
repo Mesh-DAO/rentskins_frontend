@@ -1,7 +1,10 @@
 'use client'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import React from 'react'
-import Modal from '..'
+import ModalFiltersCategory from './ModalFiltersCategory'
+import ModalFiltersPrice from './ModalFiltersPrice'
+import ModalFiltersStandard from './ModalFiltersStandard'
+import ModalFiltersWear from './ModalFiltersWear'
 
 interface IProps {
   activator: React.ReactNode
@@ -19,10 +22,10 @@ export default function ModalFiltersMain({ activator, child }: IProps) {
               child === 'Padrão' ? '-right-10 w-[184px] py-4' : 'h-64 w-[497px]'
             } rounded-lg bg-mesh-color-neutral-800 p-4`}
           >
-            {child === 'Preço' && <Modal.Filters.Price />}
-            {child === 'Desgaste' && <Modal.Filters.Wear />}
-            {child === 'Categoria' && <Modal.Filters.Category />}
-            {child === 'Padrão' && <Modal.Filters.Standard />}
+            {child === 'Preço' && <ModalFiltersPrice />}
+            {child === 'Desgaste' && <ModalFiltersWear />}
+            {child === 'Categoria' && <ModalFiltersCategory />}
+            {child === 'Padrão' && <ModalFiltersStandard />}
           </div>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

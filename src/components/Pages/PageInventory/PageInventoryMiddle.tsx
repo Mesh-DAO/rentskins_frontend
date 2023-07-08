@@ -1,5 +1,6 @@
+'use client'
 import Common from '@/components/Common'
-import Modal from '@/components/Modal'
+import { ModalConnectInventoryMain } from '@/components/Modal/ModalConnectInventory/ModalConnectInventoryMain'
 import { CardSkinInventory } from '@/components/Others/CardSkin/CardSkinInventory'
 import { findByConfigUserId } from '@/services/Configuracao.service'
 import useUserStore from '@/stores/user.store'
@@ -28,7 +29,7 @@ export function PageInventoryMiddle() {
             Para ter acesso às suas skins e realizar transações, é necessário
             vincular seu inventário à Steam
           </Common.Title>
-          <Modal.ConnectInventory.Main
+          <ModalConnectInventoryMain
             activator={
               <Common.Button className="mt-4 h-10 w-full rounded-xl border-none bg-mesh-color-primary-1400 font-semibold text-black">
                 Conectar-se

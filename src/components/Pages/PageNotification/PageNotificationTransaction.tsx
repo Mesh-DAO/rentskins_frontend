@@ -16,7 +16,7 @@ interface IProps {
   loading: boolean
 }
 
-export default function PageNotificationTransaction({ data, loading }: IProps) {
+export function PageNotificationTransaction({ data, loading }: IProps) {
   const renderPending = data.map((item, index) => (
     <TransactionCard.Root key={'transactions-' + index}>
       <div className="flex items-center gap-4">

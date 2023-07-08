@@ -1,6 +1,7 @@
 'use client'
 import Common from '@/components/Common'
-import Pages from '@/components/Pages'
+import { PageNotificationHistoric } from '@/components/Pages/PageNotification/PageNotificationHistoric'
+import { PageNotificationTransaction } from '@/components/Pages/PageNotification/PageNotificationTransaction'
 import { historicMock } from '@/mock/notification.historic.mock'
 import { transactionsMock } from '@/mock/notification.transaction.mock'
 import useFilterStore from '@/stores/filters.store'
@@ -91,10 +92,10 @@ export default function NotificationPage() {
         )}
       </div>
       {searchParams.get('type') === 'historic' && (
-        <Pages.Notification.Historic data={historicMock} loading={isLoading} />
+        <PageNotificationHistoric data={historicMock} loading={isLoading} />
       )}
       {searchParams.get('type') === 'transactions' && (
-        <Pages.Notification.Transaction
+        <PageNotificationTransaction
           data={transactionsMock.pending}
           loading={isLoading}
         />

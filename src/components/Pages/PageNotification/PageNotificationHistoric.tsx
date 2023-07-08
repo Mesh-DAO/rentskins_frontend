@@ -14,7 +14,7 @@ interface IProps {
   loading: boolean
 }
 
-export default function PageNotificationHistoric({ data, loading }: IProps) {
+export function PageNotificationHistoric({ data, loading }: IProps) {
   const { notificationFilter } = useFilterStore()
 
   const timeFilter = () => {

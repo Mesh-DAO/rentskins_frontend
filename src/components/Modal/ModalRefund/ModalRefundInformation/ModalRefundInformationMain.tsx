@@ -2,7 +2,7 @@
 import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons'
 import * as Dialog from '@radix-ui/react-dialog'
-import Modal from '../..'
+import ModalRefundInformationCard from './ModalRefundInformationCard'
 import RefoundInfos from './RefoundInfos'
 
 interface IProps {
@@ -22,7 +22,7 @@ export function ModalRefundInformationMain({
         rounded-2xl bg-[#222723]"
     >
       <div className="flex h-full w-full flex-col items-center justify-between">
-        <Modal.Refund.Information.Card
+        <ModalRefundInformationCard
           name={name}
           iconUrl={iconUrl}
           nameColor={nameColor}

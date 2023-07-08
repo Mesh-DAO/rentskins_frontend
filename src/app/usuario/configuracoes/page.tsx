@@ -1,6 +1,8 @@
 'use client'
 import Common from '@/components/Common'
-import Pages from '@/components/Pages'
+import { PageSettingsInformation } from '@/components/Pages/PageSettings/PageSettingsInformation'
+import { PageSettingsSecurity } from '@/components/Pages/PageSettings/PageSettingsSecurity'
+import { PageSettingsTransactionsContent } from '@/components/Pages/PageSettings/Transactions/PageSettingsTransactionsContent'
 import useComponentStore from '@/stores/components.store'
 
 export default function Settings() {
@@ -19,9 +21,9 @@ export default function Settings() {
       </div>
 
       {/* Right Side */}
-      {settingsIndex === 0 && <Pages.Settings.Information />}
-      {settingsIndex === 1 && <Pages.Settings.Transactions.Content />}
-      {settingsIndex === 2 && <Pages.Settings.Security />}
+      {settingsIndex === 0 && <PageSettingsInformation />}
+      {settingsIndex === 1 && <PageSettingsTransactionsContent />}
+      {settingsIndex === 2 && <PageSettingsSecurity />}
     </div>
   )
 }

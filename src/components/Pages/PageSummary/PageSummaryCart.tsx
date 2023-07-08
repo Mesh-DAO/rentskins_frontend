@@ -1,6 +1,6 @@
 import Common from '@/components/Common'
 import LineInfosSummaryh from '@/components/Others/SummaryItem'
-import Pages from '..'
+import { PageSummaryInfo } from './PageSummaryInfo'
 
 export function PageSummaryCart() {
   return (
@@ -10,7 +10,7 @@ export function PageSummaryCart() {
           Resumo
         </Common.Title>
         <div className="flex flex-col gap-5">
-          <Pages.Summary.Info />
+          <PageSummaryInfo />
           <div className="flex w-full justify-between">
             <Common.Title color="white">Código promocional</Common.Title>
             <input

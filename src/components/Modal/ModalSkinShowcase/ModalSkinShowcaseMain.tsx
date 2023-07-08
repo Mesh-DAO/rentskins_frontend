@@ -4,7 +4,8 @@ import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons/IconClose'
 import * as Dialog from '@radix-ui/react-dialog'
 import React from 'react'
-import Modal from '..'
+import { ModalSkinShowcaseInfo } from './ModalSkinShowcaseInfo'
+import { ModalSkinShowcaseSkin } from './ModalSkinShowcaseSkin'
 
 interface IProps {
   activator: React.ReactNode
@@ -53,12 +54,12 @@ export function ModalSkinShowcaseMain({
               </Dialog.Close>
             </div>
             <div className="flex h-[90%] w-11/12 items-center justify-between">
-              <Modal.SkinShowcase.Skin
+              <ModalSkinShowcaseSkin
                 icon_url={image}
                 weapon={weapon}
                 float={float}
               />
-              <Modal.SkinShowcase.Info
+              <ModalSkinShowcaseInfo
                 name={name}
                 weapon={weapon}
                 preco={preco}

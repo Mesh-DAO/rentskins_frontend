@@ -5,7 +5,9 @@ import * as Dialog from '@radix-ui/react-dialog'
 import Aos from 'aos'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { SetStateAction, useEffect, useState } from 'react'
-import Modal from '..'
+import { ModalPaymentAdd } from './ModalPaymentAdd'
+import { ModalPaymentCheck } from './ModalPaymentCheck'
+import { ModalPaymentRetrieveMain } from './ModalPaymentRetrieve/ModalPaymentRetrieveMain'
 
 export function ModalPaymentMain() {
   useEffect(() => {
@@ -62,9 +64,9 @@ export function ModalPaymentMain() {
           className="fixed inset-0 z-20 flex bg-black/70 transition-all"
           onClick={() => removeDomainQuery()}
         />
-        {paymentGeneralIndex === 0 && <Modal.Payment.Check />}
-        {paymentGeneralIndex === 1 && <Modal.Payment.Add />}
-        {paymentGeneralIndex === 2 && <Modal.Payment.Retrieve.Main />}
+        {paymentGeneralIndex === 0 && <ModalPaymentCheck />}
+        {paymentGeneralIndex === 1 && <ModalPaymentAdd />}
+        {paymentGeneralIndex === 2 && <ModalPaymentRetrieveMain />}
       </Dialog.Portal>
     </Dialog.Root>
   )

@@ -1,5 +1,7 @@
+'use client'
 import QRCodeExample from '@/../public/qrcode-example.png'
 import Common from '@/components/Common'
+import { CommonLoading } from '@/components/Common/CommonLoading'
 import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
 import Image from 'next/image'
@@ -38,7 +40,7 @@ export function PagePaymentRechargePix({
   }
 
   const renderStepTwo = (
-    <Common.Loading
+    <CommonLoading
       label="Processando..."
       enabled={isLoading}
       className="flex h-2/3 items-center justify-center"
@@ -92,7 +94,7 @@ export function PagePaymentRechargePix({
           </Common.Button>
         </div>
       </div>
-    </Common.Loading>
+    </CommonLoading>
   )
 
   const renderStepOne = (
