@@ -1,11 +1,11 @@
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 
 export function ModalRefundMethodInformationPayment() {
   return (
     <div className="flex flex-col gap-2">
-      <Common.Title color="white" size="2xl" bold={600}>
+      <CommonTitle color="white" size="2xl" bold={600}>
         Selecione o método de pagamento
-      </Common.Title>
+      </CommonTitle>
       <div className="flex gap-5">
         {/* <Method
           value={5}

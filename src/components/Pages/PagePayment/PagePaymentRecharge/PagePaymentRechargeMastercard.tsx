@@ -1,7 +1,7 @@
 'use client'
 import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
-import { useState, MouseEventHandler } from 'react'
+import { MouseEventHandler, useState } from 'react'
 
 interface IProps {
   handleFormSubmit: MouseEventHandler

@@ -4,7 +4,8 @@ import React from 'react'
 // ----------------- LIBS ----------------
 import * as Dialog from '@radix-ui/react-dialog'
 // ----------------- COMPONENTS ----------------
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconClose } from '@/components/Icons/IconClose'
 import { ModalConnectInventoryForm } from './ModalConnectInventoryForm'
 
@@ -26,14 +27,14 @@ export function ModalConnectInventoryMain({ activator }: IProps) {
             {/* TOP */}
             <div className="flex w-11/12 items-center justify-between">
               <Dialog.Title>
-                <Common.Title bold={800} size="2xl" color="white">
+                <CommonTitle bold={800} size="2xl" color="white">
                   Conectar Inventário à Steam
-                </Common.Title>
+                </CommonTitle>
               </Dialog.Title>
               <Dialog.Close asChild>
-                <Common.Button className="border-none">
+                <CommonButton className="border-none">
                   <IconClose />
-                </Common.Button>
+                </CommonButton>
               </Dialog.Close>
             </div>
             {/* MIDDLE */}

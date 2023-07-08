@@ -1,5 +1,5 @@
 'use client'
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
 import { CommonLoading } from '@/components/Common/CommonLoading'
 import { IconShield } from '@/components/Icons'
 import { useRouter } from 'next/navigation'
@@ -40,12 +40,12 @@ export function ModalPaymentRetrieveWarning() {
         </div>
         <div className="mb-8 flex w-full items-end justify-end">
           {/* CHANGE COLOR */}
-          <Common.Button
+          <CommonButton
             className="h-14 w-4/12 border-transparent bg-mesh-color-primary-1200 text-2xl font-bold"
             onClick={() => handleOnProceed()}
           >
             Prosseguir
-          </Common.Button>
+          </CommonButton>
         </div>
       </CommonLoading>
     </div>

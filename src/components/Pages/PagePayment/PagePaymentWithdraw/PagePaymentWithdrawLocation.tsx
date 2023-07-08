@@ -1,4 +1,4 @@
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
 import { MouseEventHandler, useEffect, useState } from 'react'
@@ -55,9 +55,9 @@ export function PagePaymentWithdrawLocation({
   return (
     <div>
       <text className="text-sm text-mesh-color-neutral-200">Segunda Etapa</text>
-      <Common.Title size={'lg'} bold={600}>
+      <CommonTitle size={'lg'} bold={600}>
         Informações de Localização
-      </Common.Title>
+      </CommonTitle>
 
       <Form.Root className="mt-6 flex flex-col gap-4">
         <Form.Input.Text

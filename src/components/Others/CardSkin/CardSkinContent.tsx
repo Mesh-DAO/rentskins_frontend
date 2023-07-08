@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 
 type Props = {
   market_name: string
@@ -11,9 +11,9 @@ export function CardSkinContent({ market_name, primeiroName, float }: Props) {
   return (
     <>
       <div>
-        <Common.Title bold={600} size="sm">
+        <CommonTitle bold={600} size="sm">
           {market_name}
-        </Common.Title>
+        </CommonTitle>
         <span className="text-xs font-medium text-mesh-color-neutral-200">
           {primeiroName}
         </span>

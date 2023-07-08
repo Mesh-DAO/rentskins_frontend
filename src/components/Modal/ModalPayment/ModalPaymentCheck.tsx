@@ -1,5 +1,6 @@
 import Banner from '@/../public/banner.png'
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconClose } from '@/components/Icons/IconClose'
 import useComponentStore from '@/stores/components.store'
 import useUserStore from '@/stores/user.store'
@@ -25,9 +26,9 @@ export function ModalPaymentCheck() {
       <div className="flex h-full w-full flex-col items-center justify-between pt-8">
         <div className="flex w-11/12 items-center justify-between">
           <Dialog.Title>
-            <Common.Title bold={800} size="2xl" color="white">
+            <CommonTitle bold={800} size="2xl" color="white">
               Saldo
-            </Common.Title>
+            </CommonTitle>
           </Dialog.Title>
           <Dialog.Close
             asChild
@@ -35,37 +36,37 @@ export function ModalPaymentCheck() {
               router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
             }
           >
-            <Common.Button className="border-transparent">
+            <CommonButton className="border-transparent">
               <IconClose />
-            </Common.Button>
+            </CommonButton>
           </Dialog.Close>
         </div>
 
         <div className="flex h-full w-11/12 items-start justify-between">
           <div className="flex h-full w-11/12 flex-col gap-7 ">
             <div>
-              <Common.Title
+              <CommonTitle
                 bold={600}
                 size="xl"
                 className="mt-6 text-mesh-color-neutral-200"
               >
                 Saldo Atual
-              </Common.Title>
-              <Common.Title bold={800} color="white" size="2xl">
+              </CommonTitle>
+              <CommonTitle bold={800} color="white" size="2xl">
                 {wallet.data?.value || 'R$ 0,00'}
-              </Common.Title>
+              </CommonTitle>
             </div>
             <div>
-              <Common.Title
+              <CommonTitle
                 bold={600}
                 size="xl"
                 className="text-mesh-color-neutral-200"
               >
                 Levantamento dentro da plataforma
-              </Common.Title>
-              <Common.Title bold={700} color="white" size="2xl">
+              </CommonTitle>
+              <CommonTitle bold={700} color="white" size="2xl">
                 R$0,00
-              </Common.Title>
+              </CommonTitle>
             </div>
           </div>
           <Image src={Banner} alt="Banner" className="w-1/4 max-w-sm" />
@@ -74,18 +75,18 @@ export function ModalPaymentCheck() {
         <div className="flex w-11/12 flex-col items-center justify-between">
           <hr className="mb-6 h-0.5 w-11/12 bg-mesh-color-neutral-200" />
           <div className="mb-16 flex h-full w-11/12 items-end gap-20 text-xl font-bold">
-            <Common.Button
+            <CommonButton
               className="h-10 w-1/2 border-transparent bg-mesh-color-primary-1200"
               onClick={() => handleButton(1)}
             >
               Recarga
-            </Common.Button>
-            <Common.Button
+            </CommonButton>
+            <CommonButton
               className="h-10 w-1/2 border-transparent bg-mesh-color-secondary-1200"
               onClick={() => handleButton(2)}
             >
               Retirar
-            </Common.Button>
+            </CommonButton>
           </div>
         </div>
         <div />

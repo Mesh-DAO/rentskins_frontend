@@ -1,4 +1,5 @@
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconClose } from '@/components/Icons'
 import { createConfig } from '@/services/Configuracao.service'
 import useUserStore from '@/stores/user.store'
@@ -64,13 +65,13 @@ export function ModalConnectInventoryForm() {
       <div className="flex h-full w-11/12 flex-col gap-7 ">
         <div className="space-y-2">
           {/* CHANGE COLOR */}
-          <Common.Title
+          <CommonTitle
             bold={500}
             size="lg"
             className="mt-6 text-mesh-color-neutral-200"
           >
             Insira URL Trade Link do seu Perfil
-          </Common.Title>
+          </CommonTitle>
           <div className="flex w-full items-center justify-between">
             <div className="relative w-10/12 rounded-[4px] bg-[#3C403C]">
               <input
@@ -80,14 +81,14 @@ export function ModalConnectInventoryForm() {
                 {...register('linkTrade')}
               />
 
-              <Common.Button className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2 border-none">
+              <CommonButton className="absolute right-0 top-1/2 mr-4 h-5 w-5 -translate-y-1/2 border-none">
                 <IconClose />
-              </Common.Button>
+              </CommonButton>
             </div>
 
-            <Common.Button className="border-none text-mesh-color-primary-1400">
+            <CommonButton className="border-none text-mesh-color-primary-1400">
               Obter URL
-            </Common.Button>
+            </CommonButton>
           </div>
           <p className="text-xs text-red-700">
             {errors.linkTrade && errors.linkTrade.message}
@@ -95,13 +96,13 @@ export function ModalConnectInventoryForm() {
         </div>
         <div className="mt-[-12px] space-y-2">
           {/* CHANGE COLOR */}
-          <Common.Title
+          <CommonTitle
             bold={500}
             size="lg"
             className="text-mesh-color-neutral-200"
           >
             Seu email de contato
-          </Common.Title>
+          </CommonTitle>
 
           <input
             type="email"
@@ -148,13 +149,13 @@ export function ModalConnectInventoryForm() {
             </p>
           </div>
         </div>
-        <Common.Button
+        <CommonButton
           color="gray"
           type="submit"
           className="h-11 w-[40%] border-none bg-[#3C403C] font-bold text-[#979797]"
         >
           Concluir
-        </Common.Button>
+        </CommonButton>
       </div>
     </form>
   )

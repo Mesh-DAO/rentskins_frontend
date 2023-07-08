@@ -1,6 +1,7 @@
 'use client'
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
 import { CommonLoading } from '@/components/Common/CommonLoading'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconBank } from '@/components/Icons/IconBank'
 import { IconCard } from '@/components/Icons/IconCard'
 import { IconLeftArrow } from '@/components/Icons/IconLeftArrow'
@@ -77,12 +78,12 @@ export default function PaymentWithdrawPage() {
       >
         <div className="mt-8 flex w-min flex-col">
           <div className="mb-8 flex w-full items-center justify-start">
-            <Common.Button
+            <CommonButton
               className="border-transparent"
               onClick={() => handleOnCancel()}
             >
               <IconLeftArrow />
-            </Common.Button>
+            </CommonButton>
 
             <span className="ml-2 text-mesh-color-neutral-200">
               <text>Saldo </text>
@@ -94,7 +95,7 @@ export default function PaymentWithdrawPage() {
             </span>
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
-            <Common.Title size="2xl"> Retirar levantamento </Common.Title>
+            <CommonTitle size="2xl"> Retirar levantamento </CommonTitle>
             <div className="mt-4 flex w-[546px] items-center justify-center">
               <div className="flex h-10 w-12 items-center justify-center rounded-full bg-mesh-color-primary-1200 p-2">
                 <IconPerson />

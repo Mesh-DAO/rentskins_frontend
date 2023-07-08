@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import Common from '@/components/Common'
 // import { Card, InfoPerfil, InfoSkin, InfoVendas } from '@/components/Details'
 import { SkinsSemelhantes } from '@/components/Others/SkinsSemelhantes'
 
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconArrow } from '@/components/Icons'
 import { PageDetailsCard } from '@/components/Pages/PageDetails/PageDetailsCard'
 import { PageDetailsPerfil } from '@/components/Pages/PageDetails/PageDetailsPerfil'
@@ -36,10 +36,10 @@ export default function Details() {
             <Link href="/">
               <IconArrow />
             </Link>
-            <Common.Title color="cinza">
+            <CommonTitle color="cinza">
               Home &bull; {data?.data[0].skin_weapon} &bull;{' '}
               <span className="text-[#49E671]">{data?.data[0].skin_name}</span>
-            </Common.Title>
+            </CommonTitle>
           </div>
 
           <div className="mx-auto grid w-full grid-cols-5 py-10">
@@ -73,7 +73,7 @@ export default function Details() {
           <SkinsSemelhantes isLoading={isLoading} data2={data2!} data={data} />
         </main>
       ) : (
-        <Common.Title color="white">Carregando...</Common.Title>
+        <CommonTitle color="white">Carregando...</CommonTitle>
       )}
     </div>
   )

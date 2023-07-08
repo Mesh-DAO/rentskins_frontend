@@ -1,13 +1,13 @@
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 // import { CheckBox } from '../CheckBox'
 
 export function PageInventoryLeft() {
   return (
     <div>
       <div className="border-b border-mesh-color-neutral-200 pb-4">
-        <Common.Title color="white" className="text-3xl font-extrabold">
+        <CommonTitle color="white" className="text-3xl font-extrabold">
           Inventário
-        </Common.Title>
+        </CommonTitle>
         <p className="mt-8 font-inter text-lg font-semibold text-white">
           Filtros
         </p>

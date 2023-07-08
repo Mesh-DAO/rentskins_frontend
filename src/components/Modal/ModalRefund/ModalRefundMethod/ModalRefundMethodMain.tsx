@@ -1,4 +1,5 @@
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconClose } from '@/components/Icons'
 import * as Dialog from '@radix-ui/react-dialog'
 import ModalRefundMethodInformationMain from './ModalRefundMethodInformation/ModalRefundMethodInformationMain'
@@ -11,14 +12,14 @@ export default function ModalRefundMethodMain() {
     >
       <div className="mb-5 flex w-full justify-between">
         <Dialog.Title>
-          <Common.Title bold={800} size="3xl" color="white">
+          <CommonTitle bold={800} size="3xl" color="white">
             Devolução
-          </Common.Title>
+          </CommonTitle>
         </Dialog.Title>
         <Dialog.Close>
-          <Common.Button className="border-none">
+          <CommonButton className="border-none">
             <IconClose />
-          </Common.Button>
+          </CommonButton>
         </Dialog.Close>
       </div>
       <div>

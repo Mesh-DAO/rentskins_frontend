@@ -1,4 +1,5 @@
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconAlert } from '@/components/Icons'
 
 export function PageSettingsSecurity() {
@@ -6,26 +7,26 @@ export function PageSettingsSecurity() {
     <div className="flex w-2/3 flex-col gap-8">
       {/* Top */}
       <div className="bg-mesh-neutral-800 rounded-2xl px-4 py-6">
-        <Common.Title bold={700} size={'2xl'} color="white">
+        <CommonTitle bold={700} size={'2xl'} color="white">
           Segurança
-        </Common.Title>
+        </CommonTitle>
 
         <div className="mt-8 flex flex-col gap-2">
           <div className="flex items-center justify-between ">
             <div className="flex w-3/4 items-center justify-start gap-3">
-              <Common.Title size={'lg'} color="white">
+              <CommonTitle size={'lg'} color="white">
                 Steam Guard
-              </Common.Title>
+              </CommonTitle>
 
               <div className="flex items-center justify-center gap-2 rounded-md bg-red-500/10 px-2 py-1 text-mesh-color-rarity-low">
                 <IconAlert />
                 Desativado
               </div>
             </div>
-            <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
+            <CommonButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
               {' '}
               Atualizar{' '}
-            </Common.Button>
+            </CommonButton>
           </div>
 
           {/* CHANGE COLOR! */}

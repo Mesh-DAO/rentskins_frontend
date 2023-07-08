@@ -1,4 +1,4 @@
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
 import IconRefound from '@/components/Icons/IconRefound'
 import useComponentStore from '@/stores/components.store'
 import Link from 'next/link'
@@ -57,13 +57,13 @@ export default function RefoundInfos() {
             Termos de Serviço, Política de Privacidade,Política de Reembolso.
           </Link>
         </p>
-        <Common.Button
+        <CommonButton
           onClick={() => setRefoundGeneralIndex(1)}
           color="green"
           className="h-11 w-80 rounded text-lg font-bold text-black"
         >
           Pedir devolução
-        </Common.Button>
+        </CommonButton>
       </div>
     </div>
   )

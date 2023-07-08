@@ -1,5 +1,6 @@
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
 import { CommonLoading } from '@/components/Common/CommonLoading'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconClose } from '@/components/Icons/IconClose'
 import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
 import usePaymentStore from '@/stores/payment.store'
@@ -48,14 +49,14 @@ rounded-2xl bg-mesh-color-neutral-700"
     >
       <div className="flex h-full w-full">
         <div className="h-full w-1/4 rounded-l-2xl bg-mesh-color-others-eerie-black px-6 pt-6">
-          <Common.Title
+          <CommonTitle
             bold={400}
             size="xl"
             color="white"
             className="leading-none"
           >
             Selecione a forma de pagamento
-          </Common.Title>
+          </CommonTitle>
           {/* <InputRadioMethodArray
             items={[
               { name: 'mastercard', icon: ImageMastercard },
@@ -71,9 +72,9 @@ rounded-2xl bg-mesh-color-neutral-700"
           <div className="flex h-full w-3/4 flex-col items-center justify-start">
             <div className=" mt-6 flex w-11/12 items-center justify-between">
               <Dialog.Title>
-                <Common.Title bold={800} size="2xl" color="white">
+                <CommonTitle bold={800} size="2xl" color="white">
                   Adicione Créditos
-                </Common.Title>
+                </CommonTitle>
               </Dialog.Title>
               <Dialog.Close
                 asChild
@@ -81,9 +82,9 @@ rounded-2xl bg-mesh-color-neutral-700"
                   router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
                 }
               >
-                <Common.Button className="border-transparent">
+                <CommonButton className="border-transparent">
                   <IconClose />
-                </Common.Button>
+                </CommonButton>
               </Dialog.Close>
             </div>
             <div className="mt-3 flex h-full w-full flex-col justify-between">
@@ -164,12 +165,12 @@ rounded-2xl bg-mesh-color-neutral-700"
                   </a>
                   .
                 </span>
-                <Common.Button
+                <CommonButton
                   onClick={() => handleOnDeposit()}
                   className="h-16 w-1/2 border-transparent bg-mesh-color-primary-1200 text-xl font-extrabold"
                 >
                   Depositar
-                </Common.Button>
+                </CommonButton>
               </div>
             </div>
           </div>

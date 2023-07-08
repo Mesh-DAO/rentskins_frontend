@@ -1,5 +1,6 @@
 'use client'
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { PageNotificationHistoric } from '@/components/Pages/PageNotification/PageNotificationHistoric'
 import { PageNotificationTransaction } from '@/components/Pages/PageNotification/PageNotificationTransaction'
 import { historicMock } from '@/mock/notification.historic.mock'
@@ -47,9 +48,9 @@ export default function NotificationPage() {
 
   return (
     <main className="mx-auto mt-6 flex w-8/12 flex-col">
-      <Common.Title size="3xl" bold={700} color="white">
+      <CommonTitle size="3xl" bold={700} color="white">
         Notificação
-      </Common.Title>
+      </CommonTitle>
       <div className="mt-5 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <label className="flex cursor-pointer flex-col">
@@ -82,13 +83,13 @@ export default function NotificationPage() {
           </label>
         </div>
         {searchParams.get('type') === 'historic' && (
-          <Common.Button
+          <CommonButton
             className="border-none bg-mesh-color-primary-1200 px-3 py-1 font-semibold"
             onClick={() => handleOnFilter()}
             data-aos="zoom-in"
           >
             {notificationFilter}
-          </Common.Button>
+          </CommonButton>
         )}
       </div>
       {searchParams.get('type') === 'historic' && (

@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { ISkins } from '@/interfaces/ISkins'
 import Link from 'next/link'
 import { OtherCard } from '../OtherCard/OtherCard'
@@ -25,9 +25,9 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
 
   return (
     <>
-      <Common.Title color="white" bold={700} className="mb-6  text-[28px]">
+      <CommonTitle color="white" bold={700} className="mb-6  text-[28px]">
         Semelhantes
-      </Common.Title>
+      </CommonTitle>
       <div className="w-full pb-16">
         <div className="flex gap-4">
           {!isLoading && find?.length > 0 ? (
@@ -59,9 +59,9 @@ export function SkinsSemelhantes({ isLoading, data2, data }: PropsTypes) {
               },
             )
           ) : (
-            <Common.Title color="white">
+            <CommonTitle color="white">
               Não há nenhuma skin semelhante
-            </Common.Title>
+            </CommonTitle>
           )}
         </div>
       </div>

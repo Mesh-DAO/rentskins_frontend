@@ -1,5 +1,6 @@
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import Form from '@/components/Forms'
+import { FormDropdown } from '@/components/Forms/FormDropdown'
 import usePaymentStore from '@/stores/payment.store'
 import { MouseEventHandler, useEffect, useState } from 'react'
 
@@ -78,9 +79,9 @@ export function PagePaymentWithdrawTransaction({
       <text className="text-sm text-mesh-color-neutral-200">
         Terceira Etapa
       </text>
-      <Common.Title size={'lg'} bold={600}>
+      <CommonTitle size={'lg'} bold={600}>
         Informações Bancárias
-      </Common.Title>
+      </CommonTitle>
       <text className="text-sm">
         Para receber seus ganhos da plataforma, por favor, preencha as
         informações bancárias abaixo. A conta bancária deve estar registrada em
@@ -88,7 +89,7 @@ export function PagePaymentWithdrawTransaction({
       </text>
 
       <Form.Root className="mt-6 flex flex-col gap-4">
-        <Form.Dropdown
+        <FormDropdown
           label="Banco"
           state={bank}
           setState={setBank}
@@ -120,7 +121,7 @@ export function PagePaymentWithdrawTransaction({
           />
         </div>
 
-        <Form.Dropdown
+        <FormDropdown
           label="Tipo de Chave"
           state={keyType}
           setState={setKeyType}

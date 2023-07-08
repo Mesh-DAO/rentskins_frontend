@@ -1,5 +1,5 @@
 'use client'
-import Common from '@/components/Common'
+import { CommonSteamButton } from '@/components/Common/CommonSteamButton'
 import {
   IconDevolution,
   IconMagnifyingGlass,
@@ -36,7 +36,7 @@ export default function Home() {
               as skins perfeitas para dominar o jogo!
             </p>
             {!user.steamid && (
-              <Common.SteamButton onClick={() => handleOnSteam()} />
+              <CommonSteamButton onClick={() => handleOnSteam()} />
             )}
           </div>
         </div>

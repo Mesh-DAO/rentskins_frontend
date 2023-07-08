@@ -1,4 +1,4 @@
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 
 interface Props {
   label: string
@@ -19,12 +19,12 @@ export default function LineInfos({
 }: Props) {
   return (
     <div className="flex flex-col">
-      <Common.Title className="text-mesh-light-2 text-lg font-semibold">
+      <CommonTitle className="text-mesh-light-2 text-lg font-semibold">
         {label}
-      </Common.Title>
-      <Common.Title bold={bold} className={className} color={color} size={size}>
+      </CommonTitle>
+      <CommonTitle bold={bold} className={className} color={color} size={size}>
         R${value}
-      </Common.Title>
+      </CommonTitle>
     </div>
   )
 }

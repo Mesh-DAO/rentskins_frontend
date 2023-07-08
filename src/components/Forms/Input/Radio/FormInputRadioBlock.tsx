@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from 'next/image'
-import React, { InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes } from 'react'
 
 type TypeItem = {
   label: string | StaticImageData

@@ -1,4 +1,4 @@
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconTrash } from '@/components/Icons/IconTrash'
 import Image from 'next/image'
 import { MouseEventHandler } from 'react'
@@ -40,36 +40,36 @@ export default function CartSkinCard({
           </div>
           <div className="flex h-24 flex-col justify-between gap-3">
             <div>
-              <Common.Title bold={600} size="2xl" color="white">
+              <CommonTitle bold={600} size="2xl" color="white">
                 {skinName}
-              </Common.Title>
-              <Common.Title
+              </CommonTitle>
+              <CommonTitle
                 bold={500}
                 size="xl"
                 color="cinza"
                 className="opacity-60"
               >
                 Nova de fábrica
-              </Common.Title>
+              </CommonTitle>
             </div>
-            <Common.Title
+            <CommonTitle
               bold={500}
               size="xl"
               color="cinza"
               className="opacity-60"
             >
               {skinType}
-            </Common.Title>
+            </CommonTitle>
           </div>
         </div>
         <div>
-          <Common.Title bold={600} size="3xl" color="white">
+          <CommonTitle bold={600} size="3xl" color="white">
             R$180
-          </Common.Title>
-          <Common.Title color="white" size="md" bold={400}>
+          </CommonTitle>
+          <CommonTitle color="white" size="md" bold={400}>
             <strong>FT / </strong>
             <span className="opacity-60">0.0003</span>
-          </Common.Title>
+          </CommonTitle>
         </div>
       </div>
       <button

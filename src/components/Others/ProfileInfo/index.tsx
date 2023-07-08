@@ -1,4 +1,4 @@
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 
 interface Props {
   title: string
@@ -13,8 +13,8 @@ export default function ProfileInfo({ title, value }: Props) {
       className="flex w-56 flex-col items-center justify-center gap-1 rounded-xl border
       border-mesh-color-primary-1400 px-2 py-5"
     >
-      <Common.Title className="text-mesh-light-2">{title}</Common.Title>
-      <Common.Title color={isPercent}>{value}</Common.Title>
+      <CommonTitle className="text-mesh-light-2">{title}</CommonTitle>
+      <CommonTitle color={isPercent}>{value}</CommonTitle>
     </div>
   )
 }

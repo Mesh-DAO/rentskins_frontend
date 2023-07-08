@@ -1,5 +1,6 @@
 import BlankUser from '@/../public/blank-profile.png'
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import Form from '@/components/Forms'
 import { IconCarrinho, IconSearch, IconSteam } from '@/components/Icons'
 import { IconCruz } from '@/components/Icons/IconCruz'
@@ -108,13 +109,13 @@ export function LayoutHeaderTop() {
 
             <span>Carrinho de Compras</span>
           </Link>
-          <Common.Button
+          <CommonButton
             className="flex h-[44px] w-[220px] gap-2 rounded-[14px] border-transparent bg-mesh-color-primary-1400 opacity-100"
             onClick={() => handleOnSteam()}
           >
             <IconSteam />
             <span className="font-semibold">Entre com sua Steam</span>
-          </Common.Button>
+          </CommonButton>
         </div>
       ) : (
         <div className="flex items-center gap-x-6">
@@ -138,27 +139,27 @@ export function LayoutHeaderTop() {
               </Link>
             </nav>
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
-              <Common.Title bold={500} color="white">
+              <CommonTitle bold={500} color="white">
                 {wallet.data?.value || 'R$ 0,00'}
-              </Common.Title>
-              <Common.Button
+              </CommonTitle>
+              <CommonButton
                 className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
                 onClick={() => handleOnAdd()}
               >
                 <IconCruz />
-              </Common.Button>
+              </CommonButton>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <Common.Button
+            <CommonButton
               className="h-11 w-11 rounded-xl border-none bg-mesh-color-others-eerie-black"
               onClick={() => router.push('/usuario/notificacoes?type=historic')}
             >
               <div className="absolute top-8 ml-4 h-2 w-2 rounded-full bg-mesh-color-primary-1200" />
               <div className="absolute top-8 ml-4 h-2 w-2 animate-ping rounded-full bg-mesh-color-primary-1200" />
               <IconNotifications />
-            </Common.Button>
+            </CommonButton>
 
             <div className="flex items-end justify-center">
               <div
@@ -183,24 +184,24 @@ export function LayoutHeaderTop() {
                   rounded-lg bg-mesh-color-others-eerie-black px-3 py-2"
                   ref={refDropdown}
                 >
-                  <Common.Button
+                  <CommonButton
                     className="border-none font-semibold text-mesh-color-neutral-200"
                     onClick={() => handleDropdownButton('config')}
                   >
                     Configurações
-                  </Common.Button>
-                  <Common.Button
+                  </CommonButton>
+                  <CommonButton
                     className="border-none font-semibold text-mesh-color-neutral-200"
                     onClick={() => handleDropdownButton('profile')}
                   >
                     Perfil
-                  </Common.Button>
-                  <Common.Button
+                  </CommonButton>
+                  <CommonButton
                     className="border-none font-semibold text-mesh-color-neutral-200"
                     onClick={() => handleDropdownButton('logout')}
                   >
                     Sair
-                  </Common.Button>
+                  </CommonButton>
                 </div>
               )}
             </div>

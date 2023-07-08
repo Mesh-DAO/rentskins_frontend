@@ -1,5 +1,5 @@
 'use client'
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
 import { IconClose } from '@/components/Icons'
 import * as Dialog from '@radix-ui/react-dialog'
 import React from 'react'
@@ -24,9 +24,9 @@ export function ModalNotificationPopup({ activator, type, id }: IProps) {
           vendida.
         </h2>
       </div>
-      <Common.Button className="self-end font-bold" color="green">
+      <CommonButton className="self-end font-bold" color="green">
         Ir para Steam
-      </Common.Button>
+      </CommonButton>
     </div>
   )
 
@@ -49,14 +49,14 @@ export function ModalNotificationPopup({ activator, type, id }: IProps) {
         >
           Voltar
         </Dialog.Close>
-        <Common.Button
+        <CommonButton
           className="w-fit border-mesh-color-rarity-lowest
         bg-mesh-color-rarity-lowest px-6 
           font-bold text-white"
           color="green"
         >
           Desejo cancelar a troca
-        </Common.Button>
+        </CommonButton>
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 'use client'
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
 import { CommonLoading } from '@/components/Common/CommonLoading'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconLeftArrow } from '@/components/Icons/IconLeftArrow'
 import { PagePaymentRechargeMastercard } from '@/components/Pages/PagePayment/PagePaymentRecharge/PagePaymentRechargeMastercard'
 import { PagePaymentRechargePix } from '@/components/Pages/PagePayment/PagePaymentRecharge/PagePaymentRechargePix'
@@ -62,12 +63,12 @@ export default function PaymentAddMastercardPage() {
       >
         <div className="mt-8 flex w-1/3 flex-col">
           <div className="mb-8 flex w-full items-center justify-start">
-            <Common.Button
+            <CommonButton
               className="border-transparent"
               onClick={() => router.push('/')}
             >
               <IconLeftArrow />
-            </Common.Button>
+            </CommonButton>
 
             <span className="ml-2 text-mesh-color-neutral-200">
               <text>Saldo </text>
@@ -79,10 +80,10 @@ export default function PaymentAddMastercardPage() {
             </span>
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
-            <Common.Title size="2xl">
+            <CommonTitle size="2xl">
               Recarregar saldo com{' '}
               {method.charAt(0).toUpperCase() + method.slice(1)}
-            </Common.Title>
+            </CommonTitle>
             {methodComponent}
           </div>
         </div>
@@ -92,16 +93,16 @@ export default function PaymentAddMastercardPage() {
 
   const renderFailed = (
     <div className="flex h-3/5 flex-col items-center justify-center gap-4">
-      <Common.Title bold={800} size="3xl">
+      <CommonTitle bold={800} size="3xl">
         Página não encontrada.
-      </Common.Title>
-      <Common.Button
+      </CommonTitle>
+      <CommonButton
         onClick={() => router.push('/')}
         className="border-mesh-color-primary-1400 
       bg-mesh-color-primary-1400 px-4 text-lg font-semibold text-mesh-color-others-black"
       >
         Voltar
-      </Common.Button>
+      </CommonButton>
     </div>
   )
 

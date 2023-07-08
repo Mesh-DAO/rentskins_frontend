@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { ModalSkinShowcaseMain } from '@/components/Modal/ModalSkinShowcase/ModalSkinShowcaseMain'
 import { findBySkinsInventory } from '@/services/SkinService'
 import useFilterStore from '@/stores/filters.store'
@@ -73,7 +73,7 @@ export function CardSkinInventory({ steamid }: Props) {
           },
         )
       ) : (
-        <Common.Title color="white">Carregando...</Common.Title>
+        <CommonTitle color="white">Carregando...</CommonTitle>
       )}
     </div>
   )

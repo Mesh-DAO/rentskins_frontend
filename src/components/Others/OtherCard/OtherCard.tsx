@@ -1,7 +1,7 @@
 import IconCart from '@/assets/Cart'
 import IconEye from '@/assets/Eye'
 import IconSteam from '@/assets/IconSteam'
-import Common from '@/components/Common'
+import { CommonButton } from '@/components/Common/CommonButton'
 import IconMagic from '@/components/Icons/IconMagicpen'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -49,16 +49,16 @@ export function OtherCard({
         <h1 className="text-sm font-medium opacity-60">{skinWeapon}</h1>
         <div className="flex gap-2">
           {itsRent && (
-            <Common.Button color="invisible">
+            <CommonButton color="invisible">
               <IconMagic />
-            </Common.Button>
+            </CommonButton>
           )}
-          <Common.Button color="invisible" className="h-9 w-9">
+          <CommonButton color="invisible" className="h-9 w-9">
             <IconSteam />
-          </Common.Button>
-          <Common.Button color="invisible" className="h-9 w-9">
+          </CommonButton>
+          <CommonButton color="invisible" className="h-9 w-9">
             <IconEye />
-          </Common.Button>
+          </CommonButton>
         </div>
       </div>
       <div className="flex items-center justify-between">
@@ -71,9 +71,9 @@ export function OtherCard({
       <ColoredLine position={skinFloat} />
       <div className="flex items-center justify-end">
         <div className="flex gap-2">
-          <Common.Button color="invisible" className="h-10 w-10 border-2">
+          <CommonButton color="invisible" className="h-10 w-10 border-2">
             <IconCart />
-          </Common.Button>
+          </CommonButton>
           <Link
             href={'/details'}
             className="flex items-center rounded-lg border-transparent bg-mesh-color-neutral-500 px-4 opacity-60 hover:opacity-100"

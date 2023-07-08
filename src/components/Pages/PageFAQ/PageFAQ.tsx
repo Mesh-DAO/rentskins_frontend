@@ -1,6 +1,6 @@
 'use client'
 
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import { IconSetaType } from '@/components/Icons'
 
 type TypesContainer = {
@@ -29,9 +29,9 @@ export const ContainerItem = ({ title, description }: TypesContainer) => {
         className="peer absolute inset-x-0 top-0 z-10 h-16 w-full cursor-pointer opacity-0"
       />
       <div className="flex h-16 w-full items-center bg-[#222723] pl-5 ">
-        <Common.Title bold={700} color="white">
+        <CommonTitle bold={700} color="white">
           {title}
-        </Common.Title>
+        </CommonTitle>
       </div>
       <div className="absolute right-8 top-8 rotate-0 text-white transition-transform peer-checked:rotate-180">
         <IconSetaType />

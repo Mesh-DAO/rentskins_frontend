@@ -1,5 +1,5 @@
 import fallen from '@/assets/fallen.svg'
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import Image from 'next/image'
 
 export function PageDetailsPerfil() {
@@ -14,9 +14,9 @@ export function PageDetailsPerfil() {
             draggable={false}
           />
           <div className="ml-4">
-            <Common.Title color="white" className="text-2xl font-semibold">
+            <CommonTitle color="white" className="text-2xl font-semibold">
               Fallenzão
-            </Common.Title>
+            </CommonTitle>
             <span className="mt-1 flex h-[26px] max-w-[79px] items-center justify-center rounded-[15px] border border-none bg-mesh-color-others-green text-sm text-mesh-color-accent-600">
               Confiável
             </span>
@@ -24,39 +24,39 @@ export function PageDetailsPerfil() {
         </div>
         <div className="mt-7 space-y-3">
           <div className="flex justify-between">
-            <Common.Title className="text-mesh-color-neutral-200">
+            <CommonTitle className="text-mesh-color-neutral-200">
               Taxa de entrega
-            </Common.Title>
+            </CommonTitle>
             <span className="font-medium text-mesh-color-primary-1400">
               92%
             </span>
           </div>
 
           <div className="flex justify-between">
-            <Common.Title className="text-mesh-color-neutral-200">
+            <CommonTitle className="text-mesh-color-neutral-200">
               Tempo de entrega
-            </Common.Title>
+            </CommonTitle>
             <span className="font-medium text-white">20 minutos</span>
           </div>
 
           <div className="flex justify-between">
-            <Common.Title className="text-mesh-color-neutral-200">
+            <CommonTitle className="text-mesh-color-neutral-200">
               Total de trocas
-            </Common.Title>
+            </CommonTitle>
             <span className="font-medium text-white">242</span>
           </div>
 
           <div className="flex justify-between">
-            <Common.Title className="text-mesh-color-neutral-200">
+            <CommonTitle className="text-mesh-color-neutral-200">
               Steam level
-            </Common.Title>
+            </CommonTitle>
             <span className="font-medium text-white">175</span>
           </div>
 
           <div className="flex justify-between">
-            <Common.Title className="text-mesh-color-neutral-200">
+            <CommonTitle className="text-mesh-color-neutral-200">
               Membro da Steam desde
-            </Common.Title>
+            </CommonTitle>
             <span className="font-medium text-white">Dez 30, 2020</span>
           </div>
         </div>

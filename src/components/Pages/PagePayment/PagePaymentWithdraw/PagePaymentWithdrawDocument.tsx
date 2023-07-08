@@ -1,5 +1,6 @@
-import Common from '@/components/Common'
+import { CommonTitle } from '@/components/Common/CommonTitle'
 import Form from '@/components/Forms'
+import { FormDropzone } from '@/components/Forms/FormDropzone'
 import { MouseEventHandler } from 'react'
 
 interface IProps {
@@ -13,9 +14,9 @@ export function PagePaymentWithdrawDocument({
   return (
     <div className="">
       <text className="text-sm text-mesh-color-neutral-200">Quarta etapa</text>
-      <Common.Title size={'lg'} bold={600}>
+      <CommonTitle size={'lg'} bold={600}>
         Documentos
-      </Common.Title>
+      </CommonTitle>
       <text className="text-sm">
         Por favor, envie a foto frente e verso da sua identidade, CNH ou PDF
         para que possamos verificar suas informações pessoais. Essa etapa é
@@ -23,11 +24,11 @@ export function PagePaymentWithdrawDocument({
       </text>
 
       <Form.Root className="mt-6 flex flex-col gap-4">
-        <Form.Dropzone
+        <FormDropzone
           label="Você pode subir arquivos PNG, JPEG ou PDF"
           subLabel="Adicione sua identidade (Frente)"
         />
-        <Form.Dropzone
+        <FormDropzone
           label="Você pode subir arquivos PNG, JPEG ou PDF"
           subLabel="Adicione sua identidade (Verso)"
         />
