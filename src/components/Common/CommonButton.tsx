@@ -1,5 +1,6 @@
-import React, { MouseEventHandler } from 'react'
+'use client'
 import classNames from 'classnames'
+import React, { MouseEventHandler } from 'react'
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
   type?: 'button' | 'submit'

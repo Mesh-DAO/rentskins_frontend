@@ -1,3 +1,4 @@
+'use client'
 import WalletService from '@/services/wallet.service'
 import useUserStore from '@/stores/user.store'
 import Authentication from '@/tools/authentication.tool'
