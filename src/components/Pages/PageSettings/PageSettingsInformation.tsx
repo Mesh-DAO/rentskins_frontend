@@ -8,13 +8,11 @@ export function PageSettingsInformation() {
 
   return (
     <div className="flex w-2/3 flex-col gap-8">
-      {/* Top */}
       <div className="rounded-2xl bg-mesh-color-neutral-800 px-4 py-6">
         <div>
           <Common.Title bold={700} size={'2xl'} color="white">
             Informações Pessoais
           </Common.Title>
-          {/* CHANGE COLOR! */}
           <span className="text-mesh-color-neutral-200">
             Aqui você encontra informações sobre a sua conta RentsSkins.
             Recomendamos que você mantenha a sua URL de Troca e outras
@@ -44,12 +42,10 @@ export function PageSettingsInformation() {
             </div>
             <div className="flex w-1/6 items-center justify-center gap-2">
               <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
-                {' '}
-                Obter URL{' '}
+                Obter URL
               </Common.Button>
               <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
-                {' '}
-                Aplicar{' '}
+                Aplicar
               </Common.Button>
             </div>
           </div>
@@ -64,12 +60,10 @@ export function PageSettingsInformation() {
           </Common.Title>
           <div className="flex items-center justify-between ">
             <span className="text-mesh-color-neutral-200">
-              {' '}
-              https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL){' '}
+              https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL)
             </span>
             <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
-              {' '}
-              Copiar Link{' '}
+              Copiar Link
             </Common.Button>
           </div>
         </div>
