@@ -1,14 +1,17 @@
 /* eslint-disable camelcase */
-'use client'
-import { Card, InfoPerfil, InfoVendas, InfoSkin } from '@/components/Details'
-import { SkinsSemelhantes } from '@/components/SkinsSemelhantes'
-import { Title } from '@/components/Title'
+// import { Card, InfoPerfil, InfoSkin, InfoVendas } from '@/components/Details'
+import { SkinsSemelhantes } from '@/components/Others/SkinsSemelhantes'
 
+import { CommonTitle } from '@/components/Common/CommonTitle'
+import { IconArrow } from '@/components/Icons'
+import { PageDetailsCard } from '@/components/Pages/PageDetails/PageDetailsCard'
+import { PageDetailsPerfil } from '@/components/Pages/PageDetails/PageDetailsPerfil'
+import { PageDetailsSkin } from '@/components/Pages/PageDetails/PageDetailsSkin'
+import { PageDetailsVendas } from '@/components/Pages/PageDetails/PageDetailsVendas'
 import { findById, findByWeapon } from '@/services/SkinService'
 import { useQuery } from '@tanstack/react-query'
-import { useParams } from 'next/navigation'
-import { IconArrow } from '@/components/Icons'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 export default function Details() {
   const { id } = useParams()
@@ -33,15 +36,15 @@ export default function Details() {
             <Link href="/">
               <IconArrow />
             </Link>
-            <Title color="cinza">
+            <CommonTitle color="cinza">
               Home &bull; {data?.data[0].skin_weapon} &bull;{' '}
               <span className="text-[#49E671]">{data?.data[0].skin_name}</span>
-            </Title>
+            </CommonTitle>
           </div>
 
           <div className="mx-auto grid w-full grid-cols-5 py-10">
             <div className="col-span-3">
-              <Card
+              <PageDetailsCard
                 skinImage={data!.data[0].skin_image}
                 skinName={data!.data[0].skin_name}
                 skinLinkGame={data!.data[0].skin_link_game}
@@ -50,11 +53,11 @@ export default function Details() {
               />
 
               <div>
-                <InfoVendas />
+                <PageDetailsVendas />
               </div>
             </div>
             <div className="col-span-2 ml-4">
-              <InfoSkin
+              <PageDetailsSkin
                 skinName={data!.data[0].skin_name}
                 skinPrice={data!.data[0].skin_price}
                 skinFloat={data!.data[0].skin_float}
@@ -64,13 +67,13 @@ export default function Details() {
                 sellerId={data!.data[0].seller_id}
                 statusFloat={data!.data[0].status_float}
               />
-              <InfoPerfil />
+              <PageDetailsPerfil />
             </div>
           </div>
           <SkinsSemelhantes isLoading={isLoading} data2={data2!} data={data} />
         </main>
       ) : (
-        <Title color="white">Carregando...</Title>
+        <CommonTitle color="white">Carregando...</CommonTitle>
       )}
     </div>
   )

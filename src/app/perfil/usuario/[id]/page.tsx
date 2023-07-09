@@ -1,6 +1,6 @@
-import AllSkins from '@/components/Skins/AllSkins'
-import ChoiceItems from '@/components/ChoiceItems'
-import PerfilPerson from '@/components/ProfilePerson'
+import ChoiceItems from '@/components/Others/ChoiceItems'
+import PerfilPerson from '@/components/Others/ProfilePerson'
+import AllSkins from '@/components/Others/Skins/AllSkins'
 
 export default function PerfilUsuario() {
   return (
