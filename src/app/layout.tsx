@@ -1,4 +1,5 @@
 'use client'
+import { LayoutRoot } from '@/components/Layout/LayoutRoot'
 import { queryClient } from '@/services/queryClient'
 import { QueryClientProvider } from '@tanstack/react-query'
 import 'aos/dist/aos.css'
@@ -17,7 +18,7 @@ export default function RootLayout({
     <QueryClientProvider client={queryClient}>
       <html lang="en">
         <body className={inter.className}>
-          {/* <LayoutRoot>{children}</LayoutRoot> */}
+          <LayoutRoot>{children}</LayoutRoot>
           {children}
         </body>
       </html>
