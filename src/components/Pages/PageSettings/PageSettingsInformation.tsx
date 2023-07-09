@@ -1,6 +1,7 @@
 'use client'
 import Common from '@/components/Common'
-import { IconClose } from '@/components/Icons/IconClose'
+import Form from '@/components/Forms'
+import { IconClose } from '@/components/Icons'
 import { useState } from 'react'
 
 export function PageSettingsInformation() {
@@ -27,31 +28,37 @@ export function PageSettingsInformation() {
           </Common.Title>
           <div className="flex gap-4">
             <div className="flex w-full items-center">
-              <input
-                className="w-full rounded-md bg-mesh-color-neutral-600 py-3 pl-3 pr-14 text-white placeholder:text-mesh-color-neutral-100"
+              <Form.Input.Text
+                state={exchangeUrl}
+                setState={setExchangeUrl}
                 placeholder="https://steamcommunity.com/tradeoffer/new/?partner=240416830&token=vzAomQ5n"
-                onChange={(event) => setExchangeUrl(event.target.value)}
-                value={exchangeUrl}
+                labelClassName="w-full"
+                className={`w-full rounded-md bg-mesh-color-neutral-600 py-2 pl-3
+                transition-all ${
+                  exchangeUrl !== '' ? 'pr-14' : 'pr-3'
+                } text-white
+                ring-mesh-color-primary-1900 placeholder:text-mesh-color-neutral-100 focus:ring-2`}
               />
-              <Common.Button
-                className="relative -ml-10 border-none"
-                onClick={() => setExchangeUrl('')}
-              >
-                <IconClose />
-              </Common.Button>
+              {exchangeUrl !== '' && (
+                <Common.Button
+                  className={`relative -ml-10 border-none`}
+                  onClick={() => setExchangeUrl('')}
+                >
+                  <IconClose />
+                </Common.Button>
+              )}
             </div>
-            <div className="flex w-1/6 items-center justify-center gap-2">
-              <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
+            <div className="flex w-3/12 items-center justify-evenly">
+              <Common.Button className="border-none text-mesh-color-primary-1200 opacity-70 hover:opacity-100">
                 Obter URL
               </Common.Button>
-              <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
+              <Common.Button className="border-none text-mesh-color-primary-1200 opacity-70 hover:opacity-100">
                 Aplicar
               </Common.Button>
             </div>
           </div>
         </div>
 
-        {/* Line */}
         <div className="my-6 h-[1px] w-full bg-mesh-color-neutral-200" />
 
         <div className="flex flex-col">
@@ -62,7 +69,7 @@ export function PageSettingsInformation() {
             <span className="text-mesh-color-neutral-200">
               https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL)
             </span>
-            <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
+            <Common.Button className="border-none text-mesh-color-primary-1200 opacity-70 hover:opacity-100">
               Copiar Link
             </Common.Button>
           </div>
@@ -80,13 +87,11 @@ export function PageSettingsInformation() {
               Email
             </Common.Title>
             <span className="text-mesh-color-neutral-200">
-              {' '}
-              https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL){' '}
+              https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL)
             </span>
           </div>
-          <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
-            {' '}
-            Copiar Link{' '}
+          <Common.Button className="border-none text-mesh-color-primary-1200 opacity-70 hover:opacity-100">
+            Copiar Link
           </Common.Button>
         </div>
       </div>
