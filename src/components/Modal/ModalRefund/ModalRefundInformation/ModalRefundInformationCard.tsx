@@ -1,4 +1,4 @@
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import Image from 'next/image'
 
 interface Props {
@@ -33,36 +33,36 @@ export default function ModalRefundInformationCard({
         </div>
         <div className="flex h-24 flex-col justify-between gap-3">
           <div>
-            <CommonTitle bold={600} size="2xl" color="white">
+            <Common.Title bold={600} size="2xl" color="white">
               {skinName}
-            </CommonTitle>
-            <CommonTitle
+            </Common.Title>
+            <Common.Title
               bold={500}
               size="xl"
               color="cinza"
               className="opacity-60"
             >
               Nova de fábrica
-            </CommonTitle>
+            </Common.Title>
           </div>
-          <CommonTitle
+          <Common.Title
             bold={500}
             size="xl"
             color="cinza"
             className="opacity-60"
           >
             {skinType}
-          </CommonTitle>
+          </Common.Title>
         </div>
       </div>
       <div>
-        <CommonTitle bold={600} size="3xl" color="white">
+        <Common.Title bold={600} size="3xl" color="white">
           R$180
-        </CommonTitle>
-        <CommonTitle color="white" size="md" bold={400}>
+        </Common.Title>
+        <Common.Title color="white" size="md" bold={400}>
           <strong>FT / </strong>
           <span className="opacity-60">0.0003</span>
-        </CommonTitle>
+        </Common.Title>
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import classNames from 'classnames'
 
 interface Props {
@@ -16,13 +16,13 @@ export default function LineInfosSummaryh({
 }: Props) {
   return (
     <div className={classNames('flex w-full justify-between', className)}>
-      <CommonTitle color="white" size={size} bold={400}>
+      <Common.Title color="white" size={size} bold={400}>
         {title}
-      </CommonTitle>
-      <CommonTitle color="white" size={size} bold={600}>
+      </Common.Title>
+      <Common.Title color="white" size={size} bold={600}>
         {!value.includes('%') && 'R$'}
         {value}
-      </CommonTitle>
+      </Common.Title>
     </div>
   )
 }

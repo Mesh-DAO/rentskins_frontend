@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 'use client'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons/IconClose'
 import * as Dialog from '@radix-ui/react-dialog'
 import React from 'react'
@@ -43,15 +42,15 @@ export function ModalSkinShowcaseMain({
             <div className="flex w-11/12 items-center justify-between">
               <Dialog.Title>
                 {isEdition && (
-                  <CommonTitle bold={600} size="2xl" color="white">
+                  <Common.Title bold={600} size="2xl" color="white">
                     Edição
-                  </CommonTitle>
+                  </Common.Title>
                 )}
               </Dialog.Title>
               <Dialog.Close asChild>
-                <CommonButton className="border-transparent outline-none">
+                <Common.Button className="border-transparent outline-none">
                   <IconClose />
-                </CommonButton>
+                </Common.Button>
               </Dialog.Close>
             </div>
             <div className="flex h-[90%] w-11/12 items-center justify-between">

@@ -1,6 +1,5 @@
 'use client'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons'
 import * as Dialog from '@radix-ui/react-dialog'
 import ModalRefundInformationCard from './ModalRefundInformationCard'
@@ -31,14 +30,14 @@ export function ModalRefundInformationMain({
         <div className="w-full rounded-2xl bg-[#272E29] px-8 py-6">
           <div className="mb-5 flex w-full justify-between">
             <Dialog.Title asChild>
-              <CommonTitle size="3xl" color="white" bold={800}>
+              <Common.Title size="3xl" color="white" bold={800}>
                 Devolução
-              </CommonTitle>
+              </Common.Title>
             </Dialog.Title>
             <Dialog.Close>
-              <CommonButton className="border-none">
+              <Common.Button className="border-none">
                 <IconClose />
-              </CommonButton>
+              </Common.Button>
             </Dialog.Close>
           </div>
           <RefoundInfos />

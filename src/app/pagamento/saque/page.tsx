@@ -1,12 +1,11 @@
 'use client'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonLoading } from '@/components/Common/CommonLoading'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconBank } from '@/components/Icons/IconBank'
 import { IconCard } from '@/components/Icons/IconCard'
 import { IconLeftArrow } from '@/components/Icons/IconLeftArrow'
 import { IconLocation } from '@/components/Icons/IconLocation'
 import { IconPerson } from '@/components/Icons/IconPerson'
+import { LayoutLoading } from '@/components/Layout/LayoutLoading'
 import { PagePaymentWithdrawDocument } from '@/components/Pages/PagePayment/PagePaymentWithdraw/PagePaymentWithdrawDocument'
 import { PagePaymentWithdrawLocation } from '@/components/Pages/PagePayment/PagePaymentWithdraw/PagePaymentWithdrawLocation'
 import { PagePaymentWithdrawPersonal } from '@/components/Pages/PagePayment/PagePaymentWithdraw/PagePaymentWithdrawPersonal'
@@ -71,19 +70,19 @@ export default function PaymentWithdrawPage() {
 
   return (
     <main className="flex h-fit flex-col items-center justify-start bg-mesh-color-others-black pb-64 text-white">
-      <CommonLoading
+      <LayoutLoading
         label="Processando..."
         enabled={isLoading}
         className="mb-64 mt-32 flex h-full items-center justify-center"
       >
         <div className="mt-8 flex w-min flex-col">
           <div className="mb-8 flex w-full items-center justify-start">
-            <CommonButton
+            <Common.Button
               className="border-transparent"
               onClick={() => handleOnCancel()}
             >
               <IconLeftArrow />
-            </CommonButton>
+            </Common.Button>
 
             <span className="ml-2 text-mesh-color-neutral-200">
               <text>Saldo </text>
@@ -95,7 +94,7 @@ export default function PaymentWithdrawPage() {
             </span>
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
-            <CommonTitle size="2xl"> Retirar levantamento </CommonTitle>
+            <Common.Title size="2xl"> Retirar levantamento </Common.Title>
             <div className="mt-4 flex w-[546px] items-center justify-center">
               <div className="flex h-10 w-12 items-center justify-center rounded-full bg-mesh-color-primary-1200 p-2">
                 <IconPerson />
@@ -178,7 +177,7 @@ export default function PaymentWithdrawPage() {
             </div>
           </div>
         </div>
-      </CommonLoading>
+      </LayoutLoading>
     </main>
   )
 }

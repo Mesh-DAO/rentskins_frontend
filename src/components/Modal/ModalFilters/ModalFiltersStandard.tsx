@@ -1,6 +1,6 @@
 'use client'
 
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 
 export default function ModalFiltersStandard() {
   return (
@@ -20,9 +20,9 @@ function StandardCheckboxItem({ value }: IProps) {
   return (
     <label className="flex cursor-pointer rounded font-semibold text-white hover:bg-zinc-200 hover:bg-opacity-5">
       <input type="radio" name="standardRadio" className="peer" />
-      <CommonTitle className="w-full rounded p-2 peer-checked:bg-zinc-200 peer-checked:bg-opacity-20">
+      <Common.Title className="w-full rounded p-2 peer-checked:bg-zinc-200 peer-checked:bg-opacity-20">
         {value}
-      </CommonTitle>
+      </Common.Title>
     </label>
   )
 }

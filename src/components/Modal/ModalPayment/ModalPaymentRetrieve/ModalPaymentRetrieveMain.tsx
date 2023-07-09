@@ -1,5 +1,4 @@
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons/IconClose'
 import useComponentStore from '@/stores/components.store'
 import URLQuery from '@/tools/urlquery.tool'
@@ -21,9 +20,9 @@ export function ModalPaymentRetrieveMain() {
         {/* TOP */}
         <div className="flex w-11/12 items-center justify-between">
           <Dialog.Title>
-            <CommonTitle bold={800} size="2xl" color="white">
+            <Common.Title bold={800} size="2xl" color="white">
               Retirar Levantamento
-            </CommonTitle>
+            </Common.Title>
           </Dialog.Title>
           <Dialog.Close
             asChild
@@ -31,9 +30,9 @@ export function ModalPaymentRetrieveMain() {
               router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
             }
           >
-            <CommonButton className="border-transparent">
+            <Common.Button className="border-transparent">
               <IconClose />
-            </CommonButton>
+            </Common.Button>
           </Dialog.Close>
         </div>
         <div className="flex h-full w-11/12 items-start justify-between">

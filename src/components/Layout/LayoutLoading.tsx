@@ -9,7 +9,7 @@ interface IProps {
   className?: string
 }
 
-export function CommonLoading({ enabled, className, label, children }: IProps) {
+export function LayoutLoading({ enabled, className, label, children }: IProps) {
   const renderLoading = () => {
     if (enabled) {
       return (
