@@ -1,7 +1,7 @@
 'use client'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonLoading } from '@/components/Common/CommonLoading'
+import Common from '@/components/Common'
 import { IconShield } from '@/components/Icons'
+import { LayoutLoading } from '@/components/Layout/LayoutLoading'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
@@ -16,7 +16,7 @@ export function ModalPaymentRetrieveWarning() {
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-evenly gap-7 ">
-      <CommonLoading label="Processando..." enabled={isLoading}>
+      <LayoutLoading label="Processando..." enabled={isLoading}>
         {/* CHANGE COLOR */}
         <div
           className="mt-7 flex items-center
@@ -40,14 +40,14 @@ export function ModalPaymentRetrieveWarning() {
         </div>
         <div className="mb-8 flex w-full items-end justify-end">
           {/* CHANGE COLOR */}
-          <CommonButton
+          <Common.Button
             className="h-14 w-4/12 border-transparent bg-mesh-color-primary-1200 text-2xl font-bold"
             onClick={() => handleOnProceed()}
           >
             Prosseguir
-          </CommonButton>
+          </Common.Button>
         </div>
-      </CommonLoading>
+      </LayoutLoading>
     </div>
   )
 }

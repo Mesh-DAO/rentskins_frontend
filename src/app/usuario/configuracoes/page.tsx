@@ -1,5 +1,5 @@
 'use client'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { PageSettingsInformation } from '@/components/Pages/PageSettings/PageSettingsInformation'
 import { PageSettingsSecurity } from '@/components/Pages/PageSettings/PageSettingsSecurity'
 import { PageSettingsTransactionsContent } from '@/components/Pages/PageSettings/Transactions/PageSettingsTransactionsContent'
@@ -12,9 +12,9 @@ export default function Settings() {
       {/* Left Side */}
       <div className="flex h-min w-max flex-col items-end gap-2">
         <div className="flex flex-col items-start gap-6">
-          <CommonTitle bold={900} size="2xl" color="white">
+          <Common.Title bold={900} size="2xl" color="white">
             Configurações
-          </CommonTitle>
+          </Common.Title>
 
           <div className="flex flex-col gap-2">{/* <SideRadioButton /> */}</div>
         </div>

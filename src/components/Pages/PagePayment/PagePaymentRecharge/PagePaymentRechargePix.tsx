@@ -1,9 +1,8 @@
 'use client'
 import QRCodeExample from '@/../public/qrcode-example.png'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonLoading } from '@/components/Common/CommonLoading'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import Form from '@/components/Forms'
+import { LayoutLoading } from '@/components/Layout/LayoutLoading'
 import usePaymentStore from '@/stores/payment.store'
 import Image from 'next/image'
 import { MouseEventHandler, useState } from 'react'
@@ -41,21 +40,21 @@ export function PagePaymentRechargePix({
   }
 
   const renderStepTwo = (
-    <CommonLoading
+    <LayoutLoading
       label="Processando..."
       enabled={isLoading}
       className="flex h-2/3 items-center justify-center"
     >
-      <CommonTitle size="lg" bold={600} className="mt-8">
+      <Common.Title size="lg" bold={600} className="mt-8">
         Digitalize o código QR usando o aplicativo da carteira/banco.
-      </CommonTitle>
+      </Common.Title>
       <div className="mt-4">
         <Image src={QRCodeExample} alt="QRCode" width={150} />
         <div className="mt-8 h-1/3">
-          <CommonTitle bold={600} size="lg">
+          <Common.Title bold={600} size="lg">
             Ou cole o código alternativo no aplicativo para concluir o
             pagamento.
-          </CommonTitle>
+          </Common.Title>
 
           <textarea
             readOnly={true}
@@ -78,24 +77,24 @@ export function PagePaymentRechargePix({
         </div>
 
         <div className="flex flex-col gap-4 text-xl font-semibold">
-          <CommonButton
+          <Common.Button
             type="submit"
             onClick={handleFormSubmit}
             className="h-12 w-full border-transparent"
             color="green"
           >
             Pagar
-          </CommonButton>
-          <CommonButton
+          </Common.Button>
+          <Common.Button
             className="w-full border-2 py-2"
             onClick={() => handlePageIndex(0, true)}
             color="invisible"
           >
             Voltar
-          </CommonButton>
+          </Common.Button>
         </div>
       </div>
-    </CommonLoading>
+    </LayoutLoading>
   )
 
   const renderStepOne = (

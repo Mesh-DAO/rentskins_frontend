@@ -1,6 +1,5 @@
 'use client'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons/IconClose'
 import { useState } from 'react'
 
@@ -12,9 +11,9 @@ export function PageSettingsInformation() {
       {/* Top */}
       <div className="rounded-2xl bg-mesh-color-neutral-800 px-4 py-6">
         <div>
-          <CommonTitle bold={700} size={'2xl'} color="white">
+          <Common.Title bold={700} size={'2xl'} color="white">
             Informações Pessoais
-          </CommonTitle>
+          </Common.Title>
           {/* CHANGE COLOR! */}
           <span className="text-mesh-color-neutral-200">
             Aqui você encontra informações sobre a sua conta RentsSkins.
@@ -25,9 +24,9 @@ export function PageSettingsInformation() {
         </div>
 
         <div className="mt-8 flex flex-col gap-2">
-          <CommonTitle size={'lg'} color="white">
+          <Common.Title size={'lg'} color="white">
             URL de Troca
-          </CommonTitle>
+          </Common.Title>
           <div className="flex gap-4">
             <div className="flex w-full items-center">
               <input
@@ -36,22 +35,22 @@ export function PageSettingsInformation() {
                 onChange={(event) => setExchangeUrl(event.target.value)}
                 value={exchangeUrl}
               />
-              <CommonButton
+              <Common.Button
                 className="relative -ml-10 border-none"
                 onClick={() => setExchangeUrl('')}
               >
                 <IconClose />
-              </CommonButton>
+              </Common.Button>
             </div>
             <div className="flex w-1/6 items-center justify-center gap-2">
-              <CommonButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
+              <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
                 {' '}
                 Obter URL{' '}
-              </CommonButton>
-              <CommonButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
+              </Common.Button>
+              <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
                 {' '}
                 Aplicar{' '}
-              </CommonButton>
+              </Common.Button>
             </div>
           </div>
         </div>
@@ -60,41 +59,41 @@ export function PageSettingsInformation() {
         <div className="my-6 h-[1px] w-full bg-mesh-color-neutral-200" />
 
         <div className="flex flex-col">
-          <CommonTitle size={'lg'} color="white">
+          <Common.Title size={'lg'} color="white">
             Link de Venda
-          </CommonTitle>
+          </Common.Title>
           <div className="flex items-center justify-between ">
             <span className="text-mesh-color-neutral-200">
               {' '}
               https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL){' '}
             </span>
-            <CommonButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
+            <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
               {' '}
               Copiar Link{' '}
-            </CommonButton>
+            </Common.Button>
           </div>
         </div>
       </div>
 
       {/* Bottom */}
       <div className="rounded-2xl bg-mesh-color-neutral-800 px-4 py-6">
-        <CommonTitle bold={700} size={'2xl'} color="white">
+        <Common.Title bold={700} size={'2xl'} color="white">
           Informações de Contato
-        </CommonTitle>
+        </Common.Title>
         <div className="mt-8 flex items-center justify-between">
           <div className="flex flex-col">
-            <CommonTitle size={'lg'} color="white">
+            <Common.Title size={'lg'} color="white">
               Email
-            </CommonTitle>
+            </Common.Title>
             <span className="text-mesh-color-neutral-200">
               {' '}
               https://rentskins/?sellerid=10902554 (MAKE IT FUNCTIONAL){' '}
             </span>
           </div>
-          <CommonButton className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
+          <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
             {' '}
             Copiar Link{' '}
-          </CommonButton>
+          </Common.Button>
         </div>
       </div>
     </div>

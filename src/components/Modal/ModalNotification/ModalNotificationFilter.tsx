@@ -1,5 +1,5 @@
 'use client'
-import { CommonButton } from '@/components/Common/CommonButton'
+import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons'
 import useFilterStore from '@/stores/filters.store'
 import URLQuery from '@/tools/urlquery.tool'
@@ -77,9 +77,9 @@ export function ModalNotificationFilter() {
                   Filtro de tempo
                 </Dialog.Title>
                 <Dialog.Close asChild onClick={() => removeDomainQuery()}>
-                  <CommonButton className="border-none">
+                  <Common.Button className="border-none">
                     <IconClose />
-                  </CommonButton>
+                  </Common.Button>
                 </Dialog.Close>
               </div>
 
@@ -118,12 +118,12 @@ export function ModalNotificationFilter() {
               >
                 Limpar
               </span>
-              <CommonButton
+              <Common.Button
                 className="border-none bg-mesh-color-primary-1200 px-6 py-2 font-semibold"
                 onClick={() => handleOnApplyFilter()}
               >
                 Aplicar
-              </CommonButton>
+              </Common.Button>
             </div>
           </div>
         </Dialog.Content>
