@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable camelcase */
 import { CommonTitle } from '@/components/Common/CommonTitle'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
