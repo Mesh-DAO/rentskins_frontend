@@ -1,4 +1,4 @@
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
 import { MouseEventHandler, useEffect, useState } from 'react'
@@ -43,9 +43,9 @@ export function PagePaymentWithdrawPersonal({
       <text className="text-sm text-mesh-color-neutral-200">
         Primeira etapa
       </text>
-      <CommonTitle size={'lg'} bold={600}>
+      <Common.Title size={'lg'} bold={600}>
         Informações Pessoais
-      </CommonTitle>
+      </Common.Title>
 
       <Form.Root className="mt-6 flex flex-col gap-4">
         <Form.Input.CPF

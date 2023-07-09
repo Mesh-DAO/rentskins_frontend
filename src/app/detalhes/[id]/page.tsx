@@ -2,7 +2,7 @@
 // import { Card, InfoPerfil, InfoSkin, InfoVendas } from '@/components/Details'
 import { SkinsSemelhantes } from '@/components/Others/SkinsSemelhantes'
 
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconArrow } from '@/components/Icons'
 import { PageDetailsCard } from '@/components/Pages/PageDetails/PageDetailsCard'
 import { PageDetailsPerfil } from '@/components/Pages/PageDetails/PageDetailsPerfil'
@@ -36,10 +36,10 @@ export default function Details() {
             <Link href="/">
               <IconArrow />
             </Link>
-            <CommonTitle color="cinza">
+            <Common.Title color="cinza">
               Home &bull; {data?.data[0].skin_weapon} &bull;{' '}
               <span className="text-[#49E671]">{data?.data[0].skin_name}</span>
-            </CommonTitle>
+            </Common.Title>
           </div>
 
           <div className="mx-auto grid w-full grid-cols-5 py-10">
@@ -73,7 +73,7 @@ export default function Details() {
           <SkinsSemelhantes isLoading={isLoading} data2={data2!} data={data} />
         </main>
       ) : (
-        <CommonTitle color="white">Carregando...</CommonTitle>
+        <Common.Title color="white">Carregando...</Common.Title>
       )}
     </div>
   )

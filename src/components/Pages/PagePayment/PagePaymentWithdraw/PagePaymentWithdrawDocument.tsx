@@ -1,4 +1,4 @@
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import Form from '@/components/Forms'
 import { FormDropzone } from '@/components/Forms/FormDropzone'
 import { MouseEventHandler } from 'react'
@@ -14,9 +14,9 @@ export function PagePaymentWithdrawDocument({
   return (
     <div className="">
       <text className="text-sm text-mesh-color-neutral-200">Quarta etapa</text>
-      <CommonTitle size={'lg'} bold={600}>
+      <Common.Title size={'lg'} bold={600}>
         Documentos
-      </CommonTitle>
+      </Common.Title>
       <text className="text-sm">
         Por favor, envie a foto frente e verso da sua identidade, CNH ou PDF
         para que possamos verificar suas informações pessoais. Essa etapa é

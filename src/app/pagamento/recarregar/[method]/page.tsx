@@ -1,8 +1,7 @@
 'use client'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonLoading } from '@/components/Common/CommonLoading'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconLeftArrow } from '@/components/Icons/IconLeftArrow'
+import { LayoutLoading } from '@/components/Layout/LayoutLoading'
 import { PagePaymentRechargeMastercard } from '@/components/Pages/PagePayment/PagePaymentRecharge/PagePaymentRechargeMastercard'
 import { PagePaymentRechargePix } from '@/components/Pages/PagePayment/PagePaymentRecharge/PagePaymentRechargePix'
 import { PagePaymentRechargeTicket } from '@/components/Pages/PagePayment/PagePaymentRecharge/PagePaymentRechargeTicket'
@@ -56,19 +55,19 @@ export default function PaymentAddMastercardPage() {
 
   const renderContent = (
     <>
-      <CommonLoading
+      <LayoutLoading
         label="Processando..."
         enabled={isLoading}
         className="flex h-2/3 items-center justify-center"
       >
         <div className="mt-8 flex w-1/3 flex-col">
           <div className="mb-8 flex w-full items-center justify-start">
-            <CommonButton
+            <Common.Button
               className="border-transparent"
               onClick={() => router.push('/')}
             >
               <IconLeftArrow />
-            </CommonButton>
+            </Common.Button>
 
             <span className="ml-2 text-mesh-color-neutral-200">
               <text>Saldo </text>
@@ -80,29 +79,29 @@ export default function PaymentAddMastercardPage() {
             </span>
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
-            <CommonTitle size="2xl">
+            <Common.Title size="2xl">
               Recarregar saldo com{' '}
               {method.charAt(0).toUpperCase() + method.slice(1)}
-            </CommonTitle>
+            </Common.Title>
             {methodComponent}
           </div>
         </div>
-      </CommonLoading>
+      </LayoutLoading>
     </>
   )
 
   const renderFailed = (
     <div className="flex h-3/5 flex-col items-center justify-center gap-4">
-      <CommonTitle bold={800} size="3xl">
+      <Common.Title bold={800} size="3xl">
         Página não encontrada.
-      </CommonTitle>
-      <CommonButton
+      </Common.Title>
+      <Common.Button
         onClick={() => router.push('/')}
         className="border-mesh-color-primary-1400 
       bg-mesh-color-primary-1400 px-4 text-lg font-semibold text-mesh-color-others-black"
       >
         Voltar
-      </CommonButton>
+      </Common.Button>
     </div>
   )
 

@@ -1,5 +1,5 @@
-import { CommonTitle } from '@/components/Common/CommonTitle'
 import { weaponsMock } from '@/Mock/transactions.mock'
+import Common from '@/components/Common'
 import { PageSettingsTransactionsTable } from './PageSettingsTransactionsTable'
 
 export function PageSettingsTransactionsContent() {
@@ -7,9 +7,9 @@ export function PageSettingsTransactionsContent() {
     <div className="flex w-2/3 flex-col gap-8">
       {/* Top */}
       <div className="flex flex-col gap-10 rounded-2xl bg-mesh-color-neutral-800 py-6">
-        <CommonTitle bold={700} size={'2xl'} color="white" className="px-4">
+        <Common.Title bold={700} size={'2xl'} color="white" className="px-4">
           Transações
-        </CommonTitle>
+        </Common.Title>
 
         <table className="w-full select-none text-center">
           <thead className="px-4">

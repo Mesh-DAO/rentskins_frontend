@@ -1,4 +1,4 @@
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import Form from '@/components/Forms'
 import { FormDropdown } from '@/components/Forms/FormDropdown'
 import usePaymentStore from '@/stores/payment.store'
@@ -79,9 +79,9 @@ export function PagePaymentWithdrawTransaction({
       <text className="text-sm text-mesh-color-neutral-200">
         Terceira Etapa
       </text>
-      <CommonTitle size={'lg'} bold={600}>
+      <Common.Title size={'lg'} bold={600}>
         Informações Bancárias
-      </CommonTitle>
+      </Common.Title>
       <text className="text-sm">
         Para receber seus ganhos da plataforma, por favor, preencha as
         informações bancárias abaixo. A conta bancária deve estar registrada em

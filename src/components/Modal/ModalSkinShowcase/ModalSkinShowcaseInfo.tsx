@@ -1,6 +1,5 @@
 'use client'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import Form from '@/components/Forms'
 
 type Props = {
@@ -19,9 +18,9 @@ export function ModalSkinShowcaseInfo({
   return (
     <div className="flex h-full w-[40%] flex-col">
       <div>
-        <CommonTitle color="white" className="text-[24px]">
+        <Common.Title color="white" className="text-[24px]">
           {name}
-        </CommonTitle>
+        </Common.Title>
         <p className="-mt-1 font-medium text-mesh-color-neutral-200">
           {weapon} • {statusFloatText}
         </p>
@@ -30,9 +29,9 @@ export function ModalSkinShowcaseInfo({
       <div className="mt-4 h-full w-full rounded-lg bg-mesh-color-others-black p-4">
         <div>
           <div className="mt-2 flex justify-between">
-            <CommonTitle size="md" bold={500} color="white">
+            <Common.Title size="md" bold={500} color="white">
               Preço recomendado
-            </CommonTitle>
+            </Common.Title>
             <span className="text-mesh-color-accent-1000">R$: {preco}</span>
           </div>
           <p className="w-[70%] text-mesh-color-neutral-200">
@@ -44,9 +43,9 @@ export function ModalSkinShowcaseInfo({
         {/* ---------INPUT -------------  */}
         <div className="mt-5 flex w-full gap-4">
           <div className="w-full space-y-2">
-            <CommonTitle bold={500} color="white">
+            <Common.Title bold={500} color="white">
               Preço de venda
-            </CommonTitle>
+            </Common.Title>
             <Form.Input.Text
               state={''}
               setState={() => {}}
@@ -56,9 +55,9 @@ export function ModalSkinShowcaseInfo({
           </div>
 
           <div className="w-full space-y-2">
-            <CommonTitle bold={500} color="white">
+            <Common.Title bold={500} color="white">
               Você irá receber
-            </CommonTitle>
+            </Common.Title>
             <Form.Input.Text
               state={''}
               setState={() => {}}
@@ -70,11 +69,11 @@ export function ModalSkinShowcaseInfo({
         {/* ---------INPUT FIM -------------  */}
 
         <div className="space-y-6">
-          <CommonButton className="mt-4 h-11 w-full border-transparent bg-mesh-color-primary-1400">
-            <CommonTitle bold={600} className="rounded-xl">
+          <Common.Button className="mt-4 h-11 w-full border-transparent bg-mesh-color-primary-1400">
+            <Common.Title bold={600} className="rounded-xl">
               Anunciar
-            </CommonTitle>
-          </CommonButton>
+            </Common.Title>
+          </Common.Button>
           <Form.Input.Checkbox
             state={''}
             setState={() => {}}

@@ -1,7 +1,6 @@
 'use client'
 import perfil from '@/assets/perfil.png'
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconSend } from '@/components/Icons/IconSend'
 import Image from 'next/image'
 import ProfileInfo from '../ProfileInfo'
@@ -23,14 +22,14 @@ export default function PerfilPerson({ isSeller }: Props) {
         />
         <div className="flex flex-col gap-7">
           <div className="flex flex-col gap-2">
-            <CommonTitle
+            <Common.Title
               bold={600}
               color="white"
               size="3xl"
               className="self-start"
             >
               Coldzera
-            </CommonTitle>
+            </Common.Title>
             <div className="w-32 rounded-3xl bg-mesh-color-primary-1400 p-1 text-center text-base font-normal text-white">
               Membro novo
             </div>
@@ -41,10 +40,10 @@ export default function PerfilPerson({ isSeller }: Props) {
               <strong>195</strong>
             </h1>
             {isSeller ?? (
-              <CommonButton color="green" className="border-transparent">
+              <Common.Button color="green" className="border-transparent">
                 <IconSend />
                 Anuncie Agora
-              </CommonButton>
+              </Common.Button>
             )}
           </div>
         </div>

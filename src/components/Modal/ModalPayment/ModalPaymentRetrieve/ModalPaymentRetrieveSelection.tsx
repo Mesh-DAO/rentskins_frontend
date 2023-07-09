@@ -1,5 +1,4 @@
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconShield } from '@/components/Icons'
 import useComponentStore from '@/stores/components.store'
 
@@ -19,16 +18,16 @@ export function ModalPaymentRetrieveSelection() {
     <div className="flex h-full w-full flex-col gap-7 ">
       <div className="flex items-center justify-between">
         <div>
-          <CommonTitle
+          <Common.Title
             bold={600}
             size="xl"
             className="mt-6 text-mesh-color-neutral-200"
           >
             Levantamento dentro da plataforma
-          </CommonTitle>
-          <CommonTitle bold={800} color="white" size="2xl">
+          </Common.Title>
+          <Common.Title bold={800} color="white" size="2xl">
             R$ 00,00
-          </CommonTitle>
+          </Common.Title>
         </div>
         <div className="flex items-center gap-2 text-mesh-color-neutral-200">
           <div className="flex items-center justify-center rounded-lg bg-mesh-color-primary-1900/20 px-2 py-2">
@@ -43,13 +42,13 @@ export function ModalPaymentRetrieveSelection() {
         </div>
       </div>
       <div className="w-2/3">
-        <CommonTitle
+        <Common.Title
           bold={600}
           size="xl"
           className="mt-6 text-mesh-color-neutral-200"
         >
           Selecione o Método de Pagamento
-        </CommonTitle>
+        </Common.Title>
         {/* <InputRadioMethodArray
           items={[
             { name: 'mastercard', icon: ImageMastercard },
@@ -63,12 +62,12 @@ export function ModalPaymentRetrieveSelection() {
         /> */}
       </div>
       <div className="mb-7 flex h-full items-end justify-end">
-        <CommonButton
+        <Common.Button
           className="h-14 w-4/12 border-transparent bg-mesh-color-primary-1200 text-2xl font-bold"
           onClick={() => handleOnWithdraw()}
         >
           Retirar saldo
-        </CommonButton>
+        </Common.Button>
       </div>
     </div>
   )

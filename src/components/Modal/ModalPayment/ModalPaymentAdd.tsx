@@ -1,8 +1,7 @@
-import { CommonButton } from '@/components/Common/CommonButton'
-import { CommonLoading } from '@/components/Common/CommonLoading'
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons/IconClose'
 import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
+import { LayoutLoading } from '@/components/Layout/LayoutLoading'
 import usePaymentStore from '@/stores/payment.store'
 import URLQuery from '@/tools/urlquery.tool'
 import * as Dialog from '@radix-ui/react-dialog'
@@ -49,14 +48,14 @@ rounded-2xl bg-mesh-color-neutral-700"
     >
       <div className="flex h-full w-full">
         <div className="h-full w-1/4 rounded-l-2xl bg-mesh-color-others-eerie-black px-6 pt-6">
-          <CommonTitle
+          <Common.Title
             bold={400}
             size="xl"
             color="white"
             className="leading-none"
           >
             Selecione a forma de pagamento
-          </CommonTitle>
+          </Common.Title>
           {/* <InputRadioMethodArray
             items={[
               { name: 'mastercard', icon: ImageMastercard },
@@ -68,13 +67,13 @@ rounded-2xl bg-mesh-color-neutral-700"
             handleOnClick={(event) => handleMethodChange(event)}
           /> */}
         </div>
-        <CommonLoading label="Processando..." enabled={isLoading}>
+        <LayoutLoading label="Processando..." enabled={isLoading}>
           <div className="flex h-full w-3/4 flex-col items-center justify-start">
             <div className=" mt-6 flex w-11/12 items-center justify-between">
               <Dialog.Title>
-                <CommonTitle bold={800} size="2xl" color="white">
+                <Common.Title bold={800} size="2xl" color="white">
                   Adicione Créditos
-                </CommonTitle>
+                </Common.Title>
               </Dialog.Title>
               <Dialog.Close
                 asChild
@@ -82,9 +81,9 @@ rounded-2xl bg-mesh-color-neutral-700"
                   router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
                 }
               >
-                <CommonButton className="border-transparent">
+                <Common.Button className="border-transparent">
                   <IconClose />
-                </CommonButton>
+                </Common.Button>
               </Dialog.Close>
             </div>
             <div className="mt-3 flex h-full w-full flex-col justify-between">
@@ -165,16 +164,16 @@ rounded-2xl bg-mesh-color-neutral-700"
                   </a>
                   .
                 </span>
-                <CommonButton
+                <Common.Button
                   onClick={() => handleOnDeposit()}
                   className="h-16 w-1/2 border-transparent bg-mesh-color-primary-1200 text-xl font-extrabold"
                 >
                   Depositar
-                </CommonButton>
+                </Common.Button>
               </div>
             </div>
           </div>
-        </CommonLoading>
+        </LayoutLoading>
       </div>
     </Dialog.Content>
   )

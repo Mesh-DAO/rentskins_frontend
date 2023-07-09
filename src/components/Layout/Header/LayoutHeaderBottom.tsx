@@ -1,4 +1,4 @@
-import { CommonTitle } from '@/components/Common/CommonTitle'
+import Common from '@/components/Common'
 import { IconSetaType } from '@/components/Icons'
 import { ItemLink } from '@/components/Others/ItemLink'
 import classNames from 'classnames'
@@ -155,15 +155,15 @@ export const ContainerItem = ({
     <div className={classNames('group relative z-20 ', className)}>
       {isList ? (
         <div className="flex items-center">
-          <CommonTitle color="white">{title}</CommonTitle>
+          <Common.Title color="white">{title}</Common.Title>
           <span className="ml-2 transition duration-300 ease-in-out  group-hover:rotate-180">
             {iconSeta}
           </span>
         </div>
       ) : (
-        <CommonTitle color="white">
+        <Common.Title color="white">
           <a href={`/categorias/${title}`}>{title}</a>
-        </CommonTitle>
+        </Common.Title>
       )}
 
       {isList && (
