@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 'use client'
-import { skins } from '@/mock'
+import { skins } from '@/Mock'
 import { useState } from 'react'
 import CartSkinCard from '../../CartSkinCard'
 

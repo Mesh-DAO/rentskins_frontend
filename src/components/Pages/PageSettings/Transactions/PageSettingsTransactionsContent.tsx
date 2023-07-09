@@ -1,5 +1,5 @@
 import { CommonTitle } from '@/components/Common/CommonTitle'
-import { weaponsMock } from '@/mock/transactions.mock'
+import { weaponsMock } from '@/Mock/transactions.mock'
 import { PageSettingsTransactionsTable } from './PageSettingsTransactionsTable'
 
 export function PageSettingsTransactionsContent() {

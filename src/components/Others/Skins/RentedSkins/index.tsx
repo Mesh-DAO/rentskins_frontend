@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { skins } from '@/mock'
+import { skins } from '@/Mock'
 import { OtherCard } from '../../OtherCard/OtherCard'
 
 interface skin {
