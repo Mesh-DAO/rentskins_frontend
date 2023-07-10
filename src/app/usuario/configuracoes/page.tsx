@@ -1,10 +1,11 @@
 'use client'
 import Common from '@/components/Common'
 import Form from '@/components/Forms'
+import { TypeFormRadioInlineOption } from '@/components/Forms/Input/Radio/FormInputRadioBlock'
 import { IconGear, IconLockedShield, IconPaper } from '@/components/Icons'
 import { PageSettingsInformation } from '@/components/Pages/PageSettings/PageSettingsInformation'
 import { PageSettingsSecurity } from '@/components/Pages/PageSettings/PageSettingsSecurity'
-import { PageSettingsTransactionsContent } from '@/components/Pages/PageSettings/Transactions/PageSettingsTransactionsContent'
+import { PageSettingsTransactionsContent } from '@/components/Pages/PageSettings/PageSettingsTransactions/PageSettingsTransactionsContent'
 import URLQuery from '@/tools/urlquery.tool'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -33,6 +34,26 @@ export default function Settings() {
     router.push(URLQuery.addQuery([{ key: 'type', value }]))
   }
 
+  const renderPageContent = () => {
+    const content = {
+      personal: <PageSettingsInformation />,
+      transactions: <PageSettingsTransactionsContent />,
+      security: <PageSettingsSecurity />,
+    }
+
+    const possibleTypes = ['personal', 'transactions', 'security']
+
+    const index = searchParams.get('type')
+
+    if (possibleTypes.includes(index as string)) {
+      return content[index as 'personal' | 'transactions' | 'security']
+    } else {
+      return (
+        <div className="h-2/3 w-2/3 animate-pulse rounded-lg bg-mesh-color-neutral-500" />
+      )
+    }
+  }
+
   return (
     <div className="flex h-screen justify-center gap-10 bg-mesh-color-others-black px-[7.5rem] pt-8">
       <div className="flex h-min w-max flex-col items-end gap-2">
@@ -46,52 +67,74 @@ export default function Settings() {
               name="settings"
               state={selectedSetting}
               setState={setSelectedSetting}
+              compareChecked={searchParams.get('type') as string}
               onChange={({ target }) => handleOnRadio(target.value)}
               labelClassname="bg-transparent border-none peer-checked:text-mesh-color-primary-1200 peer-checked:bg-mesh-color-neutral-600"
               wrapperClassname="flex flex-col justify-start gap-2"
               containerClassname="w-full"
-              options={[
-                {
-                  label: (
-                    <div className="flex w-full items-center justify-start gap-2">
-                      <IconGear width={20} height={18} />
-                      Informações Pessoais
-                    </div>
-                  ),
-                  labelType: 'node',
-                  value: 'personal',
-                },
-                {
-                  label: (
-                    <div className="flex w-full items-center justify-start gap-2">
-                      <IconPaper width={18} height={18} />
-                      Transações
-                    </div>
-                  ),
-                  labelType: 'node',
-                  value: 'transactions',
-                },
-                {
-                  label: (
-                    <div className="flex w-full items-center justify-start gap-2">
-                      <IconLockedShield width={20} height={20} />
-                      Segurança
-                    </div>
-                  ),
-                  labelType: 'node',
-                  value: 'security',
-                },
-              ]}
+              options={renderRadioButtonOptions(searchParams)}
             />
           </div>
         </div>
       </div>
 
-      {searchParams.get('type') === 'personal' && <PageSettingsInformation />}
-      {searchParams.get('type') === 'transactions' && (
-        <PageSettingsTransactionsContent />
-      )}
-      {searchParams.get('type') === 'security' && <PageSettingsSecurity />}
+      {renderPageContent()}
     </div>
   )
+}
+
+const renderRadioButtonOptions = (searchParams: any) => {
+  const items = [
+    {
+      icon: (
+        <IconGear
+          width={20}
+          height={18}
+          fill={searchParams.get('type') === 'personal' ? '#A6CF2A' : '#A7B0A0'}
+          stroke="#222723"
+        />
+      ),
+      label: 'Informações Pessoais',
+      value: 'personal',
+    },
+    {
+      icon: (
+        <IconPaper
+          width={18}
+          height={18}
+          fill={
+            searchParams.get('type') === 'transactions' ? '#A6CF2A' : '#A7B0A0'
+          }
+          stroke="#222723"
+        />
+      ),
+      label: 'Transações',
+      value: 'transactions',
+    },
+    {
+      icon: (
+        <IconLockedShield
+          width={20}
+          height={20}
+          fill={searchParams.get('type') === 'security' ? '#A6CF2A' : '#A7B0A0'}
+          stroke="#222723"
+        />
+      ),
+      label: 'Segurança',
+      value: 'security',
+    },
+  ]
+
+  return items.map((item) => {
+    return {
+      label: (
+        <div className="flex w-full items-center justify-start gap-2">
+          {item.icon}
+          {item.label}
+        </div>
+      ),
+      labelType: 'node',
+      value: item.value,
+    } as TypeFormRadioInlineOption
+  })
 }
