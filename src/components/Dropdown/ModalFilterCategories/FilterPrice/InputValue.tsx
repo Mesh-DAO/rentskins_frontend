@@ -15,9 +15,9 @@ export default function InputValue({
 }: IProps) {
   return (
     <div className="flex flex-col gap-2">
-      <Title color="white" size="sm">
+      <Common.Title color="white" size="sm">
         {title}
-      </Title>
+      </Common.Title>
       <label className="items flex items-center">
         <div className="absolute ml-2 text-sm font-semibold text-mesh-color-neutral-0 opacity-60">
           R$

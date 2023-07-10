@@ -19,9 +19,9 @@ export default function StandardCheckboxItem({ value, title }: IProps) {
         value={value}
         onChange={({ target: { value } }) => setTypeFilter(value as TTypeSort)}
       />
-      <Title className="w-full rounded p-2 peer-checked:bg-zinc-200 peer-checked:bg-opacity-20">
+      <Common.Title className="w-full rounded p-2 peer-checked:bg-zinc-200 peer-checked:bg-opacity-20">
         {title}
-      </Title>
+      </Common.Title>
     </label>
   )
 }

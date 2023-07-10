@@ -1,13 +1,13 @@
 'use client'
-import { SteamButton } from '@/components/SteamButton'
-import { HeroInformation } from '@/components/HeroInformation'
+import { CommonSteamButton } from '@/components/Common/CommonSteamButton'
 import {
-  IconShield,
-  IconPhone,
-  IconMagnifyingGlass,
   IconDevolution,
+  IconMagnifyingGlass,
+  IconPhone,
+  IconShield,
 } from '@/components/Icons'
-import AllSkins from '@/components/Skins/AllSkins'
+import { HeroInformation } from '@/components/Others/HeroInformation'
+import AllSkins from '@/components/Others/Skins/AllSkins'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
 
@@ -35,7 +35,9 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            {!user.steamid && <SteamButton onClick={() => handleOnSteam()} />}
+            {!user.steamid && (
+              <CommonSteamButton onClick={() => handleOnSteam()} />
+            )}
           </div>
         </div>
         <div className="h-1/5 w-full bg-mesh-color-neutral-800">

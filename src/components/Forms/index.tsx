@@ -1,17 +1,20 @@
-import { FormRoot } from './FormRoot'
 import { FormButton } from './FormButton'
-
-import { FormInputCPF } from './Type/FormInputCPF'
-import { FormInputCard } from './Type/FormInputCard'
-import { FormInputEmail } from './Type/FormInputEmail'
-import { FormInputMonthYear } from './Type/FormInputMonthYear'
-import { FormInputNumber } from './Type/FormInputNumber'
-import { FormInputText } from './Type/FormInputText'
-import { FormInputDate } from './Type/FormInputDate'
-import { FormInputPhone } from './Type/FormInputPhone'
-import { FormInputPostalCode } from './Type/FormInputPostalCode'
 import { FormDropdown } from './FormDropdown'
 import { FormDropzone } from './FormDropzone'
+import { FormRoot } from './FormRoot'
+import { FormInputCPF } from './Input/FormInputCPF'
+import { FormInputCard } from './Input/FormInputCard'
+import { FormInputCheckbox } from './Input/FormInputCheckbox'
+import { FormInputCurrency } from './Input/FormInputCurrency'
+import { FormInputDate } from './Input/FormInputDate'
+import { FormInputEmail } from './Input/FormInputEmail'
+import { FormInputMonthYear } from './Input/FormInputMonthYear'
+import { FormInputNumber } from './Input/FormInputNumber'
+import { FormInputPhone } from './Input/FormInputPhone'
+import { FormInputPostalCode } from './Input/FormInputPostalCode'
+import { FormInputText } from './Input/FormInputText'
+import { FormInputRadioBlock } from './Input/Radio/FormInputRadioBlock'
+import { FormInputRadioInline } from './Input/Radio/FormInputRadioInline'
 
 const Form = {
   Root: FormRoot,
@@ -19,15 +22,21 @@ const Form = {
   Dropdown: FormDropdown,
   Dropzone: FormDropzone,
   Input: {
-    Text: FormInputText,
-    Email: FormInputEmail,
     Card: FormInputCard,
+    Checkbox: FormInputCheckbox,
     CPF: FormInputCPF,
+    Currency: FormInputCurrency,
+    Date: FormInputDate,
+    Email: FormInputEmail,
     MonthYear: FormInputMonthYear,
     Number: FormInputNumber,
-    Date: FormInputDate,
     Phone: FormInputPhone,
     PostalCode: FormInputPostalCode,
+    Radio: {
+      Block: FormInputRadioBlock,
+      Inline: FormInputRadioInline,
+    },
+    Text: FormInputText,
   },
 }
 

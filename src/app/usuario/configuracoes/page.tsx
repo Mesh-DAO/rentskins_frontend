@@ -1,11 +1,8 @@
 'use client'
-import {
-  SettingsInformation,
-  SettingsSecurity,
-  SettingsTransactions,
-} from '@/components/Settings'
-import { SideRadioButton } from '@/components/Settings/SideRadioButton'
-import { Title } from '@/components/Title'
+import Common from '@/components/Common'
+import { PageSettingsInformation } from '@/components/Pages/PageSettings/PageSettingsInformation'
+import { PageSettingsSecurity } from '@/components/Pages/PageSettings/PageSettingsSecurity'
+import { PageSettingsTransactionsContent } from '@/components/Pages/PageSettings/Transactions/PageSettingsTransactionsContent'
 import useComponentStore from '@/stores/components.store'
 
 export default function Settings() {
@@ -15,20 +12,18 @@ export default function Settings() {
       {/* Left Side */}
       <div className="flex h-min w-max flex-col items-end gap-2">
         <div className="flex flex-col items-start gap-6">
-          <Title bold={900} size="2xl" color="white">
+          <Common.Title bold={900} size="2xl" color="white">
             Configurações
-          </Title>
+          </Common.Title>
 
-          <div className="flex flex-col gap-2">
-            <SideRadioButton />
-          </div>
+          <div className="flex flex-col gap-2">{/* <SideRadioButton /> */}</div>
         </div>
       </div>
 
       {/* Right Side */}
-      {settingsIndex === 0 && <SettingsInformation />}
-      {settingsIndex === 1 && <SettingsTransactions />}
-      {settingsIndex === 2 && <SettingsSecurity />}
+      {settingsIndex === 0 && <PageSettingsInformation />}
+      {settingsIndex === 1 && <PageSettingsTransactionsContent />}
+      {settingsIndex === 2 && <PageSettingsSecurity />}
     </div>
   )
 }
