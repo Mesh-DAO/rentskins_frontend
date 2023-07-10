@@ -97,7 +97,17 @@ const renderRadioButtonOptions = (searchParams: any) => {
           stroke="#222723"
         />
       ),
-      label: 'Informações Pessoais',
+      label: (
+        <div
+          className={`${
+            searchParams.get('type') === 'personal'
+              ? 'text-mesh-color-primary-1200'
+              : 'text-mesh-color-neutral-200'
+          }`}
+        >
+          Informações Pessoais
+        </div>
+      ),
       value: 'personal',
     },
     {
@@ -111,7 +121,17 @@ const renderRadioButtonOptions = (searchParams: any) => {
           stroke="#222723"
         />
       ),
-      label: 'Transações',
+      label: (
+        <div
+          className={`${
+            searchParams.get('type') === 'transactions'
+              ? 'text-mesh-color-primary-1200'
+              : 'text-mesh-color-neutral-200'
+          }`}
+        >
+          Transações
+        </div>
+      ),
       value: 'transactions',
     },
     {
@@ -123,7 +143,17 @@ const renderRadioButtonOptions = (searchParams: any) => {
           stroke="#222723"
         />
       ),
-      label: 'Segurança',
+      label: (
+        <div
+          className={`${
+            searchParams.get('type') === 'security'
+              ? 'text-mesh-color-primary-1200'
+              : 'text-mesh-color-neutral-200'
+          }`}
+        >
+          Segurança
+        </div>
+      ),
       value: 'security',
     },
   ]

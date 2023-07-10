@@ -43,7 +43,7 @@ export function TransactionsTable({ data }: IProps) {
     }
   }
 
-  return (
+  return data.length > 0 ? (
     <div>
       {data.map((item, index) => (
         <div
@@ -66,20 +66,20 @@ export function TransactionsTable({ data }: IProps) {
           <div className="group text-start">
             <div
               className="invisible relative -left-8 -top-8 z-20 -mb-[5.5rem] w-fit flex-wrap whitespace-nowrap
-            px-8 py-8 opacity-0
-            transition-all group-hover:visible group-hover:opacity-100"
+           px-8 py-8 opacity-0
+          transition-all group-hover:visible group-hover:opacity-100"
             >
               <p className="rounded-lg bg-mesh-color-neutral-300 px-2 shadow-md">
                 {item.name}
               </p>
             </div>
             <p
-              className={`group w-40 overflow-hidden text-ellipsis text-lg 
-            font-medium ${
-              item.name.includes('StatTrak')
-                ? 'text-mesh-color-secondary-800'
-                : 'text-white'
-            } `}
+              className={`group w-40 overflow-hidden text-ellipsis text-lg
+          font-medium ${
+            item.name.includes('StatTrak')
+              ? 'text-mesh-color-secondary-800'
+              : 'text-white'
+          } `}
             >
               {item.name}
             </p>
@@ -100,6 +100,10 @@ export function TransactionsTable({ data }: IProps) {
           <div className="text-white"> {item.type} </div>
         </div>
       ))}
+    </div>
+  ) : (
+    <div className="flex h-5/6 items-center justify-center text-mesh-color-neutral-400">
+      Histórico de transações vazio.
     </div>
   )
 }
