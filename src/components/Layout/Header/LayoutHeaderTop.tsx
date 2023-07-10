@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import logo from '../../../assets/logo.svg'
+import { LayoutHeaderDropdown } from './LayoutHeaderDropdown'
 
 export function LayoutHeaderTop() {
   const router = useRouter()
@@ -21,12 +22,8 @@ export function LayoutHeaderTop() {
   const id = user.steamid
   const refDropdown = useRef(null)
 
-  // const [username, setUsername] = useState('')
-  // const [picture, setPicture] = useState('')
-
   const [showProfileDropdown, setShowProfileDropdown] = useState(false)
   const [searchItem, setSearchItem] = useState('')
-  // const refDropdown = useRef(null)
 
   const handleOnSteam = () => {
     SteamService.redirect()
@@ -50,7 +47,7 @@ export function LayoutHeaderTop() {
       case 'config':
         return router.push('usuario/configuracoes')
       case 'profile':
-        return console.log('ok')
+        return router.push('perfil')
       case 'logout':
         return setLogout(true)
     }
@@ -92,7 +89,7 @@ export function LayoutHeaderTop() {
           <Form.Input.Text
             state={searchItem}
             setState={setSearchItem}
-            className="bg-mesh-color-neutral-800 pl-3 text-base text-mesh-color-neutral-200 outline-none"
+            className="rounded-lg bg-mesh-color-neutral-800 py-2 pl-3 text-base text-mesh-color-neutral-200"
             placeholder="Pesquise o item..."
           />
         </div>
@@ -129,11 +126,9 @@ export function LayoutHeaderTop() {
               </Link>
               <Link
                 href={`/inventario/${id}`}
-                className="flex items-center gap-2 text-mesh-color-neutral-200"
+                className="flex items-center gap-2 text-mesh-color-neutral-200 opacity-70 transition-all hover:opacity-100"
               >
-                <span>
-                  <IconMira />
-                </span>
+                <IconMira />
                 Inventário
               </Link>
             </nav>
@@ -178,30 +173,10 @@ export function LayoutHeaderTop() {
                 />
               </div>
               {showProfileDropdown && (
-                <div
-                  className="absolute top-20 z-30 flex h-36 w-48 select-none flex-col items-start justify-center gap-2 overflow-hidden
-                  rounded-lg bg-mesh-color-others-eerie-black px-3 py-2"
-                  ref={refDropdown}
-                >
-                  <Common.Button
-                    className="border-none font-semibold text-mesh-color-neutral-200"
-                    onClick={() => handleDropdownButton('config')}
-                  >
-                    Configurações
-                  </Common.Button>
-                  <Common.Button
-                    className="border-none font-semibold text-mesh-color-neutral-200"
-                    onClick={() => handleDropdownButton('profile')}
-                  >
-                    Perfil
-                  </Common.Button>
-                  <Common.Button
-                    className="border-none font-semibold text-mesh-color-neutral-200"
-                    onClick={() => handleDropdownButton('logout')}
-                  >
-                    Sair
-                  </Common.Button>
-                </div>
+                <LayoutHeaderDropdown
+                  refDropdown={refDropdown}
+                  handleDropdownButton={handleDropdownButton}
+                />
               )}
             </div>
           </div>

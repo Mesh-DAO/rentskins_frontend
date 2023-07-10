@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 import create from 'zustand'
 import {
-  PaymentMethodRefound,
   IPaymentRefound,
+  PaymentMethodRefound,
 } from './interfaces/components.interface'
 import { ISkins } from '@/interfaces/ISkins'
 
@@ -13,8 +13,6 @@ interface IStates {
   setPaymentRetrieveIndex: (index: 0 | 1) => void
   paymentWithdrawIndex: 0 | 1 | 2 | 3
   setPaymentWithdrawIndex: (index: 0 | 1 | 2 | 3) => void
-  settingsIndex: 0 | 1 | 2
-  setSettingsIndex: (index: 0 | 1 | 2) => void
   profileTabValue: 'sales' | 'rented'
   setProfileTabValue: (value: 'sales' | 'rented') => void
   refoundGeneralIndex: 0 | 1 | 2 | 3
@@ -43,11 +41,6 @@ const useComponentStore = create<IStates>((set) => ({
   paymentWithdrawIndex: 0,
   setPaymentWithdrawIndex: (index) => {
     set(() => ({ paymentWithdrawIndex: index }))
-  },
-
-  settingsIndex: 0,
-  setSettingsIndex: (index) => {
-    set(() => ({ settingsIndex: index }))
   },
 
   refoundGeneralIndex: 0,
