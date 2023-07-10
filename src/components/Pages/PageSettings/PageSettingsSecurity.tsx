@@ -3,9 +3,8 @@ import { IconAlert } from '@/components/Icons'
 
 export function PageSettingsSecurity() {
   return (
-    <div className="flex w-2/3 flex-col gap-8">
-      {/* Top */}
-      <div className="bg-mesh-neutral-800 rounded-2xl px-4 py-6">
+    <div className="w-2/3">
+      <div className="rounded-2xl bg-mesh-color-neutral-800 px-4 py-6">
         <Common.Title bold={700} size={'2xl'} color="white">
           Segurança
         </Common.Title>
@@ -22,13 +21,11 @@ export function PageSettingsSecurity() {
                 Desativado
               </div>
             </div>
-            <Common.Button className="text-mesh-color-primary-1200 hover:text-mesh-color-primary-1200/50">
-              {' '}
-              Atualizar{' '}
+            <Common.Button className="border-none text-mesh-color-primary-1200 opacity-70 hover:opacity-100">
+              Atualizar
             </Common.Button>
           </div>
 
-          {/* CHANGE COLOR! */}
           <span className="text-base leading-5 text-mesh-color-neutral-200">
             O Steam Guard é um nível extra de segurança para a sua conta Steam.
             Ele evita que pessoal mal intencionadas roubem seus itens e é um
