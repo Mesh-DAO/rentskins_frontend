@@ -43,10 +43,13 @@ export default function Settings() {
 
     const possibleTypes = ['personal', 'transactions', 'security']
 
-    const index = searchParams.get('type')
+    const index = searchParams.get('type') as
+      | 'personal'
+      | 'transactions'
+      | 'security'
 
-    if (possibleTypes.includes(index as string)) {
-      return content[index as 'personal' | 'transactions' | 'security']
+    if (possibleTypes.includes(index)) {
+      return content[index]
     } else {
       return (
         <div className="h-2/3 w-2/3 animate-pulse rounded-lg bg-mesh-color-neutral-500" />
