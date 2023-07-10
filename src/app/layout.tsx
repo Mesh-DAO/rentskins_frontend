@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <QueryClientProvider client={queryClient}>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${inter.className} bg-[#151714]`}>
           <LayoutRoot>{children}</LayoutRoot>
         </body>
       </html>

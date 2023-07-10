@@ -5,7 +5,7 @@ import { TypeFormRadioInlineOption } from '@/components/Forms/Input/Radio/FormIn
 import { IconGear, IconLockedShield, IconPaper } from '@/components/Icons'
 import { PageSettingsInformation } from '@/components/Pages/PageSettings/PageSettingsInformation'
 import { PageSettingsSecurity } from '@/components/Pages/PageSettings/PageSettingsSecurity'
-import { PageSettingsTransactionsContent } from '@/components/Pages/PageSettings/PageSettingsTransactions/PageSettingsTransactionsContent'
+import { PageSettingsTransactions } from '@/components/Pages/PageSettings/PageSettingsTransactions'
 import URLQuery from '@/tools/urlquery.tool'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -37,7 +37,7 @@ export default function Settings() {
   const renderPageContent = () => {
     const content = {
       personal: <PageSettingsInformation />,
-      transactions: <PageSettingsTransactionsContent />,
+      transactions: <PageSettingsTransactions />,
       security: <PageSettingsSecurity />,
     }
 

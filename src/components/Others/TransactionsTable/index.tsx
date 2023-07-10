@@ -15,7 +15,7 @@ interface IProps {
   data: IData[]
 }
 
-export function PageSettingsTransactionsTable({ data }: IProps) {
+export function TransactionsTable({ data }: IProps) {
   const treatStatus = (status: string) => {
     const generateElement = (className: string) => {
       return (
@@ -49,27 +49,32 @@ export function PageSettingsTransactionsTable({ data }: IProps) {
         <div
           key={index}
           className={
-            'mb-4 grid grid-cols-6 items-center rounded-lg py-4 odd:bg-mesh-color-neutral-800 even:bg-mesh-color-neutral-900'
+            'grid grid-cols-6 items-center py-4 last:rounded-b-lg odd:bg-mesh-color-neutral-800 even:bg-mesh-color-neutral-900'
           }
         >
           <div className="flex items-center justify-center">
-            <Image
-              src={item.image}
-              alt="Image"
-              draggable={false}
-              className="w-28"
-            />
+            <div className="flex flex-col items-center justify-between overflow-hidden rounded-md border border-mesh-color-neutral-500 bg-mesh-gradient-black-pattern px-2">
+              <div className="mb-1 h-1.5 w-5/6 rounded-b-2xl bg-green-500" />
+              <Image
+                src={item.image}
+                alt="Image"
+                draggable={false}
+                className="w-28"
+              />
+            </div>
           </div>
           <div className="group text-start">
-            <p
-              className="relative -top-12 -mb-10 w-fit select-none flex-wrap
-            whitespace-nowrap rounded-lg bg-mesh-color-neutral-300 px-2 opacity-0
-            transition-all group-hover:opacity-100"
+            <div
+              className="invisible relative -left-8 -top-8 z-20 -mb-[5.5rem] w-fit flex-wrap whitespace-nowrap
+            px-8 py-8 opacity-0
+            transition-all group-hover:visible group-hover:opacity-100"
             >
-              {item.name}
-            </p>
+              <p className="rounded-lg bg-mesh-color-neutral-300 px-2 shadow-md">
+                {item.name}
+              </p>
+            </div>
             <p
-              className={`group w-52 overflow-hidden text-ellipsis text-lg 
+              className={`group w-40 overflow-hidden text-ellipsis text-lg 
             font-medium ${
               item.name.includes('StatTrak')
                 ? 'text-mesh-color-secondary-800'
@@ -86,7 +91,11 @@ export function PageSettingsTransactionsTable({ data }: IProps) {
           </div>
           {treatStatus(item.status)}
           <div className="text-white">
-            R${item.value.toFixed(2).replace('.', ',')}
+            {item.value.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 2,
+            })}
           </div>
           <div className="text-white"> {item.type} </div>
         </div>
