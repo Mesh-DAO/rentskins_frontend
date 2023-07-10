@@ -13,6 +13,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
   labelSide?: 'up' | 'down'
   labelClassname?: string
+  inputClassname?: string
   containerClassname?: string
   wrapperClassname?: string
   options: TypeItem[]
@@ -27,6 +28,7 @@ export function FormInputRadioBlock({
   labelClassname,
   containerClassname,
   wrapperClassname = 'w-full',
+  inputClassname,
   options,
   state,
   setState,
@@ -38,8 +40,8 @@ export function FormInputRadioBlock({
         type="radio"
         id={'form-radio-block-for' + label + '-' + index}
         name={'form-radio-block-' + name}
-        className="peer w-full appearance-none
-        transition-all checked:bg-mesh-color-primary-1100"
+        className={`peer w-full appearance-none
+        transition-all checked:bg-mesh-color-primary-1100 ${inputClassname}`}
         value={item.value}
         onChange={(event) => setState(event.target.value)}
         defaultChecked={index === 0 && true}
