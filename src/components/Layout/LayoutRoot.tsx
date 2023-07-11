@@ -1,12 +1,17 @@
 'use client'
-import WalletService from '@/services/wallet.service'
+// import Header from './Header'
+// import { Footer } from '../Footer'
+import React, { useEffect } from 'react'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import useUserStore from '@/stores/user.store'
+// import { ModalPayment } from '../Modal'
+// import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
+// import { useQuery } from '@tanstack/react-query'
+// import WalletService from '@/services/wallet.service'
 import Authentication from '@/tools/authentication.tool'
 import LocalStorage from '@/tools/localstorage.tool'
 import URLQuery from '@/tools/urlquery.tool'
-import { useQuery } from '@tanstack/react-query'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import React, { useEffect } from 'react'
+// import { useQuery } from '@tanstack/react-query'
 import { ModalNotificationFilter } from '../Modal/ModalNotification/ModalNotificationFilter'
 import { ModalPaymentMain } from '../Modal/ModalPayment/ModalPaymentMain'
 import { LayoutHeaderBottom } from './Header/LayoutHeaderBottom'
@@ -22,7 +27,7 @@ export function LayoutRoot({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()
-  const { setUser, user, setWallet, logout, setLogout } = useUserStore()
+  const { setUser, logout, setLogout } = useUserStore()
 
   useEffect(() => {
     Authentication.login(params, setUser, router, URLQuery)
@@ -36,28 +41,40 @@ export function LayoutRoot({ children }: Props) {
     }
   }, [logout, setLogout])
 
-  const { data: walletData, isSuccess: walletSuccess } = useQuery({
-    queryKey: ['WalletService.getUserByID'],
-    queryFn: () => WalletService.getUserByID(user.steamid as string),
-    enabled: !!user.steamid,
-  })
+  // const { data: walletData } = useQuery({
+  //   queryKey: ['WalletService.getUserByID'],
+  //   queryFn: () => WalletService.getUserByID(user.steamid as string),
+  //   enabled: !!user.steamid,
+  // })
 
-  const { data: walletDataCreated } = useQuery({
-    queryKey: ['WalletService.createEmptyWallet'],
-    queryFn: () =>
-      WalletService.createEmptyWallet(user.username, user.steamid as string),
-    enabled: !!user.steamid && walletData?.response?.status === 404,
-  })
+  // const { data } = useQuery({
+  //   queryKey: ['WalletService.createEmptyWallet'],
+  //   queryFn: () =>
+  //     WalletService.createEmptyWallet(user.username, user.steamid as string),
+  //   enabled: !!user.steamid && walletData?.response?.status === 404,
+  // })
 
-  useEffect(() => {
-    if (walletData?.data) {
-      setWallet(walletData)
-    } else {
-      if (walletDataCreated?.data) {
-        setWallet(walletDataCreated)
-      }
-    }
-  }, [walletData, setWallet, walletDataCreated, walletSuccess])
+  // useEffect(() => {
+  //   const steamid = params.get('steamid')
+  //   const picture = params.get('picture')
+  //   const username = params.get('username')
+  //   const user = LocalStorage.getUser()
+
+  //   if (user!) {
+  //     setUser({
+  //       username: user.username,
+  //       picture: user.picture,
+  //       steamid: user.steamid,
+  //     })
+  //   }
+  //   if (walletData?.data) {
+  //     setWallet(walletData)
+  //   } else {
+  //     if (walletDataCreated?.data) {
+  //       setWallet(walletDataCreated)
+  //     }
+  //   }
+  // }, [walletData, setWallet, walletDataCreated, walletSuccess])
 
   const modalRender = () => {
     switch (pathname) {

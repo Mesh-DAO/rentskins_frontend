@@ -26,6 +26,10 @@ export function OtherCard({
   skinWeapon,
   itsRent,
 }: Props) {
+  const titleSkinWeapon = (
+    <h1 className="text-sm font-medium opacity-60">{skinWeapon}</h1>
+  )
+
   return (
     <article className="flex w-72 flex-col gap-3 rounded-lg border-2 border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
       <div className="flex flex-col items-center justify-center rounded-lg border-2 border-mesh-color-neutral-400 bg-mesh-gradient-black-pattern">
@@ -44,9 +48,16 @@ export function OtherCard({
         </div>
       </div>
 
-      <h1>{sellerName}</h1>
-      <div className="flex items-center justify-between">
-        <h1 className="text-sm font-medium opacity-60">{skinWeapon}</h1>
+      <div className="flex h-11 flex-col gap-3">
+        <h1>{sellerName}</h1>
+        {sellerName.length < 15 && titleSkinWeapon}
+      </div>
+      <div
+        className={`flex items-center ${
+          sellerName.length < 15 ? 'justify-end' : 'justify-between'
+        }`}
+      >
+        {sellerName.length >= 15 && titleSkinWeapon}
         <div className="flex gap-2">
           {itsRent && (
             <Common.Button color="invisible">

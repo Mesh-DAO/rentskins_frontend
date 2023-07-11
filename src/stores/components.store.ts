@@ -1,8 +1,10 @@
+/* eslint-disable camelcase */
 import create from 'zustand'
 import {
   IPaymentRefound,
   PaymentMethodRefound,
 } from './interfaces/components.interface'
+import { ISkins } from '@/interfaces/ISkins'
 
 interface IStates {
   paymentGeneralIndex: 0 | 1 | 2
@@ -21,6 +23,8 @@ interface IStates {
   setPageSelectorIndex: (index: number) => void
   filterType: 0 | 1 | 2
   setFilterType: (type: 0 | 1 | 2) => void
+  allSkinsCategory: ISkins[] | undefined
+  setAllSkinsCategory: (skins: ISkins[]) => void
 }
 
 const useComponentStore = create<IStates>((set) => ({
@@ -62,6 +66,11 @@ const useComponentStore = create<IStates>((set) => ({
   filterType: 0,
   setFilterType: (type: 0 | 1 | 2) => {
     set(() => ({ filterType: type }))
+  },
+
+  allSkinsCategory: [],
+  setAllSkinsCategory: (skins: ISkins[]) => {
+    set(() => ({ allSkinsCategory: skins }))
   },
 }))
 

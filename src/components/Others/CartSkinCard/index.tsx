@@ -72,7 +72,7 @@ export default function CartSkinCard({
           </Common.Title>
         </div>
       </div>
-      <button
+      <Common.Button
         onClick={handleOnClick}
         className="group flex h-full w-0 items-center
         justify-center rounded-r-xl border-none
@@ -80,7 +80,7 @@ export default function CartSkinCard({
         hover:stroke-mesh-color-rarity-lowest group-hover:w-20 group-hover:bg-mesh-color-others-eerie-black"
       >
         <IconTrash />
-      </button>
+      </Common.Button>
     </section>
   )
 }

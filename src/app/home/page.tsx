@@ -69,7 +69,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto mb-28 mt-16 flex justify-center">
-        <AllSkins itemsPerPage={20} center />
+        <AllSkins skinsCategories={[]} itemsPerPage={20} center />
       </div>
     </main>
   )
