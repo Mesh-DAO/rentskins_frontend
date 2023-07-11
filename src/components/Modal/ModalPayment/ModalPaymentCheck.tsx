@@ -22,7 +22,7 @@ export function ModalPaymentCheck() {
       className="fixed left-1/2 top-1/2 z-30 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2
   rounded-2xl bg-mesh-color-neutral-700"
     >
-      <div className="flex h-full w-full flex-col items-center justify-between pt-8">
+      <div className="flex h-full w-full flex-col items-center pt-8">
         <div className="flex w-11/12 items-center justify-between">
           <Dialog.Title>
             <Common.Title bold={800} size="2xl" color="white">
@@ -71,17 +71,17 @@ export function ModalPaymentCheck() {
           <Image src={Banner} alt="Banner" className="w-1/4 max-w-sm" />
         </div>
 
-        <div className="flex w-11/12 flex-col items-center justify-between">
-          <hr className="mb-6 h-0.5 w-11/12 bg-mesh-color-neutral-200" />
-          <div className="mb-16 flex h-full w-11/12 items-end gap-20 text-xl font-bold">
+        <div className="mb-4 flex h-2/6 w-11/12 flex-col items-center justify-around">
+          <div className="h-0.5 w-full rounded-full bg-mesh-color-neutral-200" />
+          <div className="flex h-1/2 w-full items-end gap-20 text-xl font-bold">
             <Common.Button
-              className="h-10 w-1/2 border-transparent bg-mesh-color-primary-1200"
+              className="h-full w-1/2 border-transparent bg-mesh-color-primary-1200"
               onClick={() => handleButton(1)}
             >
               Recarga
             </Common.Button>
             <Common.Button
-              className="h-10 w-1/2 border-transparent bg-mesh-color-secondary-1200"
+              className="h-full w-1/2 border-transparent bg-mesh-color-secondary-1200"
               onClick={() => handleButton(2)}
             >
               Retirar
