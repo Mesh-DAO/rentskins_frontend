@@ -51,13 +51,20 @@ export function LayoutHeaderTop() {
       case 'logout':
         return setLogout(true)
     }
+
+    // OPCAO DE REFATORACAO COM RETORNO INPLICITO
+    // ({
+    //   config: () => router.push('usuario/configuracoes'),
+    //   profile: () => router.push('perfil'),
+    //   logout: () => setLogout(true),
+    // }[type]())
   }
 
   useEffect(() => {
-    const handleOutsideClick = (event: any) => {
+    const handleOutsideClick = (event: MouseEvent) => {
       if (refDropdown.current) {
-        const reference = refDropdown.current as any
-        if (!reference.contains(event.target)) {
+        const reference = refDropdown.current as HTMLElement
+        if (!reference.contains(event.target as Node)) {
           setShowProfileDropdown(false)
         }
       }

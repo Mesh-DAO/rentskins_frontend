@@ -12,7 +12,7 @@ import { PagePaymentWithdrawPersonal } from '@/components/Pages/PagePayment/Page
 import { PagePaymentWithdrawTransaction } from '@/components/Pages/PagePayment/PagePaymentWithdraw/PagePaymentWithdrawTransaction'
 import useComponentStore from '@/stores/components.store'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function PaymentWithdrawPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -26,7 +26,7 @@ export default function PaymentWithdrawPage() {
     router.push('/')
   }
 
-  const handleOnNext = (event: any) => {
+  const handleOnNext = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     if (paymentWithdrawIndex !== 3) {

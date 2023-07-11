@@ -5,7 +5,7 @@ import useFilterStore from '@/stores/filters.store'
 import URLQuery from '@/tools/urlquery.tool'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { SetStateAction, useEffect, useState } from 'react'
+import { ChangeEvent, SetStateAction, useEffect, useState } from 'react'
 
 export function ModalNotificationFilter() {
   const { notificationFilter, setNotificationFilter } = useFilterStore()
@@ -35,8 +35,8 @@ export function ModalNotificationFilter() {
     router.push(URLQuery.removeQuery(['modalopen', 'modaltype']))
   }
 
-  const handleOnChangeFilter = ({ target }: any) => {
-    setSelectedFilter(target.value)
+  const handleOnChangeFilter = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedFilter(event.target.value)
   }
 
   const handleOnApplyFilter = (apply: boolean = true) => {

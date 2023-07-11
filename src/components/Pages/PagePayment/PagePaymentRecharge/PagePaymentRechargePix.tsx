@@ -5,10 +5,10 @@ import Form from '@/components/Forms'
 import { LayoutLoading } from '@/components/Layout/LayoutLoading'
 import usePaymentStore from '@/stores/payment.store'
 import Image from 'next/image'
-import { MouseEventHandler, useState } from 'react'
+import React, { MouseEventHandler, useState } from 'react'
 
 interface IProps {
-  handleFormSubmit: MouseEventHandler
+  handleFormSubmit: React.FormEventHandler<HTMLFormElement>
   handleFormCancel: MouseEventHandler
 }
 
@@ -79,7 +79,6 @@ export function PagePaymentRechargePix({
         <div className="flex flex-col gap-4 text-xl font-semibold">
           <Common.Button
             type="submit"
-            onClick={handleFormSubmit}
             className="h-12 w-full border-transparent"
             color="green"
           >
@@ -98,7 +97,10 @@ export function PagePaymentRechargePix({
   )
 
   const renderStepOne = (
-    <Form.Root className="my-8 flex w-full flex-col gap-4">
+    <Form.Root
+      className="my-8 flex w-full flex-col gap-4"
+      onSubmit={handleFormSubmit}
+    >
       <Form.Input.Text
         label="Nome"
         placeholder="Nome Completo"

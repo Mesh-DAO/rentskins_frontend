@@ -18,8 +18,8 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   containerClassname?: string
   wrapperClassname?: string
   options: TypeFormRadioInlineOption[]
-  state: any
-  setState: any
+  state: string
+  setState: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function FormInputRadioBlock({

@@ -1,10 +1,10 @@
 'use client'
 import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
-import { MouseEventHandler, useState } from 'react'
+import React, { MouseEventHandler, useState } from 'react'
 
 interface IProps {
-  handleFormSubmit: MouseEventHandler
+  handleFormSubmit: React.FormEventHandler<HTMLFormElement>
   handleFormCancel: MouseEventHandler
 }
 
@@ -27,7 +27,7 @@ export function PagePaymentRechargeTicket({
   }
 
   return (
-    <Form.Root className="my-8 flex flex-col gap-4">
+    <Form.Root className="my-8 flex flex-col gap-4" onSubmit={handleFormSubmit}>
       <Form.Input.Text
         label="Nome"
         placeholder="Nome Completo"
@@ -69,7 +69,6 @@ export function PagePaymentRechargeTicket({
             type="submit"
             buttonStyle="full"
             disabled={validateForm()}
-            onClick={handleFormSubmit}
           >
             Pagar
           </Form.Button>

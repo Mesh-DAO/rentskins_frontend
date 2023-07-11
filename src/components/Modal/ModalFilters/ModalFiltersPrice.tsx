@@ -42,7 +42,7 @@ function InputValue({ title }: IProps) {
           R$
         </div>
         <Form.Input.Currency
-          state={null}
+          state={''}
           setState={() => {}}
           className="h-10 w-full rounded bg-mesh-color-neutral-900 pl-8 text-white outline-none active:border-mesh-color-primary-700"
         />
