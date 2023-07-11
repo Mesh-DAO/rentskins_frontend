@@ -58,7 +58,7 @@ export function FormInputRadioBlock({
       />
       <label
         htmlFor={'form-radio-block-for' + name + '-' + index}
-        className={`${labelClassname} flex w-full cursor-pointer select-none items-center justify-center rounded-md 
+        className={`${labelClassname} flex h-full w-full cursor-pointer select-none items-center justify-center rounded-md 
           border-2 border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-lg font-semibold text-mesh-color-neutral-200
           transition-all duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600
           peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white peer-disabled:cursor-default

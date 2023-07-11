@@ -1,4 +1,9 @@
-export type TypeMethod = 'mastercard' | 'pix' | 'ticket'
+export type TypeMethod =
+  | 'mastercard'
+  | 'pix'
+  | 'ticket'
+  | 'paypal'
+  | 'banktransfer'
 
 export interface IPayment {
   value?: number
@@ -38,8 +43,8 @@ export interface IWithdrawInfo {
 export interface IStates {
   paymentAdd: IPayment
   setPaymentAdd: (paymentAdd: IPayment) => void
-  paymentRetrieve: { method: TypeMethod }
-  setPaymentRetrieve: (paymentRetrieve: { method: TypeMethod }) => void
+  paymentRetrieve: IPayment
+  setPaymentRetrieve: (paymentRetrieve: IPayment) => void
   paymentWithdrawInfo: IWithdrawInfo
   setPaymentWithdrawInfo: (paymentWithdrawInfo: IWithdrawInfo) => void
 }

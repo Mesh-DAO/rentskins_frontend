@@ -3,10 +3,12 @@ import { options } from '../options'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   showCurrencySign?: boolean
+  enableDefault?: boolean
   currencySign?: string
   label?: string
   labelSide?: 'up' | 'down'
   labelClassName?: string
+  currencyClassname?: string
   limit?: number
   inputClassName?: string
   state: any
@@ -15,10 +17,12 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export function FormInputCurrency({
   showCurrencySign = true,
+  enableDefault = true,
   currencySign = 'R$',
   label,
   labelSide = 'up',
-  labelClassName,
+  labelClassName = 'text-white',
+  currencyClassname,
   limit = 0,
   inputClassName,
   state,
@@ -45,11 +49,13 @@ export function FormInputCurrency({
   }
 
   return (
-    <label className={`${labelClassName} flex flex-col text-lg text-white`}>
+    <label className={`${labelClassName} flex flex-col text-lg`}>
       {label && labelSide === 'up' && label}
       <div className="flex items-center">
         {showCurrencySign && (
-          <text className="absolute ml-4 select-none font-semibold text-mesh-color-neutral-400">
+          <text
+            className={`${currencyClassname} absolute ml-4 select-none font-semibold text-mesh-color-neutral-400`}
+          >
             {currencySign}
           </text>
         )}
@@ -58,7 +64,9 @@ export function FormInputCurrency({
           step="any"
           onChange={({ target }) => setState(formatInput(target.value))}
           value={state}
-          className={`${inputClassName} pl-12 ${options.input.className}`}
+          className={`${inputClassName} pl-12 ${
+            enableDefault && options.input.className
+          }`}
           {...rest}
         />
       </div>
