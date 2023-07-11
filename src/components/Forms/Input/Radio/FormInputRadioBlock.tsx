@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from 'next/image'
-import React, { InputHTMLAttributes } from 'react'
+import React, { Dispatch, InputHTMLAttributes, SetStateAction } from 'react'
 
 export type TypeFormRadioInlineOption = {
   label: string | number | StaticImageData | React.ReactNode
@@ -19,8 +19,8 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   containerClassname?: string
   wrapperClassname?: string
   options: TypeFormRadioInlineOption[]
-  state: string
-  setState: React.Dispatch<React.SetStateAction<string>>
+  state: string | number
+  setState: Dispatch<SetStateAction<number>> | Dispatch<SetStateAction<string>>
 }
 
 export function FormInputRadioBlock({
@@ -47,7 +47,7 @@ export function FormInputRadioBlock({
         className={`peer w-full appearance-none
         transition-all checked:bg-mesh-color-primary-1100 ${inputClassname}`}
         value={item.value}
-        onChange={(event) => setState(event.target.value)}
+        onChange={({ target: {value}}) => setState(value as SetStateAction<number> & SetStateAction<string>)}
         defaultChecked={
           compareChecked !== '' && compareChecked === item.value
             ? true

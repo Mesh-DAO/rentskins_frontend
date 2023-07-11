@@ -8,7 +8,7 @@ import { IconShield } from '@/components/Icons'
 import useComponentStore from '@/stores/components.store'
 import usePaymentStore from '@/stores/payment.store'
 import Image, { StaticImageData } from 'next/image'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 
 export function ModalPaymentRetrieveSelection() {
   const { setPaymentRetrieveIndex } = useComponentStore()
@@ -87,7 +87,7 @@ export function ModalPaymentRetrieveSelection() {
         <Form.Input.Radio.Block
           name="payment-recharge-method"
           state={selectedMethod}
-          setState={setSelectedMethod}
+          setState={setSelectedMethod as Dispatch<SetStateAction<string>>}
           containerClassname="flex gap-2 mt-4"
           wrapperClassname="h-28 w-48"
           imageClassname="w-20"
