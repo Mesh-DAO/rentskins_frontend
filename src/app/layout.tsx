@@ -14,12 +14,12 @@ export default function RootLayout({
   // eslint-disable-next-line no-undef
   children: React.ReactNode
 }) {
+  console.log('Made with 💙 by Mesh LABS team: https://www.meshlabs.site.')
   return (
     <QueryClientProvider client={queryClient}>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${inter.className} bg-[#151714]`}>
           <LayoutRoot>{children}</LayoutRoot>
-          {children}
         </body>
       </html>
     </QueryClientProvider>
