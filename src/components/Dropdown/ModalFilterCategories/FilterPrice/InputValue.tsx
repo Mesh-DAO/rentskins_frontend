@@ -1,4 +1,4 @@
-import { Title } from '@/components/Title'
+import Common from '@/components/Common'
 
 interface IProps {
   title: string

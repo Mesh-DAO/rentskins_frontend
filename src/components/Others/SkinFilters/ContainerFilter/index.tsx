@@ -1,6 +1,7 @@
 'use client'
 import { IconSetaType } from '@/components/Icons'
 import ModalFiltersMain from '@/components/Modal/ModalFilters/ModalFiltersMain'
+import Common from '@/components/Common'
 
 interface IProps {
   title: 'Preço' | 'Desgaste' | 'Categoria' | 'Padrão'

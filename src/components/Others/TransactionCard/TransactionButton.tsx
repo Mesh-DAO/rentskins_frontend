@@ -1,5 +1,6 @@
 import { ModalNotificationPopup } from '@/components/Modal/ModalNotification/ModalNotificationPopup'
 import { ButtonHTMLAttributes, ElementType } from 'react'
+import Common from '@/components/Common'
 
 type ModalType = {
   action: 'accept' | 'decline'
@@ -31,7 +32,6 @@ export function TransactionButton({
       activator={
         <Common.Button
           onClick={onClick}
-          {...rest}
           className={`w-full rounded-md px-4 py-2 opacity-60 transition-all hover:opacity-100 ${
             buttonStyle === 'full' &&
             'border border-mesh-color-primary-1200 bg-mesh-color-primary-1200 font-semibold text-mesh-color-others-black'
@@ -48,7 +48,7 @@ export function TransactionButton({
   )
 
   const withoutModal = (
-    <Common.Button onClick={onClick} {...rest}>
+    <Common.Button onClick={onClick}>
       {text}
       {Icon && <Icon />}
     </Common.Button>

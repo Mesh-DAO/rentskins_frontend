@@ -1,4 +1,4 @@
-import { Title } from '@/components/Title'
+import Common from '@/components/Common'
 import useFilterStore from '@/stores/filters.store'
 import { TTypeSort } from '@/stores/interfaces/filters.interface'
 

@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable camelcase */
 import Common from '@/components/Common'
