@@ -1,4 +1,8 @@
+import Mastercard from '@/../public/payment/mastercard.png'
+import PIX from '@/../public/payment/pix.png'
+import Ticket from '@/../public/payment/ticket.png'
 import Common from '@/components/Common'
+import Form from '@/components/Forms'
 import { IconClose } from '@/components/Icons/IconClose'
 import { IconMoneyBag } from '@/components/Icons/IconMoneyBag'
 import { LayoutLoading } from '@/components/Layout/LayoutLoading'
@@ -12,7 +16,10 @@ export function ModalPaymentAdd() {
   const router = useRouter()
   const { paymentAdd, setPaymentAdd } = usePaymentStore()
   const [isLoading, setIsLoading] = useState(false)
-  const [valueAmount, setValueAmount] = useState<undefined | number>(undefined)
+  const [selectedValue, setSelectedValue] = useState<undefined | number>(5)
+  const [selectedMethod, setSelectedMethod] = useState('mastercard')
+
+  console.log(selectedValue)
 
   // const handleMethodChange = (event: any) => {
   //   setPaymentAdd({ method: event.target.value, value: paymentAdd.value })
@@ -32,9 +39,9 @@ export function ModalPaymentAdd() {
   const handleOnDeposit = () => {
     setIsLoading(true)
 
-    if (valueAmount !== undefined) {
-      if (Number(valueAmount) > 0) {
-        setPaymentAdd({ ...paymentAdd, value: valueAmount })
+    if (selectedValue !== undefined) {
+      if (Number(selectedValue) > 0) {
+        setPaymentAdd({ ...paymentAdd, value: Number(selectedValue) })
       }
     }
 
@@ -56,16 +63,20 @@ rounded-2xl bg-mesh-color-neutral-700"
           >
             Selecione a forma de pagamento
           </Common.Title>
-          {/* <InputRadioMethodArray
-            items={[
-              { name: 'mastercard', icon: ImageMastercard },
-              { name: 'pix', icon: ImagePix },
-              { name: 'boleto', icon: ImageTicket },
+
+          <Form.Input.Radio.Block
+            state={selectedMethod}
+            setState={setSelectedMethod}
+            name="payment-add-method"
+            labelClassname="h-24"
+            containerClassname="mt-8 grid grid-cols-2 gap-2"
+            imageClassname="w-20"
+            options={[
+              { label: Mastercard, value: 'mastercard', labelType: 'image' },
+              { label: PIX, value: 'pix', labelType: 'image' },
+              { label: Ticket, value: 'ticket', labelType: 'image' },
             ]}
-            hasGrid
-            disabled={isLoading}
-            handleOnClick={(event) => handleMethodChange(event)}
-          /> */}
+          />
         </div>
         <LayoutLoading label="Processando..." enabled={isLoading}>
           <div className="flex h-full w-3/4 flex-col items-center justify-start">
@@ -94,7 +105,7 @@ rounded-2xl bg-mesh-color-neutral-700"
                     <div className="-mt-8 w-full">
                       <span
                         className={`relative left-3 top-1/2 text-lg font-semibold transition-all ${
-                          valueAmount !== undefined ? '' : 'text-transparent'
+                          selectedValue !== undefined ? '' : 'text-transparent'
                         }`}
                       >
                         R$
@@ -102,34 +113,41 @@ rounded-2xl bg-mesh-color-neutral-700"
                       <input
                         type="number"
                         min={0}
-                        value={valueAmount?.toFixed(2)}
+                        value={Number(selectedValue)?.toFixed(2)}
                         onChange={(event) =>
-                          setValueAmount(Number(event.target.value))
+                          setSelectedValue(Number(event.target.value))
                         }
-                        className={`my-2 w-full rounded-md bg-mesh-color-neutral-600
+                        className={`my-2 w-full rounded-md bg-mesh-color-neutral-500
                         px-3 py-4 outline-mesh-color-primary-600 transition-all ${
-                          valueAmount !== undefined ? 'pl-10' : 'pl-4'
+                          selectedValue !== undefined ? 'pl-10' : 'pl-4'
                         } text-white
                         placeholder:text-mesh-color-neutral-100 focus:placeholder:text-transparent`}
                         placeholder="R$ 0,00"
                       />
                     </div>
                   </label>
-                  {/* <InputRadioValueArray
-                    className="grid grid-cols-2"
-                    handleOnClick={handleValueChange}
-                    disabled={isLoading}
-                    items={[
-                      { label: 'R$ 5,00', value: 5 },
-                      { label: 'R$ 10,00', value: 10 },
-                      { label: 'R$ 25,00', value: 25 },
-                      { label: 'R$ 50,00', value: 50 },
-                      { label: 'R$ 100,00', value: 100 },
-                      { label: 'R$ 200,00', value: 200 },
-                      { label: 'R$ 500,00', value: 500 },
-                      { label: 'R$ 1.000,00', value: 1000 },
+                  <Form.Input.Radio.Block
+                    state={selectedValue}
+                    setState={setSelectedValue}
+                    name="payment-add-value"
+                    labelClassname="h-16"
+                    containerClassname="mt-8 grid grid-cols-2 gap-2"
+                    imageClassname="w-20"
+                    options={[
+                      { label: 'R$ 5,00', value: 5, labelType: 'string' },
+                      { label: 'R$ 10,00', value: 10, labelType: 'string' },
+                      { label: 'R$ 25,00', value: 25, labelType: 'string' },
+                      { label: 'R$ 50,00', value: 50, labelType: 'string' },
+                      { label: 'R$ 100,00', value: 100, labelType: 'string' },
+                      { label: 'R$ 200,00', value: 200, labelType: 'string' },
+                      { label: 'R$ 500,00', value: 500, labelType: 'string' },
+                      {
+                        label: 'R$ 1.000,00',
+                        value: 1000,
+                        labelType: 'string',
+                      },
                     ]}
-                  /> */}
+                  />
                 </div>
                 <div className="w-1/3 self-center">
                   <IconMoneyBag />
@@ -166,7 +184,8 @@ rounded-2xl bg-mesh-color-neutral-700"
                 </span>
                 <Common.Button
                   onClick={() => handleOnDeposit()}
-                  className="h-16 w-1/2 border-transparent bg-mesh-color-primary-1200 text-xl font-extrabold"
+                  disabled={Number(selectedValue) <= 0}
+                  className="h-16 w-1/2 border-transparent bg-mesh-color-primary-1200 text-xl font-extrabold transition-all disabled:bg-mesh-color-neutral-500 disabled:text-mesh-color-neutral-400"
                 >
                   Depositar
                 </Common.Button>

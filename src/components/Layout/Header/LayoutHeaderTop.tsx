@@ -81,9 +81,9 @@ export function LayoutHeaderTop() {
         </Link>
 
         <div className="flex items-center rounded-[12px] bg-mesh-color-neutral-800">
-          <button
+          <Common.Button
             disabled={searchItem.length <= 0}
-            className={`stroke-mesh-color-neutral-200 pl-3 transition-all ${
+            className={`border-none stroke-mesh-color-neutral-200 pl-3 transition-all ${
               searchItem.length > 0 ? 'opacity-100' : 'opacity-30'
             }`}
           >
@@ -92,7 +92,7 @@ export function LayoutHeaderTop() {
               width={searchItem.length > 0 ? 25 : 20}
               height={searchItem.length > 0 ? 25 : 20}
             />
-          </button>
+          </Common.Button>
           <Form.Input.Text
             state={searchItem}
             setState={setSearchItem}
