@@ -1,8 +1,8 @@
 import IconCart from '@/assets/Cart'
-import IconEye from '@/assets/Eye'
 import IconSteam from '@/assets/IconSteam'
 import Common from '@/components/Common'
 import IconMagic from '@/components/Icons/IconMagicpen'
+import { IconOlho } from '@/components/Icons/IconOlho'
 import Image from 'next/image'
 import Link from 'next/link'
 import ColoredLine from '../ColoredLine'
@@ -68,12 +68,16 @@ export function OtherCard({
             <IconSteam />
           </Common.Button>
           <Common.Button color="invisible" className="h-9 w-9">
-            <IconEye />
+            <IconOlho />
           </Common.Button>
         </div>
       </div>
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">R$: {skinPrice}</h1>
+        <h1 className="text-lg font-semibold">{Number(skinPrice).toLocaleString('pt-br', {
+          currency: 'BRL',
+          style: 'currency',
+          minimumFractionDigits: 2,
+        })}</h1>
         <h1>
           <strong>FT / </strong>
           <span className="opacity-60">{skinFloat}</span>

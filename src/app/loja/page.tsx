@@ -5,6 +5,7 @@ import Common from '@/components/Common'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
 import SkinFilters from '@/components/Others/SkinFilters'
 import AllSkins from '@/components/Others/Skins/AllSkins'
+import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 import SkinService from '@/services/skin.service'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
@@ -51,7 +52,18 @@ export default function Categorias() {
           </Common.Title>
         </Link>
         <SkinFilters />
-        <AllSkins itemsPerPage={15} skinsCategories={setSearchFilter()}/>
+        {isLoading ? (
+          <AllSkeletonSkins />
+        ) : setSearchFilter().length > 0 ? (
+          <AllSkins
+            skinsCategories={setSearchFilter()}
+            itemsPerPage={15}
+          />
+        ) : (
+          <div className='h-[50vh] mb-16 flex items-center justify-center'>
+            <Common.Title bold={600} className='text-mesh-color-neutral-200 text-2xl'>Não foi encontrado nenhuma skin relacionado à <span className='text-mesh-color-primary-1200'>{nameCorrection}<span className='text-mesh-color-neutral-200'>.</span></span></Common.Title>
+          </div>
+        )}
       </div>
     </div>
   )
