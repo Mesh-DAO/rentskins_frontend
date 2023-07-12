@@ -30,7 +30,7 @@ export function LayoutHeaderTop() {
 
   useEffect(() => {
     const token = LocalStorage.get('token')
-    
+
     if (token) {
       const userObject = JsonWebToken.verify(token) as IUser
       setUser(userObject)
@@ -39,7 +39,7 @@ export function LayoutHeaderTop() {
 
   const { data: walletRetrieved } = useQuery({
     queryKey: ['WalletService.getWalletById'],
-    queryFn: () => WalletService. getWalletBySteamID(user?.steamid as string),
+    queryFn: () => WalletService.getWalletBySteamID(user?.steamid as string),
     enabled: !!user?.steamid,
   })
 
@@ -86,12 +86,12 @@ export function LayoutHeaderTop() {
     )
   }
 
-  const handleDropdownButton = (index: 'config' | 'profile' | 'logout') => ({
+  const handleDropdownButton = (index: 'config' | 'profile' | 'logout') =>
+    ({
       config: () => router.push('usuario/configuracoes'),
       profile: () => router.push('perfil'),
       logout: () => setLogout(true),
-    }[index]()
-  )
+    }[index]())
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -114,7 +114,10 @@ export function LayoutHeaderTop() {
         </Link>
 
         <div className="flex items-center rounded-[12px] bg-mesh-color-neutral-800">
-          <Form.Root className='flex' onSubmit={(event) => handleOnSearch(event)}>
+          <Form.Root
+            className="flex"
+            onSubmit={(event) => handleOnSearch(event)}
+          >
             <Common.Button
               disabled={searchQuery.length <= 0}
               className={`border-none stroke-mesh-color-neutral-200 pl-3 transition-all ${

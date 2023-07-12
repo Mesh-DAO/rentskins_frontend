@@ -13,12 +13,12 @@ import SkinService from '@/services/skin.service'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
 import { useQuery } from '@tanstack/react-query'
-  
+
 export default function Home() {
   const { user } = useUserStore()
   const { data, isLoading } = useQuery({
     queryKey: ['allSkins'],
-    queryFn: () => SkinService.findByAll()
+    queryFn: () => SkinService.findByAll(),
   })
 
   const handleOnSteam = () => {
@@ -76,13 +76,10 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto mb-28 flex w-4/5">
-      {isLoading ? (
+        {isLoading ? (
           <AllSkeletonSkins quantitySkeletons={1} />
         ) : (
-          <AllSkins
-            skinsCategories={data?.data}
-            itemsPerPage={15}
-          />
+          <AllSkins skinsCategories={data?.data} itemsPerPage={15} />
         )}
       </div>
     </main>

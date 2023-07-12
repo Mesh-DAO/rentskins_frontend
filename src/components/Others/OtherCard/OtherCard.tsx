@@ -73,11 +73,13 @@ export function OtherCard({
         </div>
       </div>
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">{Number(skinPrice).toLocaleString('pt-br', {
-          currency: 'BRL',
-          style: 'currency',
-          minimumFractionDigits: 2,
-        })}</h1>
+        <h1 className="text-lg font-semibold">
+          {Number(skinPrice).toLocaleString('pt-br', {
+            currency: 'BRL',
+            style: 'currency',
+            minimumFractionDigits: 2,
+          })}
+        </h1>
         <h1>
           <strong>FT / </strong>
           <span className="opacity-60">{skinFloat}</span>
