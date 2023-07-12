@@ -44,17 +44,17 @@ export default function SkinFilters() {
           </Common.Button>
         )}
       </div>
-      <div className="relative z-10 flex cursor-pointer items-center">
-        <ModalFiltersMain
-          activator={
+      <ModalFiltersMain
+        activator={
+          <div className="relative z-10 flex cursor-pointer items-center">
             <Common.Button className="flex cursor-pointer items-center gap-2 border-none text-white">
               <IconFilter />
               Padrão
             </Common.Button>
-          }
-          child="Padrão"
-        />
-      </div>
+          </div>
+        }
+        child="Padrão"
+      />
     </div>
   )
 }

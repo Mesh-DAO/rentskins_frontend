@@ -8,14 +8,22 @@ import {
 } from '@/components/Icons'
 import { HeroInformation } from '@/components/Others/HeroInformation'
 import AllSkins from '@/components/Others/Skins/AllSkins'
+import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 import { IUser } from '@/interfaces/user.interface'
+import { findByAll } from '@/services/SkinService'
 import SteamService from '@/services/steam.service'
 import JsonWebToken from '@/tools/jsonwebtoken.tool'
 import LocalStorage from '@/tools/localstorage.tool'
+import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
-
+  
 export default function Home() {
   const [user, setUser] = useState<null | IUser>()
+  const { data, isLoading } = useQuery({
+    queryKey: ['allSkins'],
+    queryFn: () => findByAll()
+  })
+
   const handleOnSteam = () => {
     SteamService.redirect()
   }
@@ -79,8 +87,15 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mx-auto mb-28 mt-16 flex justify-center">
-        <AllSkins skinsCategories={[]} itemsPerPage={20} center />
+      <div className="mx-auto mb-28 flex w-4/5">
+      {isLoading ? (
+          <AllSkeletonSkins quantitySkeletons={1} />
+        ) : (
+          <AllSkins
+            skinsCategories={data?.data}
+            itemsPerPage={15}
+          />
+        )}
       </div>
     </main>
   )
