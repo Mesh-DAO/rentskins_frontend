@@ -9,16 +9,13 @@ import {
 import { HeroInformation } from '@/components/Others/HeroInformation'
 import AllSkins from '@/components/Others/Skins/AllSkins'
 import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
-import { IUser } from '@/interfaces/user.interface'
 import { findByAll } from '@/services/SkinService'
 import SteamService from '@/services/steam.service'
-import JsonWebToken from '@/tools/jsonwebtoken.tool'
-import LocalStorage from '@/tools/localstorage.tool'
+import useUserStore from '@/stores/user.store'
 import { useQuery } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
   
 export default function Home() {
-  const [user, setUser] = useState<null | IUser>()
+  const { user } = useUserStore()
   const { data, isLoading } = useQuery({
     queryKey: ['allSkins'],
     queryFn: () => findByAll()
@@ -27,15 +24,6 @@ export default function Home() {
   const handleOnSteam = () => {
     SteamService.redirect()
   }
-
-  useEffect(() => {
-    const token = LocalStorage.get('token')
-
-    if (token) {
-      const userObject = JsonWebToken.verify(token) as IUser
-      setUser(userObject as IUser)
-    }
-  }, [])
 
   return (
     <main className="h-full">

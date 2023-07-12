@@ -22,8 +22,7 @@ import { LayoutHeaderDropdown } from './LayoutHeaderDropdown'
 
 export function LayoutHeaderTop() {
   const router = useRouter()
-  const { setLogout } = useUserStore()
-  const [user, setUser] = useState<null | IUser>()
+  const { user, setUser, setLogout } = useUserStore()
 
   useEffect(() => {
     const token = LocalStorage.get('token')

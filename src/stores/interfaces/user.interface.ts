@@ -1,3 +1,5 @@
+import { IUser } from "@/interfaces/user.interface"
+
 export interface IWalletUser {
   data?: {
     id?: string
@@ -11,6 +13,9 @@ export interface IWalletUser {
 }
 
 export interface IStates {
+  user: IUser
+  setUser: (user: IUser) => void
+
   wallet: IWalletUser
   setWallet: (wallet: IWalletUser) => void
 
