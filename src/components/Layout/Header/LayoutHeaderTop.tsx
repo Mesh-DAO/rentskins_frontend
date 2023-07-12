@@ -23,6 +23,7 @@ import { LayoutHeaderDropdown } from './LayoutHeaderDropdown'
 export function LayoutHeaderTop() {
   const router = useRouter()
   const { user, setUser, setLogout } = useUserStore()
+  const [walletValue, setWalletValue] = useState()
 
   useEffect(() => {
     const token = LocalStorage.get('token')
@@ -35,7 +36,7 @@ export function LayoutHeaderTop() {
 
   const { data: walletRetrieved } = useQuery({
     queryKey: ['WalletService.getWalletById'],
-    queryFn: () => WalletService.getWalletBySteamID(user?.steamid as string),
+    queryFn: () => WalletService. getWalletBySteamID(user?.steamid as string),
     enabled: !!user?.steamid,
   })
 
@@ -51,6 +52,14 @@ export function LayoutHeaderTop() {
       walletRetrieved.response &&
       walletRetrieved.response.status === 404,
   })
+
+  useEffect(() => {
+    if (walletRetrieved && walletRetrieved.data) {
+      setWalletValue(walletRetrieved.data.value)
+    } else if (walletCreated && walletCreated.data) {
+      setWalletValue(walletCreated.data.value)
+    }
+  }, [walletRetrieved, walletCreated])
 
   const refDropdown = useRef(null)
 
@@ -162,8 +171,8 @@ export function LayoutHeaderTop() {
             </nav>
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
               <Common.Title bold={500} color="white">
-                {walletRetrieved !== undefined ? (
-                  Number(walletRetrieved.data.value).toLocaleString('pt-br', {
+                {walletValue !== undefined && walletValue !== null ? (
+                  Number(walletValue).toLocaleString('pt-br', {
                     currency: 'BRL',
                     style: 'currency',
                     minimumFractionDigits: 2,
