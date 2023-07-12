@@ -15,11 +15,12 @@ export default class WalletService {
   public static async createEmptyWallet(username: string, steamid: string) {
     const user = await this.getWalletBySteamID(steamid)
 
+    console.log(user)
+
     if (!user.data) {
-      return Api.post('/wallet', {
+      return Api.post('/v1/wallet', {
         owner_name: username,
         owner_id: steamid,
-        value: '0',
       })
         .then(() => this.getWalletBySteamID(steamid))
         .catch((e) => e)
@@ -36,7 +37,7 @@ export default class WalletService {
     const user = await this.getWalletBySteamID(steamid)
 
     if (user) {
-      return Api.patch(`/wallet/${user.data.id}`, {
+      return Api.patch(`/v1/wallet/${user.data.id}`, {
         owner_name: username,
         owner_id: steamid,
         value,
@@ -48,7 +49,7 @@ export default class WalletService {
     const user = await this.getWalletBySteamID(steamid)
 
     if (user) {
-      return Api.delete(`/wallet/${user.data.id}`)
+      return Api.delete(`/v1/wallet/${user.data.id}`)
     }
   }
 }
