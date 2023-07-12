@@ -88,14 +88,6 @@ export default function Categorias() {
             <Common.Title bold={600} className='text-mesh-color-neutral-200 text-2xl'>Não foi encontrado nenhuma skin relacionado à <span className='text-mesh-color-primary-1200'>{nameCorrection}</span></Common.Title>
           </div>
         )}
-        {/* {isLoading ? (
-          <AllSkeletonSkins />
-        ) : (
-          <AllSkins
-            skinsCategories={filteredSkins || allSkinsFiltred}
-            itemsPerPage={15}
-          />
-        )} */}
       </div>
     </div>
   )
