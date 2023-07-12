@@ -19,17 +19,34 @@ import { LayoutHeaderRoot } from './Header/LayoutHeaderRoot'
 import { LayoutHeaderTop } from './Header/LayoutHeaderTop'
 import { LayoutFooter } from './LayoutFooter'
 
-type Props = {
+type IProps = {
   children: React.ReactNode
+  wallet: any
 }
 
-export function LayoutRoot({ children }: Props) {
+// export const getStaticProps = async () => {
+//   const { steamid } = JsonWebToken.verify(LocalStorage.get('token')) as IUser
+//   console.log('ok')
+
+//   if (steamid) {
+//     const data = await WalletService.getUserBySteamID(steamid)
+
+//     return {
+//       props: {
+//         wallet: data,
+//       },
+//     }
+//   }
+// }
+
+export function LayoutRoot({ children, wallet }: IProps) {
   const params = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()
   const { logout, setLogout } = useUserStore()
 
   useEffect(() => {
+    console.log(wallet)
     Authentication.login(params, router, URLQuery)
   }, [params, router])
 
