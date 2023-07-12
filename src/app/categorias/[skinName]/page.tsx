@@ -5,14 +5,14 @@ import Common from '@/components/Common'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
 import SkinFilters from '@/components/Others/SkinFilters'
 import AllSkins from '@/components/Others/Skins/AllSkins'
+import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
+import { ISkins } from '@/interfaces/ISkins'
+import SkinService from '@/services/skin.service'
+import useComponentStore from '@/stores/components.store'
+import useFilterStore from '@/stores/filters.store'
+import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { findAllSkinsByWeapon } from '@/services/SkinService'
-import { useQuery } from '@tanstack/react-query'
-import useComponentStore from '@/stores/components.store'
-import { ISkins } from '@/interfaces/ISkins'
-import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
-import useFilterStore from '@/stores/filters.store'
 import { useEffect, useState } from 'react'
 
 export default function Categorias() {
@@ -27,7 +27,7 @@ export default function Categorias() {
   const { data, isLoading } = useQuery({
     queryKey: ['skinsCategory'],
     queryFn: async () => {
-      const data = await findAllSkinsByWeapon(nameCorrection)
+      const data = await SkinService.findAllSkinsByWeapon(nameCorrection)
       setAllSkinsCategory(data?.data as ISkins[])
       return data
     },
@@ -78,11 +78,24 @@ export default function Categorias() {
         <SkinFilters />
         {isLoading ? (
           <AllSkeletonSkins />
-        ) : (
+        ) : filteredSkins.length > 0 || allSkinsFiltred.length > 0 ? (
           <AllSkins
             skinsCategories={filteredSkins || allSkinsFiltred}
             itemsPerPage={15}
           />
+        ) : (
+          <div className="mb-16 flex h-[50vh] items-center justify-center">
+            <Common.Title
+              bold={600}
+              className="text-2xl text-mesh-color-neutral-200"
+            >
+              Não foi encontrado nenhuma skin relacionado à{' '}
+              <span className="text-mesh-color-primary-1200">
+                {nameCorrection}
+                <span className="text-mesh-color-neutral-200">.</span>
+              </span>
+            </Common.Title>
+          </div>
         )}
       </div>
     </div>

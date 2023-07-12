@@ -8,7 +8,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   inputClassName?: string
   checked?: boolean
   state: string
-   setState: React.Dispatch<React.SetStateAction<string>>
+  setState: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function FormInputCheckbox({

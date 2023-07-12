@@ -1,10 +1,10 @@
 'use client'
-import useFilterStore from '@/stores/filters.store'
-import IconFilter from '@/components/Icons/IconFilter'
 import Common from '@/components/Common'
-import ContainerFilter from './ContainerFilter'
-import { useEffect, useState } from 'react'
+import IconFilter from '@/components/Icons/IconFilter'
 import ModalFiltersMain from '@/components/Modal/ModalFilters/ModalFiltersMain'
+import useFilterStore from '@/stores/filters.store'
+import { useEffect, useState } from 'react'
+import ContainerFilter from './ContainerFilter'
 
 export default function SkinFilters() {
   const {

@@ -1,4 +1,4 @@
-import React, { Dispatch, InputHTMLAttributes, SetStateAction } from 'react'
+import { Dispatch, InputHTMLAttributes, SetStateAction } from 'react'
 import { options } from '../options'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -62,7 +62,12 @@ export function FormInputCurrency({
         <input
           type="text"
           step="any"
-          onChange={({ target: {value} }) => setState(formatInput(value) as SetStateAction<string> & SetStateAction<number>)}
+          onChange={({ target: { value } }) =>
+            setState(
+              formatInput(value) as SetStateAction<string> &
+                SetStateAction<number>,
+            )
+          }
           value={state}
           className={`${inputClassName} pl-12 ${
             enableDefault && options.input.className

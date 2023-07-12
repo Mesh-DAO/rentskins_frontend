@@ -13,7 +13,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   labelClassname?: string
   options: TypeItem[]
   state: string
-   setState: React.Dispatch<React.SetStateAction<string>>
+  setState: React.Dispatch<React.SetStateAction<string>>
   className?: string
   default: InputHTMLAttributes<HTMLInputElement>
 }

@@ -27,13 +27,17 @@ export default function ModalFiltersCategory() {
           Categoria
         </Common.Title>
         <div className="flex w-full items-center gap-5">
-          <InputCheckbox setValues={setCategories} values={categories} inputValues={['Adesivos', 'StatTrak']} />
+          <InputCheckbox
+            setValues={setCategories}
+            values={categories}
+            inputValues={['Adesivos', 'StatTrak']}
+          />
         </div>
       </div>
       <div className="flex justify-end gap-3">
         <Common.Button
           onClick={() => {
-          cleanSelectedFilters({ ...selectedFilters, categories: [] })
+            cleanSelectedFilters({ ...selectedFilters, categories: [] })
             setCheckedInputCheckbox(null)
           }}
           className="h-11 w-32 font-bold text-white"

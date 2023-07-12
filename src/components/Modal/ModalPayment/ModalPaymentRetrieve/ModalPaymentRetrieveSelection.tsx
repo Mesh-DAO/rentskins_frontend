@@ -8,7 +8,7 @@ import { IconShield } from '@/components/Icons'
 import useComponentStore from '@/stores/components.store'
 import usePaymentStore from '@/stores/payment.store'
 import Image, { StaticImageData } from 'next/image'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { useState } from 'react'
 
 export function ModalPaymentRetrieveSelection() {
   const { setPaymentRetrieveIndex } = useComponentStore()

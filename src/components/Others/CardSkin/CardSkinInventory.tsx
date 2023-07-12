@@ -1,13 +1,13 @@
 /* eslint-disable camelcase */
 import Common from '@/components/Common'
 import { ModalSkinShowcaseMain } from '@/components/Modal/ModalSkinShowcase/ModalSkinShowcaseMain'
-import { findBySkinsInventory } from '@/services/SkinService'
+import { ITagsData } from '@/interfaces/IInventoryDescription'
+import { ISkinInventory } from '@/interfaces/IInventorySkin'
+import SkinService from '@/services/skin.service'
 import useFilterStore from '@/stores/filters.store'
 import { useQuery } from '@tanstack/react-query'
 import { CardSkin } from '.'
 import ColoredLine from '../ColoredLine'
-import { ITagsData } from '@/interfaces/IInventoryDescription'
-import { ISkinInventory } from '@/interfaces/IInventorySkin'
 
 interface Props {
   steamid: string
@@ -17,7 +17,7 @@ export function CardSkinInventory({ steamid }: Props) {
   const { inventoryFilter } = useFilterStore()
   const { data, isLoading } = useQuery({
     queryKey: ['skinsInventory'],
-    queryFn: async () => findBySkinsInventory(steamid),
+    queryFn: async () => SkinService.findBySkinsInventory(steamid),
   })
 
   const applyFilter = () => {

@@ -8,7 +8,7 @@ import { PageDetailsCard } from '@/components/Pages/PageDetails/PageDetailsCard'
 import { PageDetailsPerfil } from '@/components/Pages/PageDetails/PageDetailsPerfil'
 import { PageDetailsSkin } from '@/components/Pages/PageDetails/PageDetailsSkin'
 import { PageDetailsVendas } from '@/components/Pages/PageDetails/PageDetailsVendas'
-import { findById, findByWeapon } from '@/services/SkinService'
+import SkinService from '@/services/skin.service'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -18,14 +18,14 @@ export default function Details() {
 
   const { data, isLoading } = useQuery({
     queryKey: ['skin', id],
-    queryFn: async () => await findById(id),
+    queryFn: async () => await SkinService.findById(id),
   })
 
   const weaponName = data?.data[0].skin_weapon
 
   const { data: data2 } = useQuery({
     queryKey: ['weapon', weaponName],
-    queryFn: async () => await findByWeapon(weaponName),
+    queryFn: async () => await SkinService.findByWeapon(weaponName),
   })
 
   return (

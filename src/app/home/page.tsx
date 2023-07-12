@@ -9,16 +9,16 @@ import {
 import { HeroInformation } from '@/components/Others/HeroInformation'
 import AllSkins from '@/components/Others/Skins/AllSkins'
 import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
-import { findByAll } from '@/services/SkinService'
+import SkinService from '@/services/skin.service'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
 import { useQuery } from '@tanstack/react-query'
-  
+
 export default function Home() {
   const { user } = useUserStore()
   const { data, isLoading } = useQuery({
     queryKey: ['allSkins'],
-    queryFn: () => findByAll()
+    queryFn: () => SkinService.findByAll(),
   })
 
   const handleOnSteam = () => {
@@ -42,7 +42,7 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            {user !== null && user?.steamid && (
+            {!user.steamid && (
               <CommonSteamButton onClick={() => handleOnSteam()} />
             )}
           </div>
@@ -76,13 +76,10 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto mb-28 flex w-4/5">
-      {isLoading ? (
+        {isLoading ? (
           <AllSkeletonSkins quantitySkeletons={1} />
         ) : (
-          <AllSkins
-            skinsCategories={data?.data}
-            itemsPerPage={15}
-          />
+          <AllSkins skinsCategories={data?.data} itemsPerPage={15} />
         )}
       </div>
     </main>
