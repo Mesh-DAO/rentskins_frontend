@@ -1,10 +1,10 @@
 import Common from '@/components/Common'
 import Form from '@/components/Forms'
 import usePaymentStore from '@/stores/payment.store'
-import { MouseEventHandler, useEffect, useState } from 'react'
+import React, { MouseEventHandler, useEffect, useState } from 'react'
 
 interface IProps {
-  handleFormSubmit: MouseEventHandler
+  handleFormSubmit: React.FormEventHandler<HTMLFormElement>
   handleFormCancel: MouseEventHandler
 }
 
@@ -47,7 +47,10 @@ export function PagePaymentWithdrawPersonal({
         Informações Pessoais
       </Common.Title>
 
-      <Form.Root className="mt-6 flex flex-col gap-4">
+      <Form.Root
+        className="mt-6 flex flex-col gap-4"
+        onSubmit={handleFormSubmit}
+      >
         <Form.Input.CPF
           label="CPF"
           placeholder="000.000.000-00"
@@ -98,7 +101,6 @@ export function PagePaymentWithdrawPersonal({
               buttonStyle="full"
               type="submit"
               className="h-12 w-full border-transparent"
-              onClick={handleFormSubmit}
               disabled={validateForm()}
             >
               Continuar

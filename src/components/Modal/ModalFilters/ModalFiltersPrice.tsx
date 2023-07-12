@@ -1,6 +1,7 @@
 'use client'
 import Common from '@/components/Common'
 import Form from '@/components/Forms'
+import { useState } from 'react'
 
 export default function ModalFiltersPrice() {
   return (
@@ -32,6 +33,7 @@ interface IProps {
 }
 
 function InputValue({ title }: IProps) {
+  const [value, setValue] = useState('')
   return (
     <div className="flex flex-col gap-2">
       <Common.Title color="white" size="sm">
@@ -42,8 +44,8 @@ function InputValue({ title }: IProps) {
           R$
         </div>
         <Form.Input.Currency
-          state={null}
-          setState={() => {}}
+          state={value}
+          setState={setValue}
           className="h-10 w-full rounded bg-mesh-color-neutral-900 pl-8 text-white outline-none active:border-mesh-color-primary-700"
         />
       </div>

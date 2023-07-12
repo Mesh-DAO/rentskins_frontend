@@ -44,11 +44,16 @@ export function ModalConnectInventoryForm() {
     }
   }
 
-  async function onSubmit(data: any) {
+  async function onSubmit(data: {
+    email: string
+    linkTrade: string
+    promo: boolean | undefined
+    termos: boolean | undefined
+  }) {
     const { email, linkTrade, promo, termos } = data
 
     if (steamid) {
-      await create(email, linkTrade, promo, termos)
+      await create(email, linkTrade, promo!, termos!)
       toast.success('Configuração criada')
       window.location.reload()
     } else {

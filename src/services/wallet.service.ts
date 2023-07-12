@@ -3,11 +3,11 @@ import { IWalletUser } from './interfaces/wallet.interface'
 
 export default class WalletService {
   public static getAllUsers() {
-    return Api.get<IWalletUser[]>('/v1/wallet')
+    return Api.get<IWalletUser[]>('/wallet')
   }
 
   public static async getUserByID(steamid: string) {
-    return Api.get<IWalletUser | boolean>(`/v1/wallet/user/${steamid}`)
+    return Api.get<IWalletUser | boolean>(`/wallet/user/${steamid}`)
       .then((response) => response)
       .catch((e) => e)
   }
@@ -18,7 +18,7 @@ export default class WalletService {
     console.log(user)
 
     if (!user.data) {
-      return Api.post('/v1/wallet', {
+      return Api.post('/wallet', {
         owner_name: username,
         owner_id: steamid,
         value: '0',
@@ -38,7 +38,7 @@ export default class WalletService {
     const user = await this.getUserByID(steamid)
 
     if (user) {
-      return Api.patch(`/v1/wallet/${user.data.id}`, {
+      return Api.patch(`/wallet/${user.data.id}`, {
         owner_name: username,
         owner_id: steamid,
         value,
@@ -50,7 +50,7 @@ export default class WalletService {
     const user = await this.getUserByID(steamid)
 
     if (user) {
-      return Api.delete(`/v1/wallet/${user.data.id}`)
+      return Api.delete(`/wallet/${user.data.id}`)
     }
   }
 }

@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import { options } from '../options'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -7,8 +7,8 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   labelClassName?: string
   inputClassName?: string
   checked?: boolean
-  state: any
-  setState: any
+  state: string
+   setState: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function FormInputCheckbox({

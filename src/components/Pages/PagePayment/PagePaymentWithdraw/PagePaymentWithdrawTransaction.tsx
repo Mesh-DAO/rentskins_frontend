@@ -2,10 +2,10 @@ import Common from '@/components/Common'
 import Form from '@/components/Forms'
 import { FormDropdown } from '@/components/Forms/FormDropdown'
 import usePaymentStore from '@/stores/payment.store'
-import { MouseEventHandler, useEffect, useState } from 'react'
+import React, { MouseEventHandler, useEffect, useState } from 'react'
 
 interface IProps {
-  handleFormSubmit: MouseEventHandler
+  handleFormSubmit: React.FormEventHandler<HTMLFormElement>
   handleFormCancel: MouseEventHandler
 }
 export function PagePaymentWithdrawTransaction({
@@ -88,7 +88,10 @@ export function PagePaymentWithdrawTransaction({
         seu CPF.
       </text>
 
-      <Form.Root className="mt-6 flex flex-col gap-4">
+      <Form.Root
+        className="mt-6 flex flex-col gap-4"
+        onSubmit={handleFormSubmit}
+      >
         <FormDropdown
           label="Banco"
           state={bank}
@@ -152,7 +155,6 @@ export function PagePaymentWithdrawTransaction({
               buttonStyle="full"
               type="submit"
               className="h-12 w-full border-transparent"
-              onClick={handleFormSubmit}
               disabled={validateForm()}
             >
               Continuar

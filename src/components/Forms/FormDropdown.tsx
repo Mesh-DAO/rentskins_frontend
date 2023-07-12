@@ -14,8 +14,8 @@ interface IProps extends SelectHTMLAttributes<HTMLSelectElement> {
   iconColor?: string
   inputClassName?: string
   options: TypeItem[]
-  state: any
-  setState: any
+  state: string
+  setState: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function FormDropdown({

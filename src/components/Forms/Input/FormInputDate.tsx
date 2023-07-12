@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import { options } from '../options'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -6,8 +6,8 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   labelSide?: 'up' | 'down'
   labelClassName?: string
   inputClassName?: string
-  state: any
-  setState: any
+  state: string
+   setState: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function FormInputDate({

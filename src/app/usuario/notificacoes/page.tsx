@@ -8,7 +8,7 @@ import useFilterStore from '@/stores/filters.store'
 import URLQuery from '@/tools/urlquery.tool'
 import Aos from 'aos'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 
 export default function NotificationPage() {
   const { notificationFilter } = useFilterStore()
@@ -32,8 +32,9 @@ export default function NotificationPage() {
     }
   }, [searchParams, router])
 
-  const handleOnRadio = ({ target }: any) => {
-    router.push(URLQuery.addQuery([{ key: 'type', value: target.value }]))
+  const handleOnRadio = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target
+    router.push(URLQuery.addQuery([{ key: 'type', value }]))
   }
 
   const handleOnFilter = () => {
@@ -59,7 +60,7 @@ export default function NotificationPage() {
               className="peer appearance-none"
               defaultChecked={searchParams.get('type') === 'transactions'}
               value={'transactions'}
-              onClick={(event) => handleOnRadio(event)}
+              onChange={(event) => handleOnRadio(event)}
             />
             <span className="text-xl font-semibold text-white/50 transition-all peer-checked:text-white">
               Transações
@@ -73,7 +74,7 @@ export default function NotificationPage() {
               className="peer"
               defaultChecked={searchParams.get('type') === 'historic'}
               value={'historic'}
-              onClick={(event) => handleOnRadio(event)}
+              onChange={(event) => handleOnRadio(event)}
             />
             <span className="text-xl font-semibold text-white/50 transition-all peer-checked:text-white">
               Histórico
