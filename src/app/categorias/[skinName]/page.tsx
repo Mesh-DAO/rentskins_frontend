@@ -84,8 +84,17 @@ export default function Categorias() {
             itemsPerPage={15}
           />
         ) : (
-          <div className='h-[50vh] mb-16 flex items-center justify-center'>
-            <Common.Title bold={600} className='text-mesh-color-neutral-200 text-2xl'>Não foi encontrado nenhuma skin relacionado à <span className='text-mesh-color-primary-1200'>{nameCorrection}<span className='text-mesh-color-neutral-200'>.</span></span></Common.Title>
+          <div className="mb-16 flex h-[50vh] items-center justify-center">
+            <Common.Title
+              bold={600}
+              className="text-2xl text-mesh-color-neutral-200"
+            >
+              Não foi encontrado nenhuma skin relacionado à{' '}
+              <span className="text-mesh-color-primary-1200">
+                {nameCorrection}
+                <span className="text-mesh-color-neutral-200">.</span>
+              </span>
+            </Common.Title>
           </div>
         )}
       </div>

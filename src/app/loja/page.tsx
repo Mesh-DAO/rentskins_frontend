@@ -10,13 +10,11 @@ import SkinService from '@/services/skin.service'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useState } from 'react'
 
 export default function Categorias() {
   const searchParams = useSearchParams()
   const search = searchParams.get('search') || ''
   const nameCorrection = decodeURIComponent(search.replace(/\+/g, ' '))
-  const [skins, setSkins] = useState([])
 
   const { data, isLoading } = useQuery({
     queryKey: ['skinsCategory'],
@@ -33,7 +31,10 @@ export default function Categorias() {
           return true
         }
 
-        if (skin.skin_weapon.toLowerCase().includes(search.toLowerCase()) || skin.skin_name.toLowerCase().includes(search.toLowerCase())) {
+        if (
+          skin.skin_weapon.toLowerCase().includes(search.toLowerCase()) ||
+          skin.skin_name.toLowerCase().includes(search.toLowerCase())
+        ) {
           return true
         }
 
@@ -55,13 +56,19 @@ export default function Categorias() {
         {isLoading ? (
           <AllSkeletonSkins />
         ) : setSearchFilter().length > 0 ? (
-          <AllSkins
-            skinsCategories={setSearchFilter()}
-            itemsPerPage={15}
-          />
+          <AllSkins skinsCategories={setSearchFilter()} itemsPerPage={15} />
         ) : (
-          <div className='h-[50vh] mb-16 flex items-center justify-center'>
-            <Common.Title bold={600} className='text-mesh-color-neutral-200 text-2xl'>Não foi encontrado nenhuma skin relacionado à <span className='text-mesh-color-primary-1200'>{nameCorrection}<span className='text-mesh-color-neutral-200'>.</span></span></Common.Title>
+          <div className="mb-16 flex h-[50vh] items-center justify-center">
+            <Common.Title
+              bold={600}
+              className="text-2xl text-mesh-color-neutral-200"
+            >
+              Não foi encontrado nenhuma skin relacionado à{' '}
+              <span className="text-mesh-color-primary-1200">
+                {nameCorrection}
+                <span className="text-mesh-color-neutral-200">.</span>
+              </span>
+            </Common.Title>
           </div>
         )}
       </div>
