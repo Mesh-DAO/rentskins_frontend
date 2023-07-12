@@ -5,8 +5,11 @@ import { IconCarrinho, IconSearch, IconSteam } from '@/components/Icons'
 import { IconCruz } from '@/components/Icons/IconCruz'
 import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
+import { IUser } from '@/interfaces/user.interface'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
+import JsonWebToken from '@/tools/jsonwebtoken.tool'
+import LocalStorage from '@/tools/localstorage.tool'
 import URLQuery from '@/tools/urlquery.tool'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,9 +20,14 @@ import { LayoutHeaderDropdown } from './LayoutHeaderDropdown'
 
 export function LayoutHeaderTop() {
   const router = useRouter()
-  const { user, wallet, setLogout } = useUserStore()
+  const { wallet, setLogout } = useUserStore()
+  const [user, setUser] = useState<null | IUser>()
 
-  const id = user.steamid
+  useEffect(() => {
+    const userObject = JsonWebToken.verify(LocalStorage.get('token')) as IUser
+    setUser(userObject)
+  }, [])
+
   const refDropdown = useRef(null)
 
   const [showProfileDropdown, setShowProfileDropdown] = useState(false)
@@ -95,7 +103,7 @@ export function LayoutHeaderTop() {
         </div>
       </div>
       {/* ---------------- RIGHT ----------------------- */}
-      {!user.steamid ? (
+      {user === null || !user?.steamid ? (
         <div className="flex space-x-4">
           <Link
             href={'/carrinho'}
@@ -125,7 +133,7 @@ export function LayoutHeaderTop() {
                 Carrinho
               </Link>
               <Link
-                href={`/inventario/${id}`}
+                href={`/inventario/${user !== null && user?.steamid}`}
                 className="flex items-center gap-2 text-mesh-color-neutral-200 opacity-70 transition-all hover:opacity-100"
               >
                 <IconMira />
@@ -158,16 +166,17 @@ export function LayoutHeaderTop() {
             <div className="flex items-end justify-center">
               <div
                 className={`${
-                  !user.picture &&
+                  user !== null &&
+                  user?.picture &&
                   'flex h-[44px] w-[44px] cursor-pointer items-center justify-center rounded-full bg-[#e4e6e7]'
                 }`}
               >
                 <Image
-                  src={user.picture || BlankUser}
-                  alt={user.username}
+                  src={user?.picture || BlankUser}
+                  alt={user?.username || 'Profile'}
                   className="cursor-pointer rounded-full"
-                  width={user.picture ? 44 : 32}
-                  height={user.picture ? 44 : 32}
+                  width={user?.picture ? 44 : 32}
+                  height={user?.picture ? 44 : 32}
                   draggable={false}
                   onClick={handleOnProfileClick}
                 />

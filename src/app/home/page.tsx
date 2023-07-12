@@ -8,15 +8,22 @@ import {
 } from '@/components/Icons'
 import { HeroInformation } from '@/components/Others/HeroInformation'
 import AllSkins from '@/components/Others/Skins/AllSkins'
+import { IUser } from '@/interfaces/user.interface'
 import SteamService from '@/services/steam.service'
-import useUserStore from '@/stores/user.store'
+import JsonWebToken from '@/tools/jsonwebtoken.tool'
+import LocalStorage from '@/tools/localstorage.tool'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
-  const { user } = useUserStore()
-
+  const [user, setUser] = useState<null | IUser>()
   const handleOnSteam = () => {
     SteamService.redirect()
   }
+
+  useEffect(() => {
+    const userObject = JsonWebToken.verify(LocalStorage.get('token')) as IUser
+    setUser(userObject as IUser)
+  }, [])
 
   return (
     <main className="h-full">
@@ -35,7 +42,7 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            {!user.steamid && (
+            {user !== null && user?.steamid && (
               <CommonSteamButton onClick={() => handleOnSteam()} />
             )}
           </div>

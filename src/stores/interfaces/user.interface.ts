@@ -1,9 +1,3 @@
-export interface IUser {
-  steamid: string | number
-  username: string
-  picture: string
-}
-
 export interface IWalletUser {
   data?: {
     id?: string
@@ -17,9 +11,6 @@ export interface IWalletUser {
 }
 
 export interface IStates {
-  user: IUser
-  setUser: (user: IUser) => void
-
   wallet: IWalletUser
   setWallet: (wallet: IWalletUser) => void
 

@@ -1,9 +1,9 @@
 'use client'
 // import Header from './Header'
 // import { Footer } from '../Footer'
-import React, { useEffect } from 'react'
-import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import useUserStore from '@/stores/user.store'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import React, { useEffect } from 'react'
 // import { ModalPayment } from '../Modal'
 // import { ModalNotificationFilter } from '../Modal/ModalNotification/index.filter'
 // import { useQuery } from '@tanstack/react-query'
@@ -27,11 +27,11 @@ export function LayoutRoot({ children }: Props) {
   const params = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()
-  const { setUser, logout, setLogout } = useUserStore()
+  const { logout, setLogout } = useUserStore()
 
   useEffect(() => {
-    Authentication.login(params, setUser, router, URLQuery)
-  }, [setUser, params, router])
+    Authentication.login(params, router, URLQuery)
+  }, [params, router])
 
   useEffect(() => {
     if (logout) {
