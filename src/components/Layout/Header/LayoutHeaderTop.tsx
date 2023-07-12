@@ -27,12 +27,12 @@ export function LayoutHeaderTop() {
 
   useEffect(() => {
     const token = LocalStorage.get('token')
-
+    
     if (token) {
       const userObject = JsonWebToken.verify(token) as IUser
       setUser(userObject)
     }
-  }, [])
+  }, [LocalStorage.get('token')])
 
   const { data: walletRetrieved } = useQuery({
     queryKey: ['WalletService.getWalletById'],
