@@ -13,7 +13,7 @@ import { findByAll } from '@/services/SkinService'
 import SteamService from '@/services/steam.service'
 import useUserStore from '@/stores/user.store'
 import { useQuery } from '@tanstack/react-query'
-
+  
 export default function Home() {
   const { user } = useUserStore()
   const { data, isLoading } = useQuery({
@@ -42,7 +42,7 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            {!user.steamid && (
+            {user !== null && user?.steamid && (
               <CommonSteamButton onClick={() => handleOnSteam()} />
             )}
           </div>

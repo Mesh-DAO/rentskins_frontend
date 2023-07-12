@@ -2,20 +2,18 @@ import { Api } from '@/providers'
 import { IWalletUser } from './interfaces/wallet.interface'
 
 export default class WalletService {
-  public static getAllUsers() {
-    return Api.get<IWalletUser[]>('/wallet')
+  public static getAllWallets() {
+    return Api.get<IWalletUser[]>('/v1/wallet')
   }
 
-  public static async getUserByID(steamid: string) {
-    return Api.get<IWalletUser | boolean>(`/wallet/user/${steamid}`)
+  public static async getWalletBySteamID(steamid: string) {
+    return Api.get<IWalletUser | boolean>(`/v1/wallet/user/${steamid}`)
       .then((response) => response)
       .catch((e) => e)
   }
 
   public static async createEmptyWallet(username: string, steamid: string) {
-    const user = await this.getUserByID(steamid)
-
-    console.log(user)
+    const user = await this.getWalletBySteamID(steamid)
 
     if (!user.data) {
       return Api.post('/wallet', {
@@ -23,7 +21,7 @@ export default class WalletService {
         owner_id: steamid,
         value: '0',
       })
-        .then(() => this.getUserByID(steamid))
+        .then(() => this.getWalletBySteamID(steamid))
         .catch((e) => e)
     } else {
       return { message: 'User wallet already exists' }
@@ -35,7 +33,7 @@ export default class WalletService {
     steamid: string,
     value: string | number,
   ) {
-    const user = await this.getUserByID(steamid)
+    const user = await this.getWalletBySteamID(steamid)
 
     if (user) {
       return Api.patch(`/wallet/${user.data.id}`, {
@@ -47,7 +45,7 @@ export default class WalletService {
   }
 
   public static async deleteWallet(steamid: string) {
-    const user = await this.getUserByID(steamid)
+    const user = await this.getWalletBySteamID(steamid)
 
     if (user) {
       return Api.delete(`/wallet/${user.data.id}`)

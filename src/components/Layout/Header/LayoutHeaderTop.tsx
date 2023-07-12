@@ -5,9 +5,14 @@ import { IconCarrinho, IconSearch, IconSteam } from '@/components/Icons'
 import { IconCruz } from '@/components/Icons/IconCruz'
 import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
+import { IUser } from '@/interfaces/user.interface'
 import SteamService from '@/services/steam.service'
+import WalletService from '@/services/wallet.service'
 import useUserStore from '@/stores/user.store'
+import JsonWebToken from '@/tools/jsonwebtoken.tool'
+import LocalStorage from '@/tools/localstorage.tool'
 import URLQuery from '@/tools/urlquery.tool'
+import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -17,9 +22,36 @@ import { LayoutHeaderDropdown } from './LayoutHeaderDropdown'
 
 export function LayoutHeaderTop() {
   const router = useRouter()
-  const { user, wallet, setLogout } = useUserStore()
+  const { user, setUser, setLogout } = useUserStore()
 
-  const id = user.steamid
+  useEffect(() => {
+    const token = LocalStorage.get('token')
+    
+    if (token) {
+      const userObject = JsonWebToken.verify(token) as IUser
+      setUser(userObject)
+    }
+  }, [LocalStorage.get('token')])
+
+  const { data: walletRetrieved } = useQuery({
+    queryKey: ['WalletService.getWalletById'],
+    queryFn: () => WalletService.getWalletBySteamID(user?.steamid as string),
+    enabled: !!user?.steamid,
+  })
+
+  const { data: walletCreated } = useQuery({
+    queryKey: ['WalletService.createEmptyWallet'],
+    queryFn: () =>
+      WalletService.createEmptyWallet(
+        user?.username as string,
+        user?.steamid as string,
+      ),
+    enabled:
+      walletRetrieved !== undefined &&
+      walletRetrieved.response &&
+      walletRetrieved.response.status === 404,
+  })
+
   const refDropdown = useRef(null)
 
   const [showProfileDropdown, setShowProfileDropdown] = useState(false)
@@ -42,23 +74,12 @@ export function LayoutHeaderTop() {
     )
   }
 
-  const handleDropdownButton = (type: 'config' | 'profile' | 'logout') => {
-    switch (type) {
-      case 'config':
-        return router.push('usuario/configuracoes')
-      case 'profile':
-        return router.push('perfil')
-      case 'logout':
-        return setLogout(true)
-    }
-
-    // OPCAO DE REFATORACAO COM RETORNO INPLICITO
-    // ({
-    //   config: () => router.push('usuario/configuracoes'),
-    //   profile: () => router.push('perfil'),
-    //   logout: () => setLogout(true),
-    // }[type]())
-  }
+  const handleDropdownButton = (index: 'config' | 'profile' | 'logout') => ({
+      config: () => router.push('usuario/configuracoes'),
+      profile: () => router.push('perfil'),
+      logout: () => setLogout(true),
+    }[index]()
+  )
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -102,7 +123,7 @@ export function LayoutHeaderTop() {
         </div>
       </div>
       {/* ---------------- RIGHT ----------------------- */}
-      {!user.steamid ? (
+      {user === null || !user?.steamid ? (
         <div className="flex space-x-4">
           <Link
             href={'/carrinho'}
@@ -132,7 +153,7 @@ export function LayoutHeaderTop() {
                 Carrinho
               </Link>
               <Link
-                href={`/inventario/${id}`}
+                href={`/inventario/${user !== null && user?.steamid}`}
                 className="flex items-center gap-2 text-mesh-color-neutral-200 opacity-70 transition-all hover:opacity-100"
               >
                 <IconMira />
@@ -141,7 +162,19 @@ export function LayoutHeaderTop() {
             </nav>
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
               <Common.Title bold={500} color="white">
-                {wallet.data?.value || 'R$ 0,00'}
+                {walletRetrieved !== undefined ? (
+                  Number(walletRetrieved.data.value).toLocaleString('pt-br', {
+                    currency: 'BRL',
+                    style: 'currency',
+                    minimumFractionDigits: 2,
+                  })
+                ) : (
+                  <div className="flex h-4 items-end gap-1">
+                    <div className="h-1 w-1 animate-[bounce_1s_infinite_0ms] rounded-full bg-mesh-color-neutral-200" />
+                    <div className="h-1 w-1 animate-[bounce_1s_infinite_100ms] rounded-full bg-mesh-color-neutral-200" />
+                    <div className="h-1 w-1 animate-[bounce_1s_infinite_200ms] rounded-full bg-mesh-color-neutral-200" />
+                  </div>
+                )}
               </Common.Title>
               <Common.Button
                 className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"
@@ -165,16 +198,17 @@ export function LayoutHeaderTop() {
             <div className="flex items-end justify-center">
               <div
                 className={`${
-                  !user.picture &&
+                  user !== null &&
+                  user?.picture &&
                   'flex h-[44px] w-[44px] cursor-pointer items-center justify-center rounded-full bg-[#e4e6e7]'
                 }`}
               >
                 <Image
-                  src={user.picture || BlankUser}
-                  alt={user.username}
+                  src={user?.picture || BlankUser}
+                  alt={user?.username || 'Profile'}
                   className="cursor-pointer rounded-full"
-                  width={user.picture ? 44 : 32}
-                  height={user.picture ? 44 : 32}
+                  width={user?.picture ? 44 : 32}
+                  height={user?.picture ? 44 : 32}
                   draggable={false}
                   onClick={handleOnProfileClick}
                 />
