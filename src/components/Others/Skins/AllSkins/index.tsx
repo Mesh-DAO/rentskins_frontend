@@ -4,8 +4,8 @@
 import classNames from 'classnames'
 // import { PageSelector } from '@/components/PageSelector'
 // import useComponentStore from '@/stores/components.store'
-import Link from 'next/link'
 import { ISkins } from '@/interfaces/ISkins'
+import Link from 'next/link'
 // import { findByAll } from '@/services/SkinService'
 // import { useQuery } from '@tanstack/react-query'
 // import { OtherCard } from '../../OtherCard/OtherCard'
@@ -36,7 +36,7 @@ export default function AllSkins({
   return (
     <div className="flex w-full flex-col items-center">
       <div
-        className={classNames('mt-6 flex w-full flex-wrap gap-x-5', {
+        className={classNames('mt-6 flex w-full flex-wrap gap-3', {
           'mb-6 mt-0 w-auto': skinsCategories !== undefined,
           'justify-center': center,
         })}
@@ -61,7 +61,7 @@ export default function AllSkins({
             // )
             return (
               <>
-                <Link key={`${id}-${index}`} href={`/details/${id}`} className="flex">
+                <Link key={`${id}-${index}`} href={`/details/${id}`} className="flex w-[17.5rem]">
                   <OtherCard
                     skinImage={skin_image}
                     sellerName={skin_name}

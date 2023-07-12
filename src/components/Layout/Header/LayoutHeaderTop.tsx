@@ -16,14 +16,17 @@ import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 import logo from '../../../assets/logo.svg'
 import { LayoutHeaderDropdown } from './LayoutHeaderDropdown'
 
 export function LayoutHeaderTop() {
   const router = useRouter()
+  const refDropdown = useRef(null)
   const { user, setUser, setLogout } = useUserStore()
   const [walletValue, setWalletValue] = useState()
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     const token = LocalStorage.get('token')
@@ -61,17 +64,17 @@ export function LayoutHeaderTop() {
     }
   }, [walletRetrieved, walletCreated])
 
-  const refDropdown = useRef(null)
-
-  const [showProfileDropdown, setShowProfileDropdown] = useState(false)
-  const [searchItem, setSearchItem] = useState('')
-
   const handleOnSteam = () => {
     SteamService.redirect()
   }
 
   const handleOnProfileClick = () => {
     setShowProfileDropdown((state) => !state)
+  }
+
+  const handleOnSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    router.push('/loja?search=' + searchQuery)
   }
 
   const handleOnAdd = () => {
@@ -111,24 +114,26 @@ export function LayoutHeaderTop() {
         </Link>
 
         <div className="flex items-center rounded-[12px] bg-mesh-color-neutral-800">
-          <Common.Button
-            disabled={searchItem.length <= 0}
-            className={`border-none stroke-mesh-color-neutral-200 pl-3 transition-all ${
-              searchItem.length > 0 ? 'opacity-100' : 'opacity-30'
-            }`}
-          >
-            <IconSearch
-              classname="transition-all"
-              width={searchItem.length > 0 ? 25 : 20}
-              height={searchItem.length > 0 ? 25 : 20}
+          <Form.Root className='flex' onSubmit={(event) => handleOnSearch(event)}>
+            <Common.Button
+              disabled={searchQuery.length <= 0}
+              className={`border-none stroke-mesh-color-neutral-200 pl-3 transition-all ${
+                searchQuery.length > 0 ? 'opacity-100' : 'opacity-30'
+              }`}
+            >
+              <IconSearch
+                classname="transition-all"
+                width={searchQuery.length > 0 ? 25 : 20}
+                height={searchQuery.length > 0 ? 25 : 20}
+              />
+            </Common.Button>
+            <Form.Input.Text
+              state={searchQuery}
+              setState={setSearchQuery}
+              className="rounded-lg bg-mesh-color-neutral-800 py-2 pl-3 text-base text-mesh-color-neutral-200"
+              placeholder="Pesquise o item..."
             />
-          </Common.Button>
-          <Form.Input.Text
-            state={searchItem}
-            setState={setSearchItem}
-            className="rounded-lg bg-mesh-color-neutral-800 py-2 pl-3 text-base text-mesh-color-neutral-200"
-            placeholder="Pesquise o item..."
-          />
+          </Form.Root>
         </div>
       </div>
       {/* ---------------- RIGHT ----------------------- */}

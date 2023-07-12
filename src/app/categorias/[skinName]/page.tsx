@@ -7,7 +7,7 @@ import SkinFilters from '@/components/Others/SkinFilters'
 import AllSkins from '@/components/Others/Skins/AllSkins'
 import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
 import { ISkins } from '@/interfaces/ISkins'
-import { findAllSkinsByWeapon } from '@/services/SkinService'
+import SkinService from '@/services/skin.service'
 import useComponentStore from '@/stores/components.store'
 import useFilterStore from '@/stores/filters.store'
 import { useQuery } from '@tanstack/react-query'
@@ -27,7 +27,7 @@ export default function Categorias() {
   const { data, isLoading } = useQuery({
     queryKey: ['skinsCategory'],
     queryFn: async () => {
-      const data = await findAllSkinsByWeapon(nameCorrection)
+      const data = await SkinService.findAllSkinsByWeapon(nameCorrection)
       setAllSkinsCategory(data?.data as ISkins[])
       return data
     },
