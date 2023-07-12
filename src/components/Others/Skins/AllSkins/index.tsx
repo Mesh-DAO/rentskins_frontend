@@ -61,7 +61,7 @@ export default function AllSkins({
             // )
             return (
               <>
-                <Link key={index} href={`/details/${id}`} className="flex">
+                <Link key={`${id}-${index}`} href={`/details/${id}`} className="flex">
                   <OtherCard
                     skinImage={skin_image}
                     sellerName={skin_name}

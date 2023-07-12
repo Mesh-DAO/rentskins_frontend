@@ -1,7 +1,11 @@
 import SkeletonCardSkin from '@/components/SkeletonCardSkin'
 
-export default function AllSkeletonSkins() {
-  const skeletonSkins = Array(15).fill(1)
+interface IProps {
+  quantitySkeletons?: number
+}
+
+export default function AllSkeletonSkins({ quantitySkeletons = 15}: IProps) {
+  const skeletonSkins = Array(quantitySkeletons).fill(1)
   return (
     <div className="flex flex-wrap gap-4">
       {skeletonSkins.map((_, idx) => (

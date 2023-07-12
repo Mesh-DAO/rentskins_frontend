@@ -25,7 +25,7 @@ export default function Categorias() {
     useFilterStore()
 
   const { data, isLoading } = useQuery({
-    queryKey: ['skinsWeapon'],
+    queryKey: ['skinsCategory'],
     queryFn: async () => {
       const data = await findAllSkinsByWeapon(nameCorrection)
       setAllSkinsCategory(data?.data as ISkins[])
