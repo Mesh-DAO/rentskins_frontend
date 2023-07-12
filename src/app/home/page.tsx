@@ -21,8 +21,12 @@ export default function Home() {
   }
 
   useEffect(() => {
-    const userObject = JsonWebToken.verify(LocalStorage.get('token')) as IUser
-    setUser(userObject as IUser)
+    const token = LocalStorage.get('token')
+
+    if (token) {
+      const userObject = JsonWebToken.verify(token) as IUser
+      setUser(userObject as IUser)
+    }
   }, [])
 
   return (

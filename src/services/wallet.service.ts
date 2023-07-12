@@ -15,8 +15,6 @@ export default class WalletService {
   public static async createEmptyWallet(username: string, steamid: string) {
     const user = await this.getWalletBySteamID(steamid)
 
-    console.log(user)
-
     if (!user.data) {
       return Api.post('/wallet', {
         owner_name: username,

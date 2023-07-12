@@ -26,8 +26,12 @@ export function LayoutHeaderTop() {
   const [user, setUser] = useState<null | IUser>()
 
   useEffect(() => {
-    const userObject = JsonWebToken.verify(LocalStorage.get('token')) as IUser
-    setUser(userObject)
+    const token = LocalStorage.get('token')
+
+    if (token) {
+      const userObject = JsonWebToken.verify(token) as IUser
+      setUser(userObject)
+    }
   }, [])
 
   const { data: walletRetrieved } = useQuery({

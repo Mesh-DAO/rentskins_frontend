@@ -4,20 +4,20 @@ import { NextResponse } from 'next/server'
 import queryString from 'query-string'
 
 export async function GET(req: any, res: any) {
-  const key = 'CBED4D515E26D768D330CDDC83AB1AB2'
+  const key = 'B8079E42FFC7D0C84CDA7D0A167544F8'
   const queries = queryString.parse(req.url!)
-
+  
   const id = queries['openid.claimed_id']?.slice(
     queries['openid.claimed_id']?.lastIndexOf('/') + 1,
-  )
-
-  const {
-    data: {
-      response: { players },
-    },
-  } = await Api.get(
-    `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${key}&steamids=${id}`,
-  )
+    )
+    
+    const {
+      data: {
+        response: { players },
+      },
+    } = await Api.get(
+      `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${key}&steamids=${id}`,
+      )
 
   if (players[0]) {
     const tokenData = {
