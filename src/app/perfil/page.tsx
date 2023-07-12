@@ -1,15 +1,10 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+// export const getAllWallets = async () => {
+//   const { data } = await WalletService.getAllWallets()
 
-export const getStaticProps: GetStaticProps = async () => {
-  console.log('getStaticProps!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-  return {
-    props: { wallets: {}, revalidate: 60 * 60 },
-  }
-}
+//   return data
+// }
 
-export default function Profile(
-  props: InferGetStaticPropsType<typeof getStaticProps>,
-) {
-  console.log(props)
+export default async function Profile() {
+  // console.log(await getAllWallets())
   return <div>Página do usuário logado</div>
 }

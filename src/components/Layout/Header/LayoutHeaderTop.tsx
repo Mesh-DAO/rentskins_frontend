@@ -7,10 +7,12 @@ import { IconMira } from '@/components/Icons/IconMira'
 import { IconNotifications } from '@/components/Icons/IconNotifications'
 import { IUser } from '@/interfaces/user.interface'
 import SteamService from '@/services/steam.service'
+import WalletService from '@/services/wallet.service'
 import useUserStore from '@/stores/user.store'
 import JsonWebToken from '@/tools/jsonwebtoken.tool'
 import LocalStorage from '@/tools/localstorage.tool'
 import URLQuery from '@/tools/urlquery.tool'
+import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -20,13 +22,35 @@ import { LayoutHeaderDropdown } from './LayoutHeaderDropdown'
 
 export function LayoutHeaderTop() {
   const router = useRouter()
-  const { wallet, setLogout } = useUserStore()
+  const { setLogout } = useUserStore()
   const [user, setUser] = useState<null | IUser>()
 
   useEffect(() => {
     const userObject = JsonWebToken.verify(LocalStorage.get('token')) as IUser
     setUser(userObject)
   }, [])
+
+  const { data: walletRetrieved } = useQuery({
+    queryKey: ['WalletService.getWalletById'],
+    queryFn: () => WalletService.getWalletBySteamID(user?.steamid as string),
+    enabled: !!user?.steamid,
+  })
+
+  const { data: walletCreated } = useQuery({
+    queryKey: ['WalletService.createEmptyWallet'],
+    queryFn: () =>
+      WalletService.createEmptyWallet(
+        user?.username as string,
+        user?.steamid as string,
+      ),
+    enabled:
+      walletRetrieved !== undefined &&
+      walletRetrieved.response &&
+      walletRetrieved.response.status === 404,
+  })
+
+  console.log(walletCreated)
+  console.log(walletRetrieved)
 
   const refDropdown = useRef(null)
 
@@ -142,7 +166,19 @@ export function LayoutHeaderTop() {
             </nav>
             <div className="flex h-[44px] items-center gap-2 rounded-lg bg-mesh-color-others-eerie-black px-4 py-2">
               <Common.Title bold={500} color="white">
-                {wallet.data?.value || 'R$ 0,00'}
+                {walletRetrieved !== undefined ? (
+                  Number(walletRetrieved.data.value).toLocaleString('pt-br', {
+                    currency: 'BRL',
+                    style: 'currency',
+                    minimumFractionDigits: 2,
+                  })
+                ) : (
+                  <div className="flex h-4 items-end gap-1">
+                    <div className="h-1 w-1 animate-[bounce_1s_infinite_0ms] rounded-full bg-mesh-color-neutral-200" />
+                    <div className="h-1 w-1 animate-[bounce_1s_infinite_100ms] rounded-full bg-mesh-color-neutral-200" />
+                    <div className="h-1 w-1 animate-[bounce_1s_infinite_200ms] rounded-full bg-mesh-color-neutral-200" />
+                  </div>
+                )}
               </Common.Title>
               <Common.Button
                 className="h-5 w-5 border-transparent bg-mesh-color-primary-1400"

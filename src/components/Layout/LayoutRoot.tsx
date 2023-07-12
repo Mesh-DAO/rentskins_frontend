@@ -21,7 +21,6 @@ import { LayoutFooter } from './LayoutFooter'
 
 type IProps = {
   children: React.ReactNode
-  wallet: any
 }
 
 // export const getStaticProps = async () => {
@@ -39,14 +38,13 @@ type IProps = {
 //   }
 // }
 
-export function LayoutRoot({ children, wallet }: IProps) {
+export function LayoutRoot({ children }: IProps) {
   const params = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()
   const { logout, setLogout } = useUserStore()
 
   useEffect(() => {
-    console.log(wallet)
     Authentication.login(params, router, URLQuery)
   }, [params, router])
 
