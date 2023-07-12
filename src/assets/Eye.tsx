@@ -4,7 +4,7 @@ export default function Eye() {
       width="18"
       height="15"
       viewBox="0 0 18 15"
-      fill="none"
+      fill=""
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -19,8 +19,8 @@ export default function Eye() {
       <path
         className="fill-inherit stroke-inherit"
         d="M12.2833 7.49993C12.2833 9.14993 10.95 10.4833 9.29998 10.4833C7.64998 10.4833 6.31665 9.14993 6.31665 7.49993C6.31665 5.84993 7.64998 4.5166 9.29998 4.5166C10.95 4.5166 12.2833 5.84993 12.2833 7.49993Z"
-        fill="white"
-        stroke="#151714"
+        fill="#151714"
+        stroke="transparent"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
