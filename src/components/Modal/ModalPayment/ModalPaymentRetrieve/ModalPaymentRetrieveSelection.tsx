@@ -87,7 +87,7 @@ export function ModalPaymentRetrieveSelection() {
         <Form.Input.Radio.Block
           name="payment-recharge-method"
           state={selectedMethod}
-          setState={setSelectedMethod as Dispatch<SetStateAction<string>>}
+          setState={setSelectedMethod}
           containerClassname="flex gap-2 mt-4"
           wrapperClassname="h-28 w-48"
           imageClassname="w-20"
