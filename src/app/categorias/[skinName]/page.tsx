@@ -5,14 +5,14 @@ import Common from '@/components/Common'
 import IconArrowLeft from '@/components/Icons/IconArrowLeft'
 import SkinFilters from '@/components/Others/SkinFilters'
 import AllSkins from '@/components/Others/Skins/AllSkins'
+import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
+import { ISkins } from '@/interfaces/ISkins'
+import { findAllSkinsByWeapon } from '@/services/SkinService'
+import useComponentStore from '@/stores/components.store'
+import useFilterStore from '@/stores/filters.store'
+import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { findAllSkinsByWeapon } from '@/services/SkinService'
-import { useQuery } from '@tanstack/react-query'
-import useComponentStore from '@/stores/components.store'
-import { ISkins } from '@/interfaces/ISkins'
-import AllSkeletonSkins from '@/components/Skins/AllSkeletonSkins'
-import useFilterStore from '@/stores/filters.store'
 import { useEffect, useState } from 'react'
 
 export default function Categorias() {
@@ -78,12 +78,24 @@ export default function Categorias() {
         <SkinFilters />
         {isLoading ? (
           <AllSkeletonSkins />
+        ) : filteredSkins.length > 0 || allSkinsFiltred.length > 0 ? (
+          <AllSkins
+            skinsCategories={filteredSkins || allSkinsFiltred}
+            itemsPerPage={15}
+          />
+        ) : (
+          <div className='h-[50vh] mb-16 flex items-center justify-center'>
+            <Common.Title bold={600} className='text-mesh-color-neutral-200 text-2xl'>Não foi encontrado nenhuma skin relacionado à <span className='text-mesh-color-primary-1200'>{nameCorrection}</span></Common.Title>
+          </div>
+        )}
+        {/* {isLoading ? (
+          <AllSkeletonSkins />
         ) : (
           <AllSkins
             skinsCategories={filteredSkins || allSkinsFiltred}
             itemsPerPage={15}
           />
-        )}
+        )} */}
       </div>
     </div>
   )
