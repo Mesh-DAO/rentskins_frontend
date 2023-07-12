@@ -18,5 +18,5 @@ export function findBySkinsInventory(steamid: string) {
 }
 
 export async function findAllSkinsByWeapon(weapon: string) {
-  return Api.get<ISkins[]>(`/v1/skins/weapon/${weapon}`)
+  return Api.get<ISkins[]>(`/skins/weapon/${weapon}`)
 }
