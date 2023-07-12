@@ -1,10 +1,10 @@
 import Common from '@/components/Common'
 import Form from '@/components/Forms'
 import { FormDropzone } from '@/components/Forms/FormDropzone'
-import { MouseEventHandler } from 'react'
+import React, { MouseEventHandler } from 'react'
 
 interface IProps {
-  handleFormSubmit: MouseEventHandler
+  handleFormSubmit: React.FormEventHandler<HTMLFormElement>
   handleFormCancel: MouseEventHandler
 }
 export function PagePaymentWithdrawDocument({
@@ -23,7 +23,10 @@ export function PagePaymentWithdrawDocument({
         importante para garantir a segurança da plataforma e dos usuários.
       </text>
 
-      <Form.Root className="mt-6 flex flex-col gap-4">
+      <Form.Root
+        className="mt-6 flex flex-col gap-4"
+        onSubmit={handleFormSubmit}
+      >
         <FormDropzone
           label="Você pode subir arquivos PNG, JPEG ou PDF"
           subLabel="Adicione sua identidade (Frente)"
@@ -51,7 +54,6 @@ export function PagePaymentWithdrawDocument({
               buttonStyle="full"
               type="submit"
               className="h-12 w-full border-transparent"
-              onClick={handleFormSubmit}
               // disabled={validateForm()}
             >
               Continuar

@@ -7,7 +7,11 @@ import { PageSettingsInformation } from '@/components/Pages/PageSettings/PageSet
 import { PageSettingsSecurity } from '@/components/Pages/PageSettings/PageSettingsSecurity'
 import { PageSettingsTransactions } from '@/components/Pages/PageSettings/PageSettingsTransactions'
 import URLQuery from '@/tools/urlquery.tool'
-import { useRouter, useSearchParams } from 'next/navigation'
+import {
+  ReadonlyURLSearchParams,
+  useRouter,
+  useSearchParams,
+} from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export default function Settings() {
@@ -30,7 +34,7 @@ export default function Settings() {
     }
   }, [searchParams, router])
 
-  const handleOnRadio = (value: any) => {
+  const handleOnRadio = (value: string) => {
     router.push(URLQuery.addQuery([{ key: 'type', value }]))
   }
 
@@ -86,7 +90,7 @@ export default function Settings() {
   )
 }
 
-const renderRadioButtonOptions = (searchParams: any) => {
+const renderRadioButtonOptions = (searchParams: ReadonlyURLSearchParams) => {
   const items = [
     {
       icon: (

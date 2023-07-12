@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 
 type TypeItem = {
   label: string
@@ -12,8 +12,8 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   labelSide?: 'up' | 'down'
   labelClassname?: string
   options: TypeItem[]
-  state: any
-  setState: any
+  state: string
+   setState: React.Dispatch<React.SetStateAction<string>>
   className?: string
   default: InputHTMLAttributes<HTMLInputElement>
 }

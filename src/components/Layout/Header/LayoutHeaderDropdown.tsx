@@ -1,9 +1,15 @@
 import Common from '@/components/Common'
+import { MutableRefObject } from 'react'
+
+interface IProps {
+  refDropdown: MutableRefObject<null>
+  handleDropdownButton: (type: 'config' | 'profile' | 'logout') => void
+}
 
 export function LayoutHeaderDropdown({
   refDropdown,
   handleDropdownButton,
-}: any) {
+}: IProps) {
   return (
     <div
       className="absolute top-20 z-30 flex h-36 w-48 select-none flex-col items-start justify-center gap-2 overflow-hidden

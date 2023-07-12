@@ -18,7 +18,7 @@ export default class WalletService {
     console.log(user)
 
     if (!user.data) {
-      return Api.post('/v1/wallet', {
+      return Api.post('/wallet', {
         owner_name: username,
         owner_id: steamid,
         value: '0',
@@ -38,7 +38,7 @@ export default class WalletService {
     const user = await this.getWalletBySteamID(steamid)
 
     if (user) {
-      return Api.patch(`/v1/wallet/${user.data.id}`, {
+      return Api.patch(`/wallet/${user.data.id}`, {
         owner_name: username,
         owner_id: steamid,
         value,
@@ -50,7 +50,7 @@ export default class WalletService {
     const user = await this.getWalletBySteamID(steamid)
 
     if (user) {
-      return Api.delete(`/v1/wallet/${user.data.id}`)
+      return Api.delete(`/wallet/${user.data.id}`)
     }
   }
 }

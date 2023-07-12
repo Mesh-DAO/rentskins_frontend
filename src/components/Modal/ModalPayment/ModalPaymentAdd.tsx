@@ -16,10 +16,8 @@ export function ModalPaymentAdd() {
   const router = useRouter()
   const { paymentAdd, setPaymentAdd } = usePaymentStore()
   const [isLoading, setIsLoading] = useState(false)
-  const [selectedValue, setSelectedValue] = useState<undefined | number>(5)
+  const [selectedValue, setSelectedValue] = useState(5)
   const [selectedMethod, setSelectedMethod] = useState('mastercard')
-
-  console.log(selectedValue)
 
   // const handleMethodChange = (event: any) => {
   //   setPaymentAdd({ method: event.target.value, value: paymentAdd.value })

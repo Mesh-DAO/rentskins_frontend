@@ -17,7 +17,7 @@ export default function PaymentAddMastercardPage() {
   >(undefined)
 
   useEffect(() => {
-    const handleOnSubmit = (event: any) => {
+    const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault()
       setIsLoading(true)
       router.push('/pagamento/recarregar/sucesso')
