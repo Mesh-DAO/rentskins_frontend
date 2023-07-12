@@ -53,9 +53,6 @@ export function LayoutHeaderTop() {
       walletRetrieved.response.status === 404,
   })
 
-  console.log(walletCreated)
-  console.log(walletRetrieved)
-
   const refDropdown = useRef(null)
 
   const [showProfileDropdown, setShowProfileDropdown] = useState(false)
@@ -78,23 +75,12 @@ export function LayoutHeaderTop() {
     )
   }
 
-  const handleDropdownButton = (type: 'config' | 'profile' | 'logout') => {
-    switch (type) {
-      case 'config':
-        return router.push('usuario/configuracoes')
-      case 'profile':
-        return router.push('perfil')
-      case 'logout':
-        return setLogout(true)
-    }
-
-    // OPCAO DE REFATORACAO COM RETORNO INPLICITO
-    // ({
-    //   config: () => router.push('usuario/configuracoes'),
-    //   profile: () => router.push('perfil'),
-    //   logout: () => setLogout(true),
-    // }[type]())
-  }
+  const handleDropdownButton = (index: 'config' | 'profile' | 'logout') => ({
+      config: () => router.push('usuario/configuracoes'),
+      profile: () => router.push('perfil'),
+      logout: () => setLogout(true),
+    }[index]()
+  )
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
