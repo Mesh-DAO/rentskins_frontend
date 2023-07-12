@@ -42,7 +42,7 @@ export default function Home() {
               Personalize seu arsenal com as skins mais incríveis, encontrando
               as skins perfeitas para dominar o jogo!
             </p>
-            {user !== null && user?.steamid && (
+            {!user.steamid && (
               <CommonSteamButton onClick={() => handleOnSteam()} />
             )}
           </div>
