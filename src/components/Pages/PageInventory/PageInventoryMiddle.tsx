@@ -2,7 +2,7 @@
 import Common from '@/components/Common'
 import { ModalConnectInventoryMain } from '@/components/Modal/ModalConnectInventory/ModalConnectInventoryMain'
 import { CardSkinInventory } from '@/components/Others/CardSkin/CardSkinInventory'
-import { findByConfigUserId } from '@/services/Configuracao.service'
+import ConfigService from '@/services/config.service'
 import useUserStore from '@/stores/user.store'
 import { useQuery } from '@tanstack/react-query'
 
@@ -13,7 +13,7 @@ export function PageInventoryMiddle() {
 
   const { data } = useQuery({
     queryKey: ['config'],
-    queryFn: async () => findByConfigUserId(steamid as string),
+    queryFn: async () => ConfigService.findByConfigUserId(steamid as string),
     enabled: !!steamid,
   })
 

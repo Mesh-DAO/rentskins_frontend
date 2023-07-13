@@ -1,6 +1,6 @@
 import Common from '@/components/Common'
 import { IconClose } from '@/components/Icons'
-import { createConfig } from '@/services/Configuracao.service'
+import ConfigService from '@/services/config.service'
 import useUserStore from '@/stores/user.store'
 import { RegisterConfigResolve } from '@/validation/RegisterConfig'
 import { useForm } from 'react-hook-form'
@@ -27,7 +27,7 @@ export function ModalConnectInventoryForm() {
   ) {
     try {
       const urlSell = `https://rentskins/?sellerid=${steamid}`
-      const created = await createConfig({
+      const created = await ConfigService.createConfig({
         owner_id: steamid as string,
         owner_name: username,
         owner_email: email,
@@ -40,7 +40,7 @@ export function ModalConnectInventoryForm() {
       return created
     } catch (error) {
       console.log(error)
-      toast.error('Algo deu errado !')
+      toast.error('Erro!')
     }
   }
 

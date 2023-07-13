@@ -1,10 +1,7 @@
 /* eslint-disable camelcase */
-import Common from '@/components/Common'
 import { ModalSkinShowcaseMain } from '@/components/Modal/ModalSkinShowcase/ModalSkinShowcaseMain'
-import { ITagsData } from '@/interfaces/IInventoryDescription'
 import { ISkinInventory } from '@/interfaces/IInventorySkin'
 import SkinService from '@/services/skin.service'
-import useFilterStore from '@/stores/filters.store'
 import { useQuery } from '@tanstack/react-query'
 import { CardSkin } from '.'
 import ColoredLine from '../ColoredLine'
@@ -14,30 +11,16 @@ interface Props {
 }
 
 export function CardSkinInventory({ steamid }: Props) {
-  const { inventoryFilter } = useFilterStore()
+  // const { inventoryFilter } = useFilterStore()
   const { data, isLoading } = useQuery({
     queryKey: ['skinsInventory'],
     queryFn: async () => SkinService.findBySkinsInventory(steamid),
   })
 
-  const applyFilter = () => {
-    if (data?.data.descriptions) {
-      return data?.data.descriptions.filter((skin: ITagsData) => {
-        if (
-          inventoryFilter.length !== 0 &&
-          !inventoryFilter.includes(skin.tags[0].localized_tag_name)
-        ) {
-          return false
-        }
-        return true
-      })
-    }
-  }
-
   return (
-    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+    <div className="ml-2 flex flex-wrap justify-start gap-4 after:flex-auto">
       {!isLoading ? (
-        applyFilter().map(
+        data?.data.map(
           (
             { icon_url, name, name_color, market_name }: ISkinInventory,
             index: number,
@@ -57,20 +40,22 @@ export function CardSkinInventory({ steamid }: Props) {
                 statusFloatText={statusFloatTextMatch as string}
                 float={'0.2555'}
                 activator={
-                  <div className="mb-2 w-[206px] gap-3 rounded-lg border-[1px] border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
-                    <CardSkin.Root>
-                      <CardSkin.Image
-                        icon_url={icon_url}
-                        name_color={name_color}
-                        primeiroName={primeiroName}
-                      />
-                      <CardSkin.Content
-                        market_name={market_name}
-                        primeiroName={primeiroName}
-                        float="0.254665"
-                      />
+                  <div className="mb-2 w-[206px] gap-2 rounded-lg border-[1px] border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
+                    <CardSkin.Root classname="flex flex-col justify-between">
+                      <div className="h-full">
+                        <CardSkin.Image
+                          icon_url={icon_url}
+                          name_color={name_color}
+                          primeiroName={primeiroName}
+                        />
+                        <CardSkin.Content
+                          market_name={market_name}
+                          primeiroName={primeiroName}
+                          float="0.254665"
+                        />
+                      </div>
+                      <ColoredLine position={0.254665} />
                     </CardSkin.Root>
-                    <ColoredLine position={0.254665} />
                   </div>
                 }
               />
@@ -78,7 +63,7 @@ export function CardSkinInventory({ steamid }: Props) {
           },
         )
       ) : (
-        <Common.Title color="white">Carregando...</Common.Title>
+        <CardSkin.Skeleton quantity={12} />
       )}
     </div>
   )
