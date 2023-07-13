@@ -2,8 +2,9 @@ import { ReactNode } from 'react'
 
 type Props = {
   children: ReactNode
+  classname?: string
 }
 
-export function CardSkinRoot({ children }: Props) {
-  return <>{children}</>
+export function CardSkinRoot({ children, classname }: Props) {
+  return <div className={classname}>{children}</div>
 }
