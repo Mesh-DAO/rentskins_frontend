@@ -16,7 +16,7 @@ export function FormInputRadioChoice({
   ...rest
 }: IProps) {
   return (
-    <label className="relative cursor-pointer">
+    <label className="relative">
       <div className="flex flex-col gap-6">
         <input
           type="radio"
@@ -26,7 +26,12 @@ export function FormInputRadioChoice({
           className="peer absolute"
           {...rest}
         />
-        <Common.Title bold={600} color="white" size="3xl">
+        <Common.Title
+          bold={600}
+          color="white"
+          size="3xl"
+          className="cursor-pointer"
+        >
           {title}
         </Common.Title>
         <div className="rounded-md transition-all peer-checked:h-1 peer-checked:bg-mesh-color-accent-1400" />

@@ -1,5 +1,5 @@
 'use client'
-import perfil from '@/assets/perfil.png'
+import Perfil from '@/assets/perfil.png'
 import Common from '@/components/Common'
 import { IconSend } from '@/components/Icons/IconSend'
 import Image from 'next/image'
@@ -7,14 +7,15 @@ import ProfileInfo from '../ProfileInfo'
 
 interface Props {
   isSeller?: boolean
+  picture?: string
 }
 
-export default function PerfilPerson({ isSeller }: Props) {
+export default function PerfilPerson({ isSeller, picture }: Props) {
   return (
     <section className="flex w-full justify-between font-inter">
       <div className="flex gap-6">
         <Image
-          src={perfil}
+          src={picture || Perfil}
           alt="Perfil"
           width={200}
           height={200}
