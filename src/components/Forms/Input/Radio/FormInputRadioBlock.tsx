@@ -19,11 +19,12 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   containerClassname?: string
   wrapperClassname?: string
   options: TypeFormRadioInlineOption[]
-  state: string | number
+  state: string | number | boolean
   setState:
     | Dispatch<SetStateAction<number>>
     | Dispatch<SetStateAction<string>>
     | Dispatch<SetStateAction<'mastercard' | 'paypal' | 'banktransfer'>>
+    | ((checked: boolean) => void)
 }
 
 export function FormInputRadioBlock({
@@ -52,9 +53,10 @@ export function FormInputRadioBlock({
         value={item.value}
         onChange={({ target: { value } }) =>
           setState(
-            value as SetStateAction<number> &
+            value as unknown as SetStateAction<number> &
               SetStateAction<string> &
-              SetStateAction<'mastercard' | 'paypal' | 'banktransfer'>,
+              SetStateAction<'mastercard' | 'paypal' | 'banktransfer'> &
+              boolean,
           )
         }
         defaultChecked={

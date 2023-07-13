@@ -29,6 +29,10 @@ export interface IStates {
     | 'lowestPrice'
     | 'biggestFloat'
     | undefined
+  sales: boolean
+  rented: boolean
+  setSales: (checked: boolean) => void
+  setRented: (checked: boolean) => void
   setInventoryMainFilter: (
     value: 'biggestPrice' | 'lowestPrice' | 'biggestFloat' | undefined,
   ) => void
