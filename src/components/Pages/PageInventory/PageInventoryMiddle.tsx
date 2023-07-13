@@ -1,25 +1,21 @@
 'use client'
-import Common from '@/components/Common'
-import { ModalConnectInventoryMain } from '@/components/Modal/ModalConnectInventory/ModalConnectInventoryMain'
 import { CardSkinInventory } from '@/components/Others/CardSkin/CardSkinInventory'
-import ConfigService from '@/services/config.service'
 import useUserStore from '@/stores/user.store'
-import { useQuery } from '@tanstack/react-query'
 
 export function PageInventoryMiddle() {
   const {
     user: { steamid },
   } = useUserStore()
 
-  const { data } = useQuery({
-    queryKey: ['config'],
-    queryFn: async () => ConfigService.findByConfigUserId(steamid as string),
-    enabled: !!steamid,
-  })
+  // const { data } = useQuery({
+  //   queryKey: ['config'],
+  //   queryFn: async () => ConfigService.findByConfigUserId(steamid as string),
+  //   enabled: !!steamid,
+  // })
 
   return (
     <div className="mb-6 min-h-[1000px]">
-      {!data || data.status !== 200 ? (
+      {/* {!data || data.status !== 200 ? (
         <div className="mx-auto w-[60%] rounded-xl bg-mesh-color-others-eerie-black px-5 py-5">
           <Common.Title
             bold={700}
@@ -39,7 +35,8 @@ export function PageInventoryMiddle() {
         </div>
       ) : (
         <CardSkinInventory steamid={`${steamid}`} />
-      )}
+      )} */}
+      <CardSkinInventory steamid={`${steamid}`} />
     </div>
   )
 }
