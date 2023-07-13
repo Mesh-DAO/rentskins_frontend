@@ -1,4 +1,5 @@
-import { ISkins } from '@/interfaces/ISkins'
+// eslint-disable-next-line prettier/prettier
+import { ISkins } from '@/interfaces/ISkins';
 
 export interface ISelectedFilters {
   prices: { min: number | null; max: number | null }
@@ -19,24 +20,16 @@ export interface IInputCheck {
 
 export interface IStates {
   selectedFilters: ISelectedFilters
-  allSkinsFiltred: ISkins[]
-  typeFilter: TTypeSort
-  checkedInputCheckbox: IInputCheck[]
-  notificationFilter: string
-  inventoryFilter: string[]
-  inventoryMainFilter:
-    | 'biggestPrice'
-    | 'lowestPrice'
-    | 'biggestFloat'
-    | undefined
-  setInventoryMainFilter: (
-    value: 'biggestPrice' | 'lowestPrice' | 'biggestFloat' | undefined,
-  ) => void
-  setNotificationFilter: (value: string) => void
-  setInventoryFilter: (value: string[]) => void
-  setCheckedInputCheckbox: (inputCheckbox: IInputCheck | null) => void
-  setTypeFilter: (typeFilter: TTypeSort) => void
-  setAllSkinsFiltred: (skins: ISkins[], typeSort: TTypeSort) => void
   setSelectedFilters: (selectedFilters: ISelectedFilters) => void
+  allSkinsFiltred: ISkins[]
+  setAllSkinsFiltred: (skins: ISkins[], typeSort: TTypeSort) => void
+  typeFilter: TTypeSort
+  setTypeFilter: (typeFilter: TTypeSort) => void
+  checkedInputCheckbox: IInputCheck[]
+  setCheckedInputCheckbox: (inputCheckbox: IInputCheck | null) => void
+  notificationFilter: string
+  setNotificationFilter: (value: string) => void
+  inventoryTypeFilter: string[]
+  setInventoryTypeFilter: (value: string[]) => void
   cleanSelectedFilters: (filterCleaning: ISelectedFilters) => void
 }

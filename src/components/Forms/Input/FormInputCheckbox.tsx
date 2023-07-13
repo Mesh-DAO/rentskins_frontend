@@ -1,37 +1,34 @@
-import React, { InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes } from 'react'
 import { options } from '../options'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
   labelSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
+  wrapperClassname?: string
   labelClassName?: string
+  checkClassname?: string
   inputClassName?: string
-  checked?: boolean
-  state: string
-  setState: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function FormInputCheckbox({
   label,
   labelSize = 'md',
+  wrapperClassname,
   labelClassName,
+  checkClassname,
   inputClassName,
-  state,
-  checked,
-  setState,
   ...rest
 }: IProps) {
   return (
-    <label className={`flex items-center justify-between gap-2 text-lg`}>
+    <label className={`${wrapperClassname} flex items-center gap-2 text-lg`}>
       <input
         type="checkbox"
-        onChange={({ target }) => setState(target.value)}
-        value={state}
-        className={`${inputClassName} ${options.input.className} peer`}
-        checked={checked}
+        className={`${inputClassName || options.input.className} peer`}
         {...rest}
       />
-      <div className="absolute -mt-[0.2rem] ml-[0.4rem] h-2 w-4 -rotate-45 border-b-2 border-l-2 bg-transparent opacity-0 peer-checked:opacity-100" />
+      <div
+        className={`${checkClassname} absolute -mt-[0.2rem] ml-[0.4rem] h-2 w-4 -rotate-45 border-b-2 border-l-2 bg-transparent opacity-0 transition-all peer-checked:opacity-100`}
+      />
       <text
         className={`text-${labelSize} ${labelClassName} select-none text-white`}
       >

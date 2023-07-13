@@ -1,19 +1,19 @@
-import { PageInventoryLeft } from '@/components/Pages/PageInventory/PageInventoryLeft'
+import { PageInventoryFilters } from '@/components/Pages/PageInventory/PageInventoryFilters'
 import { PageInventoryMiddle } from '@/components/Pages/PageInventory/PageInventoryMiddle'
-import { PageInventoryRight } from '@/components/Pages/PageInventory/PageInventoryRight'
+import { PageInventorySummary } from '@/components/Pages/PageInventory/PageInventorySummary'
 
 export default function Inventory() {
   return (
     <main className="w-full bg-mesh-color-others-black pt-[32px]">
       <div className="mx-auto grid w-10/12 grid-cols-10">
         <div className="col-span-2">
-          <PageInventoryLeft />
+          <PageInventoryFilters />
         </div>
         <div className="col-span-6">
           <PageInventoryMiddle />
         </div>
         <div className="col-span-2">
-          <PageInventoryRight />
+          <PageInventorySummary />
         </div>
       </div>
     </main>
