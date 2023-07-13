@@ -10,39 +10,33 @@ import SkinService from '@/services/skin.service'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 export default function Categorias() {
   const searchParams = useSearchParams()
   const search = searchParams.get('search') || ''
   const nameCorrection = decodeURIComponent(search.replace(/\+/g, ' '))
 
-  const { data, isLoading } = useQuery({
+  const {
+    data,
+    refetch: refetchSkins,
+    isLoading,
+  } = useQuery({
     queryKey: ['skinsCategory'],
     queryFn: async () => {
-      const data = await SkinService.findByAll()
-      return data
+      if (search !== null && search !== undefined && search !== '') {
+        const data = await SkinService.findBySearchParameter(search)
+        return data
+      } else {
+        const data = await SkinService.findByAll()
+        return data
+      }
     },
   })
 
-  const setSearchFilter = () => {
-    if (data?.data) {
-      return data.data.filter((skin) => {
-        if (!search) {
-          return true
-        }
-
-        if (
-          skin.skin_weapon.toLowerCase().includes(search.toLowerCase()) ||
-          skin.skin_name.toLowerCase().includes(search.toLowerCase())
-        ) {
-          return true
-        }
-
-        return false
-      })
-    }
-    return []
-  }
+  useEffect(() => {
+    refetchSkins()
+  }, [search])
 
   return (
     <div className="flex w-full justify-center">
@@ -55,8 +49,8 @@ export default function Categorias() {
         <SkinFilters />
         {isLoading ? (
           <AllSkeletonSkins />
-        ) : setSearchFilter().length > 0 ? (
-          <AllSkins skinsCategories={setSearchFilter()} itemsPerPage={15} />
+        ) : data?.data && data?.data.length > 0 ? (
+          <AllSkins skinsCategories={data?.data} itemsPerPage={15} />
         ) : (
           <div className="mb-16 flex h-[50vh] items-center justify-center">
             <Common.Title

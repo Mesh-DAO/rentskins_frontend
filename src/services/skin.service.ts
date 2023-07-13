@@ -21,4 +21,8 @@ export default class SkinService {
   public static findAllSkinsByWeapon(weapon: string) {
     return Api.get<ISkins[]>(`/skins/weapon/${weapon}`)
   }
+
+  public static findBySearchParameter(param: string) {
+    return Api.get<ISkins[]>(`/skins/search/${param}`)
+  }
 }
