@@ -1,3 +1,4 @@
+// eslint-disable-next-line prettier/prettier
 import { ISkins } from '@/interfaces/ISkins';
 
 export interface ISelectedFilters {
