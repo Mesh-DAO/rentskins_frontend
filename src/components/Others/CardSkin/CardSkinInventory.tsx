@@ -2,6 +2,7 @@
 import { ModalSkinShowcaseMain } from '@/components/Modal/ModalSkinShowcase/ModalSkinShowcaseMain'
 import { ISkinInventory } from '@/interfaces/IInventorySkin'
 import SkinService from '@/services/skin.service'
+import useFilterStore from '@/stores/filters.store'
 import { useQuery } from '@tanstack/react-query'
 import { CardSkin } from '.'
 import ColoredLine from '../ColoredLine'
@@ -11,17 +12,57 @@ interface Props {
 }
 
 export function CardSkinInventory({ steamid }: Props) {
-  // const { inventoryFilter } = useFilterStore()
+  const { inventoryTypeFilter } = useFilterStore()
   const { data, isLoading } = useQuery({
     queryKey: ['skinsInventory'],
-    queryFn: async () => SkinService.findBySkinsInventory(steamid),
+    queryFn: async () => SkinService.findBySkinsInventory('76561198355549311'),
     enabled: !!steamid,
   })
+
+  const setSkinsFilter = () => {
+    if (data?.data) {
+      return data.data.filter((skin: any) => {
+        if (
+          skin.tags[0].name === 'Container' ||
+          skin.tags[0].name === 'Graffiti'
+        ) {
+          return false
+        }
+
+        if (inventoryTypeFilter.length <= 0) {
+          return true
+        }
+
+        // // Verifica se é uma Rifle de Precisão
+        // if (
+        //   inventoryTypeFilter.includes('Rifle') &&
+        //   skin.tags[0].name === 'Sniper Rifle'
+        // ) {
+        //   return true
+        // }
+
+        // // Verifica se é uma Shotgun ou Machine Gun
+        // if (
+        //   inventoryTypeFilter.includes('Heavy') &&
+        //   (skin.tags[0].name === 'Shotgun' ||
+        //     skin.tags[0].name === 'Machinegun')
+        // ) {
+        //   return true
+        // }
+
+        if (!inventoryTypeFilter.includes(skin.tags[0].name)) {
+          return false
+        }
+
+        return true
+      })
+    }
+  }
 
   return (
     <div className="ml-2 flex flex-wrap justify-start gap-4 after:flex-auto">
       {!isLoading ? (
-        data?.data.map(
+        setSkinsFilter().map(
           (
             { icon_url, name, name_color, market_name }: ISkinInventory,
             index: number,

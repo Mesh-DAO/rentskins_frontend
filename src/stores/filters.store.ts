@@ -1,3 +1,4 @@
+import { ISkins } from '@/interfaces/ISkins'
 import { create } from 'zustand'
 import {
   IInputCheck,
@@ -5,7 +6,6 @@ import {
   IStates,
   TTypeSort,
 } from './interfaces/filters.interface'
-import { ISkins } from '@/interfaces/ISkins'
 
 const useFilterStore = create<IStates>((set) => ({
   selectedFilters: {
@@ -64,14 +64,9 @@ const useFilterStore = create<IStates>((set) => ({
     set(() => ({ notificationFilter }))
   },
 
-  inventoryFilter: [],
-  setInventoryFilter: (inventoryFilter: string[]) => {
-    set(() => ({ inventoryFilter }))
-  },
-
-  inventoryMainFilter: undefined,
-  setInventoryMainFilter: (inventoryMainFilter) => {
-    set(() => ({ inventoryMainFilter }))
+  inventoryTypeFilter: [],
+  setInventoryTypeFilter: (inventoryTypeFilter: string[]) => {
+    set(() => ({ inventoryTypeFilter }))
   },
 }))
 

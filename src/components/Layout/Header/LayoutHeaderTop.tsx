@@ -170,7 +170,7 @@ export function LayoutHeaderTop() {
                 Carrinho
               </Link>
               <Link
-                href={`/inventario/${user !== null && user?.steamid}`}
+                href={`/inventario`}
                 className="flex items-center gap-2 text-mesh-color-neutral-200 opacity-70 transition-all hover:opacity-100"
               >
                 <IconMira />
