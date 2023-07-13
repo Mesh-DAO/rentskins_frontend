@@ -15,7 +15,7 @@ export function CardSkinInventory({ steamid }: Props) {
   const { inventoryTypeFilter } = useFilterStore()
   const { data, isLoading } = useQuery({
     queryKey: ['skinsInventory'],
-    queryFn: async () => SkinService.findBySkinsInventory('76561198355549311'),
+    queryFn: async () => SkinService.findBySkinsInventory(steamid),
     enabled: !!steamid,
   })
 
