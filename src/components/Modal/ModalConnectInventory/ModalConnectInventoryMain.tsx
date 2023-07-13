@@ -19,7 +19,7 @@ export function ModalConnectInventoryMain({ activator }: IProps) {
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-20 flex bg-black/70" />
         <Dialog.Content
-          className="fixed left-1/2 top-1/2 w-[70%] -translate-x-1/2 -translate-y-1/2
+          className="fixed left-1/2 top-1/2 z-30 w-[70%] -translate-x-1/2 -translate-y-1/2
         rounded-2xl bg-mesh-color-neutral-700"
         >
           <div className="flex h-full w-full flex-col items-center justify-between py-8">

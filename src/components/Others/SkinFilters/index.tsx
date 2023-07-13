@@ -38,7 +38,7 @@ export default function SkinFilters() {
                 prices: { min: null, max: null },
               })
             }
-            className="ml-2 text-mesh-color-neutral-200 hover:text-mesh-color-neutral-100"
+            className="ml-2 border-none text-mesh-color-neutral-200 hover:text-mesh-color-neutral-100"
           >
             Limpar filtros
           </Common.Button>
