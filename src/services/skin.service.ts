@@ -27,6 +27,6 @@ export default class SkinService {
   }
 
   public static findAllSkinsByIdSeller(id: string) {
-    return Api.get<ISkins[]>(`skins/seller/user/${id}`)
+    return Api.get<ISkins[]>(`/skins/seller/user/${id}`)
   }
 }
