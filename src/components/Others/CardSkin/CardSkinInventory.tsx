@@ -33,23 +33,6 @@ export function CardSkinInventory({ steamid }: Props) {
           return true
         }
 
-        // // Verifica se é uma Rifle de Precisão
-        // if (
-        //   inventoryTypeFilter.includes('Rifle') &&
-        //   skin.tags[0].name === 'Sniper Rifle'
-        // ) {
-        //   return true
-        // }
-
-        // // Verifica se é uma Shotgun ou Machine Gun
-        // if (
-        //   inventoryTypeFilter.includes('Heavy') &&
-        //   (skin.tags[0].name === 'Shotgun' ||
-        //     skin.tags[0].name === 'Machinegun')
-        // ) {
-        //   return true
-        // }
-
         if (!inventoryTypeFilter.includes(skin.tags[0].name)) {
           return false
         }
