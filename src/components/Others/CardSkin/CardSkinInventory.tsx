@@ -4,6 +4,7 @@ import { ISkinInventory } from '@/interfaces/IInventorySkin'
 import SkinService from '@/services/skin.service'
 import useFilterStore from '@/stores/filters.store'
 import { useQuery } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
 import { CardSkin } from '.'
 import ColoredLine from '../ColoredLine'
 
@@ -12,40 +13,32 @@ interface Props {
 }
 
 export function CardSkinInventory({ steamid }: Props) {
+  const [page, setPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(16)
   const { inventoryTypeFilter } = useFilterStore()
-  const { data, isLoading } = useQuery({
+
+  const { data, isLoading, refetch, isRefetching } = useQuery({
     queryKey: ['skinsInventory'],
-    queryFn: async () => SkinService.findBySkinsInventory(steamid),
+    queryFn: async () =>
+      SkinService.findBySkinsInventory(
+        '76561198355549311',
+        inventoryTypeFilter,
+        page,
+        itemsPerPage,
+      ),
     enabled: !!steamid,
   })
 
-  const setSkinsFilter = () => {
-    if (data?.data) {
-      return data.data.filter((skin: any) => {
-        if (
-          skin.tags[0].name === 'Container' ||
-          skin.tags[0].name === 'Graffiti'
-        ) {
-          return false
-        }
+  console.log(isRefetching)
 
-        if (inventoryTypeFilter.length <= 0) {
-          return true
-        }
-
-        if (!inventoryTypeFilter.includes(skin.tags[0].name)) {
-          return false
-        }
-
-        return true
-      })
-    }
-  }
+  useEffect(() => {
+    refetch()
+  }, [page, itemsPerPage, inventoryTypeFilter, refetch])
 
   return (
     <div className="ml-2 flex flex-wrap justify-start gap-4 after:flex-auto">
-      {!isLoading ? (
-        setSkinsFilter().map(
+      {!isLoading && !isRefetching && data?.data ? (
+        data.data.map(
           (
             { icon_url, name, name_color, market_name }: ISkinInventory,
             index: number,
