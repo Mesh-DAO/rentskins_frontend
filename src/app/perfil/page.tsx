@@ -9,12 +9,12 @@ import useUserStore from '@/stores/user.store'
 export default function Perfil() {
   // const { profileTabValue } = useComponentStore()
   const {
-    user: { picture },
+    user: { picture, username },
   } = useUserStore()
 
   return (
     <main className="mx-auto flex w-4/5 flex-col items-center py-7">
-      <PerfilPerson picture={picture} />
+      <PerfilPerson picture={picture} name={username} />
       <ChoiceItems thereIsRented={true} />
       {/* {profileTabValue === 'sales' ? (
           // <AllSkins itemsPerPage={15} />

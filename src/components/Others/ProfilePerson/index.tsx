@@ -8,9 +8,10 @@ import ProfileInfo from '../ProfileInfo'
 interface Props {
   isSeller?: boolean
   picture?: string
+  name?: string
 }
 
-export default function PerfilPerson({ isSeller, picture }: Props) {
+export default function PerfilPerson({ isSeller, picture, name }: Props) {
   return (
     <section className="flex w-full justify-between font-inter">
       <div className="flex gap-6">
@@ -29,7 +30,7 @@ export default function PerfilPerson({ isSeller, picture }: Props) {
               size="3xl"
               className="self-start"
             >
-              Coldzera
+              {name || 'Coldzera'}
             </Common.Title>
             <div className="w-32 rounded-3xl bg-mesh-color-primary-1400 p-1 text-center text-base font-normal text-white">
               Membro novo
