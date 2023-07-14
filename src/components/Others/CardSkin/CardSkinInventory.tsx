@@ -23,8 +23,8 @@ export function CardSkinInventory({ steamid }: Props) {
     queryKey: ['skinsInventory'],
     queryFn: async () =>
       SkinService.findBySkinsInventory(
-        // '76561198355549311',
-        steamid,
+        '76561198355549311',
+        // steamid,
         inventoryTypeFilter,
         Number(page),
         Number(itemsPerPage),
@@ -144,6 +144,7 @@ export function CardSkinInventory({ steamid }: Props) {
           maxPages={data.data.maxPages}
           pageState={page}
           setPageState={setPage}
+          disabled={isLoading || isRefetching}
         />
       )}
     </div>
