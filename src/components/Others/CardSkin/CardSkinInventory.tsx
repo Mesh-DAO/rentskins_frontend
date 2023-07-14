@@ -3,6 +3,7 @@ import { ModalSkinShowcaseMain } from '@/components/Modal/ModalSkinShowcase/Moda
 import { ISkinInventory } from '@/interfaces/IInventorySkin'
 import SkinService from '@/services/skin.service'
 import useFilterStore from '@/stores/filters.store'
+import Dimensions from '@/tools/dimensions.tool'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { CardSkin } from '.'
@@ -29,7 +30,15 @@ export function CardSkinInventory({ steamid }: Props) {
     enabled: !!steamid,
   })
 
-  console.log(isRefetching)
+  const checkPageDimensions = () => {
+    Dimensions.setStatePerResolution(setItemsPerPage, [24, 15, 12, 9, 6])
+  }
+
+  useEffect(() => {
+    checkPageDimensions()
+    window.addEventListener('resize', checkPageDimensions, false)
+    return () => window.removeEventListener('resize', checkPageDimensions)
+  }, [])
 
   useEffect(() => {
     refetch()
@@ -81,7 +90,7 @@ export function CardSkinInventory({ steamid }: Props) {
           },
         )
       ) : (
-        <CardSkin.Skeleton quantity={12} />
+        <CardSkin.Skeleton quantity={itemsPerPage} />
       )}
     </div>
   )
