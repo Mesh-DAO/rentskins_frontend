@@ -35,8 +35,8 @@ export function CardSkinInventory({ steamid }: Props) {
   }
 
   useEffect(() => {
-    checkPageDimensions()
     window.addEventListener('resize', checkPageDimensions, false)
+    checkPageDimensions()
     return () => window.removeEventListener('resize', checkPageDimensions)
   }, [])
 
@@ -45,17 +45,27 @@ export function CardSkinInventory({ steamid }: Props) {
   }, [page, itemsPerPage, inventoryTypeFilter, refetch])
 
   return (
-    <div className="ml-2 flex flex-wrap justify-start gap-4 after:flex-auto">
+    <div className="ml-2 flex flex-wrap justify-start gap-4">
       {!isLoading && !isRefetching && data?.data ? (
         data.data.map(
           (
-            { icon_url, name, name_color, market_name }: ISkinInventory,
+            {
+              icon_url,
+              name,
+              name_color,
+              market_name,
+              ...rest
+            }: ISkinInventory,
             index: number,
           ) => {
             const primeiroName = name.split('|')[0]
             const statusFloatText = market_name.match(/\((.*?)\)/g)
             const statusFloatTextMatch =
               statusFloatText && statusFloatText[0].replace(/\(|\)/g, '')
+
+            const itemIsAWeapon =
+              !rest.tags[0].name.includes('Sticker') &&
+              !rest.tags[0].name.includes('Agent')
 
             return (
               <ModalSkinShowcaseMain
@@ -67,7 +77,7 @@ export function CardSkinInventory({ steamid }: Props) {
                 statusFloatText={statusFloatTextMatch as string}
                 float={'0.2555'}
                 activator={
-                  <div className="mb-2 w-[206px] gap-2 rounded-lg border-[1px] border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
+                  <div className="w-[206px] gap-2 rounded-lg border-[1px] border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
                     <CardSkin.Root classname="flex flex-col justify-between">
                       <div className="h-full">
                         <CardSkin.Image
@@ -78,10 +88,10 @@ export function CardSkinInventory({ steamid }: Props) {
                         <CardSkin.Content
                           market_name={market_name}
                           primeiroName={primeiroName}
-                          float="0.254665"
+                          float={itemIsAWeapon ? '0.254665' : ''}
                         />
                       </div>
-                      <ColoredLine position={0.254665} />
+                      {itemIsAWeapon && <ColoredLine position={0.254665} />}
                     </CardSkin.Root>
                   </div>
                 }

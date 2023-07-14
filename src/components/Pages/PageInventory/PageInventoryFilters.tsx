@@ -61,7 +61,7 @@ const renderTypeCheckboxes = (
     <Form.Input.Checkbox
       key={'filter-' + type.value[0].toLowerCase()}
       wrapperClassname="justify-start"
-      checkClassname="ml-[0.25rem]"
+      checkClassname="ml-[0.23rem]"
       inputClassName="bg-transparent border-2 border-mesh-color-neutral-500 checked:border-mesh-color-primary-1200 h-6 w-6 rounded-md transition-all"
       value={type.value}
       label={type.label}
