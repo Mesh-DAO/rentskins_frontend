@@ -28,6 +28,19 @@ export interface IStates {
   checkedInputCheckbox: IInputCheck[]
   setCheckedInputCheckbox: (inputCheckbox: IInputCheck | null) => void
   notificationFilter: string
+  inventoryFilter: string[]
+  inventoryMainFilter:
+    | 'biggestPrice'
+    | 'lowestPrice'
+    | 'biggestFloat'
+    | undefined
+  sales: boolean
+  rented: boolean
+  setSales: (checked: boolean) => void
+  setRented: (checked: boolean) => void
+  setInventoryMainFilter: (
+    value: 'biggestPrice' | 'lowestPrice' | 'biggestFloat' | undefined,
+  ) => void
   setNotificationFilter: (value: string) => void
   inventoryTypeFilter: string[]
   setInventoryTypeFilter: (value: string[]) => void

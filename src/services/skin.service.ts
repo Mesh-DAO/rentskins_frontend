@@ -25,4 +25,8 @@ export default class SkinService {
   public static findBySearchParameter(param: string) {
     return Api.get<ISkins[]>(`/skins/search/${param}`)
   }
+
+  public static findAllSkinsByIdSeller(id: string) {
+    return Api.get<ISkins[]>(`/skins/seller/user/${id}`)
+  }
 }

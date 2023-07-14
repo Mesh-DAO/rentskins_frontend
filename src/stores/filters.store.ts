@@ -68,6 +68,16 @@ const useFilterStore = create<IStates>((set) => ({
   setInventoryTypeFilter: (inventoryTypeFilter: string[]) => {
     set(() => ({ inventoryTypeFilter }))
   },
+
+  sales: true,
+  setSales: (checked: boolean) => {
+    set(() => ({ sales: checked, rented: !checked }))
+  },
+
+  rented: false,
+  setRented: (checked: boolean) => {
+    set(() => ({ rented: checked, sales: !checked }))
+  },
 }))
 
 export default useFilterStore
