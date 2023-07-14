@@ -17,7 +17,7 @@ export function FormInputRadioChoice({
 }: IProps) {
   return (
     <label className="relative">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col items-center gap-6">
         <input
           type="radio"
           checked={checked}
@@ -34,7 +34,7 @@ export function FormInputRadioChoice({
         >
           {title}
         </Common.Title>
-        <div className="rounded-md transition-all peer-checked:h-1 peer-checked:bg-mesh-color-accent-1400" />
+        <div className="w-0 rounded-md transition-all duration-300 peer-checked:h-1 peer-checked:w-full peer-checked:bg-mesh-color-accent-1400" />
       </div>
     </label>
   )
