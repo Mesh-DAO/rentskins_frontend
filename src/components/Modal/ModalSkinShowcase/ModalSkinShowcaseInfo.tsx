@@ -75,8 +75,6 @@ export function ModalSkinShowcaseInfo({
             </Common.Title>
           </Common.Button>
           <Form.Input.Checkbox
-            state={''}
-            setState={() => {}}
             label="Estou ciente que esta plataforma possui a modalidade de locação, e
             meu item poderá ser disponibilizado em caráter temporário, fazendo
             com que o recebimento pela venda ou locação deste item só seja
