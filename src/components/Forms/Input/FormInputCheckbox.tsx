@@ -1,8 +1,8 @@
-import { InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import { options } from '../options'
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string
+  label?: string | React.ReactNode
   labelSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
   wrapperClassname?: string
   labelClassName?: string
@@ -30,7 +30,9 @@ export function FormInputCheckbox({
         className={`${checkClassname} absolute -mt-[0.2rem] ml-[0.4rem] h-2 w-4 -rotate-45 border-b-2 border-l-2 bg-transparent opacity-0 transition-all peer-checked:opacity-100`}
       />
       <text
-        className={`text-${labelSize} ${labelClassName} select-none text-white`}
+        className={`text-${labelSize} ${
+          labelClassName || 'text-white'
+        } select-none`}
       >
         {label}
       </text>

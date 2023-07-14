@@ -6,8 +6,8 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   labelSide?: 'up' | 'down'
   labelClassName?: string
   inputClassName?: string
-  state: string
-  setState: React.Dispatch<React.SetStateAction<string>>
+  state?: string
+  setState?: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function FormInputText({
@@ -28,9 +28,11 @@ export function FormInputText({
       {label && labelSide === 'up' && label}
       <input
         type="text"
-        onChange={({ target }) => setState(formatInput(target.value))}
+        onChange={({ target }) =>
+          setState && setState(formatInput(target.value))
+        }
         value={state}
-        className={`${inputClassName} ${options.input.className}`}
+        className={`${inputClassName || options.input.className}`}
         {...rest}
       />
       {label && labelSide === 'down' && label}

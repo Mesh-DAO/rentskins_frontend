@@ -5,9 +5,9 @@ interface IProps extends FormHTMLAttributes<HTMLFormElement> {
   className?: string
 }
 
-export function FormRoot({ children, className, ...rest }: IProps) {
+export function FormRoot({ children, className = 'w-full', ...rest }: IProps) {
   return (
-    <form className={`${className} w-full`} {...rest}>
+    <form className={className} {...rest}>
       {children}
     </form>
   )

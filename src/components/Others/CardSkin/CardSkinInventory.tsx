@@ -15,7 +15,7 @@ export function CardSkinInventory({ steamid }: Props) {
   const { inventoryTypeFilter } = useFilterStore()
   const { data, isLoading } = useQuery({
     queryKey: ['skinsInventory'],
-    queryFn: async () => SkinService.findBySkinsInventory('76561198355549311'),
+    queryFn: async () => SkinService.findBySkinsInventory(steamid),
     enabled: !!steamid,
   })
 
@@ -32,23 +32,6 @@ export function CardSkinInventory({ steamid }: Props) {
         if (inventoryTypeFilter.length <= 0) {
           return true
         }
-
-        // // Verifica se é uma Rifle de Precisão
-        // if (
-        //   inventoryTypeFilter.includes('Rifle') &&
-        //   skin.tags[0].name === 'Sniper Rifle'
-        // ) {
-        //   return true
-        // }
-
-        // // Verifica se é uma Shotgun ou Machine Gun
-        // if (
-        //   inventoryTypeFilter.includes('Heavy') &&
-        //   (skin.tags[0].name === 'Shotgun' ||
-        //     skin.tags[0].name === 'Machinegun')
-        // ) {
-        //   return true
-        // }
 
         if (!inventoryTypeFilter.includes(skin.tags[0].name)) {
           return false
