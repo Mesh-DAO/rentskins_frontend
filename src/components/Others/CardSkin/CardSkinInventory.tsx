@@ -23,7 +23,8 @@ export function CardSkinInventory({ steamid }: Props) {
     queryKey: ['skinsInventory'],
     queryFn: async () =>
       SkinService.findBySkinsInventory(
-        '76561198355549311',
+        // '76561198355549311',
+        steamid,
         inventoryTypeFilter,
         Number(page),
         Number(itemsPerPage),
@@ -45,10 +46,43 @@ export function CardSkinInventory({ steamid }: Props) {
     refetch()
   }, [page, itemsPerPage, inventoryTypeFilter, refetch])
 
+  const renderEmptyMessage = () => {
+    const types = {
+      Knife: 'Não existem facas em seu inventário.',
+      Agent: 'Não existem agentes em seu inventário.',
+      Sticker: 'Não existem figurinhas em seu inventário.',
+    }
+
+    const index = inventoryTypeFilter[0] as 'Knife' | 'Agent' | 'Sticker'
+    let selectedType = types[index]
+
+    if (inventoryTypeFilter[1]) {
+      selectedType = 'Não existem estes items em seu inventário.'
+    }
+
+    return (
+      <div className="flex h-[50vh] items-center justify-center font-semibold text-white">
+        {inventoryTypeFilter.length ? (
+          <text>
+            {selectedType !== undefined
+              ? selectedType
+              : 'Não existem armas desse tipo no seu inventário.'}
+          </text>
+        ) : (
+          <text> Inventário vazio. </text>
+        )}
+      </div>
+    )
+  }
+
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center">
       <div className="ml-2 flex flex-wrap justify-start gap-4">
-        {!isLoading && !isRefetching && data?.data ? (
+        {isLoading || isRefetching ? (
+          <CardSkin.Skeleton quantity={itemsPerPage} />
+        ) : data?.data &&
+          data.data.inventory &&
+          data.data.inventory.length > 0 ? (
           data.data.inventory.map(
             (
               {
@@ -102,10 +136,10 @@ export function CardSkinInventory({ steamid }: Props) {
             },
           )
         ) : (
-          <CardSkin.Skeleton quantity={itemsPerPage} />
+          renderEmptyMessage()
         )}
       </div>
-      {!isLoading && data?.data.maxPages && (
+      {!isLoading && data?.data && data?.data.maxPages > 0 && (
         <LayoutPagination
           maxPages={data.data.maxPages}
           pageState={page}
