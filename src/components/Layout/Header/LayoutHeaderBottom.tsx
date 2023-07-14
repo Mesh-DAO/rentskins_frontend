@@ -26,24 +26,24 @@ export function LayoutHeaderBottom({ className }: IProps) {
         <ContainerItem title="Faca" iconSeta={<IconSetaType />} isList={true}>
           <ItemLink
             items={[
-              'Baioneta',
-              'Faca Bowie',
-              'Canivete Borboleta',
-              'Faca Clássica',
-              'Faca Falchion',
-              'Faca Virar',
-              'Faca Gut',
-              'Faca de Caçador',
+              'Adagas das Sombras',
               'Baioneta M9',
+              'Baioneta',
+              'Canivete Borboleta',
+              'Faca Bowie',
+              'Faca Clássica',
+              'Faca de Caçador',
+              'Faca de Esqueleto',
+              'Faca de Guerra',
+              'Faca de Sobrevivência',
+              'Faca de Ursus',
+              'Faca Estilete',
+              'Faca Falchion',
+              'Faca Gut',
               'Faca Navaja',
               'Faca Nômade',
               'Faca Paracord',
-              'Adagas das Sombras',
-              'Faca de Esqueleto',
-              'Faca Estilete',
-              'Faca de Sobrevivência',
-              'Faca de Guerra',
-              'Faca de Ursus',
+              'Faca Virar',
             ]}
           />
         </ContainerItem>
@@ -51,18 +51,64 @@ export function LayoutHeaderBottom({ className }: IProps) {
         <ContainerItem title="Rifles" iconSeta={<IconSetaType />} isList={true}>
           <ItemLink
             items={[
-              'FAMAS',
-              'Galil AR',
-              'M4A4',
-              'M4A1-S',
               'AK-47',
               'AUG',
+              'AWP',
+              'FAMAS',
+              'G3SG1',
+              'Galil AR',
+              'M4A1-S',
+              'M4A4',
+              'SCAR-20',
               'SG 553',
               'SSG 08',
-              'AWP',
-              'SCAR-20',
-              'G3SG1',
             ]}
+          />
+        </ContainerItem>
+
+        <ContainerItem
+          title="Pistolas"
+          iconSeta={<IconSetaType />}
+          isList={true}
+        >
+          <ItemLink
+            items={[
+              'CZ75-Auto',
+              'Desert Eagle',
+              'Dual Berettas',
+              'Dual Berettas',
+              'Five-SeveN',
+              'Glock-18',
+              'P2000',
+              'P250',
+              'R8 Revolver',
+              'Tec-9',
+              'USP-S',
+            ]}
+          />
+        </ContainerItem>
+
+        <ContainerItem title="SMG" iconSeta={<IconSetaType />} isList={true}>
+          <ItemLink
+            items={[
+              'MAC-10',
+              'MP5-SD',
+              'MP7',
+              'MP9',
+              'P90',
+              'PP-Bizon',
+              'UMP-45',
+            ]}
+          />
+        </ContainerItem>
+
+        <ContainerItem
+          title="Pesadas"
+          iconSeta={<IconSetaType />}
+          isList={true}
+        >
+          <ItemLink
+            items={['M249', 'MAG-7', 'Negev', 'Nova', 'Sawed-Off', 'XM1014']}
           />
         </ContainerItem>
 
@@ -79,62 +125,6 @@ export function LayoutHeaderBottom({ className }: IProps) {
               'Luvas de Presas Quebradas',
             ]}
           />
-        </ContainerItem>
-
-        <ContainerItem
-          title="Pistolas"
-          iconSeta={<IconSetaType />}
-          isList={true}
-        >
-          <ItemLink
-            items={[
-              'USP-S',
-              'P2000',
-              'Glock-18',
-              'P250',
-              'Five-SeveN',
-              'Tec-9',
-              'CZ75-Auto',
-              'Dual Berettas',
-              'Desert Eagle',
-              'R8 Revolver',
-              'Dual Berettas',
-            ]}
-          />
-        </ContainerItem>
-
-        <ContainerItem
-          title="Submetralhadoras"
-          iconSeta={<IconSetaType />}
-          isList={true}
-        >
-          <ItemLink
-            items={[
-              'MP9',
-              'MAC-10',
-              'PP-Bizon',
-              'MP7',
-              'UMP-45',
-              'P90',
-              'MP5-SD',
-            ]}
-          />
-        </ContainerItem>
-
-        <ContainerItem
-          title="Escopetas"
-          iconSeta={<IconSetaType />}
-          isList={true}
-        >
-          <ItemLink items={['Nova', 'XM1014', 'MAG-7', 'Sawed-Off']} />
-        </ContainerItem>
-
-        <ContainerItem
-          title="Metralhadoras"
-          iconSeta={<IconSetaType />}
-          isList={true}
-        >
-          <ItemLink items={['M249', 'Negev']} />
         </ContainerItem>
 
         <ContainerItem title="Figurinhas" isList={false} />
@@ -168,9 +158,9 @@ export const ContainerItem = ({
 
       {isList && (
         <div
-          className={`invisible absolute top-10 max-h-[300px] w-fit overflow-y-auto overflow-x-hidden rounded-md bg-[#222723] py-1 text-white delay-75 group-hover:visible`}
+          className={`invisible absolute top-10 max-h-[300px] w-fit min-w-[150px] overflow-y-auto overflow-x-hidden rounded-md bg-[#222723] py-1 text-white delay-75 group-hover:visible`}
         >
-          <ul className=" mr-2 flex flex-col">{children}</ul>
+          <ul className="flex flex-col">{children}</ul>
         </div>
       )}
     </div>
