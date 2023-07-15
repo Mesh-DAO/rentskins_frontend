@@ -3,6 +3,7 @@ import LayoutPagination from '@/components/Layout/LayoutPagination'
 import { ModalSkinShowcaseMain } from '@/components/Modal/ModalSkinShowcase/ModalSkinShowcaseMain'
 import { ISkinInventory } from '@/interfaces/IInventorySkin'
 import SkinService from '@/services/skin.service'
+import useComponentStore from '@/stores/components.store'
 import useFilterStore from '@/stores/filters.store'
 import Dimensions from '@/tools/dimensions.tool'
 import { useQuery } from '@tanstack/react-query'
@@ -18,6 +19,7 @@ export function CardSkinInventory({ steamid }: Props) {
   const [page, setPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(16)
   const { inventoryTypeFilter } = useFilterStore()
+  const { setIsInventoryFetching } = useComponentStore()
 
   const { data, isLoading, refetch, isRefetching } = useQuery({
     queryKey: ['skinsInventory'],
@@ -45,6 +47,10 @@ export function CardSkinInventory({ steamid }: Props) {
   useEffect(() => {
     refetch()
   }, [page, itemsPerPage, inventoryTypeFilter, refetch])
+
+  useEffect(() => {
+    setIsInventoryFetching(isLoading || isRefetching)
+  }, [isLoading, isRefetching, setIsInventoryFetching])
 
   const renderEmptyMessage = () => {
     const types = {
@@ -114,7 +120,7 @@ export function CardSkinInventory({ steamid }: Props) {
                   float={'0.2555'}
                   activator={
                     <div className="w-[206px] gap-2 rounded-lg border-[1px] border-mesh-color-neutral-600 border-opacity-60 px-3 pb-4 pt-3 text-white">
-                      <CardSkin.Root classname="flex flex-col justify-between">
+                      <CardSkin.Root classname="flex flex-col h-[245px] justify-between">
                         <div className="h-full">
                           <CardSkin.Image
                             icon_url={icon_url}

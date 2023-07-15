@@ -83,29 +83,17 @@ const renderPagesOptions = (
   page: number,
   disabled: boolean,
 ): any => {
-  if (page - 5 >= 1) {
-    console.log('Aparece o 1 sozinho')
-  }
-
-  if (page + 5 <= maxPages) {
-    console.log('Aparece o final sozinho')
-  }
-
-  console.log(page)
-
-  const indexes = Array.from({ length: maxPages }).map((item, index) => {
+  return Array.from({ length: maxPages }).map((item, index) => {
     if (page + 2 >= index && page - 4 <= index) {
       return {
         value: index + 1,
         label: index + 1,
         labelType: 'string',
         disabled,
-        checked: page,
+        checked: page === index + 1,
       }
     }
 
     return null
   })
-
-  return indexes
 }

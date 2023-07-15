@@ -7,6 +7,7 @@ export type TypeFormRadioInlineOption = {
   value: string | number
   disabled?: boolean
   checked?: boolean
+  className?: string
 }
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -16,7 +17,6 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   labelClassname?: string
   inputClassname?: string
   imageClassname?: string
-  compareChecked?: string | null
   containerClassname?: string
   wrapperClassname?: string
   options: TypeFormRadioInlineOption[]
@@ -36,7 +36,6 @@ export function FormInputRadioBlock({
   wrapperClassname = 'w-full',
   imageClassname,
   inputClassname,
-  compareChecked,
   options,
   state,
   setState,
@@ -55,7 +54,9 @@ export function FormInputRadioBlock({
           name={'form-radio-block-' + name}
           className={`peer appearance-none
         transition-all ${
-          inputClassname || 'w-full checked:bg-mesh-color-primary-1100'
+          item.className ||
+          inputClassname ||
+          'w-full checked:bg-mesh-color-primary-1100'
         }`}
           value={item.value}
           onChange={({ target: { value } }) =>
@@ -66,13 +67,7 @@ export function FormInputRadioBlock({
                 SetStateAction<'mastercard' | 'paypal' | 'banktransfer'>,
             )
           }
-          defaultChecked={
-            compareChecked === undefined
-              ? false
-              : compareChecked !== '' && compareChecked === item.value
-              ? true
-              : index === 0 && true
-          }
+          defaultChecked={item.checked}
           disabled={item.disabled}
           {...rest}
         />
@@ -80,7 +75,7 @@ export function FormInputRadioBlock({
           htmlFor={'form-radio-block-for' + name + '-' + index}
           className={`${
             labelClassname ||
-            `flex h-full w-full rounded-md border-2 
+            `flex h-full w-full rounded-md border-2
           border-transparent bg-mesh-color-neutral-500 px-4 py-3 text-lg font-semibold text-mesh-color-neutral-200
           duration-500 hover:bg-mesh-color-neutral-500/50 peer-checked:border-mesh-color-primary-600
           peer-checked:bg-mesh-color-neutral-400 peer-checked:text-white peer-disabled:cursor-default
